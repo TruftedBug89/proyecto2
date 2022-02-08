@@ -1,0 +1,10 @@
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe.config
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.pdb
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Form1.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileInputs.cache
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
