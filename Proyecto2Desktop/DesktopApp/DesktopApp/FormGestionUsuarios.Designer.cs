@@ -1,7 +1,7 @@
 ﻿
 namespace DesktopApp
 {
-    partial class FormUsuarios
+    partial class FormGestionUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace DesktopApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionUsuarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();

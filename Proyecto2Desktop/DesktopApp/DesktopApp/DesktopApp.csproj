@@ -58,11 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCrearUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrearUsuarios.Designer.cs">
+      <DependentUpon>FormCrearUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGestionPerfil.Designer.cs">
       <DependentUpon>FormGestionPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKPI.Designer.cs">
+      <DependentUpon>FormKPI.cs</DependentUpon>
     </Compile>
     <Compile Include="FormListaSkills.cs">
       <SubType>Form</SubType>
@@ -82,17 +94,17 @@
     <Compile Include="FormSkill.Designer.cs">
       <DependentUpon>FormSkill.cs</DependentUpon>
     </Compile>
-	<Compile Include="FormUsuarios.cs">
+    <Compile Include="FormGestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.cs">
-  <SubType>Form</SubType>
-</Compile>
-<Compile Include="FormLogin.Designer.cs">
-  <DependentUpon>FormLogin.cs</DependentUpon>
-</Compile>
-    <Compile Include="FormUsuarios.Designer.cs">
-      <DependentUpon>FormUsuarios.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGestionUsuarios.Designer.cs">
+      <DependentUpon>FormGestionUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\cursos.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
@@ -142,7 +154,7 @@
     <Compile Include="Models\valoracions.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
-	    <Compile Include="FormGestionGrupo.cs">
+    <Compile Include="FormGestionGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGestionGrupo.Designer.cs">
@@ -157,19 +169,19 @@
       <DependentUpon>FormListaSkills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
-  <DependentUpon>FormLogin.cs</DependentUpon>
-</EmbeddedResource>
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSkill.resx">
       <DependentUpon>FormSkill.cs</DependentUpon>
     </EmbeddedResource>
-	    <EmbeddedResource Include="FormGestionGrupo.resx">
+    <EmbeddedResource Include="FormGestionGrupo.resx">
       <DependentUpon>FormGestionGrupo.cs</DependentUpon>
     </EmbeddedResource>
-	    <EmbeddedResource Include="FormUsuarios.resx">
-      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="FormGestionUsuarios.resx">
+      <DependentUpon>FormGestionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

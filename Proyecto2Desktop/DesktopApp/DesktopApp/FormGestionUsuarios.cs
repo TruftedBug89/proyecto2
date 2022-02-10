@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DesktopApp
 {
-    public partial class FormUsuarios : Form
+    public partial class FormGestionUsuarios : Form
     {
-        public FormUsuarios()
+        public FormGestionUsuarios()
         {
             InitializeComponent();
         }
