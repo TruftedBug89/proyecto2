@@ -64,6 +64,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionGrupo.Designer.cs">
+      <DependentUpon>FormGestionGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\cursos.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
@@ -129,11 +141,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionGrupo.resx">
+      <DependentUpon>FormGestionGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionPerfil.resx">
       <DependentUpon>FormGestionPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
