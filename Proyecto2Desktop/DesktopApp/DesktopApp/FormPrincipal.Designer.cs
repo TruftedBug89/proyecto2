@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.btnCerrarSesión);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1751, 66);
             this.panel1.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
             this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarSesión.Name = "btnCerrarSesión";
             this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
             this.btnCerrarSesión.TabIndex = 0;
@@ -80,7 +80,7 @@
             this.pnlListaSkills.Controls.Add(this.btnGestionListaSkills);
             this.pnlListaSkills.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlListaSkills.Location = new System.Drawing.Point(0, 66);
-            this.pnlListaSkills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlListaSkills.Margin = new System.Windows.Forms.Padding(4);
             this.pnlListaSkills.Name = "pnlListaSkills";
             this.pnlListaSkills.Size = new System.Drawing.Size(1751, 110);
             this.pnlListaSkills.TabIndex = 1;
@@ -92,12 +92,13 @@
             this.btnGestionListaSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionListaSkills.ForeColor = System.Drawing.Color.White;
             this.btnGestionListaSkills.Location = new System.Drawing.Point(35, 20);
-            this.btnGestionListaSkills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionListaSkills.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionListaSkills.Name = "btnGestionListaSkills";
             this.btnGestionListaSkills.Size = new System.Drawing.Size(147, 66);
             this.btnGestionListaSkills.TabIndex = 3;
             this.btnGestionListaSkills.Text = "Gestion Lista de Skils";
             this.btnGestionListaSkills.UseVisualStyleBackColor = false;
+            this.btnGestionListaSkills.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
             // 
             // pnlLetrasSkills
             // 
@@ -105,7 +106,7 @@
             this.pnlLetrasSkills.Controls.Add(this.btnGestionSkill);
             this.pnlLetrasSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlLetrasSkills.Location = new System.Drawing.Point(0, 846);
-            this.pnlLetrasSkills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLetrasSkills.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLetrasSkills.Name = "pnlLetrasSkills";
             this.pnlLetrasSkills.Size = new System.Drawing.Size(1751, 110);
             this.pnlLetrasSkills.TabIndex = 2;
@@ -117,7 +118,7 @@
             this.btnGestionSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionSkill.ForeColor = System.Drawing.Color.White;
             this.btnGestionSkill.Location = new System.Drawing.Point(35, 25);
-            this.btnGestionSkill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionSkill.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionSkill.Name = "btnGestionSkill";
             this.btnGestionSkill.Size = new System.Drawing.Size(171, 59);
             this.btnGestionSkill.TabIndex = 4;
@@ -131,7 +132,7 @@
             this.btnGestionKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionKPI.ForeColor = System.Drawing.Color.White;
             this.btnGestionKPI.Location = new System.Drawing.Point(74, 55);
-            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionKPI.Name = "btnGestionKPI";
             this.btnGestionKPI.Size = new System.Drawing.Size(155, 59);
             this.btnGestionKPI.TabIndex = 5;
@@ -211,7 +212,7 @@
             this.Controls.Add(this.pnlLetrasSkills);
             this.Controls.Add(this.pnlListaSkills);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);

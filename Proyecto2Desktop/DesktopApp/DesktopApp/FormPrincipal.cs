@@ -27,5 +27,11 @@ namespace DesktopApp
             FormSkill formSkill = new FormSkill();
             formSkill.ShowDialog();
         }
+
+        private void btnGestionListaSkills_Click(object sender, EventArgs e)
+        {
+            FormListaSkills formListaSkills = new FormListaSkills();
+            formListaSkills.ShowDialog();
+        }
     }
 }

@@ -2,7 +2,6 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debu
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.pdb
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
-C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Form1.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileInputs.cache
@@ -18,3 +17,6 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debu
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormPrincipal.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionPerfil.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormSkill.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormListaSkills.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionGrupo.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormUsuarios.resources
