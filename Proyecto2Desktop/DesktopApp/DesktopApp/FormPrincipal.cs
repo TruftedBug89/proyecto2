@@ -33,5 +33,10 @@ namespace DesktopApp
             FormListaSkills formListaSkills = new FormListaSkills();
             formListaSkills.ShowDialog();
         }
+
+        private void btnCerrarSesión_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

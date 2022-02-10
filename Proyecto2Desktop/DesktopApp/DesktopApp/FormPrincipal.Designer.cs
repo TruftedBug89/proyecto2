@@ -73,6 +73,7 @@
             this.btnCerrarSesión.TabIndex = 0;
             this.btnCerrarSesión.Text = "Cerar Sesión";
             this.btnCerrarSesión.UseVisualStyleBackColor = false;
+            this.btnCerrarSesión.Click += new System.EventHandler(this.btnCerrarSesión_Click);
             // 
             // pnlListaSkills
             // 

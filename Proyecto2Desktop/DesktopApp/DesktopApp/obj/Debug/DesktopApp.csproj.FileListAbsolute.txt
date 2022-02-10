@@ -47,3 +47,4 @@ C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormLogin.resources
 >>>>>>> Stashed changes
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormLogin.resources
