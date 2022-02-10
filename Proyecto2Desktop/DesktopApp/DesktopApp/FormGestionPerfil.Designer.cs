@@ -43,7 +43,9 @@ namespace DesktopApp
             this.checkBoxGestionarUsuarios = new System.Windows.Forms.CheckBox();
             this.checkBoxGestionPerfiles = new System.Windows.Forms.CheckBox();
             this.checkBoxGestionGrupos = new System.Windows.Forms.CheckBox();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.groupBoxPermisos.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewPerfiles
@@ -119,6 +121,7 @@ namespace DesktopApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.labelTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -185,6 +188,17 @@ namespace DesktopApp
             this.checkBoxGestionGrupos.Text = "Gestionar Grupos";
             this.checkBoxGestionGrupos.UseVisualStyleBackColor = true;
             // 
+            // labelTitulo
+            // 
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(260, 15);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(272, 25);
+            this.labelTitulo.TabIndex = 0;
+            this.labelTitulo.Text = "Formulario Gestión de Perfiles";
+            this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormGestionPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +216,8 @@ namespace DesktopApp
             this.Text = "FormGestionPerfil";
             this.groupBoxPermisos.ResumeLayout(false);
             this.groupBoxPermisos.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +239,6 @@ namespace DesktopApp
         private System.Windows.Forms.CheckBox checkBoxGestionSkills;
         private System.Windows.Forms.CheckBox checkBoxGestionListaSkills;
         private System.Windows.Forms.CheckBox checkBoxGestionarKPIs;
+        private System.Windows.Forms.Label labelTitulo;
     }
 }
