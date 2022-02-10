@@ -16,5 +16,11 @@ namespace DesktopApp
         {
             InitializeComponent();
         }
+
+        private void buttonIniciarSesion_Click(object sender, EventArgs e)
+        {
+            FormPrincipal fp = new FormPrincipal();
+            fp.Show();
+        }
     }
 }
