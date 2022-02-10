@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace DesktopApp
 {
-    public partial class FormPrincipal : Form
+    public partial class FormSkill : Form
     {
-        public FormPrincipal()
+        public FormSkill()
         {
             InitializeComponent();
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnGestionSkill_Click(object sender, EventArgs e)
-        {
-            FormSkill formSkill = new FormSkill();
-            formSkill.ShowDialog();
+            this.Close();
         }
     }
 }
