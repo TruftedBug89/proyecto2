@@ -70,11 +70,11 @@
     <Compile Include="FormGestionPerfil.Designer.cs">
       <DependentUpon>FormGestionPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="FormListaSkills.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="FormListaSkills.Designer.cs">
+      <DependentUpon>FormListaSkills.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="FormGestionPerfil.resx">
       <DependentUpon>FormGestionPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FormListaSkills.resx">
+      <DependentUpon>FormListaSkills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

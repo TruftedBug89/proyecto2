@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlListaSkills = new System.Windows.Forms.Panel();
             this.btnGestionListaSkills = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlLetrasSkills = new System.Windows.Forms.Panel();
             this.btnGestionSkill = new System.Windows.Forms.Button();
             this.btnGestionKPI = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -42,8 +42,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvSkill = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlListaSkills.SuspendLayout();
+            this.pnlLetrasSkills.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
@@ -74,16 +74,16 @@
             this.btnCerrarSesión.Text = "Cerar Sesión";
             this.btnCerrarSesión.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // pnlListaSkills
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.btnGestionListaSkills);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1751, 110);
-            this.panel2.TabIndex = 1;
+            this.pnlListaSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlListaSkills.Controls.Add(this.btnGestionListaSkills);
+            this.pnlListaSkills.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListaSkills.Location = new System.Drawing.Point(0, 66);
+            this.pnlListaSkills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlListaSkills.Name = "pnlListaSkills";
+            this.pnlListaSkills.Size = new System.Drawing.Size(1751, 110);
+            this.pnlListaSkills.TabIndex = 1;
             // 
             // btnGestionListaSkills
             // 
@@ -99,16 +99,16 @@
             this.btnGestionListaSkills.Text = "Gestion Lista de Skils";
             this.btnGestionListaSkills.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // pnlLetrasSkills
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.btnGestionSkill);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 846);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1751, 110);
-            this.panel3.TabIndex = 2;
+            this.pnlLetrasSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlLetrasSkills.Controls.Add(this.btnGestionSkill);
+            this.pnlLetrasSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlLetrasSkills.Location = new System.Drawing.Point(0, 846);
+            this.pnlLetrasSkills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLetrasSkills.Name = "pnlLetrasSkills";
+            this.pnlLetrasSkills.Size = new System.Drawing.Size(1751, 110);
+            this.pnlLetrasSkills.TabIndex = 2;
             // 
             // btnGestionSkill
             // 
@@ -208,16 +208,16 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlLetrasSkills);
+            this.Controls.Add(this.pnlListaSkills);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.pnlListaSkills.ResumeLayout(false);
+            this.pnlLetrasSkills.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).EndInit();
@@ -229,8 +229,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrarSesión;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlListaSkills;
+        private System.Windows.Forms.Panel pnlLetrasSkills;
         private System.Windows.Forms.Button btnGestionListaSkills;
         private System.Windows.Forms.Button btnGestionSkill;
         private System.Windows.Forms.Button btnGestionKPI;

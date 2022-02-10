@@ -198,7 +198,7 @@
             // 
             this.btnAñadir.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadir.ForeColor = System.Drawing.Color.White;
             this.btnAñadir.Location = new System.Drawing.Point(47, 18);
             this.btnAñadir.Name = "btnAñadir";

@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace DesktopApp
 {
-    public partial class Form1 : Form
+    public partial class FormListaSkills : Form
     {
-        public Form1()
+        public FormListaSkills()
         {
             InitializeComponent();
         }
+
+       
     }
 }
