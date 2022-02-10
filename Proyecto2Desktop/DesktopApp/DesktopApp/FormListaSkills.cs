@@ -21,5 +21,10 @@ namespace DesktopApp
         {
             this.Close();
         }
+
+        private void btnGestionListaSkills_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

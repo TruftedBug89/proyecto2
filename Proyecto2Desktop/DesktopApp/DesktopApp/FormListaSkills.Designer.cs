@@ -119,13 +119,14 @@
             this.btnGestionListaSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionListaSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionListaSkills.ForeColor = System.Drawing.Color.White;
-            this.btnGestionListaSkills.Location = new System.Drawing.Point(35, 20);
+            this.btnGestionListaSkills.Location = new System.Drawing.Point(35, 19);
             this.btnGestionListaSkills.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionListaSkills.Name = "btnGestionListaSkills";
             this.btnGestionListaSkills.Size = new System.Drawing.Size(176, 66);
             this.btnGestionListaSkills.TabIndex = 3;
             this.btnGestionListaSkills.Text = "+";
             this.btnGestionListaSkills.UseVisualStyleBackColor = false;
+            this.btnGestionListaSkills.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
             // 
             // dgvListaSkills
             // 
