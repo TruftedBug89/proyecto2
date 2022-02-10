@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrarSesión = new System.Windows.Forms.Button();
-            this.pnlListaSkills = new System.Windows.Forms.Panel();
-            this.btnGestionListaSkills = new System.Windows.Forms.Button();
-            this.pnlLetrasSkills = new System.Windows.Forms.Panel();
-            this.btnGestionSkill = new System.Windows.Forms.Button();
-            this.btnGestionKPI = new System.Windows.Forms.Button();
+            this.btnCloseSession = new System.Windows.Forms.Button();
+            this.pnlListSkills = new System.Windows.Forms.Panel();
+            this.btnManagementListaSkills = new System.Windows.Forms.Button();
+            this.pnlWorldsSkills = new System.Windows.Forms.Panel();
+            this.btnManagementSkill = new System.Windows.Forms.Button();
+            this.btnManagementKPI = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnGestionUsuarios = new System.Windows.Forms.Button();
+            this.btnManagementUsuarios = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvSkill = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.pnlListaSkills.SuspendLayout();
-            this.pnlLetrasSkills.SuspendLayout();
+            this.pnlListSkills.SuspendLayout();
+            this.pnlWorldsSkills.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
@@ -52,7 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.btnCerrarSesión);
+            this.panel1.Controls.Add(this.btnCloseSession);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -60,85 +60,88 @@
             this.panel1.Size = new System.Drawing.Size(1751, 66);
             this.panel1.TabIndex = 0;
             // 
-            // btnCerrarSesión
+            // btnCloseSession
             // 
-            this.btnCerrarSesión.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
-            this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
-            this.btnCerrarSesión.TabIndex = 0;
-            this.btnCerrarSesión.Text = "Cerar Sesión";
-            this.btnCerrarSesión.UseVisualStyleBackColor = false;
-            this.btnCerrarSesión.Click += new System.EventHandler(this.btnCerrarSesión_Click);
+            this.btnCloseSession.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseSession.BackColor = System.Drawing.Color.Tomato;
+            this.btnCloseSession.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
+            this.btnCloseSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseSession.ForeColor = System.Drawing.Color.White;
+            this.btnCloseSession.Location = new System.Drawing.Point(1491, 11);
+            this.btnCloseSession.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseSession.Name = "btnCloseSession";
+            this.btnCloseSession.Size = new System.Drawing.Size(223, 43);
+            this.btnCloseSession.TabIndex = 0;
+            this.btnCloseSession.Text = "Cerrar Sesión";
+            this.btnCloseSession.UseVisualStyleBackColor = false;
+            this.btnCloseSession.Click += new System.EventHandler(this.btnCerrarSesión_Click);
             // 
-            // pnlListaSkills
+            // pnlListSkills
             // 
-            this.pnlListaSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlListaSkills.Controls.Add(this.btnGestionListaSkills);
-            this.pnlListaSkills.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlListaSkills.Location = new System.Drawing.Point(0, 66);
-            this.pnlListaSkills.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlListaSkills.Name = "pnlListaSkills";
-            this.pnlListaSkills.Size = new System.Drawing.Size(1751, 110);
-            this.pnlListaSkills.TabIndex = 1;
+            this.pnlListSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlListSkills.Controls.Add(this.btnManagementListaSkills);
+            this.pnlListSkills.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListSkills.Location = new System.Drawing.Point(0, 66);
+            this.pnlListSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlListSkills.Name = "pnlListSkills";
+            this.pnlListSkills.Size = new System.Drawing.Size(1751, 110);
+            this.pnlListSkills.TabIndex = 1;
             // 
-            // btnGestionListaSkills
+            // btnManagementListaSkills
             // 
-            this.btnGestionListaSkills.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnGestionListaSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionListaSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionListaSkills.ForeColor = System.Drawing.Color.White;
-            this.btnGestionListaSkills.Location = new System.Drawing.Point(35, 20);
-            this.btnGestionListaSkills.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionListaSkills.Name = "btnGestionListaSkills";
-            this.btnGestionListaSkills.Size = new System.Drawing.Size(147, 66);
-            this.btnGestionListaSkills.TabIndex = 3;
-            this.btnGestionListaSkills.Text = "Gestion Lista de Skils";
-            this.btnGestionListaSkills.UseVisualStyleBackColor = false;
-            this.btnGestionListaSkills.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
+            this.btnManagementListaSkills.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnManagementListaSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagementListaSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagementListaSkills.ForeColor = System.Drawing.Color.White;
+            this.btnManagementListaSkills.Location = new System.Drawing.Point(35, 20);
+            this.btnManagementListaSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagementListaSkills.Name = "btnManagementListaSkills";
+            this.btnManagementListaSkills.Size = new System.Drawing.Size(147, 66);
+            this.btnManagementListaSkills.TabIndex = 3;
+            this.btnManagementListaSkills.Text = "Gestion Lista de Skils";
+            this.btnManagementListaSkills.UseVisualStyleBackColor = false;
+            this.btnManagementListaSkills.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
             // 
-            // pnlLetrasSkills
+            // pnlWorldsSkills
             // 
-            this.pnlLetrasSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLetrasSkills.Controls.Add(this.btnGestionSkill);
-            this.pnlLetrasSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLetrasSkills.Location = new System.Drawing.Point(0, 846);
-            this.pnlLetrasSkills.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlLetrasSkills.Name = "pnlLetrasSkills";
-            this.pnlLetrasSkills.Size = new System.Drawing.Size(1751, 110);
-            this.pnlLetrasSkills.TabIndex = 2;
+            this.pnlWorldsSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlWorldsSkills.Controls.Add(this.btnManagementSkill);
+            this.pnlWorldsSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlWorldsSkills.Location = new System.Drawing.Point(0, 846);
+            this.pnlWorldsSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlWorldsSkills.Name = "pnlWorldsSkills";
+            this.pnlWorldsSkills.Size = new System.Drawing.Size(1751, 110);
+            this.pnlWorldsSkills.TabIndex = 2;
             // 
-            // btnGestionSkill
+            // btnManagementSkill
             // 
-            this.btnGestionSkill.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnGestionSkill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionSkill.ForeColor = System.Drawing.Color.White;
-            this.btnGestionSkill.Location = new System.Drawing.Point(35, 25);
-            this.btnGestionSkill.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionSkill.Name = "btnGestionSkill";
-            this.btnGestionSkill.Size = new System.Drawing.Size(171, 59);
-            this.btnGestionSkill.TabIndex = 4;
-            this.btnGestionSkill.Text = "Gestion Skils";
-            this.btnGestionSkill.UseVisualStyleBackColor = false;
-            this.btnGestionSkill.Click += new System.EventHandler(this.btnGestionSkill_Click);
+            this.btnManagementSkill.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnManagementSkill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagementSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagementSkill.ForeColor = System.Drawing.Color.White;
+            this.btnManagementSkill.Location = new System.Drawing.Point(35, 25);
+            this.btnManagementSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagementSkill.Name = "btnManagementSkill";
+            this.btnManagementSkill.Size = new System.Drawing.Size(171, 59);
+            this.btnManagementSkill.TabIndex = 4;
+            this.btnManagementSkill.Text = "Gestion Skils";
+            this.btnManagementSkill.UseVisualStyleBackColor = false;
+            this.btnManagementSkill.Click += new System.EventHandler(this.btnGestionSkill_Click);
             // 
-            // btnGestionKPI
+            // btnManagementKPI
             // 
-            this.btnGestionKPI.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGestionKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionKPI.ForeColor = System.Drawing.Color.White;
-            this.btnGestionKPI.Location = new System.Drawing.Point(74, 55);
-            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionKPI.Name = "btnGestionKPI";
-            this.btnGestionKPI.Size = new System.Drawing.Size(155, 59);
-            this.btnGestionKPI.TabIndex = 5;
-            this.btnGestionKPI.Text = "Gestion KPI";
-            this.btnGestionKPI.UseVisualStyleBackColor = false;
+            this.btnManagementKPI.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnManagementKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagementKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagementKPI.ForeColor = System.Drawing.Color.White;
+            this.btnManagementKPI.Location = new System.Drawing.Point(74, 55);
+            this.btnManagementKPI.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagementKPI.Name = "btnManagementKPI";
+            this.btnManagementKPI.Size = new System.Drawing.Size(155, 59);
+            this.btnManagementKPI.TabIndex = 5;
+            this.btnManagementKPI.Text = "Gestion KPI";
+            this.btnManagementKPI.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -158,29 +161,30 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnGestionUsuarios);
+            this.panel6.Controls.Add(this.btnManagementUsuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 211);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(259, 600);
             this.panel6.TabIndex = 13;
             // 
-            // btnGestionUsuarios
+            // btnManagementUsuarios
             // 
-            this.btnGestionUsuarios.BackColor = System.Drawing.Color.Black;
-            this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(49, 267);
-            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(133, 81);
-            this.btnGestionUsuarios.TabIndex = 7;
-            this.btnGestionUsuarios.Text = "Gestion Usuarios";
-            this.btnGestionUsuarios.UseVisualStyleBackColor = false;
+            this.btnManagementUsuarios.BackColor = System.Drawing.Color.Black;
+            this.btnManagementUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagementUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagementUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnManagementUsuarios.Location = new System.Drawing.Point(49, 267);
+            this.btnManagementUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagementUsuarios.Name = "btnManagementUsuarios";
+            this.btnManagementUsuarios.Size = new System.Drawing.Size(133, 81);
+            this.btnManagementUsuarios.TabIndex = 7;
+            this.btnManagementUsuarios.Text = "Gestion Usuarios";
+            this.btnManagementUsuarios.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btnGestionKPI);
+            this.panel7.Controls.Add(this.btnManagementKPI);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(1491, 211);
             this.panel7.Name = "panel7";
@@ -210,16 +214,16 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.pnlLetrasSkills);
-            this.Controls.Add(this.pnlListaSkills);
+            this.Controls.Add(this.pnlWorldsSkills);
+            this.Controls.Add(this.pnlListSkills);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panel1.ResumeLayout(false);
-            this.pnlListaSkills.ResumeLayout(false);
-            this.pnlLetrasSkills.ResumeLayout(false);
+            this.pnlListSkills.ResumeLayout(false);
+            this.pnlWorldsSkills.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).EndInit();
@@ -230,16 +234,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCerrarSesión;
-        private System.Windows.Forms.Panel pnlListaSkills;
-        private System.Windows.Forms.Panel pnlLetrasSkills;
-        private System.Windows.Forms.Button btnGestionListaSkills;
-        private System.Windows.Forms.Button btnGestionSkill;
-        private System.Windows.Forms.Button btnGestionKPI;
+        private System.Windows.Forms.Button btnCloseSession;
+        private System.Windows.Forms.Panel pnlListSkills;
+        private System.Windows.Forms.Panel pnlWorldsSkills;
+        private System.Windows.Forms.Button btnManagementListaSkills;
+        private System.Windows.Forms.Button btnManagementSkill;
+        private System.Windows.Forms.Button btnManagementKPI;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnGestionUsuarios;
+        private System.Windows.Forms.Button btnManagementUsuarios;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dgvSkill;
     }

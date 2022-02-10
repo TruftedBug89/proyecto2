@@ -31,22 +31,22 @@
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombreSkill = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtWordSkill = new System.Windows.Forms.TextBox();
             this.lblLetraSkill = new System.Windows.Forms.Label();
             this.lblBColor = new System.Windows.Forms.Label();
             this.lblTcolor = new System.Windows.Forms.Label();
             this.cbxBcolors = new System.Windows.Forms.ComboBox();
             this.cbxTcolors = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.pnlLetrasSkills = new System.Windows.Forms.Panel();
-            this.btnAñadir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombreSkill = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.pnlWordsSkills = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtNameSkill = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.pnlLetrasSkills.SuspendLayout();
+            this.pnlWordsSkills.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCerrarSesión
@@ -83,14 +83,14 @@
             this.lblNombreSkill.TabIndex = 2;
             this.lblNombreSkill.Text = "Nombre Skill:";
             // 
-            // textBox1
+            // txtWordSkill
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(225, 224);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 158);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWordSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWordSkill.Location = new System.Drawing.Point(225, 224);
+            this.txtWordSkill.Name = "txtWordSkill";
+            this.txtWordSkill.Size = new System.Drawing.Size(184, 158);
+            this.txtWordSkill.TabIndex = 4;
+            this.txtWordSkill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLetraSkill
             // 
@@ -142,83 +142,83 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnSalir);
-            this.panel2.Controls.Add(this.btnGuardar);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 562);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1192, 78);
             this.panel2.TabIndex = 10;
             // 
-            // btnSalir
+            // btnCancel
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(639, 18);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(106, 42);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(639, 18);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(106, 42);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(488, 18);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(106, 42);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(488, 18);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 42);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // pnlLetrasSkills
+            // pnlWordsSkills
             // 
-            this.pnlLetrasSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLetrasSkills.Controls.Add(this.btnAñadir);
-            this.pnlLetrasSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLetrasSkills.Location = new System.Drawing.Point(0, 431);
-            this.pnlLetrasSkills.Name = "pnlLetrasSkills";
-            this.pnlLetrasSkills.Size = new System.Drawing.Size(1192, 131);
-            this.pnlLetrasSkills.TabIndex = 11;
+            this.pnlWordsSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlWordsSkills.Controls.Add(this.btnAdd);
+            this.pnlWordsSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlWordsSkills.Location = new System.Drawing.Point(0, 431);
+            this.pnlWordsSkills.Name = "pnlWordsSkills";
+            this.pnlWordsSkills.Size = new System.Drawing.Size(1192, 131);
+            this.pnlWordsSkills.TabIndex = 11;
             // 
-            // btnAñadir
+            // btnAdd
             // 
-            this.btnAñadir.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadir.ForeColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(47, 18);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(101, 92);
-            this.btnAñadir.TabIndex = 0;
-            this.btnAñadir.Text = "+";
-            this.btnAñadir.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(47, 18);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(101, 92);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnDelete
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.DarkRed;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(1043, 114);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(113, 45);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.Location = new System.Drawing.Point(1043, 114);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 45);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // txtNombreSkill
+            // txtNameSkill
             // 
-            this.txtNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreSkill.Location = new System.Drawing.Point(225, 114);
-            this.txtNombreSkill.Name = "txtNombreSkill";
-            this.txtNombreSkill.Size = new System.Drawing.Size(789, 45);
-            this.txtNombreSkill.TabIndex = 3;
+            this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameSkill.Location = new System.Drawing.Point(225, 114);
+            this.txtNameSkill.Name = "txtNameSkill";
+            this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
+            this.txtNameSkill.TabIndex = 3;
             // 
             // FormSkill
             // 
@@ -226,23 +226,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1192, 640);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.pnlLetrasSkills);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.pnlWordsSkills);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cbxTcolors);
             this.Controls.Add(this.cbxBcolors);
             this.Controls.Add(this.lblTcolor);
             this.Controls.Add(this.lblBColor);
             this.Controls.Add(this.lblLetraSkill);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtNombreSkill);
+            this.Controls.Add(this.txtWordSkill);
+            this.Controls.Add(this.txtNameSkill);
             this.Controls.Add(this.lblNombreSkill);
             this.Controls.Add(this.panel1);
             this.Name = "FormSkill";
             this.Text = "FormSkill";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.pnlLetrasSkills.ResumeLayout(false);
+            this.pnlWordsSkills.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,18 +253,18 @@
         private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNombreSkill;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtWordSkill;
         private System.Windows.Forms.Label lblLetraSkill;
         private System.Windows.Forms.Label lblBColor;
         private System.Windows.Forms.Label lblTcolor;
         private System.Windows.Forms.ComboBox cbxBcolors;
         private System.Windows.Forms.ComboBox cbxTcolors;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel pnlLetrasSkills;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtNombreSkill;
-        private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel pnlWordsSkills;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtNameSkill;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

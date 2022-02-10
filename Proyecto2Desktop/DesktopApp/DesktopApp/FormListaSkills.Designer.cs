@@ -30,21 +30,21 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
-            this.lblNombreListaSkill = new System.Windows.Forms.Label();
+            this.lblNameListSkills = new System.Windows.Forms.Label();
             this.txtNombreSkill = new System.Windows.Forms.TextBox();
-            this.btnConstruirTabla = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnGestionListaSkills = new System.Windows.Forms.Button();
-            this.dgvListaSkills = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxBcolors = new System.Windows.Forms.ComboBox();
-            this.btnGestionarGrupos = new System.Windows.Forms.Button();
+            this.btnBuildTabla = new System.Windows.Forms.Button();
+            this.pnlListSkills = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dgvListSkills = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblTeams = new System.Windows.Forms.Label();
+            this.cbxTeams = new System.Windows.Forms.ComboBox();
+            this.btnManagementGrupos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
+            this.pnlListSkills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,15 +71,15 @@
             this.btnCerrarSesión.Text = "Cerar Sesión";
             this.btnCerrarSesión.UseVisualStyleBackColor = false;
             // 
-            // lblNombreListaSkill
+            // lblNameListSkills
             // 
-            this.lblNombreListaSkill.AutoSize = true;
-            this.lblNombreListaSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreListaSkill.Location = new System.Drawing.Point(51, 204);
-            this.lblNombreListaSkill.Name = "lblNombreListaSkill";
-            this.lblNombreListaSkill.Size = new System.Drawing.Size(212, 24);
-            this.lblNombreListaSkill.TabIndex = 3;
-            this.lblNombreListaSkill.Text = "Lista de Skills(Siglas):";
+            this.lblNameListSkills.AutoSize = true;
+            this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameListSkills.Location = new System.Drawing.Point(51, 204);
+            this.lblNameListSkills.Name = "lblNameListSkills";
+            this.lblNameListSkills.Size = new System.Drawing.Size(212, 24);
+            this.lblNameListSkills.TabIndex = 3;
+            this.lblNameListSkills.Text = "Lista de Skills(Siglas):";
             // 
             // txtNombreSkill
             // 
@@ -89,125 +89,125 @@
             this.txtNombreSkill.Size = new System.Drawing.Size(673, 45);
             this.txtNombreSkill.TabIndex = 4;
             // 
-            // btnConstruirTabla
+            // btnBuildTabla
             // 
-            this.btnConstruirTabla.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnConstruirTabla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConstruirTabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConstruirTabla.ForeColor = System.Drawing.Color.White;
-            this.btnConstruirTabla.Location = new System.Drawing.Point(976, 195);
-            this.btnConstruirTabla.Name = "btnConstruirTabla";
-            this.btnConstruirTabla.Size = new System.Drawing.Size(258, 42);
-            this.btnConstruirTabla.TabIndex = 5;
-            this.btnConstruirTabla.Text = "Aceptar y construir tabla";
-            this.btnConstruirTabla.UseVisualStyleBackColor = false;
+            this.btnBuildTabla.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnBuildTabla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuildTabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuildTabla.ForeColor = System.Drawing.Color.White;
+            this.btnBuildTabla.Location = new System.Drawing.Point(976, 195);
+            this.btnBuildTabla.Name = "btnBuildTabla";
+            this.btnBuildTabla.Size = new System.Drawing.Size(258, 42);
+            this.btnBuildTabla.TabIndex = 5;
+            this.btnBuildTabla.Text = "Aceptar y construir tabla";
+            this.btnBuildTabla.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // pnlListSkills
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.btnGestionListaSkills);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 51);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1445, 111);
-            this.panel2.TabIndex = 6;
+            this.pnlListSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlListSkills.Controls.Add(this.btnAdd);
+            this.pnlListSkills.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlListSkills.Location = new System.Drawing.Point(0, 51);
+            this.pnlListSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlListSkills.Name = "pnlListSkills";
+            this.pnlListSkills.Size = new System.Drawing.Size(1445, 111);
+            this.pnlListSkills.TabIndex = 6;
             // 
-            // btnGestionListaSkills
+            // btnAdd
             // 
-            this.btnGestionListaSkills.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnGestionListaSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionListaSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionListaSkills.ForeColor = System.Drawing.Color.White;
-            this.btnGestionListaSkills.Location = new System.Drawing.Point(35, 19);
-            this.btnGestionListaSkills.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionListaSkills.Name = "btnGestionListaSkills";
-            this.btnGestionListaSkills.Size = new System.Drawing.Size(176, 66);
-            this.btnGestionListaSkills.TabIndex = 3;
-            this.btnGestionListaSkills.Text = "+";
-            this.btnGestionListaSkills.UseVisualStyleBackColor = false;
-            this.btnGestionListaSkills.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(35, 19);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(176, 66);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnGestionListaSkills_Click);
             // 
-            // dgvListaSkills
+            // dgvListSkills
             // 
-            this.dgvListaSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaSkills.Location = new System.Drawing.Point(215, 266);
-            this.dgvListaSkills.Name = "dgvListaSkills";
-            this.dgvListaSkills.RowHeadersWidth = 51;
-            this.dgvListaSkills.RowTemplate.Height = 24;
-            this.dgvListaSkills.Size = new System.Drawing.Size(918, 366);
-            this.dgvListaSkills.TabIndex = 7;
+            this.dgvListSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListSkills.Location = new System.Drawing.Point(215, 266);
+            this.dgvListSkills.Name = "dgvListSkills";
+            this.dgvListSkills.RowHeadersWidth = 51;
+            this.dgvListSkills.RowTemplate.Height = 24;
+            this.dgvListSkills.Size = new System.Drawing.Size(918, 366);
+            this.dgvListSkills.TabIndex = 7;
             // 
-            // btnEliminar
+            // btnDelete
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.DarkRed;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(1306, 194);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(113, 45);
-            this.btnEliminar.TabIndex = 13;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.Location = new System.Drawing.Point(1306, 194);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 45);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(602, 677);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(106, 42);
-            this.btnGuardar.TabIndex = 14;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(602, 677);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 42);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // btnSalir
+            // btnCancel
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(742, 677);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(106, 42);
-            this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(742, 677);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(106, 42);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label1
+            // lblTeams
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1150, 310);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 24);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Grupos:";
+            this.lblTeams.AutoSize = true;
+            this.lblTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeams.Location = new System.Drawing.Point(1150, 310);
+            this.lblTeams.Name = "lblTeams";
+            this.lblTeams.Size = new System.Drawing.Size(84, 24);
+            this.lblTeams.TabIndex = 16;
+            this.lblTeams.Text = "Grupos:";
             // 
-            // cbxBcolors
+            // cbxTeams
             // 
-            this.cbxBcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxBcolors.FormattingEnabled = true;
-            this.cbxBcolors.Location = new System.Drawing.Point(1240, 310);
-            this.cbxBcolors.Name = "cbxBcolors";
-            this.cbxBcolors.Size = new System.Drawing.Size(179, 30);
-            this.cbxBcolors.TabIndex = 17;
+            this.cbxTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTeams.FormattingEnabled = true;
+            this.cbxTeams.Location = new System.Drawing.Point(1240, 310);
+            this.cbxTeams.Name = "cbxTeams";
+            this.cbxTeams.Size = new System.Drawing.Size(179, 30);
+            this.cbxTeams.TabIndex = 17;
             // 
-            // btnGestionarGrupos
+            // btnManagementGrupos
             // 
-            this.btnGestionarGrupos.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGestionarGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionarGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionarGrupos.ForeColor = System.Drawing.Color.White;
-            this.btnGestionarGrupos.Location = new System.Drawing.Point(1154, 379);
-            this.btnGestionarGrupos.Name = "btnGestionarGrupos";
-            this.btnGestionarGrupos.Size = new System.Drawing.Size(182, 42);
-            this.btnGestionarGrupos.TabIndex = 18;
-            this.btnGestionarGrupos.Text = "Gestionar Grupos";
-            this.btnGestionarGrupos.UseVisualStyleBackColor = false;
+            this.btnManagementGrupos.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnManagementGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagementGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagementGrupos.ForeColor = System.Drawing.Color.White;
+            this.btnManagementGrupos.Location = new System.Drawing.Point(1154, 379);
+            this.btnManagementGrupos.Name = "btnManagementGrupos";
+            this.btnManagementGrupos.Size = new System.Drawing.Size(182, 42);
+            this.btnManagementGrupos.TabIndex = 18;
+            this.btnManagementGrupos.Text = "Gestionar Grupos";
+            this.btnManagementGrupos.UseVisualStyleBackColor = false;
             // 
             // FormListaSkills
             // 
@@ -215,23 +215,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
-            this.Controls.Add(this.btnGestionarGrupos);
-            this.Controls.Add(this.cbxBcolors);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.dgvListaSkills);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnConstruirTabla);
+            this.Controls.Add(this.btnManagementGrupos);
+            this.Controls.Add(this.cbxTeams);
+            this.Controls.Add(this.lblTeams);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.dgvListSkills);
+            this.Controls.Add(this.pnlListSkills);
+            this.Controls.Add(this.btnBuildTabla);
             this.Controls.Add(this.txtNombreSkill);
-            this.Controls.Add(this.lblNombreListaSkill);
+            this.Controls.Add(this.lblNameListSkills);
             this.Controls.Add(this.panel1);
             this.Name = "FormListaSkills";
             this.Text = "FormListaSkills";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).EndInit();
+            this.pnlListSkills.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,17 +241,17 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrarSesión;
-        private System.Windows.Forms.Label lblNombreListaSkill;
+        private System.Windows.Forms.Label lblNameListSkills;
         private System.Windows.Forms.TextBox txtNombreSkill;
-        private System.Windows.Forms.Button btnConstruirTabla;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnGestionListaSkills;
-        private System.Windows.Forms.DataGridView dgvListaSkills;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxBcolors;
-        private System.Windows.Forms.Button btnGestionarGrupos;
+        private System.Windows.Forms.Button btnBuildTabla;
+        private System.Windows.Forms.Panel pnlListSkills;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvListSkills;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblTeams;
+        private System.Windows.Forms.ComboBox cbxTeams;
+        private System.Windows.Forms.Button btnManagementGrupos;
     }
 }
