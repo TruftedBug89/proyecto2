@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,6 +188,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnCerrarSesión);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -207,6 +209,17 @@
             this.btnCerrarSesión.TabIndex = 0;
             this.btnCerrarSesión.Text = "Cerar Sesión";
             this.btnCerrarSesión.UseVisualStyleBackColor = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label6.ForeColor = System.Drawing.Color.FloralWhite;
+            this.label6.Location = new System.Drawing.Point(672, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(216, 30);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Creació d\'Usuaris";
             // 
             // FormCrearUsuarios
             // 
@@ -233,6 +246,7 @@
             this.Text = "FormCrearUsuarios";
             this.Load += new System.EventHandler(this.FormCrearUsuarios_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +271,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrarSesión;
+        private System.Windows.Forms.Label label6;
     }
 }
