@@ -162,8 +162,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCrearUsuarios.resx">
+      <DependentUpon>FormCrearUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionPerfil.resx">
       <DependentUpon>FormGestionPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKPI.resx">
+      <DependentUpon>FormKPI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListaSkills.resx">
       <DependentUpon>FormListaSkills.cs</DependentUpon>

@@ -16,5 +16,15 @@ namespace DesktopApp
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormCrearUsuarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
