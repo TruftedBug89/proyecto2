@@ -142,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelFrase_alu.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orm.cs" />
     <Compile Include="Models\rols.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
