@@ -58,8 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
     <Compile Include="FormCrearUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +112,7 @@
     <Compile Include="Models\grups.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GrupsOrm.cs" />
     <Compile Include="Models\grups_has_alumnes.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
@@ -126,9 +125,11 @@
     <Compile Include="Models\kpis.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\KpisOrm.cs" />
     <Compile Include="Models\llistes_skills.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Llistes_SkillsOrm.cs" />
     <Compile Include="Models\ModelFrase_alu.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,17 +145,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelFrase_alu.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\PruebaOrm.cs" />
     <Compile Include="Models\Orm.cs" />
     <Compile Include="Models\rols.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RolsOrm.cs" />
     <Compile Include="Models\skills.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SkillsOrm.cs" />
     <Compile Include="Models\usuaris.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarisOrm.cs" />
     <Compile Include="Models\valoracions.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
