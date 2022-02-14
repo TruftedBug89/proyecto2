@@ -112,6 +112,7 @@
     <Compile Include="Models\grups.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GrupsOrm.cs" />
     <Compile Include="Models\grups_has_alumnes.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
@@ -124,9 +125,11 @@
     <Compile Include="Models\kpis.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\KpisOrm.cs" />
     <Compile Include="Models\llistes_skills.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Llistes_SkillsOrm.cs" />
     <Compile Include="Models\ModelFrase_alu.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,12 +149,15 @@
     <Compile Include="Models\rols.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RolsOrm.cs" />
     <Compile Include="Models\skills.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SkillsOrm.cs" />
     <Compile Include="Models\usuaris.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarisOrm.cs" />
     <Compile Include="Models\valoracions.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
