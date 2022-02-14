@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="FormCrearUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +144,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelFrase_alu.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\PruebaOrm.cs" />
     <Compile Include="Models\rols.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
