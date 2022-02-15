@@ -101,6 +101,7 @@
             this.btnBuildTable.TabIndex = 5;
             this.btnBuildTable.Text = "Aceptar y construir tabla";
             this.btnBuildTable.UseVisualStyleBackColor = false;
+            this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
             // 
             // dgvListaSkills
             // 
@@ -230,6 +231,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormListaSkills";
             this.Text = "FormListaSkills";
+            this.Load += new System.EventHandler(this.FormListaSkills_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).EndInit();
             this.flpListSkills.ResumeLayout(false);
