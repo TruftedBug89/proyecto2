@@ -15,5 +15,12 @@ namespace DesktopApp.Models
             return _llistes_Skills;
         }
 
+        public static String Insert(llistes_skills _llistes_Skills) 
+        {
+            Orm.bd.llistes_skills.Add(_llistes_Skills);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
+
     }
 }

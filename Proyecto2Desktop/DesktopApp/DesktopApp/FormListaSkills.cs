@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopApp.Models;
 
 namespace DesktopApp
 {
@@ -74,7 +75,25 @@ namespace DesktopApp
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
+            dgvListaSkills.Columns.Clear();
+            dgvListaSkills.DataSource = null;
+            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif",15,FontStyle.Bold);
+            dgvListaSkills.Columns.Add("Letra", "Letra");
+            dgvListaSkills.Columns.Add("Skill","Skill");
 
+            Char[] letras = txtNameListSkill.Text.ToCharArray();             
+
+            for(int i = 0; i < letras.Length; i++)
+            {
+                dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");                
+            }
+
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

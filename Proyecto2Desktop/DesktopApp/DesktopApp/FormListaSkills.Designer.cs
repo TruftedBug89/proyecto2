@@ -105,6 +105,8 @@
             // 
             // dgvListaSkills
             // 
+            this.dgvListaSkills.AllowUserToAddRows = false;
+            this.dgvListaSkills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaSkills.Location = new System.Drawing.Point(215, 266);
             this.dgvListaSkills.Name = "dgvListaSkills";
@@ -139,6 +141,7 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
