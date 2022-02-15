@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="frase_aluModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="frase_aluModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cursos">
           <Key>
             <PropertyRef Name="id" />
@@ -84,6 +84,8 @@
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="llistes_skills_id" Type="int" Nullable="false" />
           <Property Name="actiu" Type="bit" Nullable="false" />
+          <Property Name="colorFondo" Type="int" Nullable="false" />
+          <Property Name="colorTexto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="usuaris">
           <Key>
@@ -360,8 +362,7 @@
             <End Role="valoracions" EntitySet="valoracions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="frase_aluModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -434,8 +435,8 @@
           <Property Name="nom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="skills_id" Type="Int32" Nullable="false" />
           <Property Name="actiu" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="skills" Relationship="Self.FK_kpis_skills" FromRole="kpis" ToRole="skills" />
           <NavigationProperty Name="valoracions" Relationship="Self.FK_valoracions_kpis" FromRole="kpis" ToRole="valoracions" />
+          <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_kpis_skills" FromRole="kpis" ToRole="skills" />
         </EntityType>
         <EntityType Name="llistes_skills">
           <Key>
@@ -445,7 +446,7 @@
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="actiu" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_llistes_skills" FromRole="llistes_skills" ToRole="grups_has_llistes_skills" />
-          <NavigationProperty Name="skills" Relationship="Self.FK_skills_llistes_skills" FromRole="llistes_skills" ToRole="skills" />
+          <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_skills_llistes_skills" FromRole="llistes_skills" ToRole="skills" />
         </EntityType>
         <EntityType Name="rols">
           <Key>
@@ -455,17 +456,6 @@
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="actiu" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="usuaris" Relationship="Self.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
-        </EntityType>
-        <EntityType Name="skills">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
-          <Property Name="actiu" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="kpis" Relationship="Self.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
-          <NavigationProperty Name="llistes_skills" Relationship="Self.FK_skills_llistes_skills" FromRole="skills" ToRole="llistes_skills" />
         </EntityType>
         <EntityType Name="usuaris">
           <Key>
@@ -605,18 +595,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_kpis_skills">
-          <End Role="skills" Type="Self.skills" Multiplicity="1" />
-          <End Role="kpis" Type="Self.kpis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="skills">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="kpis">
-              <PropertyRef Name="skills_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_valoracions_kpis">
           <End Role="kpis" Type="Self.kpis" Multiplicity="1" />
           <End Role="valoracions" Type="Self.valoracions" Multiplicity="*" />
@@ -626,18 +604,6 @@
             </Principal>
             <Dependent Role="valoracions">
               <PropertyRef Name="kpis_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_skills_llistes_skills">
-          <End Role="llistes_skills" Type="Self.llistes_skills" Multiplicity="1" />
-          <End Role="skills" Type="Self.skills" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="llistes_skills">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="skills">
-              <PropertyRef Name="llistes_skills_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -686,7 +652,6 @@
           <EntitySet Name="kpis" EntityType="Self.kpis" />
           <EntitySet Name="llistes_skills" EntityType="Self.llistes_skills" />
           <EntitySet Name="rols" EntityType="Self.rols" />
-          <EntitySet Name="skills" EntityType="Self.skills" />
           <EntitySet Name="usuaris" EntityType="Self.usuaris" />
           <EntitySet Name="valoracions" EntityType="Self.valoracions" />
           <AssociationSet Name="FK_grups_has_alumnes_cursos" Association="Self.FK_grups_has_alumnes_cursos">
@@ -725,17 +690,9 @@
             <End Role="llistes_skills" EntitySet="llistes_skills" />
             <End Role="grups_has_llistes_skills" EntitySet="grups_has_llistes_skills" />
           </AssociationSet>
-          <AssociationSet Name="FK_kpis_skills" Association="Self.FK_kpis_skills">
-            <End Role="skills" EntitySet="skills" />
-            <End Role="kpis" EntitySet="kpis" />
-          </AssociationSet>
           <AssociationSet Name="FK_valoracions_kpis" Association="Self.FK_valoracions_kpis">
             <End Role="kpis" EntitySet="kpis" />
             <End Role="valoracions" EntitySet="valoracions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_skills_llistes_skills" Association="Self.FK_skills_llistes_skills">
-            <End Role="llistes_skills" EntitySet="llistes_skills" />
-            <End Role="skills" EntitySet="skills" />
           </AssociationSet>
           <AssociationSet Name="FK_usuaris_rols" Association="Self.FK_usuaris_rols">
             <End Role="rols" EntitySet="rols" />
@@ -749,7 +706,53 @@
             <End Role="usuaris" EntitySet="usuaris" />
             <End Role="valoracions" EntitySet="valoracions" />
           </AssociationSet>
+          <EntitySet Name="skills" EntityType="frase_aluModel.skills" />
+          <AssociationSet Name="FK_kpis_skills" Association="frase_aluModel.FK_kpis_skills">
+            <End Role="skills" EntitySet="skills" />
+            <End Role="kpis" EntitySet="kpis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_skills_llistes_skills" Association="frase_aluModel.FK_skills_llistes_skills">
+            <End Role="llistes_skills" EntitySet="llistes_skills" />
+            <End Role="skills" EntitySet="skills" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="skills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
+          <Property Name="actiu" Type="Boolean" Nullable="false" />
+          <Property Name="colorFondo" Type="Int32" Nullable="false" />
+          <Property Name="colorTexto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
+          <NavigationProperty Name="llistes_skills" Relationship="frase_aluModel.FK_skills_llistes_skills" FromRole="skills" ToRole="llistes_skills" />
+        </EntityType>
+        <Association Name="FK_kpis_skills">
+          <End Type="frase_aluModel.skills" Role="skills" Multiplicity="1" />
+          <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="kpis">
+              <PropertyRef Name="skills_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_skills_llistes_skills">
+          <End Type="frase_aluModel.llistes_skills" Role="llistes_skills" Multiplicity="1" />
+          <End Type="frase_aluModel.skills" Role="skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="llistes_skills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="skills">
+              <PropertyRef Name="llistes_skills_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -829,16 +832,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="skills">
-            <EntityTypeMapping TypeName="frase_aluModel.skills">
-              <MappingFragment StoreEntitySet="skills">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
-                <ScalarProperty Name="actiu" ColumnName="actiu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="usuaris">
             <EntityTypeMapping TypeName="frase_aluModel.usuaris">
               <MappingFragment StoreEntitySet="usuaris">
@@ -857,6 +850,18 @@
                 <ScalarProperty Name="usuari_pp_id" ColumnName="usuari_pp_id" />
                 <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="nota" ColumnName="nota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skills">
+            <EntityTypeMapping TypeName="frase_aluModel.skills">
+              <MappingFragment StoreEntitySet="skills">
+                <ScalarProperty Name="colorTexto" ColumnName="colorTexto" />
+                <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
+                <ScalarProperty Name="actiu" ColumnName="actiu" />
+                <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

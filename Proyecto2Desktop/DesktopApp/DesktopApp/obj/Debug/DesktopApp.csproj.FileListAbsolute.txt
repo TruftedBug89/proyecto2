@@ -17,11 +17,8 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debu
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormPrincipal.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionPerfil.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormSkill.resources
-
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormListaSkills.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionGrupo.resources
-C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormUsuarios.resources
-
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe.config
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.pdb
@@ -46,5 +43,7 @@ C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormLogin.resources
-
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormLogin.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCrearUsuarios.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormKPI.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionUsuarios.resources

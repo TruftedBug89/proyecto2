@@ -24,6 +24,8 @@ namespace DesktopApp.Models
         public string nom { get; set; }
         public int llistes_skills_id { get; set; }
         public bool actiu { get; set; }
+        public int colorFondo { get; set; }
+        public int colorTexto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<kpis> kpis { get; set; }
