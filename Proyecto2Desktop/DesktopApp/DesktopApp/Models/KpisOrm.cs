@@ -15,7 +15,7 @@ namespace DesktopApp.Models
         }
         public static List<kpis> Select(bool actiu, int skillid)
         {
-            List<kpis> _kpis = (from k in Orm.bd.kpis where k.actiu == actiu where k.skills_id == skillid select k).ToList();
+            List<kpis> _kpis = (from k in Orm.bd.kpis where k.actiu == actiu && k.skills_id == skillid select k).ToList();
             return _kpis;
         }
         public static void Delete(kpis kpi)

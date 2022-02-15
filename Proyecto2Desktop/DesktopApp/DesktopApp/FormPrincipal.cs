@@ -12,6 +12,7 @@ namespace DesktopApp
 {
     public partial class FormPrincipal : Form
     {
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -41,7 +42,8 @@ namespace DesktopApp
 
         private void btnGestionKPI_Click(object sender, EventArgs e)
         {
-            FormKPI FormKPI = new FormKPI();
+            int skillId = 0;
+            FormKPI FormKPI = new FormKPI(skillId);
             FormKPI.ShowDialog();
         }
     }
