@@ -101,6 +101,8 @@
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="kpis" Relationship="Self.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
     <NavigationProperty Name="llistes_skills" Relationship="Self.FK_skills_llistes_skills" FromRole="skills" ToRole="llistes_skills" />
+    <Property Name="colorFondo" Type="Int32" Nullable="false" />
+    <Property Name="colorTexto" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="usuaris">
     <Key>

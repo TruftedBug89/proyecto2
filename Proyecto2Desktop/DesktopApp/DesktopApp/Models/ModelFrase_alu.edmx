@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="frase_aluModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="frase_aluModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cursos">
           <Key>
             <PropertyRef Name="id" />
@@ -84,6 +84,8 @@
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="llistes_skills_id" Type="int" Nullable="false" />
           <Property Name="actiu" Type="bit" Nullable="false" />
+          <Property Name="colorFondo" Type="int" Nullable="false" />
+          <Property Name="colorTexto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="usuaris">
           <Key>
@@ -360,8 +362,7 @@
             <End Role="valoracions" EntitySet="valoracions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="frase_aluModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -466,6 +467,8 @@
           <Property Name="actiu" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="kpis" Relationship="Self.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
           <NavigationProperty Name="llistes_skills" Relationship="Self.FK_skills_llistes_skills" FromRole="skills" ToRole="llistes_skills" />
+          <Property Name="colorFondo" Type="Int32" Nullable="false" />
+          <Property Name="colorTexto" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="usuaris">
           <Key>
@@ -832,6 +835,8 @@
           <EntitySetMapping Name="skills">
             <EntityTypeMapping TypeName="frase_aluModel.skills">
               <MappingFragment StoreEntitySet="skills">
+                <ScalarProperty Name="colorTexto" ColumnName="colorTexto" />
+                <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
                 <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />

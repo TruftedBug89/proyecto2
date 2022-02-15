@@ -79,6 +79,8 @@
     <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="llistes_skills_id" Type="int" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
+    <Property Name="colorFondo" Type="int" Nullable="false" />
+    <Property Name="colorTexto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="usuaris">
     <Key>

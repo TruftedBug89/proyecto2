@@ -77,6 +77,8 @@
     <EntitySetMapping Name="skills">
       <EntityTypeMapping TypeName="frase_aluModel.skills">
         <MappingFragment StoreEntitySet="skills">
+          <ScalarProperty Name="colorTexto" ColumnName="colorTexto" />
+          <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
