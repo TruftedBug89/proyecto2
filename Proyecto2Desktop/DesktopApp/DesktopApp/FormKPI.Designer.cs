@@ -32,14 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.lblNewKPI = new System.Windows.Forms.Label();
             this.txtNewKPI = new System.Windows.Forms.TextBox();
             this.lblKPIName = new System.Windows.Forms.Label();
             this.C = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddKpi = new System.Windows.Forms.Button();
-            this.kpisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +48,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kpisBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,7 +90,7 @@
             this.skillsDataGridViewTextBoxColumn,
             this.valoracionsDataGridViewTextBoxColumn});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.DataSource = this.kpisBindingSource;
+            this.dataGridView1.DataSource = this.bindingSourceKPI;
             this.dataGridView1.Location = new System.Drawing.Point(56, 171);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -123,7 +121,7 @@
             // 
             this.lblKPIName.AutoSize = true;
             this.lblKPIName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblKPIName.Location = new System.Drawing.Point(676, 108);
+            this.lblKPIName.Location = new System.Drawing.Point(711, 108);
             this.lblKPIName.Name = "lblKPIName";
             this.lblKPIName.Size = new System.Drawing.Size(137, 26);
             this.lblKPIName.TabIndex = 6;
@@ -156,9 +154,9 @@
             this.btnAddKpi.UseVisualStyleBackColor = true;
             this.btnAddKpi.Click += new System.EventHandler(this.btnAddKpi_Click);
             // 
-            // kpisBindingSource
+            // bindingSourceKPI
             // 
-            this.kpisBindingSource.DataSource = typeof(DesktopApp.Models.kpis);
+            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -167,6 +165,7 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // nomDataGridViewTextBoxColumn
             // 
@@ -183,6 +182,7 @@
             this.skillsidDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.skillsidDataGridViewTextBoxColumn.Name = "skillsidDataGridViewTextBoxColumn";
             this.skillsidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.skillsidDataGridViewTextBoxColumn.Visible = false;
             // 
             // actiuDataGridViewCheckBoxColumn
             // 
@@ -191,6 +191,7 @@
             this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
             this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.actiuDataGridViewCheckBoxColumn.Visible = false;
             // 
             // skillsDataGridViewTextBoxColumn
             // 
@@ -207,6 +208,7 @@
             this.valoracionsDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.valoracionsDataGridViewTextBoxColumn.Name = "valoracionsDataGridViewTextBoxColumn";
             this.valoracionsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valoracionsDataGridViewTextBoxColumn.Visible = false;
             // 
             // FormKPI
             // 
@@ -227,7 +229,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kpisBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,6 +252,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn skillsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource kpisBindingSource;
     }
 }
