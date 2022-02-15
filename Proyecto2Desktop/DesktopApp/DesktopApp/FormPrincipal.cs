@@ -28,6 +28,8 @@ namespace DesktopApp
             {
                 CrearBotonListaSkill(lSkills);
             }
+                       
+
         }
                 
         private void btnManagmentListSkills_Click(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace DesktopApp
             btnListSkill.Margin = new Padding(24, 8, 4, 4);
             flpListSkills.Controls.Add(btnListSkill);
 
-            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, nombre);
+            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls.nom);
 
         }
 
