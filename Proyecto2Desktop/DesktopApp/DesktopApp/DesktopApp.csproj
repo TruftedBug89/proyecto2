@@ -213,6 +213,17 @@
       <DependentUpon>ModelFrase_alu.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DesktopApp.Models.cursos.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.grups.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.grups_has_alumnes.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.grups_has_docents.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.grups_has_llistes_skills.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.kpis.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.llistes_skills.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.rols.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.skills.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.usuaris.datasource" />
+    <None Include="Properties\DataSources\DesktopApp.Models.valoracions.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

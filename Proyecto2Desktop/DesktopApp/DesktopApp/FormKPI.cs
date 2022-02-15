@@ -16,5 +16,11 @@ namespace DesktopApp
         {
             InitializeComponent();
         }
+
+        private void FormKPI_Load(object sender, EventArgs e)
+        {
+            int loadedSkillId = 1;
+            bindingSourceKPI.DataSource = Models.KpisOrm.Select(true, loadedSkillId);
+        }
     }
 }

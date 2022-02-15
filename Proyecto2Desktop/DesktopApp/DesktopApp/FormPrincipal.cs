@@ -38,5 +38,11 @@ namespace DesktopApp
         {
             this.Close();
         }
+
+        private void btnGestionKPI_Click(object sender, EventArgs e)
+        {
+            FormKPI FormKPI = new FormKPI();
+            FormKPI.ShowDialog();
+        }
     }
 }

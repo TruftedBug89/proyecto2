@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNewKPI = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.C = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddKpi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,31 +70,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Descripción});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dataGridView1.DataSource = this.bindingSourceKPI;
             this.dataGridView1.Location = new System.Drawing.Point(56, 171);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1432, 281);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Column1";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            // 
-            // Descripción
-            // 
-            this.Descripción.HeaderText = "Column1";
-            this.Descripción.MinimumWidth = 8;
-            this.Descripción.Name = "Descripción";
             // 
             // lblNewKPI
             // 
@@ -140,11 +129,20 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // btnAddKpi
+            // 
+            this.btnAddKpi.Location = new System.Drawing.Point(1300, 585);
+            this.btnAddKpi.Name = "btnAddKpi";
+            this.btnAddKpi.Size = new System.Drawing.Size(30, 29);
+            this.btnAddKpi.TabIndex = 9;
+            this.btnAddKpi.UseVisualStyleBackColor = true;
+            // 
             // FormKPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1552, 852);
+            this.Controls.Add(this.btnAddKpi);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.C);
             this.Controls.Add(this.label1);
@@ -154,8 +152,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormKPI";
             this.Text = "FormKPI";
+            this.Load += new System.EventHandler(this.FormKPI_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,12 +166,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.Label lblNewKPI;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button C;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource bindingSourceKPI;
+        private System.Windows.Forms.Button btnAddKpi;
     }
 }
