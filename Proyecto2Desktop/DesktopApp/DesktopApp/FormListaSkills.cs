@@ -27,23 +27,12 @@ namespace DesktopApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            RadioButton btnListSkill = new RadioButton();
+            llistes_skills _llistes_Skills = new llistes_skills();
+            _llistes_Skills.nom = "Nueva Lista";
+            _llistes_Skills.skills = null;
+            _llistes_Skills.actiu = true;
 
-            btnListSkill.Appearance = Appearance.Button;
-            btnListSkill.Text = "Nueva Lista";
-            String nombre = btnListSkill.Text;
-            btnListSkill.FlatStyle = FlatStyle.Flat;
-            btnListSkill.TextAlign = ContentAlignment.MiddleCenter; 
-            btnListSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"),20,FontStyle.Bold);
-            btnListSkill.BackColor = Color.Black;
-            btnListSkill.ForeColor = Color.White;
-            btnListSkill.Size = new Size(180, 55);
-            btnListSkill.FlatAppearance.CheckedBackColor = Color.Blue;
-            btnListSkill.Margin = new Padding(24,8,4,4);
-            flpListSkills.Controls.Add(btnListSkill);
-
-           
-            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, nombre);
+            CrearBotonListaSkill(_llistes_Skills);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -53,23 +42,22 @@ namespace DesktopApp
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, String nombre)         
         {
-            MessageBox.Show(nombre);
+            NombreSkill = nombre;
+            MessageBox.Show(NombreSkill);
         }
 
         private void FormListaSkills_Load(object sender, EventArgs e)
         {
-            //RadioButton btnListSkill = new RadioButton();
-            //btnListSkill.Appearance = Appearance.Button;
-            //btnListSkill.Text = "Nueva Lista";
-            //btnListSkill.FlatStyle = FlatStyle.Flat;
-            //btnListSkill.TextAlign = ContentAlignment.MiddleCenter;
-            //btnListSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
-            //btnListSkill.BackColor = Color.Black;
-            //btnListSkill.ForeColor = Color.White;
-            //btnListSkill.Size = new Size(180, 55);
-            //btnListSkill.FlatAppearance.CheckedBackColor = Color.Blue;
-            //btnListSkill.Margin = new Padding(24, 8, 4, 4);
-            //flpListSkills.Controls.Add(btnListSkill);
+            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.Select();
+
+            if (_llistes_Skills.Count() >= 1)            
+            {
+                foreach (llistes_skills lSkills in _llistes_Skills)
+                {
+                    CrearBotonListaSkill(lSkills);
+                }
+            }
+
 
         }
 
@@ -93,7 +81,74 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            String missatge = "";
            
+
+            llistes_skills _llistes_Skills = new llistes_skills();
+            _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
+            _llistes_Skills.skills = null;
+            _llistes_Skills.actiu = true;
+
+            missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
+
+            if (missatge != "")
+            {
+                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvListaSkills.Rows)
+                {
+
+                    skills _skill = new skills();
+                    _skill.nom = row.Cells["Skill"].Value.ToString();
+                    _skill.llistes_skills_id = _llistes_Skills.id;
+                    _skill.actiu = true;
+                    _skill.colorFondo = Color.Black.ToArgb();
+                    _skill.colorTexto = Color.White.ToArgb();
+
+                    missatge = SkillsOrm.Insert(_skill);
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+
+                }
+            }
+
+            
+           
+
+            this.Close();
+
         }
+
+
+        private void CrearBotonListaSkill(llistes_skills ls)         
+        {
+            
+            RadioButton btnListSkill = new RadioButton();
+            btnListSkill.Appearance = Appearance.Button;
+            btnListSkill.Text = ls.nom;
+            String nombre = btnListSkill.Text;
+            btnListSkill.FlatStyle = FlatStyle.Flat;
+            btnListSkill.TextAlign = ContentAlignment.MiddleCenter;
+            btnListSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
+            btnListSkill.BackColor = Color.Black;
+            btnListSkill.ForeColor = Color.White;
+            btnListSkill.Size = new Size(200, 55);
+            btnListSkill.FlatAppearance.CheckedBackColor = Color.Blue;
+            btnListSkill.Margin = new Padding(24, 8, 4, 4);
+            flpListSkills.Controls.Add(btnListSkill);
+
+
+            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, nombre);
+
+        }
+
+
+
     }
 }

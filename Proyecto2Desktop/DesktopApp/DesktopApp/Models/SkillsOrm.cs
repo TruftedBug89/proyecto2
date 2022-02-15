@@ -8,6 +8,11 @@ namespace DesktopApp.Models
 {
     public static class SkillsOrm
     {
-
+        public static String Insert(skills skills)
+        {
+            Orm.bd.skills.Add(skills);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
     }
 }
