@@ -21,20 +21,21 @@ namespace DesktopApp
         {
 
         }
+                
+        private void btnManagmentListSkills_Click(object sender, EventArgs e)
+        {
+           
+            FormListaSkills formListaSkills = new FormListaSkills();
+            formListaSkills.ShowDialog();
+        }
 
-        private void btnGestionSkill_Click(object sender, EventArgs e)
+        private void btnManagmentSkill_Click(object sender, EventArgs e)
         {
             FormSkill formSkill = new FormSkill();
             formSkill.ShowDialog();
         }
 
-        private void btnGestionListaSkills_Click(object sender, EventArgs e)
-        {
-            FormListaSkills formListaSkills = new FormListaSkills();
-            formListaSkills.ShowDialog();
-        }
-
-        private void btnCerrarSesión_Click(object sender, EventArgs e)
+        private void btnCloseSesion_Click(object sender, EventArgs e)
         {
             this.Close();
         }

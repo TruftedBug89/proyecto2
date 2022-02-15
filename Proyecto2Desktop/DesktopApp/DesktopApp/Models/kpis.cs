@@ -25,8 +25,8 @@ namespace DesktopApp.Models
         public int skills_id { get; set; }
         public bool actiu { get; set; }
     
-        public virtual skills skills { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<valoracions> valoracions { get; set; }
+        public virtual skills skills { get; set; }
     }
 }

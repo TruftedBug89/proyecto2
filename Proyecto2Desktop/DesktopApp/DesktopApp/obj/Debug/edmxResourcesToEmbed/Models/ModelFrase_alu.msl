@@ -74,18 +74,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="skills">
-      <EntityTypeMapping TypeName="frase_aluModel.skills">
-        <MappingFragment StoreEntitySet="skills">
-          <ScalarProperty Name="colorTexto" ColumnName="colorTexto" />
-          <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nom" ColumnName="nom" />
-          <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
-          <ScalarProperty Name="actiu" ColumnName="actiu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="usuaris">
       <EntityTypeMapping TypeName="frase_aluModel.usuaris">
         <MappingFragment StoreEntitySet="usuaris">
@@ -104,6 +92,18 @@
           <ScalarProperty Name="usuari_pp_id" ColumnName="usuari_pp_id" />
           <ScalarProperty Name="data" ColumnName="data" />
           <ScalarProperty Name="nota" ColumnName="nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skills">
+      <EntityTypeMapping TypeName="frase_aluModel.skills">
+        <MappingFragment StoreEntitySet="skills">
+          <ScalarProperty Name="colorTexto" ColumnName="colorTexto" />
+          <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
