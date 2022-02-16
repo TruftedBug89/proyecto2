@@ -27,15 +27,12 @@ namespace DesktopApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            llistes_skills _llistes_Skills = new llistes_skills();
-            _llistes_Skills.nom = "Nueva Lista";
-            _llistes_Skills.skills = null;
-            _llistes_Skills.actiu = true;
+            _llistesSkills = null;
             dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
             txtNameListSkill.Text = "";
 
-            CrearBotonListaSkill(_llistes_Skills);
+            CrearBotonListaSkill(_llistesSkills);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -45,29 +42,38 @@ namespace DesktopApp
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-            _llistesSkills = llistesS;           
-            txtNameListSkill.Text = _llistesSkills.nom;
-
             dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
             dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             dgvListaSkills.Columns.Add("Letra", "Letra");
             dgvListaSkills.Columns.Add("Skill", "Skill");
 
-            if (llistesS.actiu)
+            _llistesSkills = llistesS;
+
+            if (_llistesSkills != null) 
             {
-                cboActivate.Checked = true;
-            }
-            else {
-                cboActivate.Checked = false;
+                txtNameListSkill.Text = _llistesSkills.nom;
+
+                if (llistesS.actiu)
+                {
+                    cboActivate.Checked = true;
+                }
+                else
+                {
+                    cboActivate.Checked = false;
+                }
+
+                foreach (skills skill in _llistesSkills.skills)
+                {
+                    char[] letras = skill.nom.ToCharArray();
+                    dgvListaSkills.Rows.Add(letras[0], skill.nom);
+
+                }
             }
 
-            foreach (skills skill in _llistesSkills.skills)
-            {
-                char[] letras = skill.nom.ToCharArray();       
-                dgvListaSkills.Rows.Add(letras[0],skill.nom);
+        
 
-            }
+           
            
 
         }
@@ -110,7 +116,7 @@ namespace DesktopApp
             String missatge = "";
 
 
-            if (!_llistesSkills.nom.Equals("Nueva Lista"))
+            if (_llistesSkills != null)
             {
                 _llistesSkills.actiu = false;
 
@@ -118,7 +124,7 @@ namespace DesktopApp
                 {
                     _llistesSkills.actiu = true;
                 }
-                missatge = Llistes_SkillsOrm.Update(_llistesSkills,txtNameListSkill.Text, _llistesSkills.actiu);
+                missatge = Llistes_SkillsOrm.Update(_llistesSkills,txtNameListSkill.Text.ToUpper(), _llistesSkills.actiu);
 
                 if (missatge != "")
                 {
@@ -188,7 +194,15 @@ namespace DesktopApp
             
             RadioButton btnListSkill = new RadioButton();
             btnListSkill.Appearance = Appearance.Button;
-            btnListSkill.Text = ls.nom;
+            if (ls == null)
+            {
+                btnListSkill.Text = "Nueva Lista";
+            }
+            else 
+            {
+                btnListSkill.Text = ls.nom;
+            }
+            
             String nombre = btnListSkill.Text;
             btnListSkill.FlatStyle = FlatStyle.Flat;
             btnListSkill.TextAlign = ContentAlignment.MiddleCenter;
