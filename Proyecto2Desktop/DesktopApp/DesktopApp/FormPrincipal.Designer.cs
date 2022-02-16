@@ -33,22 +33,22 @@
             this.btnManagmentListSkills = new System.Windows.Forms.Button();
             this.btnGestionKPI = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.flpSkills = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnManagmentSkills = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvSkill = new System.Windows.Forms.DataGridView();
-            this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnManagmentSkills = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.flpListSkills.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.flpSkills.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
-            this.flpListSkills.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,14 +114,53 @@
             this.panel4.Size = new System.Drawing.Size(1751, 130);
             this.panel4.TabIndex = 7;
             // 
+            // flpListSkills
+            // 
+            this.flpListSkills.AutoScroll = true;
+            this.flpListSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
+            this.flpListSkills.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flpListSkills.Location = new System.Drawing.Point(0, 0);
+            this.flpListSkills.Name = "flpListSkills";
+            this.flpListSkills.Size = new System.Drawing.Size(1751, 105);
+            this.flpListSkills.TabIndex = 22;
+            this.flpListSkills.WrapContents = false;
+            // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.flowLayoutPanel1);
+            this.panel5.Controls.Add(this.flpSkills);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 825);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1751, 131);
             this.panel5.TabIndex = 10;
+            // 
+            // flpSkills
+            // 
+            this.flpSkills.AutoScroll = true;
+            this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flpSkills.Controls.Add(this.btnManagmentSkills);
+            this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpSkills.Location = new System.Drawing.Point(0, 26);
+            this.flpSkills.Name = "flpSkills";
+            this.flpSkills.Size = new System.Drawing.Size(1751, 105);
+            this.flpSkills.TabIndex = 23;
+            this.flpSkills.WrapContents = false;
+            // 
+            // btnManagmentSkills
+            // 
+            this.btnManagmentSkills.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnManagmentSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagmentSkills.ForeColor = System.Drawing.Color.White;
+            this.btnManagmentSkills.Location = new System.Drawing.Point(16, 10);
+            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(16, 10, 4, 4);
+            this.btnManagmentSkills.Name = "btnManagmentSkills";
+            this.btnManagmentSkills.Size = new System.Drawing.Size(147, 66);
+            this.btnManagmentSkills.TabIndex = 5;
+            this.btnManagmentSkills.Text = "Gestion Skills";
+            this.btnManagmentSkills.UseVisualStyleBackColor = false;
+            this.btnManagmentSkills.Click += new System.EventHandler(this.btnManagmentSkills_Click);
             // 
             // panel6
             // 
@@ -166,45 +205,6 @@
             this.dgvSkill.Size = new System.Drawing.Size(1232, 629);
             this.dgvSkill.TabIndex = 16;
             // 
-            // flpListSkills
-            // 
-            this.flpListSkills.AutoScroll = true;
-            this.flpListSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
-            this.flpListSkills.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpListSkills.Location = new System.Drawing.Point(0, 0);
-            this.flpListSkills.Name = "flpListSkills";
-            this.flpListSkills.Size = new System.Drawing.Size(1751, 105);
-            this.flpListSkills.TabIndex = 22;
-            this.flpListSkills.WrapContents = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flowLayoutPanel1.Controls.Add(this.btnManagmentSkills);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1751, 105);
-            this.flowLayoutPanel1.TabIndex = 23;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
-            // btnManagmentSkills
-            // 
-            this.btnManagmentSkills.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnManagmentSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManagmentSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagmentSkills.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentSkills.Location = new System.Drawing.Point(16, 10);
-            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(16, 10, 4, 4);
-            this.btnManagmentSkills.Name = "btnManagmentSkills";
-            this.btnManagmentSkills.Size = new System.Drawing.Size(147, 66);
-            this.btnManagmentSkills.TabIndex = 5;
-            this.btnManagmentSkills.Text = "Gestion Skills";
-            this.btnManagmentSkills.UseVisualStyleBackColor = false;
-            this.btnManagmentSkills.Click += new System.EventHandler(this.btnManagmentSkills_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,12 +223,12 @@
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.flpListSkills.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.flpSkills.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).EndInit();
-            this.flpListSkills.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -246,7 +246,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dgvSkill;
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpSkills;
         private System.Windows.Forms.Button btnManagmentSkills;
     }
 }

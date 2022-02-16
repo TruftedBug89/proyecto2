@@ -12,8 +12,9 @@ using System.Windows.Forms;
 namespace DesktopApp
 {
     public partial class FormPrincipal : Form
-    {
-        private String NombreSkill;
+    {       
+        private llistes_skills _llistesSkills;
+        private skills _skill;
 
         public FormPrincipal()
         {
@@ -22,7 +23,7 @@ namespace DesktopApp
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.Select();
+            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
 
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
@@ -38,19 +39,33 @@ namespace DesktopApp
             FormListaSkills formListaSkills = new FormListaSkills();
             formListaSkills.ShowDialog();
             ActualizarPanelListasSkills();
+            limpiarPanelSkills();
         }
-
-       
+               
 
         private void btnCloseSesion_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, String nombre)
+        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
-            NombreSkill = nombre;
-            MessageBox.Show(NombreSkill);
+            limpiarPanelSkills();
+            _llistesSkills = llistesS;
+            List<skills> skills = _llistesSkills.skills.ToList();
+
+            foreach (skills skill in _llistesSkills.skills)
+            {
+                CrearBotonSkills(skill);
+            }
+        }
+
+        private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S) 
+        {
+            _skill = S;
+
+            MessageBox.Show(S.nom);
+
         }
 
 
@@ -71,25 +86,57 @@ namespace DesktopApp
             btnListSkill.Margin = new Padding(24, 8, 4, 4);
             flpListSkills.Controls.Add(btnListSkill);
 
-            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls.nom);
+            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls);
 
         }
 
+
+        private void CrearBotonSkills(skills _skills) 
+        {
+            RadioButton btnSkill = new RadioButton();
+            btnSkill.Appearance = Appearance.Button;
+            char[] letra = _skills.nom.ToCharArray();
+            btnSkill.Text = letra[0].ToString();
+            String nombre = btnSkill.Text;
+            btnSkill.FlatStyle = FlatStyle.Flat;
+            btnSkill.TextAlign = ContentAlignment.MiddleCenter;
+            btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
+            btnSkill.BackColor = Color.Black;
+            btnSkill.ForeColor = Color.White;
+            btnSkill.Size = new Size(100, 55);
+            btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
+            btnSkill.Margin = new Padding(120, 8, 4, 4);
+            flpSkills.Controls.Add(btnSkill);
+
+            btnSkill.Click += (sender2, e2) => SeleccionarSkill_Click(sender2, e2, btnSkill, _skills);
+        }
+
+
         private void ActualizarPanelListasSkills() 
         {
-            //flpListSkills.Controls.Clear();
+           //Elimino todos los Controles menos el primero
             while (flpListSkills.Controls.Count > 1) 
             {
                 flpListSkills.Controls.RemoveAt(1);
             }
 
-            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.Select();
+            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
 
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
                 CrearBotonListaSkill(lSkills);
             }
         }
+
+        private void limpiarPanelSkills() 
+        {
+            //Elimino todos los Controles menos el primero
+            while (flpSkills.Controls.Count > 1)
+            {
+                flpSkills.Controls.RemoveAt(1);
+            }
+        }
+
 
         private void btnManagmentSkills_Click(object sender, EventArgs e)
         {

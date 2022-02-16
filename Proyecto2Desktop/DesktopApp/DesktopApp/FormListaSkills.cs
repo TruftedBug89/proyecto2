@@ -12,8 +12,8 @@ using DesktopApp.Models;
 namespace DesktopApp
 {
     public partial class FormListaSkills : Form
-    {
-        private String NombreSkill;
+    {       
+        private llistes_skills _llistesSkills;
 
         public FormListaSkills()
         {
@@ -31,6 +31,9 @@ namespace DesktopApp
             _llistes_Skills.nom = "Nueva Lista";
             _llistes_Skills.skills = null;
             _llistes_Skills.actiu = true;
+            dgvListaSkills.Columns.Clear();
+            dgvListaSkills.DataSource = null;
+            txtNameListSkill.Text = "";
 
             CrearBotonListaSkill(_llistes_Skills);
         }
@@ -40,10 +43,33 @@ namespace DesktopApp
             
         }
 
-        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, String nombre)         
+        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-            NombreSkill = nombre;
-            MessageBox.Show(NombreSkill);
+            _llistesSkills = llistesS;           
+            txtNameListSkill.Text = _llistesSkills.nom;
+
+            dgvListaSkills.Columns.Clear();
+            dgvListaSkills.DataSource = null;
+            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+            dgvListaSkills.Columns.Add("Letra", "Letra");
+            dgvListaSkills.Columns.Add("Skill", "Skill");
+
+            if (llistesS.actiu)
+            {
+                cboActivate.Checked = true;
+            }
+            else {
+                cboActivate.Checked = false;
+            }
+
+            foreach (skills skill in _llistesSkills.skills)
+            {
+                char[] letras = skill.nom.ToCharArray();       
+                dgvListaSkills.Rows.Add(letras[0],skill.nom);
+
+            }
+           
+
         }
 
         private void FormListaSkills_Load(object sender, EventArgs e)
@@ -82,44 +108,75 @@ namespace DesktopApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             String missatge = "";
-           
 
-            llistes_skills _llistes_Skills = new llistes_skills();
-            _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
-            _llistes_Skills.skills = null;
-            _llistes_Skills.actiu = true;
 
-            missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
-
-            if (missatge != "")
+            if (!_llistesSkills.nom.Equals("Nueva Lista"))
             {
-                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                foreach (DataGridViewRow row in dgvListaSkills.Rows)
+                _llistesSkills.actiu = false;
+
+                if (cboActivate.Checked)
                 {
+                    _llistesSkills.actiu = true;
+                }
+                missatge = Llistes_SkillsOrm.Update(_llistesSkills,txtNameListSkill.Text, _llistesSkills.actiu);
 
-                    skills _skill = new skills();
-                    _skill.nom = row.Cells["Skill"].Value.ToString();
-                    _skill.llistes_skills_id = _llistes_Skills.id;
-                    _skill.actiu = true;
-                    _skill.colorFondo = Color.Black.ToArgb();
-                    _skill.colorTexto = Color.White.ToArgb();
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Datos actualizados");
+                }
 
-                    missatge = SkillsOrm.Insert(_skill);
+               
+            }
+            else {
 
-                    if (missatge != "")
+                llistes_skills _llistes_Skills = new llistes_skills();
+                _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
+                _llistes_Skills.skills = null;
+                _llistes_Skills.actiu = false;
+
+                if (cboActivate.Checked) 
+                {
+                    _llistes_Skills.actiu = true;
+                } 
+
+                missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgvListaSkills.Rows)
                     {
-                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        skills _skill = new skills();
+                        _skill.nom = row.Cells["Skill"].Value.ToString();
+                        _skill.llistes_skills_id = _llistes_Skills.id;
+                        _skill.actiu = true;
+                        _skill.colorFondo = Color.Black.ToArgb();
+                        _skill.colorTexto = Color.White.ToArgb();
+
+                        missatge = SkillsOrm.Insert(_skill);
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
 
                     }
-
                 }
+
             }
 
-            
-           
+
+
+
 
             this.Close();
 
@@ -144,7 +201,7 @@ namespace DesktopApp
             flpListSkills.Controls.Add(btnListSkill);
 
 
-            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, nombre);
+            btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls);
 
         }
 
