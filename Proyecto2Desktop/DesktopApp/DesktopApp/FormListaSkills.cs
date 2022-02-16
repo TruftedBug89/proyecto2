@@ -42,11 +42,7 @@ namespace DesktopApp
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-            dgvListaSkills.Columns.Clear();
-            dgvListaSkills.DataSource = null;
-            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
-            dgvListaSkills.Columns.Add("Letra", "Letra");
-            dgvListaSkills.Columns.Add("Skill", "Skill");
+            ConstruirEncabezadosTabla();
 
             _llistesSkills = llistesS;
 
@@ -95,11 +91,7 @@ namespace DesktopApp
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
-            dgvListaSkills.Columns.Clear();
-            dgvListaSkills.DataSource = null;
-            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif",15,FontStyle.Bold);
-            dgvListaSkills.Columns.Add("Letra", "Letra");
-            dgvListaSkills.Columns.Add("Skill","Skill");
+            ConstruirEncabezadosTabla();
 
             Char[] letras = txtNameListSkill.Text.ToCharArray();             
 
@@ -181,9 +173,6 @@ namespace DesktopApp
             }
 
 
-
-
-
             this.Close();
 
         }
@@ -217,6 +206,16 @@ namespace DesktopApp
 
             btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls);
 
+        }
+
+        private void ConstruirEncabezadosTabla() 
+        {
+            dgvListaSkills.Columns.Clear();
+            dgvListaSkills.DataSource = null;
+            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+            dgvListaSkills.Columns.Add("Letra", "Letra");
+            dgvListaSkills.Columns.Add("Skill", "Skill");
+            dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         }
 
 

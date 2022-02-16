@@ -195,9 +195,9 @@
             // 
             // dgvSkill
             // 
+            this.dgvSkill.AllowUserToAddRows = false;
             this.dgvSkill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSkill.ColumnHeadersHeight = 29;
-            this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSkill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSkill.Location = new System.Drawing.Point(259, 196);
             this.dgvSkill.Margin = new System.Windows.Forms.Padding(4);

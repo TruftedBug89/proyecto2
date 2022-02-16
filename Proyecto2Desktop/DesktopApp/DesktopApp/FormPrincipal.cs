@@ -51,6 +51,7 @@ namespace DesktopApp
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
             limpiarPanelSkills();
+            dgvSkill.Columns.Clear();
             _llistesSkills = llistesS;
             List<skills> skills = _llistesSkills.skills.ToList();
 
@@ -68,6 +69,7 @@ namespace DesktopApp
             dgvSkill.DataSource = null;
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             dgvSkill.Columns.Add(S.nom, S.nom);
+            dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
 
         }
 
