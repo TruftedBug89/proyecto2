@@ -64,7 +64,10 @@ namespace DesktopApp
         {
             _skill = S;
 
-            MessageBox.Show(S.nom);
+            dgvSkill.Columns.Clear();
+            dgvSkill.DataSource = null;
+            dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+            dgvSkill.Columns.Add(S.nom, S.nom);
 
         }
 
