@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
@@ -43,36 +41,12 @@
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.cboBuildTable = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.btnCerrarSesión);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1445, 58);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnCerrarSesión
-            // 
-            this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
-            this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
-            this.btnCerrarSesión.TabIndex = 0;
-            this.btnCerrarSesión.Text = "Cerar Sesión";
-            this.btnCerrarSesión.UseVisualStyleBackColor = false;
             // 
             // lblNameListSkill
             // 
@@ -183,7 +157,7 @@
             this.flpListSkills.AutoScroll = true;
             this.flpListSkills.Controls.Add(this.btnAdd);
             this.flpListSkills.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpListSkills.Location = new System.Drawing.Point(0, 58);
+            this.flpListSkills.Location = new System.Drawing.Point(0, 51);
             this.flpListSkills.Name = "flpListSkills";
             this.flpListSkills.Size = new System.Drawing.Size(1445, 105);
             this.flpListSkills.TabIndex = 19;
@@ -226,6 +200,15 @@
             this.cboBuildTable.UseVisualStyleBackColor = false;
             this.cboBuildTable.CheckedChanged += new System.EventHandler(this.cboBuildTable_CheckedChanged);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1445, 51);
+            this.panel1.TabIndex = 31;
+            // 
             // bindingSourceSkills
             // 
             this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
@@ -236,9 +219,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.flpListSkills);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cboBuildTable);
             this.Controls.Add(this.cboActivate);
-            this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.btnManagmentGroups);
             this.Controls.Add(this.cbxBcolors);
             this.Controls.Add(this.label1);
@@ -247,11 +231,9 @@
             this.Controls.Add(this.dgvListaSkills);
             this.Controls.Add(this.txtNameListSkill);
             this.Controls.Add(this.lblNameListSkill);
-            this.Controls.Add(this.panel1);
             this.Name = "FormListaSkills";
             this.Text = "FormListaSkills";
             this.Load += new System.EventHandler(this.FormListaSkills_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).EndInit();
             this.flpListSkills.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).EndInit();
@@ -261,9 +243,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.Label lblNameListSkill;
         private System.Windows.Forms.TextBox txtNameListSkill;
         private System.Windows.Forms.DataGridView dgvListaSkills;
@@ -277,5 +256,6 @@
         private System.Windows.Forms.BindingSource bindingSourceSkills;
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.CheckBox cboBuildTable;
+        private System.Windows.Forms.Panel panel1;
     }
 }

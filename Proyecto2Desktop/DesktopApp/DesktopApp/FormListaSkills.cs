@@ -30,7 +30,6 @@ namespace DesktopApp
             _llistesSkills = null;
             dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
-            txtNameListSkill.Text = "";
 
             CrearBotonListaSkill(_llistesSkills);
         }
@@ -38,7 +37,6 @@ namespace DesktopApp
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-
 
             cboBuildTable.Checked = false;           
             _llistesSkills = llistesS;
@@ -70,6 +68,7 @@ namespace DesktopApp
                 }
                 else
                 {
+                    
                     dgvListaSkills.Columns.Clear();
 
                 }
@@ -194,7 +193,9 @@ namespace DesktopApp
             btnListSkill.Appearance = Appearance.Button;
             if (ls == null)
             {
-                btnListSkill.Text = "Nueva Lista";
+                btnListSkill.Text = "Nueva Lista";                
+                txtNameListSkill.Text = "";
+                dgvListaSkills.Columns.Clear();
             }
             else 
             {

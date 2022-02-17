@@ -46,12 +46,21 @@ namespace DesktopApp
         {
             _skill = S;
 
-            txtNameSkill.Text = _skill.nom;
-            char[] letras = _skill.nom.ToCharArray();
-            txtWordSkill.Text = letras[0].ToString();
-            cboActivate.Checked = _skill.actiu;
-            txtBcolor.BackColor = Color.FromArgb(_skill.colorFondo);
-            txtTcolor.BackColor = Color.FromArgb(_skill.colorTexto);
+            if (_skill != null)
+            {
+                txtNameSkill.Text = _skill.nom;
+                char[] letras = _skill.nom.ToCharArray();
+                txtWordSkill.Text = letras[0].ToString();
+                cboActivate.Checked = _skill.actiu;
+                txtBcolor.BackColor = Color.FromArgb(_skill.colorFondo);
+                txtTcolor.BackColor = Color.FromArgb(_skill.colorTexto);
+            }
+            else
+            {
+                vaciarCampos();
+            }
+
+            
            
         }
 
@@ -60,15 +69,26 @@ namespace DesktopApp
         {
             RadioButton btnSkill = new RadioButton();
             btnSkill.Appearance = Appearance.Button;
-            char[] letra = _skill.nom.ToCharArray();
-            btnSkill.Text = letra[0].ToString();
+
+            if (_skill == null) 
+            {
+                btnSkill.Text = "n";
+                btnSkill.BackColor = Color.Black;
+                btnSkill.ForeColor = Color.White;
+            }
+            else
+            {
+                char[] letra = _skill.nom.ToCharArray();
+                btnSkill.Text = letra[0].ToString();
+                btnSkill.BackColor = Color.FromArgb(_skill.colorFondo);
+                btnSkill.ForeColor = Color.FromArgb(_skill.colorTexto);
+            }
+
             String nombre = btnSkill.Text;
             btnSkill.FlatStyle = FlatStyle.Flat;
             btnSkill.FlatAppearance.BorderSize = 0;
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
-            btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
-            btnSkill.BackColor = Color.FromArgb(_skill.colorFondo);
-            btnSkill.ForeColor = Color.FromArgb(_skill.colorTexto);
+            btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 30, FontStyle.Bold);
             btnSkill.Size = new Size(85, 75);
             btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
             btnSkill.Margin = new Padding(120, 15, 4, 4);
@@ -119,7 +139,7 @@ namespace DesktopApp
             }
             else
             {
-
+                
             }
 
 
@@ -128,6 +148,22 @@ namespace DesktopApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             _skill = null;
+
+            CrearBotonSkills(_skill);
+            vaciarCampos();
+
         }
+
+        public void vaciarCampos() 
+        {
+            txtNameSkill.Text = "";
+            txtWordSkill.Text = "";
+            cboActivate.Checked = false;
+            txtBcolor.BackColor = Color.White;
+            txtTcolor.BackColor = Color.White;
+        }
+
+
+
     }
 }

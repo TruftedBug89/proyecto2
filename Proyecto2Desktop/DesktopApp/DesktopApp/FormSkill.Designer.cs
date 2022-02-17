@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCerrarSesión = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombreSkill = new System.Windows.Forms.Label();
             this.txtWordSkill = new System.Windows.Forms.TextBox();
             this.lblLetraSkill = new System.Windows.Forms.Label();
@@ -46,34 +44,10 @@
             this.btnTColor = new System.Windows.Forms.Button();
             this.txtTcolor = new System.Windows.Forms.TextBox();
             this.cdTextColor = new System.Windows.Forms.ColorDialog();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.flpSkills.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCerrarSesión
-            // 
-            this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
-            this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
-            this.btnCerrarSesión.TabIndex = 0;
-            this.btnCerrarSesión.Text = "Cerar Sesión";
-            this.btnCerrarSesión.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.btnCerrarSesión);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1192, 51);
-            this.panel1.TabIndex = 1;
             // 
             // lblNombreSkill
             // 
@@ -242,12 +216,22 @@
             this.txtTcolor.TabIndex = 29;
             this.txtTcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1192, 56);
+            this.panel1.TabIndex = 30;
+            // 
             // FormSkill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1192, 640);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtTcolor);
             this.Controls.Add(this.btnTColor);
             this.Controls.Add(this.txtBcolor);
@@ -259,11 +243,9 @@
             this.Controls.Add(this.txtWordSkill);
             this.Controls.Add(this.txtNameSkill);
             this.Controls.Add(this.lblNombreSkill);
-            this.Controls.Add(this.panel1);
             this.Name = "FormSkill";
             this.Text = "FormSkill";
             this.Load += new System.EventHandler(this.FormSkill_Load);
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.flpSkills.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -272,9 +254,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCerrarSesión;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNombreSkill;
         private System.Windows.Forms.TextBox txtWordSkill;
         private System.Windows.Forms.Label lblLetraSkill;
@@ -291,5 +270,6 @@
         private System.Windows.Forms.Button btnTColor;
         private System.Windows.Forms.TextBox txtTcolor;
         private System.Windows.Forms.ColorDialog cdTextColor;
+        private System.Windows.Forms.Panel panel1;
     }
 }

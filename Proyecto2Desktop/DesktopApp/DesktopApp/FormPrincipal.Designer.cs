@@ -68,6 +68,8 @@
             this.btnCloseSesion.BackColor = System.Drawing.Color.Tomato;
             this.btnCloseSesion.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
             this.btnCloseSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseSesion.ForeColor = System.Drawing.Color.White;
             this.btnCloseSesion.Location = new System.Drawing.Point(1491, 11);
             this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseSesion.Name = "btnCloseSesion";
