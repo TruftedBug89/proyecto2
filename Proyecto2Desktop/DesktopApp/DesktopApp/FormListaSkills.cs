@@ -107,7 +107,6 @@ namespace DesktopApp
         {
             String missatge = "";
 
-
             if (_llistesSkills != null)
             {
                 _llistesSkills.actiu = false;
