@@ -16,6 +16,7 @@ namespace DesktopApp
     {
         private skills _skill;
         private List<skills> _skills;
+        int id_llista;
         private List<Color> colores = new List<Color>() {Color.Red,Color.Blue,Color.Green,Color.Black,Color.Orange,Color.White};
 
         public FormSkill()
@@ -23,16 +24,16 @@ namespace DesktopApp
             InitializeComponent();
         }
 
-        public FormSkill(List<skills> skills)
+        public FormSkill(int id)
         {
             InitializeComponent();
-            this._skills = skills;
+            this.id_llista = id;
         }
 
 
         private void FormSkill_Load(object sender, EventArgs e)
         {
-           
+            _skills = SkillsOrm.SelectIdLlista(id_llista);
 
             foreach (skills skill in _skills)
             {
@@ -45,11 +46,12 @@ namespace DesktopApp
         {
             _skill = S;
 
-            txtNameSkill.Text = S.nom;
-            char[] letras = S.nom.ToCharArray();
+            txtNameSkill.Text = _skill.nom;
+            char[] letras = _skill.nom.ToCharArray();
             txtWordSkill.Text = letras[0].ToString();
-            txtBcolor.BackColor = Color.FromArgb(S.colorFondo);
-            txtTcolor.BackColor = Color.FromArgb(S.colorTexto);
+            cboActivate.Checked = _skill.actiu;
+            txtBcolor.BackColor = Color.FromArgb(_skill.colorFondo);
+            txtTcolor.BackColor = Color.FromArgb(_skill.colorTexto);
            
         }
 
@@ -62,6 +64,7 @@ namespace DesktopApp
             btnSkill.Text = letra[0].ToString();
             String nombre = btnSkill.Text;
             btnSkill.FlatStyle = FlatStyle.Flat;
+            btnSkill.FlatAppearance.BorderSize = 0;
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
             btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
             btnSkill.BackColor = Color.FromArgb(_skill.colorFondo);
@@ -100,17 +103,31 @@ namespace DesktopApp
         {
             String missatge = "";
 
-            missatge = SkillsOrm.Update(_skill, txtNameSkill.Text, true,txtBcolor.BackColor.ToArgb(),txtTcolor.BackColor.ToArgb());
-
-            if (missatge != "")
+            if (_skill != null)
             {
-                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                missatge = SkillsOrm.Update(_skill, txtNameSkill.Text, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Datos actualizados");
+                }
             }
             else
             {
-                MessageBox.Show("Datos actualizados");
+
             }
 
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            _skill = null;
         }
     }
 }

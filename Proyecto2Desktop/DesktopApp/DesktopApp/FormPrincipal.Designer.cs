@@ -130,9 +130,9 @@
             // 
             this.panel5.Controls.Add(this.flpSkills);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 825);
+            this.panel5.Location = new System.Drawing.Point(0, 794);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1751, 131);
+            this.panel5.Size = new System.Drawing.Size(1751, 162);
             this.panel5.TabIndex = 10;
             // 
             // flpSkills
@@ -141,9 +141,9 @@
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnManagmentSkills);
             this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpSkills.Location = new System.Drawing.Point(0, 26);
+            this.flpSkills.Location = new System.Drawing.Point(0, 12);
             this.flpSkills.Name = "flpSkills";
-            this.flpSkills.Size = new System.Drawing.Size(1751, 105);
+            this.flpSkills.Size = new System.Drawing.Size(1751, 150);
             this.flpSkills.TabIndex = 23;
             this.flpSkills.WrapContents = false;
             // 
@@ -153,10 +153,10 @@
             this.btnManagmentSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentSkills.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentSkills.Location = new System.Drawing.Point(16, 10);
-            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(16, 10, 4, 4);
+            this.btnManagmentSkills.Location = new System.Drawing.Point(16, 20);
+            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(16, 20, 4, 4);
             this.btnManagmentSkills.Name = "btnManagmentSkills";
-            this.btnManagmentSkills.Size = new System.Drawing.Size(147, 66);
+            this.btnManagmentSkills.Size = new System.Drawing.Size(147, 87);
             this.btnManagmentSkills.TabIndex = 5;
             this.btnManagmentSkills.Text = "Gestion Skills";
             this.btnManagmentSkills.UseVisualStyleBackColor = false;
@@ -168,7 +168,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 196);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(259, 629);
+            this.panel6.Size = new System.Drawing.Size(259, 598);
             this.panel6.TabIndex = 13;
             // 
             // btnGestionUsuarios
@@ -190,7 +190,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(1491, 196);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(260, 629);
+            this.panel7.Size = new System.Drawing.Size(260, 598);
             this.panel7.TabIndex = 14;
             // 
             // dgvSkill
@@ -204,7 +204,7 @@
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;
-            this.dgvSkill.Size = new System.Drawing.Size(1232, 629);
+            this.dgvSkill.Size = new System.Drawing.Size(1232, 598);
             this.dgvSkill.TabIndex = 16;
             // 
             // FormPrincipal

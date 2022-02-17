@@ -16,10 +16,20 @@ namespace DesktopApp.Models
             return _skills;
         }
 
-        public static List<skills> SelectActivate()
+        public static List<skills> SelectIdLlista(int id_llistaSkills)
+        {
+            List<skills> _skills = Orm.bd.skills                           
+                            .Where(c => c.llistes_skills_id == id_llistaSkills)
+                            .ToList();
+
+            return _skills;
+        }
+
+        public static List<skills> SelectActivate(int id_llista)
         {
             List<skills> _skills = Orm.bd.skills
-                            .Where(c => c.actiu == true)
+                            .Where(c => c.actiu == true)   
+                            .Where(c => c.llistes_skills_id == id_llista)
                             .ToList();
 
             return _skills;

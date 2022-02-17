@@ -36,7 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnAñadir = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtNameSkill = new System.Windows.Forms.TextBox();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.flpSkills = new System.Windows.Forms.FlowLayoutPanel();
@@ -141,19 +141,20 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnAñadir
+            // btnAdd
             // 
-            this.btnAñadir.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadir.ForeColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(20, 20);
-            this.btnAñadir.Margin = new System.Windows.Forms.Padding(20, 20, 4, 4);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(101, 92);
-            this.btnAñadir.TabIndex = 0;
-            this.btnAñadir.Text = "+";
-            this.btnAñadir.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(20, 20);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(20, 20, 4, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(101, 92);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtNameSkill
             // 
@@ -185,7 +186,7 @@
             // 
             this.flpSkills.AutoScroll = true;
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpSkills.Controls.Add(this.btnAñadir);
+            this.flpSkills.Controls.Add(this.btnAdd);
             this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flpSkills.Location = new System.Drawing.Point(0, 412);
             this.flpSkills.Name = "flpSkills";
@@ -280,7 +281,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtNameSkill;
-        private System.Windows.Forms.Button btnAñadir;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.FlowLayoutPanel flpSkills;

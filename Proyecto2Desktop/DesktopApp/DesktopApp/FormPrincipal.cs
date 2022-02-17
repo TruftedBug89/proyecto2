@@ -12,7 +12,9 @@ using System.Windows.Forms;
 namespace DesktopApp
 {
     public partial class FormPrincipal : Form
-    {       
+    {
+        List<llistes_skills> _llistes_Skills;
+        List<skills> _skills;
         private llistes_skills _llistesSkills;
         private skills _skill;
 
@@ -23,7 +25,7 @@ namespace DesktopApp
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
+            _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
 
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
@@ -55,7 +57,9 @@ namespace DesktopApp
             dgvSkill.Columns.Clear();
             _llistesSkills = llistesS;
 
-            foreach (skills skill in _llistesSkills.skills)
+            _skills = SkillsOrm.SelectActivate(_llistesSkills.id);
+
+            foreach (skills skill in _skills)
             {                
                 CrearBotonSkills(skill);
             }
@@ -104,13 +108,14 @@ namespace DesktopApp
             btnSkill.Text = letra[0].ToString();
             String nombre = btnSkill.Text;
             btnSkill.FlatStyle = FlatStyle.Flat;
+            btnSkill.FlatAppearance.BorderSize = 0;
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
-            btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
+            btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 30, FontStyle.Bold);
             btnSkill.BackColor = Color.FromArgb(_skills.colorFondo);
             btnSkill.ForeColor = Color.FromArgb(_skills.colorTexto);
-            btnSkill.Size = new Size(100, 55);
+            btnSkill.Size = new Size(85, 75);
             btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
-            btnSkill.Margin = new Padding(120, 8, 4, 4);
+            btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
 
             btnSkill.Click += (sender2, e2) => SeleccionarSkill_Click(sender2, e2, btnSkill, _skills);
@@ -148,8 +153,9 @@ namespace DesktopApp
         {
             if (_llistesSkills != null) 
             {
-                FormSkill formSkill = new FormSkill(_llistesSkills.skills.ToList());
+                FormSkill formSkill = new FormSkill(_llistesSkills.id);
                 formSkill.ShowDialog();
+                limpiarPanelSkills();
             }
             else
             {

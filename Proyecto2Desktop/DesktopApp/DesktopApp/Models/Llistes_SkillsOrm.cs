@@ -41,6 +41,17 @@ namespace DesktopApp.Models
 
         }
 
+        public static String UpdateName(llistes_skills _llistes, String nombre)
+        {
+
+            _llistes.nom = nombre;
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+
+        }
+
+
+
 
     }
 }
