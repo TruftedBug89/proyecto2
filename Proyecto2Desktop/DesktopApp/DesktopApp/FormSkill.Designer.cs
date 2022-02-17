@@ -31,19 +31,19 @@
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombreSkill = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInitialSkill = new System.Windows.Forms.TextBox();
             this.lblLetraSkill = new System.Windows.Forms.Label();
             this.lblBColor = new System.Windows.Forms.Label();
             this.lblTcolor = new System.Windows.Forms.Label();
-            this.cbxBcolors = new System.Windows.Forms.ComboBox();
-            this.cbxTcolors = new System.Windows.Forms.ComboBox();
+            this.cbxColors = new System.Windows.Forms.ComboBox();
+            this.cbxTextColors = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlLetrasSkills = new System.Windows.Forms.Panel();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombreSkill = new System.Windows.Forms.TextBox();
+            this.txtSkillName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlLetrasSkills.SuspendLayout();
@@ -83,14 +83,14 @@
             this.lblNombreSkill.TabIndex = 2;
             this.lblNombreSkill.Text = "Nombre Skill:";
             // 
-            // textBox1
+            // txtInitialSkill
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(225, 224);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 158);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtInitialSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInitialSkill.Location = new System.Drawing.Point(225, 224);
+            this.txtInitialSkill.Name = "txtInitialSkill";
+            this.txtInitialSkill.Size = new System.Drawing.Size(184, 158);
+            this.txtInitialSkill.TabIndex = 4;
+            this.txtInitialSkill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLetraSkill
             // 
@@ -122,28 +122,28 @@
             this.lblTcolor.TabIndex = 7;
             this.lblTcolor.Text = "Text Color:";
             // 
-            // cbxBcolors
+            // cbxColors
             // 
-            this.cbxBcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxBcolors.FormattingEnabled = true;
-            this.cbxBcolors.Location = new System.Drawing.Point(781, 227);
-            this.cbxBcolors.Name = "cbxBcolors";
-            this.cbxBcolors.Size = new System.Drawing.Size(233, 30);
-            this.cbxBcolors.TabIndex = 8;
+            this.cbxColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxColors.FormattingEnabled = true;
+            this.cbxColors.Location = new System.Drawing.Point(781, 227);
+            this.cbxColors.Name = "cbxColors";
+            this.cbxColors.Size = new System.Drawing.Size(233, 30);
+            this.cbxColors.TabIndex = 8;
             // 
-            // cbxTcolors
+            // cbxTextColors
             // 
-            this.cbxTcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTcolors.FormattingEnabled = true;
-            this.cbxTcolors.Location = new System.Drawing.Point(781, 327);
-            this.cbxTcolors.Name = "cbxTcolors";
-            this.cbxTcolors.Size = new System.Drawing.Size(233, 30);
-            this.cbxTcolors.TabIndex = 9;
+            this.cbxTextColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTextColors.FormattingEnabled = true;
+            this.cbxTextColors.Location = new System.Drawing.Point(781, 327);
+            this.cbxTextColors.Name = "cbxTextColors";
+            this.cbxTextColors.Size = new System.Drawing.Size(233, 30);
+            this.cbxTextColors.TabIndex = 9;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnSalir);
-            this.panel2.Controls.Add(this.btnGuardar);
+            this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 562);
             this.panel2.Name = "panel2";
@@ -163,18 +163,19 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(488, 18);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(106, 42);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(488, 18);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 42);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlLetrasSkills
             // 
@@ -212,13 +213,14 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // txtNombreSkill
+            // txtSkillName
             // 
-            this.txtNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreSkill.Location = new System.Drawing.Point(225, 114);
-            this.txtNombreSkill.Name = "txtNombreSkill";
-            this.txtNombreSkill.Size = new System.Drawing.Size(789, 45);
-            this.txtNombreSkill.TabIndex = 3;
+            this.txtSkillName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSkillName.Location = new System.Drawing.Point(225, 114);
+            this.txtSkillName.Name = "txtSkillName";
+            this.txtSkillName.Size = new System.Drawing.Size(789, 45);
+            this.txtSkillName.TabIndex = 3;
+            this.txtSkillName.TextChanged += new System.EventHandler(this.txtSkillName_TextChanged);
             // 
             // FormSkill
             // 
@@ -229,13 +231,13 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pnlLetrasSkills);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.cbxTcolors);
-            this.Controls.Add(this.cbxBcolors);
+            this.Controls.Add(this.cbxTextColors);
+            this.Controls.Add(this.cbxColors);
             this.Controls.Add(this.lblTcolor);
             this.Controls.Add(this.lblBColor);
             this.Controls.Add(this.lblLetraSkill);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtNombreSkill);
+            this.Controls.Add(this.txtInitialSkill);
+            this.Controls.Add(this.txtSkillName);
             this.Controls.Add(this.lblNombreSkill);
             this.Controls.Add(this.panel1);
             this.Name = "FormSkill";
@@ -253,17 +255,17 @@
         private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNombreSkill;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInitialSkill;
         private System.Windows.Forms.Label lblLetraSkill;
         private System.Windows.Forms.Label lblBColor;
         private System.Windows.Forms.Label lblTcolor;
-        private System.Windows.Forms.ComboBox cbxBcolors;
-        private System.Windows.Forms.ComboBox cbxTcolors;
+        private System.Windows.Forms.ComboBox cbxColors;
+        private System.Windows.Forms.ComboBox cbxTextColors;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlLetrasSkills;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtNombreSkill;
+        private System.Windows.Forms.TextBox txtSkillName;
         private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.Button btnSalir;
     }
