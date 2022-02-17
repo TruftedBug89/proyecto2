@@ -32,19 +32,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblNewKPI = new System.Windows.Forms.Label();
-            this.txtNewKPI = new System.Windows.Forms.TextBox();
-            this.lblKPIName = new System.Windows.Forms.Label();
-            this.C = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAddKpi = new System.Windows.Forms.Button();
-            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actiuDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.skillsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valoracionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
+            this.lblNewKPI = new System.Windows.Forms.Label();
+            this.txtNewKPI = new System.Windows.Forms.TextBox();
+            this.lblKPIName = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAddKpi = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
@@ -99,65 +100,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1432, 281);
             this.dataGridView1.TabIndex = 3;
             // 
-            // lblNewKPI
-            // 
-            this.lblNewKPI.AutoSize = true;
-            this.lblNewKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblNewKPI.Location = new System.Drawing.Point(115, 588);
-            this.lblNewKPI.Name = "lblNewKPI";
-            this.lblNewKPI.Size = new System.Drawing.Size(276, 26);
-            this.lblNewKPI.TabIndex = 4;
-            this.lblNewKPI.Text = "Descipción nueva SubSkill:";
-            // 
-            // txtNewKPI
-            // 
-            this.txtNewKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtNewKPI.Location = new System.Drawing.Point(414, 585);
-            this.txtNewKPI.Name = "txtNewKPI";
-            this.txtNewKPI.Size = new System.Drawing.Size(869, 32);
-            this.txtNewKPI.TabIndex = 5;
-            // 
-            // lblKPIName
-            // 
-            this.lblKPIName.AutoSize = true;
-            this.lblKPIName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblKPIName.Location = new System.Drawing.Point(711, 108);
-            this.lblKPIName.Name = "lblKPIName";
-            this.lblKPIName.Size = new System.Drawing.Size(137, 26);
-            this.lblKPIName.TabIndex = 6;
-            this.lblKPIName.Text = "Nombre Skill";
-            // 
-            // C
-            // 
-            this.C.Location = new System.Drawing.Point(608, 705);
-            this.C.Name = "C";
-            this.C.Size = new System.Drawing.Size(117, 48);
-            this.C.TabIndex = 7;
-            this.C.Text = "Guardar";
-            this.C.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(768, 705);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(117, 48);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnAddKpi
-            // 
-            this.btnAddKpi.Location = new System.Drawing.Point(1300, 585);
-            this.btnAddKpi.Name = "btnAddKpi";
-            this.btnAddKpi.Size = new System.Drawing.Size(30, 29);
-            this.btnAddKpi.TabIndex = 9;
-            this.btnAddKpi.UseVisualStyleBackColor = true;
-            this.btnAddKpi.Click += new System.EventHandler(this.btnAddKpi_Click);
-            // 
-            // bindingSourceKPI
-            // 
-            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -210,6 +152,67 @@
             this.valoracionsDataGridViewTextBoxColumn.ReadOnly = true;
             this.valoracionsDataGridViewTextBoxColumn.Visible = false;
             // 
+            // bindingSourceKPI
+            // 
+            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
+            // 
+            // lblNewKPI
+            // 
+            this.lblNewKPI.AutoSize = true;
+            this.lblNewKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblNewKPI.Location = new System.Drawing.Point(115, 588);
+            this.lblNewKPI.Name = "lblNewKPI";
+            this.lblNewKPI.Size = new System.Drawing.Size(276, 26);
+            this.lblNewKPI.TabIndex = 4;
+            this.lblNewKPI.Text = "Descipción nueva SubSkill:";
+            // 
+            // txtNewKPI
+            // 
+            this.txtNewKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtNewKPI.Location = new System.Drawing.Point(414, 585);
+            this.txtNewKPI.Name = "txtNewKPI";
+            this.txtNewKPI.Size = new System.Drawing.Size(869, 32);
+            this.txtNewKPI.TabIndex = 5;
+            // 
+            // lblKPIName
+            // 
+            this.lblKPIName.AutoSize = true;
+            this.lblKPIName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblKPIName.Location = new System.Drawing.Point(711, 108);
+            this.lblKPIName.Name = "lblKPIName";
+            this.lblKPIName.Size = new System.Drawing.Size(137, 26);
+            this.lblKPIName.TabIndex = 6;
+            this.lblKPIName.Text = "Nombre Skill";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(608, 705);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(117, 48);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(768, 705);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(117, 48);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnAddKpi
+            // 
+            this.btnAddKpi.Location = new System.Drawing.Point(1300, 585);
+            this.btnAddKpi.Name = "btnAddKpi";
+            this.btnAddKpi.Size = new System.Drawing.Size(188, 29);
+            this.btnAddKpi.TabIndex = 9;
+            this.btnAddKpi.Text = "Añadir SubSkill";
+            this.btnAddKpi.UseVisualStyleBackColor = true;
+            this.btnAddKpi.Click += new System.EventHandler(this.btnAddKpi_Click);
+            // 
             // FormKPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -217,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(1552, 852);
             this.Controls.Add(this.btnAddKpi);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.C);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblKPIName);
             this.Controls.Add(this.txtNewKPI);
             this.Controls.Add(this.lblNewKPI);
@@ -242,7 +245,7 @@
         private System.Windows.Forms.Label lblNewKPI;
         private System.Windows.Forms.TextBox txtNewKPI;
         private System.Windows.Forms.Label lblKPIName;
-        private System.Windows.Forms.Button C;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.BindingSource bindingSourceKPI;
         private System.Windows.Forms.Button btnAddKpi;
@@ -252,5 +255,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn skillsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
