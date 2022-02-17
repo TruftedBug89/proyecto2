@@ -35,15 +35,12 @@ namespace DesktopApp
             CrearBotonListaSkill(_llistesSkills);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-            ConstruirEncabezadosTabla();
 
+
+            cboBuildTable.Checked = false;           
             _llistesSkills = llistesS;
 
             if (_llistesSkills != null) 
@@ -59,12 +56,25 @@ namespace DesktopApp
                     cboActivate.Checked = false;
                 }
 
-                foreach (skills skill in _llistesSkills.skills)
+                if (_llistesSkills.skills.Count() != 0)
                 {
-                    char[] letras = skill.nom.ToCharArray();
-                    dgvListaSkills.Rows.Add(letras[0], skill.nom);
+                    
+                    ConstruirEncabezadosTabla();
+                    
+                    foreach (skills skill in _llistesSkills.skills)
+                    {
+                        char[] letras = skill.nom.ToCharArray();
+                        dgvListaSkills.Rows.Add(letras[0], skill.nom);
+
+                    }
+                }
+                else
+                {
+                    dgvListaSkills.Columns.Clear();
 
                 }
+
+
             }
 
         
@@ -142,7 +152,7 @@ namespace DesktopApp
 
                 missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
 
-                if (missatge != "")
+                if (missatge != "" && cboBuildTable.Checked)
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -217,7 +227,27 @@ namespace DesktopApp
             dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         }
 
+        private void cboBuildTable_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (cboBuildTable.Checked) 
+            {               
+                ConstruirEncabezadosTabla();
 
+                Char[] letras = txtNameListSkill.Text.ToCharArray();
 
+                for (int i = 0; i < letras.Length; i++)
+                {
+                    dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");
+                }
+            }
+            else
+            {
+                dgvListaSkills.Columns.Clear();
+            }
+
+            
+
+        }
     }
 }

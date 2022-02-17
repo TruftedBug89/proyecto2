@@ -40,6 +40,7 @@ namespace DesktopApp
             formListaSkills.ShowDialog();
             ActualizarPanelListasSkills();
             limpiarPanelSkills();
+            _llistesSkills = null;
         }
                
 
@@ -53,10 +54,9 @@ namespace DesktopApp
             limpiarPanelSkills();
             dgvSkill.Columns.Clear();
             _llistesSkills = llistesS;
-            List<skills> skills = _llistesSkills.skills.ToList();
 
             foreach (skills skill in _llistesSkills.skills)
-            {
+            {                
                 CrearBotonSkills(skill);
             }
         }
@@ -106,8 +106,8 @@ namespace DesktopApp
             btnSkill.FlatStyle = FlatStyle.Flat;
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
             btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 20, FontStyle.Bold);
-            btnSkill.BackColor = Color.Black;
-            btnSkill.ForeColor = Color.White;
+            btnSkill.BackColor = Color.FromArgb(_skills.colorFondo);
+            btnSkill.ForeColor = Color.FromArgb(_skills.colorTexto);
             btnSkill.Size = new Size(100, 55);
             btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
             btnSkill.Margin = new Padding(120, 8, 4, 4);
@@ -133,6 +133,7 @@ namespace DesktopApp
             }
         }
 
+
         private void limpiarPanelSkills() 
         {
             //Elimino todos los Controles menos el primero
@@ -145,8 +146,15 @@ namespace DesktopApp
 
         private void btnManagmentSkills_Click(object sender, EventArgs e)
         {
-            FormSkill formSkill = new FormSkill();
-            formSkill.ShowDialog();
+            if (_llistesSkills != null) 
+            {
+                FormSkill formSkill = new FormSkill(_llistesSkills.skills.ToList());
+                formSkill.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una lista de Skills");
+            }
         }
     }
 }

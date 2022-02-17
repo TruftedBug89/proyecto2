@@ -33,7 +33,6 @@
             this.btnCerrarSesión = new System.Windows.Forms.Button();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
-            this.btnBuildTable = new System.Windows.Forms.Button();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.cboActivate = new System.Windows.Forms.CheckBox();
+            this.cboBuildTable = new System.Windows.Forms.CheckBox();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
@@ -91,20 +91,6 @@
             this.txtNameListSkill.Name = "txtNameListSkill";
             this.txtNameListSkill.Size = new System.Drawing.Size(673, 45);
             this.txtNameListSkill.TabIndex = 4;
-            // 
-            // btnBuildTable
-            // 
-            this.btnBuildTable.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuildTable.ForeColor = System.Drawing.Color.White;
-            this.btnBuildTable.Location = new System.Drawing.Point(976, 195);
-            this.btnBuildTable.Name = "btnBuildTable";
-            this.btnBuildTable.Size = new System.Drawing.Size(258, 42);
-            this.btnBuildTable.TabIndex = 5;
-            this.btnBuildTable.Text = "Aceptar y construir tabla";
-            this.btnBuildTable.UseVisualStyleBackColor = false;
-            this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
             // 
             // dgvListaSkills
             // 
@@ -213,13 +199,32 @@
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivate.ForeColor = System.Drawing.Color.White;
-            this.cboActivate.Location = new System.Drawing.Point(1307, 188);
+            this.cboActivate.Location = new System.Drawing.Point(1307, 190);
             this.cboActivate.Name = "cboActivate";
             this.cboActivate.Size = new System.Drawing.Size(112, 49);
             this.cboActivate.TabIndex = 20;
             this.cboActivate.Text = "Activar";
             this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cboActivate.UseVisualStyleBackColor = false;
+            // 
+            // cboBuildTable
+            // 
+            this.cboBuildTable.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboBuildTable.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboBuildTable.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboBuildTable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboBuildTable.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBuildTable.ForeColor = System.Drawing.Color.White;
+            this.cboBuildTable.Location = new System.Drawing.Point(989, 190);
+            this.cboBuildTable.Name = "cboBuildTable";
+            this.cboBuildTable.Size = new System.Drawing.Size(245, 45);
+            this.cboBuildTable.TabIndex = 21;
+            this.cboBuildTable.Text = "Aceptar y construir tabla";
+            this.cboBuildTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboBuildTable.UseVisualStyleBackColor = false;
+            this.cboBuildTable.CheckedChanged += new System.EventHandler(this.cboBuildTable_CheckedChanged);
             // 
             // bindingSourceSkills
             // 
@@ -231,6 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.cboBuildTable);
             this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.btnManagmentGroups);
@@ -239,7 +245,6 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvListaSkills);
-            this.Controls.Add(this.btnBuildTable);
             this.Controls.Add(this.txtNameListSkill);
             this.Controls.Add(this.lblNameListSkill);
             this.Controls.Add(this.panel1);
@@ -261,7 +266,6 @@
         private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.Label lblNameListSkill;
         private System.Windows.Forms.TextBox txtNameListSkill;
-        private System.Windows.Forms.Button btnBuildTable;
         private System.Windows.Forms.DataGridView dgvListaSkills;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
@@ -272,5 +276,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
         private System.Windows.Forms.BindingSource bindingSourceSkills;
         private System.Windows.Forms.CheckBox cboActivate;
+        private System.Windows.Forms.CheckBox cboBuildTable;
     }
 }
