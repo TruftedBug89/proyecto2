@@ -189,13 +189,13 @@
             this.cboBuildTable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.cboBuildTable.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
             this.cboBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBuildTable.ForeColor = System.Drawing.Color.White;
             this.cboBuildTable.Location = new System.Drawing.Point(989, 190);
             this.cboBuildTable.Name = "cboBuildTable";
             this.cboBuildTable.Size = new System.Drawing.Size(245, 45);
             this.cboBuildTable.TabIndex = 21;
-            this.cboBuildTable.Text = "Aceptar y construir tabla";
+            this.cboBuildTable.Text = "Añadir Skills";
             this.cboBuildTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cboBuildTable.UseVisualStyleBackColor = false;
             this.cboBuildTable.CheckedChanged += new System.EventHandler(this.cboBuildTable_CheckedChanged);

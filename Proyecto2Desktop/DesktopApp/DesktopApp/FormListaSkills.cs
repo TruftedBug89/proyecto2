@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopApp.Models;
@@ -14,6 +15,7 @@ namespace DesktopApp
     public partial class FormListaSkills : Form
     {       
         private llistes_skills _llistesSkills;
+        private List<llistes_skills> _llistesS;
 
         public FormListaSkills()
         {
@@ -44,15 +46,7 @@ namespace DesktopApp
             if (_llistesSkills != null) 
             {
                 txtNameListSkill.Text = _llistesSkills.nom;
-
-                if (llistesS.actiu)
-                {
-                    cboActivate.Checked = true;
-                }
-                else
-                {
-                    cboActivate.Checked = false;
-                }
+                cboActivate.Checked = llistesS.actiu;
 
                 if (_llistesSkills.skills.Count() != 0)
                 {
@@ -72,8 +66,11 @@ namespace DesktopApp
                     dgvListaSkills.Columns.Clear();
 
                 }
-
-
+            }
+            else
+            {
+                txtNameListSkill.Text = "";
+                dgvListaSkills.Columns.Clear();
             }
 
         
@@ -85,11 +82,11 @@ namespace DesktopApp
 
         private void FormListaSkills_Load(object sender, EventArgs e)
         {
-            List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.Select();
+            _llistesS = Llistes_SkillsOrm.Select();
 
-            if (_llistes_Skills.Count() >= 1)            
+            if (_llistesS.Count() >= 1)            
             {
-                foreach (llistes_skills lSkills in _llistes_Skills)
+                foreach (llistes_skills lSkills in _llistesS)
                 {
                     CrearBotonListaSkill(lSkills);
                 }
@@ -118,12 +115,8 @@ namespace DesktopApp
 
             if (_llistesSkills != null)
             {
-                _llistesSkills.actiu = false;
-
-                if (cboActivate.Checked)
-                {
-                    _llistesSkills.actiu = true;
-                }
+                _llistesSkills.actiu = cboActivate.Checked;
+                
                 missatge = Llistes_SkillsOrm.Update(_llistesSkills,txtNameListSkill.Text.ToUpper(), _llistesSkills.actiu);
 
                 if (missatge != "")
@@ -133,6 +126,10 @@ namespace DesktopApp
                 else
                 {
                     MessageBox.Show("Datos actualizados");
+                    if (dgvListaSkills.Columns.Count != 0)
+                    {
+                        MessageBox.Show("Test");
+                    }
                 }
 
                
@@ -161,7 +158,12 @@ namespace DesktopApp
                     {
 
                         skills _skill = new skills();
-                        _skill.nom = row.Cells["Skill"].Value.ToString();
+                        char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
+                        var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                        String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
+
+                        _skill.nom = nombreSkill;
+
                         _skill.llistes_skills_id = _llistes_Skills.id;
                         _skill.actiu = true;
                         _skill.colorFondo = Color.Black.ToArgb();

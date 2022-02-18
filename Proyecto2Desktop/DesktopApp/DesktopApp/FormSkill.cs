@@ -33,6 +33,7 @@ namespace DesktopApp
 
         private void FormSkill_Load(object sender, EventArgs e)
         {
+            lblNameListSkills.Text = _llistaS.nom;
             _skills = SkillsOrm.SelectIdLlista(_llistaS.id);
 
             foreach (skills skill in _skills)
@@ -72,7 +73,7 @@ namespace DesktopApp
 
             if (_skill == null) 
             {
-                btnSkill.Text = "n";
+                btnSkill.Text = "";
                 btnSkill.BackColor = Color.Black;
                 btnSkill.ForeColor = Color.White;
             }
@@ -139,6 +140,7 @@ namespace DesktopApp
                 }
                 else
                 {
+                    MessageBox.Show("Skill Actualizada");
                     ActualizarPanelSkills();
                     ActualizarNombreListaSkills(missatge);
                 }
@@ -222,19 +224,13 @@ namespace DesktopApp
             }
 
             String nuevoNombreLista = new string(letras);
-
+            lblNameListSkills.Text = nuevoNombreLista;
             msg = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombreLista.ToUpper());
 
             if (msg != "")
             {
                 MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                MessageBox.Show("Skill actualizada");
-
-            }
-
 
         }
 

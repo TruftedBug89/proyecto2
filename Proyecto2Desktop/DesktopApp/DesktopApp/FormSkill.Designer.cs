@@ -45,6 +45,7 @@
             this.txtTcolor = new System.Windows.Forms.TextBox();
             this.cdTextColor = new System.Windows.Forms.ColorDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNameListSkills = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.flpSkills.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             // 
             this.lblNombreSkill.AutoSize = true;
             this.lblNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreSkill.Location = new System.Drawing.Point(73, 121);
+            this.lblNombreSkill.Location = new System.Drawing.Point(72, 139);
             this.lblNombreSkill.Name = "lblNombreSkill";
             this.lblNombreSkill.Size = new System.Drawing.Size(135, 24);
             this.lblNombreSkill.TabIndex = 2;
@@ -133,7 +134,7 @@
             // txtNameSkill
             // 
             this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameSkill.Location = new System.Drawing.Point(225, 114);
+            this.txtNameSkill.Location = new System.Drawing.Point(225, 136);
             this.txtNameSkill.Name = "txtNameSkill";
             this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
             this.txtNameSkill.TabIndex = 3;
@@ -149,7 +150,7 @@
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivate.ForeColor = System.Drawing.Color.White;
-            this.cboActivate.Location = new System.Drawing.Point(1053, 114);
+            this.cboActivate.Location = new System.Drawing.Point(1051, 136);
             this.cboActivate.Name = "cboActivate";
             this.cboActivate.Size = new System.Drawing.Size(112, 49);
             this.cboActivate.TabIndex = 21;
@@ -163,6 +164,7 @@
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnAdd);
             this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpSkills.Location = new System.Drawing.Point(0, 412);
             this.flpSkills.Name = "flpSkills";
             this.flpSkills.Size = new System.Drawing.Size(1192, 150);
@@ -226,12 +228,24 @@
             this.panel1.Size = new System.Drawing.Size(1192, 56);
             this.panel1.TabIndex = 30;
             // 
+            // lblNameListSkills
+            // 
+            this.lblNameListSkills.AutoSize = true;
+            this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameListSkills.Location = new System.Drawing.Point(472, 79);
+            this.lblNameListSkills.Name = "lblNameListSkills";
+            this.lblNameListSkills.Size = new System.Drawing.Size(273, 36);
+            this.lblNameListSkills.TabIndex = 31;
+            this.lblNameListSkills.Text = "Nombre Lista Skill";
+            this.lblNameListSkills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormSkill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1192, 640);
+            this.Controls.Add(this.lblNameListSkills);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtTcolor);
             this.Controls.Add(this.btnTColor);
@@ -272,5 +286,6 @@
         private System.Windows.Forms.TextBox txtTcolor;
         private System.Windows.Forms.ColorDialog cdTextColor;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblNameListSkills;
     }
 }
