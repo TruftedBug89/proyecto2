@@ -16,6 +16,8 @@ namespace DesktopApp.Models
             return _skills;
         }
 
+
+
         public static List<skills> SelectIdLlista(int id_llistaSkills)
         {
             List<skills> _skills = Orm.bd.skills                           

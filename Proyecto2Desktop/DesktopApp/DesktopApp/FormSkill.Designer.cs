@@ -137,6 +137,7 @@
             this.txtNameSkill.Name = "txtNameSkill";
             this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
             this.txtNameSkill.TabIndex = 3;
+            this.txtNameSkill.TextChanged += new System.EventHandler(this.txtNameSkill_TextChanged);
             // 
             // cboActivate
             // 

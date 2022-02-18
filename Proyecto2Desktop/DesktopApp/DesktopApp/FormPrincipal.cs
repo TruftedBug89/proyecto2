@@ -153,8 +153,9 @@ namespace DesktopApp
         {
             if (_llistesSkills != null) 
             {
-                FormSkill formSkill = new FormSkill(_llistesSkills.id);
+                FormSkill formSkill = new FormSkill(_llistesSkills);
                 formSkill.ShowDialog();
+                ActualizarPanelListasSkills();
                 limpiarPanelSkills();
             }
             else

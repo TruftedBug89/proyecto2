@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopApp.Models;
@@ -16,24 +17,23 @@ namespace DesktopApp
     {
         private skills _skill;
         private List<skills> _skills;
-        int id_llista;
-        private List<Color> colores = new List<Color>() {Color.Red,Color.Blue,Color.Green,Color.Black,Color.Orange,Color.White};
+        private llistes_skills _llistaS;
 
         public FormSkill()
         {
             InitializeComponent();
         }
 
-        public FormSkill(int id)
+        public FormSkill(llistes_skills _llistaS)
         {
             InitializeComponent();
-            this.id_llista = id;
+            this._llistaS = _llistaS;
         }
 
 
         private void FormSkill_Load(object sender, EventArgs e)
         {
-            _skills = SkillsOrm.SelectIdLlista(id_llista);
+            _skills = SkillsOrm.SelectIdLlista(_llistaS.id);
 
             foreach (skills skill in _skills)
             {
@@ -125,8 +125,13 @@ namespace DesktopApp
 
             if (_skill != null)
             {
+                char[] letrasS = txtNameSkill.Text.ToCharArray();
 
-                missatge = SkillsOrm.Update(_skill, txtNameSkill.Text, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
+                //remplazar la primera letra en caso de repeticion de caracteres
+                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
+
+                missatge = SkillsOrm.Update(_skill, nombreSkill, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
 
                 if (missatge != "")
                 {
@@ -134,16 +139,106 @@ namespace DesktopApp
                 }
                 else
                 {
-                    MessageBox.Show("Datos actualizados");
+                    ActualizarPanelSkills();
+                    ActualizarNombreListaSkills(missatge);
                 }
             }
             else
             {
-                
+                skills S = new skills();
+                char[] letrasS = txtNameSkill.Text.ToCharArray(); 
+                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
+
+                S.nom = nombreSkill;
+                S.llistes_skills_id = _llistaS.id;
+                S.actiu = cboActivate.Checked;
+                S.colorFondo = txtBcolor.BackColor.ToArgb();
+                S.colorTexto = txtTcolor.BackColor.ToArgb();
+
+                missatge = SkillsOrm.Insert(S);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    char[] letras = _llistaS.nom.ToCharArray();
+                    char[] letraSnueva = S.nom.ToCharArray();
+                    String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
+                    
+                    missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Skill añadida");
+                        ActualizarPanelSkills();
+                        ActualizarNombreListaSkills(missatge);
+
+                    }
+
+
+                }
+
+
+            }
+
+            
+
+        }
+
+
+        private void ActualizarPanelSkills()
+        {
+            //Elimino todos los Controles menos el primero
+            while (flpSkills.Controls.Count > 1)
+            {
+                flpSkills.Controls.RemoveAt(1);
+            }
+
+            List<skills> _Skills = SkillsOrm.SelectIdLlista(_llistaS.id);
+
+            foreach (skills S in _Skills)
+            {
+                CrearBotonSkills(S);
+            }
+        }
+
+        private void ActualizarNombreListaSkills(String msg) 
+        {
+            List<skills> _Skills = SkillsOrm.SelectIdLlista(_llistaS.id);
+            char[] letras = new char[_Skills.Count()];
+            int i = 0;
+            foreach (skills S in _Skills)
+            {
+                char[] letra = S.nom.ToCharArray();
+                letras[i] = letra[0];
+                i++;
+            }
+
+            String nuevoNombreLista = new string(letras);
+
+            msg = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombreLista.ToUpper());
+
+            if (msg != "")
+            {
+                MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Skill actualizada");
+
             }
 
 
         }
+
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -163,7 +258,14 @@ namespace DesktopApp
             txtTcolor.BackColor = Color.White;
         }
 
+        private void txtNameSkill_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtNameSkill.Text.Equals("")) {
 
+                char[] letras = txtNameSkill.Text.ToCharArray();
 
+                txtWordSkill.Text = letras[0].ToString().ToUpper();
+            }
+        }
     }
 }
