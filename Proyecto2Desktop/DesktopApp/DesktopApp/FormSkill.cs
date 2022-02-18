@@ -73,7 +73,7 @@ namespace DesktopApp
 
             if (_skill == null) 
             {
-                btnSkill.Text = "";
+                btnSkill.Text = "N";
                 btnSkill.BackColor = Color.Black;
                 btnSkill.ForeColor = Color.White;
             }
@@ -83,6 +83,7 @@ namespace DesktopApp
                 btnSkill.Text = letra[0].ToString();
                 btnSkill.BackColor = Color.FromArgb(_skill.colorFondo);
                 btnSkill.ForeColor = Color.FromArgb(_skill.colorTexto);
+                btnSkill.FlatAppearance.CheckedBackColor = Color.FromArgb(100, Color.FromArgb(_skill.colorFondo));
             }
 
             String nombre = btnSkill.Text;
@@ -91,7 +92,7 @@ namespace DesktopApp
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
             btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 30, FontStyle.Bold);
             btnSkill.Size = new Size(85, 75);
-            btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
+            //btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
             btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
 

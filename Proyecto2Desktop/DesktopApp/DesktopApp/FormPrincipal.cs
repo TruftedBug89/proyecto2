@@ -114,7 +114,7 @@ namespace DesktopApp
             btnSkill.BackColor = Color.FromArgb(_skills.colorFondo);
             btnSkill.ForeColor = Color.FromArgb(_skills.colorTexto);
             btnSkill.Size = new Size(85, 75);
-            btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
+            btnSkill.FlatAppearance.CheckedBackColor = Color.FromArgb(100, Color.FromArgb(_skills.colorFondo));
             btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
 

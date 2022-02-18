@@ -133,6 +133,8 @@
             // 
             // txtNameSkill
             // 
+            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameSkill.Location = new System.Drawing.Point(225, 136);
             this.txtNameSkill.Name = "txtNameSkill";
@@ -142,6 +144,7 @@
             // 
             // cboActivate
             // 
+            this.cboActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
             this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
