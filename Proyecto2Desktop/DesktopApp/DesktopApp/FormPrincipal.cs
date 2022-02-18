@@ -42,8 +42,8 @@ namespace DesktopApp
 
         private void btnGestionKPI_Click(object sender, EventArgs e)
         {
-            int skillId = 0;
-            FormKPI FormKPI = new FormKPI(skillId);
+            Models.skills skillAEditar = new Models.skills();
+            FormKPI FormKPI = new FormKPI(skillAEditar);
             FormKPI.ShowDialog();
         }
     }
