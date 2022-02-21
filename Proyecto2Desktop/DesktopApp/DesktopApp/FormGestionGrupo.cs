@@ -16,6 +16,7 @@ namespace DesktopApp
         private llistes_skills _llistaSkill;        
         private List<llistes_skills> _llistesSkills;
         private grups _grup;
+        private List<grups> _grups;
 
         public FormGestionGrupo()
         {
@@ -34,12 +35,9 @@ namespace DesktopApp
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
-            _llistesSkills = Llistes_SkillsOrm.Select();
+            cargarListasSkills();
+            actualizarGrupos();
 
-            foreach (llistes_skills ls in _llistesSkills)
-            {
-                lbListSkills.Items.Add(ls.nom);
-            }
 
         }
 
@@ -49,7 +47,7 @@ namespace DesktopApp
 
             if (_grup != null) 
             {
-
+                //update
             }
             else
             {
@@ -57,10 +55,53 @@ namespace DesktopApp
                 Grup.nom = txtNameGroup.Text;
 
                 missatge = GrupsOrm.Insert(Grup);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Grupo añadido");
+                }
+
             }
 
-            
+            actualizarGrupos();
+        }
+
+
+
+        private void cargarUsuarios()         
+        {
+        
+        }
+
+
+        private void actualizarGrupos()
+        {
+            lbGroups.Items.Clear();
+
+            _grups = GrupsOrm.Select();
+
+            foreach (grups ls in _grups)
+            {
+                lbGroups.Items.Add(ls.nom);
+            }
 
         }
+
+
+        private void cargarListasSkills()
+        {
+            _llistesSkills = Llistes_SkillsOrm.Select();
+
+            foreach (llistes_skills ls in _llistesSkills)
+            {
+                lbListSkills.Items.Add(ls.nom);
+            }
+        }
+
+
     }
 }

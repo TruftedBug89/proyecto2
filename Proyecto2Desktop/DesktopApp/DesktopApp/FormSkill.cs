@@ -246,7 +246,7 @@ namespace DesktopApp
 
         }
 
-        public void vaciarCampos() 
+        private void vaciarCampos() 
         {
             txtNameSkill.Text = "";
             txtWordSkill.Text = "";
