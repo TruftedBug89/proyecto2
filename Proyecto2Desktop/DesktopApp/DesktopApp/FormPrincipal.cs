@@ -33,6 +33,7 @@ namespace DesktopApp
             }
 
 
+
         }
 
         private void btnManagmentListSkills_Click(object sender, EventArgs e)
