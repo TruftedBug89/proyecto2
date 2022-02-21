@@ -88,5 +88,11 @@ namespace DesktopApp
             }
 
         }
+
+        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            DataRowVersion.
+
+        }
     }
 }
