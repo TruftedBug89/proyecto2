@@ -50,20 +50,20 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.btnCloseSesion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1751, 66);
+            this.panel1.Size = new System.Drawing.Size(1970, 82);
             this.panel1.TabIndex = 0;
-            // 
+            //
             // btnCloseSesion
-            // 
+            //
             this.btnCloseSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCloseSesion.BackColor = System.Drawing.Color.Tomato;
             this.btnCloseSesion.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
@@ -78,9 +78,9 @@
             this.btnCloseSesion.Text = "Cerar Sesión";
             this.btnCloseSesion.UseVisualStyleBackColor = false;
             this.btnCloseSesion.Click += new System.EventHandler(this.btnCloseSesion_Click);
-            // 
+            //
             // btnManagmentListSkills
-            // 
+            //
             this.btnManagmentListSkills.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnManagmentListSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,31 +93,32 @@
             this.btnManagmentListSkills.Text = "Gestion Lista de Skils";
             this.btnManagmentListSkills.UseVisualStyleBackColor = false;
             this.btnManagmentListSkills.Click += new System.EventHandler(this.btnManagmentListSkills_Click);
-            // 
+            //
             // btnGestionKPI
-            // 
+            //
             this.btnGestionKPI.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnGestionKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionKPI.ForeColor = System.Drawing.Color.White;
-            this.btnGestionKPI.Location = new System.Drawing.Point(74, 55);
-            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGestionKPI.Location = new System.Drawing.Point(66, 347);
+            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGestionKPI.Name = "btnGestionKPI";
-            this.btnGestionKPI.Size = new System.Drawing.Size(155, 59);
+            this.btnGestionKPI.Size = new System.Drawing.Size(174, 74);
             this.btnGestionKPI.TabIndex = 5;
             this.btnGestionKPI.Text = "Gestion KPI";
             this.btnGestionKPI.UseVisualStyleBackColor = false;
-            // 
+            this.btnGestionKPI.Click += new System.EventHandler(this.btnGestionKPI_Click);
+            //
             // panel4
-            // 
+            //
             this.panel4.Controls.Add(this.flpListSkills);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 66);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1751, 130);
             this.panel4.TabIndex = 7;
-            // 
+            //
             // flpListSkills
-            // 
+            //
             this.flpListSkills.AutoScroll = true;
             this.flpListSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
@@ -127,18 +128,18 @@
             this.flpListSkills.Size = new System.Drawing.Size(1751, 105);
             this.flpListSkills.TabIndex = 22;
             this.flpListSkills.WrapContents = false;
-            // 
+            //
             // panel5
-            // 
+            //
             this.panel5.Controls.Add(this.flpSkills);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 794);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1751, 162);
             this.panel5.TabIndex = 10;
-            // 
+            //
             // flpSkills
-            // 
+            //
             this.flpSkills.AutoScroll = true;
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnManagmentSkills);
@@ -148,9 +149,9 @@
             this.flpSkills.Size = new System.Drawing.Size(1751, 150);
             this.flpSkills.TabIndex = 23;
             this.flpSkills.WrapContents = false;
-            // 
+            //
             // btnManagmentSkills
-            // 
+            //
             this.btnManagmentSkills.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnManagmentSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,40 +164,40 @@
             this.btnManagmentSkills.Text = "Gestion Skills";
             this.btnManagmentSkills.UseVisualStyleBackColor = false;
             this.btnManagmentSkills.Click += new System.EventHandler(this.btnManagmentSkills_Click);
-            // 
+            //
             // panel6
-            // 
+            //
             this.panel6.Controls.Add(this.btnGestionUsuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 196);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(259, 598);
             this.panel6.TabIndex = 13;
-            // 
+            //
             // btnGestionUsuarios
-            // 
+            //
             this.btnGestionUsuarios.BackColor = System.Drawing.Color.Black;
             this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(49, 267);
-            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(55, 334);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(133, 81);
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(150, 101);
             this.btnGestionUsuarios.TabIndex = 7;
             this.btnGestionUsuarios.Text = "Gestion Usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = false;
-            // 
+            //
             // panel7
-            // 
+            //
             this.panel7.Controls.Add(this.btnGestionKPI);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(1491, 196);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(260, 598);
             this.panel7.TabIndex = 14;
-            // 
+            //
             // dgvSkill
-            // 
+            //
             this.dgvSkill.AllowUserToAddRows = false;
             this.dgvSkill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -208,20 +209,20 @@
             this.dgvSkill.RowHeadersWidth = 51;
             this.dgvSkill.Size = new System.Drawing.Size(1232, 598);
             this.dgvSkill.TabIndex = 16;
-            // 
+            //
             // FormPrincipal
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1751, 956);
+            this.ClientSize = new System.Drawing.Size(1970, 1195);
             this.Controls.Add(this.dgvSkill);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);

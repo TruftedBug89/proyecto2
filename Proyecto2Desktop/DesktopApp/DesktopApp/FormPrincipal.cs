@@ -31,25 +31,26 @@ namespace DesktopApp
             {
                 CrearBotonListaSkill(lSkills);
             }
-                       
+
 
         }
-                
+
         private void btnManagmentListSkills_Click(object sender, EventArgs e)
         {
-           
+
             FormListaSkills formListaSkills = new FormListaSkills();
             formListaSkills.ShowDialog();
             ActualizarPanelListasSkills();
             limpiarPanelSkills();
             _llistesSkills = null;
         }
-               
+
 
         private void btnCloseSesion_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
@@ -60,12 +61,12 @@ namespace DesktopApp
             _skills = SkillsOrm.SelectActivate(_llistesSkills.id);
 
             foreach (skills skill in _skills)
-            {                
+            {
                 CrearBotonSkills(skill);
             }
         }
 
-        private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S) 
+        private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
         {
             _skill = S;
 
@@ -100,7 +101,7 @@ namespace DesktopApp
         }
 
 
-        private void CrearBotonSkills(skills _skills) 
+        private void CrearBotonSkills(skills _skills)
         {
             RadioButton btnSkill = new RadioButton();
             btnSkill.Appearance = Appearance.Button;
@@ -122,10 +123,10 @@ namespace DesktopApp
         }
 
 
-        private void ActualizarPanelListasSkills() 
+        private void ActualizarPanelListasSkills()
         {
            //Elimino todos los Controles menos el primero
-            while (flpListSkills.Controls.Count > 1) 
+            while (flpListSkills.Controls.Count > 1)
             {
                 flpListSkills.Controls.RemoveAt(1);
             }
@@ -139,7 +140,7 @@ namespace DesktopApp
         }
 
 
-        private void limpiarPanelSkills() 
+        private void limpiarPanelSkills()
         {
             //Elimino todos los Controles menos el primero
             while (flpSkills.Controls.Count > 1)
@@ -151,7 +152,7 @@ namespace DesktopApp
 
         private void btnManagmentSkills_Click(object sender, EventArgs e)
         {
-            if (_llistesSkills != null) 
+            if (_llistesSkills != null)
             {
                 FormSkill formSkill = new FormSkill(_llistesSkills);
                 formSkill.ShowDialog();
@@ -162,6 +163,14 @@ namespace DesktopApp
             {
                 MessageBox.Show("Selecciona una lista de Skills");
             }
+          }
+
+        private void btnGestionKPI_Click(object sender, EventArgs e)
+        {
+            Models.skills skillAEditar = new Models.skills();
+            FormKPI FormKPI = new FormKPI(skillAEditar);
+            FormKPI.ShowDialog();
+
         }
     }
 }
