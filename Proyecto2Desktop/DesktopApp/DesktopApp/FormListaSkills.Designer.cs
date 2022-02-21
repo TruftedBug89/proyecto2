@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrarSesión = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
-            this.btnBuildTable = new System.Windows.Forms.Button();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,34 +39,14 @@
             this.btnManagmentGroups = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1.SuspendLayout();
+            this.cboActivate = new System.Windows.Forms.CheckBox();
+            this.cboBuildTable = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.btnCerrarSesión);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1445, 51);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnCerrarSesión
-            // 
-            this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
-            this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
-            this.btnCerrarSesión.TabIndex = 0;
-            this.btnCerrarSesión.Text = "Cerar Sesión";
-            this.btnCerrarSesión.UseVisualStyleBackColor = false;
             // 
             // lblNameListSkill
             // 
@@ -89,22 +66,10 @@
             this.txtNameListSkill.Size = new System.Drawing.Size(673, 45);
             this.txtNameListSkill.TabIndex = 4;
             // 
-            // btnBuildTable
-            // 
-            this.btnBuildTable.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuildTable.ForeColor = System.Drawing.Color.White;
-            this.btnBuildTable.Location = new System.Drawing.Point(976, 195);
-            this.btnBuildTable.Name = "btnBuildTable";
-            this.btnBuildTable.Size = new System.Drawing.Size(258, 42);
-            this.btnBuildTable.TabIndex = 5;
-            this.btnBuildTable.Text = "Aceptar y construir tabla";
-            this.btnBuildTable.UseVisualStyleBackColor = false;
-            this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
-            // 
             // dgvListaSkills
             // 
+            this.dgvListaSkills.AllowUserToAddRows = false;
+            this.dgvListaSkills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaSkills.Location = new System.Drawing.Point(215, 266);
             this.dgvListaSkills.Name = "dgvListaSkills";
@@ -112,20 +77,6 @@
             this.dgvListaSkills.RowTemplate.Height = 24;
             this.dgvListaSkills.Size = new System.Drawing.Size(918, 366);
             this.dgvListaSkills.TabIndex = 7;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.Location = new System.Drawing.Point(1306, 194);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(113, 45);
-            this.btnDelete.TabIndex = 13;
-            this.btnDelete.Text = "Eliminar";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -139,6 +90,7 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -184,6 +136,7 @@
             this.btnManagmentGroups.TabIndex = 18;
             this.btnManagmentGroups.Text = "Gestionar Grupos";
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
+            this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
             // 
             // btnAdd
             // 
@@ -211,6 +164,56 @@
             this.flpListSkills.TabIndex = 19;
             this.flpListSkills.WrapContents = false;
             // 
+            // cboActivate
+            // 
+            this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboActivate.ForeColor = System.Drawing.Color.White;
+            this.cboActivate.Location = new System.Drawing.Point(1307, 190);
+            this.cboActivate.Name = "cboActivate";
+            this.cboActivate.Size = new System.Drawing.Size(112, 49);
+            this.cboActivate.TabIndex = 20;
+            this.cboActivate.Text = "Activar";
+            this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.UseVisualStyleBackColor = false;
+            // 
+            // cboBuildTable
+            // 
+            this.cboBuildTable.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboBuildTable.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboBuildTable.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboBuildTable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboBuildTable.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBuildTable.ForeColor = System.Drawing.Color.White;
+            this.cboBuildTable.Location = new System.Drawing.Point(989, 190);
+            this.cboBuildTable.Name = "cboBuildTable";
+            this.cboBuildTable.Size = new System.Drawing.Size(245, 45);
+            this.cboBuildTable.TabIndex = 21;
+            this.cboBuildTable.Text = "Añadir Skills";
+            this.cboBuildTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboBuildTable.UseVisualStyleBackColor = false;
+            this.cboBuildTable.CheckedChanged += new System.EventHandler(this.cboBuildTable_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1445, 51);
+            this.panel1.TabIndex = 31;
+            // 
+            // bindingSourceSkills
+            // 
+            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
+            // 
             // FormListaSkills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -218,37 +221,32 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
             this.Controls.Add(this.flpListSkills);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cboBuildTable);
+            this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.btnManagmentGroups);
             this.Controls.Add(this.cbxBcolors);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvListaSkills);
-            this.Controls.Add(this.btnBuildTable);
             this.Controls.Add(this.txtNameListSkill);
             this.Controls.Add(this.lblNameListSkill);
-            this.Controls.Add(this.panel1);
             this.Name = "FormListaSkills";
             this.Text = "FormListaSkills";
             this.Load += new System.EventHandler(this.FormListaSkills_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).EndInit();
             this.flpListSkills.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCerrarSesión;
         private System.Windows.Forms.Label lblNameListSkill;
         private System.Windows.Forms.TextBox txtNameListSkill;
-        private System.Windows.Forms.Button btnBuildTable;
         private System.Windows.Forms.DataGridView dgvListaSkills;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
@@ -256,5 +254,9 @@
         private System.Windows.Forms.Button btnManagmentGroups;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
+        private System.Windows.Forms.BindingSource bindingSourceSkills;
+        private System.Windows.Forms.CheckBox cboActivate;
+        private System.Windows.Forms.CheckBox cboBuildTable;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -28,69 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCerrarSesión = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombreSkill = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtWordSkill = new System.Windows.Forms.TextBox();
             this.lblLetraSkill = new System.Windows.Forms.Label();
-            this.lblBColor = new System.Windows.Forms.Label();
-            this.lblTcolor = new System.Windows.Forms.Label();
-            this.cbxBcolors = new System.Windows.Forms.ComboBox();
-            this.cbxTcolors = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.pnlLetrasSkills = new System.Windows.Forms.Panel();
-            this.btnAñadir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombreSkill = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtNameSkill = new System.Windows.Forms.TextBox();
+            this.cboActivate = new System.Windows.Forms.CheckBox();
+            this.flpSkills = new System.Windows.Forms.FlowLayoutPanel();
+            this.cdBackgroundColor = new System.Windows.Forms.ColorDialog();
+            this.btnBColor = new System.Windows.Forms.Button();
+            this.txtBcolor = new System.Windows.Forms.TextBox();
+            this.btnTColor = new System.Windows.Forms.Button();
+            this.txtTcolor = new System.Windows.Forms.TextBox();
+            this.cdTextColor = new System.Windows.Forms.ColorDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNameListSkills = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            this.pnlLetrasSkills.SuspendLayout();
+            this.flpSkills.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCerrarSesión
-            // 
-            this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
-            this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
-            this.btnCerrarSesión.TabIndex = 0;
-            this.btnCerrarSesión.Text = "Cerar Sesión";
-            this.btnCerrarSesión.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.btnCerrarSesión);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1192, 51);
-            this.panel1.TabIndex = 1;
             // 
             // lblNombreSkill
             // 
             this.lblNombreSkill.AutoSize = true;
             this.lblNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreSkill.Location = new System.Drawing.Point(73, 121);
+            this.lblNombreSkill.Location = new System.Drawing.Point(72, 139);
             this.lblNombreSkill.Name = "lblNombreSkill";
             this.lblNombreSkill.Size = new System.Drawing.Size(135, 24);
             this.lblNombreSkill.TabIndex = 2;
             this.lblNombreSkill.Text = "Nombre Skill:";
             // 
-            // textBox1
+            // txtWordSkill
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(225, 224);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 158);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWordSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWordSkill.Location = new System.Drawing.Point(225, 224);
+            this.txtWordSkill.Name = "txtWordSkill";
+            this.txtWordSkill.Size = new System.Drawing.Size(184, 158);
+            this.txtWordSkill.TabIndex = 4;
+            this.txtWordSkill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLetraSkill
             // 
@@ -102,123 +79,168 @@
             this.lblLetraSkill.TabIndex = 5;
             this.lblLetraSkill.Text = "Letra Skill:";
             // 
-            // lblBColor
-            // 
-            this.lblBColor.AutoSize = true;
-            this.lblBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBColor.Location = new System.Drawing.Point(564, 230);
-            this.lblBColor.Name = "lblBColor";
-            this.lblBColor.Size = new System.Drawing.Size(184, 24);
-            this.lblBColor.TabIndex = 6;
-            this.lblBColor.Text = "Background Color:";
-            // 
-            // lblTcolor
-            // 
-            this.lblTcolor.AutoSize = true;
-            this.lblTcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcolor.Location = new System.Drawing.Point(635, 333);
-            this.lblTcolor.Name = "lblTcolor";
-            this.lblTcolor.Size = new System.Drawing.Size(113, 24);
-            this.lblTcolor.TabIndex = 7;
-            this.lblTcolor.Text = "Text Color:";
-            // 
-            // cbxBcolors
-            // 
-            this.cbxBcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxBcolors.FormattingEnabled = true;
-            this.cbxBcolors.Location = new System.Drawing.Point(781, 227);
-            this.cbxBcolors.Name = "cbxBcolors";
-            this.cbxBcolors.Size = new System.Drawing.Size(233, 30);
-            this.cbxBcolors.TabIndex = 8;
-            // 
-            // cbxTcolors
-            // 
-            this.cbxTcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTcolors.FormattingEnabled = true;
-            this.cbxTcolors.Location = new System.Drawing.Point(781, 327);
-            this.cbxTcolors.Name = "cbxTcolors";
-            this.cbxTcolors.Size = new System.Drawing.Size(233, 30);
-            this.cbxTcolors.TabIndex = 9;
-            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnSalir);
-            this.panel2.Controls.Add(this.btnGuardar);
+            this.panel2.Controls.Add(this.btnExit);
+            this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 562);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1192, 78);
             this.panel2.TabIndex = 10;
             // 
-            // btnSalir
+            // btnExit
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(639, 18);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(106, 42);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(639, 18);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(106, 42);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(488, 18);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(106, 42);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(488, 18);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 42);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // pnlLetrasSkills
+            // btnAdd
             // 
-            this.pnlLetrasSkills.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLetrasSkills.Controls.Add(this.btnAñadir);
-            this.pnlLetrasSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLetrasSkills.Location = new System.Drawing.Point(0, 431);
-            this.pnlLetrasSkills.Name = "pnlLetrasSkills";
-            this.pnlLetrasSkills.Size = new System.Drawing.Size(1192, 131);
-            this.pnlLetrasSkills.TabIndex = 11;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(20, 20);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(20, 20, 4, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(101, 92);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnAñadir
+            // txtNameSkill
             // 
-            this.btnAñadir.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAñadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadir.ForeColor = System.Drawing.Color.White;
-            this.btnAñadir.Location = new System.Drawing.Point(47, 18);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(101, 92);
-            this.btnAñadir.TabIndex = 0;
-            this.btnAñadir.Text = "+";
-            this.btnAñadir.UseVisualStyleBackColor = false;
+            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameSkill.Location = new System.Drawing.Point(225, 136);
+            this.txtNameSkill.Name = "txtNameSkill";
+            this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
+            this.txtNameSkill.TabIndex = 3;
+            this.txtNameSkill.TextChanged += new System.EventHandler(this.txtNameSkill_TextChanged);
             // 
-            // btnEliminar
+            // cboActivate
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.DarkRed;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(1043, 114);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(113, 45);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.cboActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboActivate.ForeColor = System.Drawing.Color.White;
+            this.cboActivate.Location = new System.Drawing.Point(1051, 136);
+            this.cboActivate.Name = "cboActivate";
+            this.cboActivate.Size = new System.Drawing.Size(112, 49);
+            this.cboActivate.TabIndex = 21;
+            this.cboActivate.Text = "Activar";
+            this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.UseVisualStyleBackColor = false;
             // 
-            // txtNombreSkill
+            // flpSkills
             // 
-            this.txtNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreSkill.Location = new System.Drawing.Point(225, 114);
-            this.txtNombreSkill.Name = "txtNombreSkill";
-            this.txtNombreSkill.Size = new System.Drawing.Size(789, 45);
-            this.txtNombreSkill.TabIndex = 3;
+            this.flpSkills.AutoScroll = true;
+            this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flpSkills.Controls.Add(this.btnAdd);
+            this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpSkills.Location = new System.Drawing.Point(0, 412);
+            this.flpSkills.Name = "flpSkills";
+            this.flpSkills.Size = new System.Drawing.Size(1192, 150);
+            this.flpSkills.TabIndex = 24;
+            this.flpSkills.WrapContents = false;
+            // 
+            // btnBColor
+            // 
+            this.btnBColor.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnBColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBColor.ForeColor = System.Drawing.Color.White;
+            this.btnBColor.Location = new System.Drawing.Point(682, 224);
+            this.btnBColor.Name = "btnBColor";
+            this.btnBColor.Size = new System.Drawing.Size(214, 42);
+            this.btnBColor.TabIndex = 26;
+            this.btnBColor.Text = "Background Color";
+            this.btnBColor.UseVisualStyleBackColor = false;
+            this.btnBColor.Click += new System.EventHandler(this.btnBColor_Click);
+            // 
+            // txtBcolor
+            // 
+            this.txtBcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBcolor.Location = new System.Drawing.Point(923, 224);
+            this.txtBcolor.Name = "txtBcolor";
+            this.txtBcolor.ReadOnly = true;
+            this.txtBcolor.Size = new System.Drawing.Size(91, 41);
+            this.txtBcolor.TabIndex = 27;
+            this.txtBcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnTColor
+            // 
+            this.btnTColor.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnTColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTColor.ForeColor = System.Drawing.Color.White;
+            this.btnTColor.Location = new System.Drawing.Point(682, 302);
+            this.btnTColor.Name = "btnTColor";
+            this.btnTColor.Size = new System.Drawing.Size(214, 42);
+            this.btnTColor.TabIndex = 28;
+            this.btnTColor.Text = "Text Color";
+            this.btnTColor.UseVisualStyleBackColor = false;
+            this.btnTColor.Click += new System.EventHandler(this.btnTColor_Click);
+            // 
+            // txtTcolor
+            // 
+            this.txtTcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTcolor.Location = new System.Drawing.Point(923, 302);
+            this.txtTcolor.Name = "txtTcolor";
+            this.txtTcolor.ReadOnly = true;
+            this.txtTcolor.Size = new System.Drawing.Size(91, 41);
+            this.txtTcolor.TabIndex = 29;
+            this.txtTcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1192, 56);
+            this.panel1.TabIndex = 30;
+            // 
+            // lblNameListSkills
+            // 
+            this.lblNameListSkills.AutoSize = true;
+            this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameListSkills.Location = new System.Drawing.Point(472, 79);
+            this.lblNameListSkills.Name = "lblNameListSkills";
+            this.lblNameListSkills.Size = new System.Drawing.Size(273, 36);
+            this.lblNameListSkills.TabIndex = 31;
+            this.lblNameListSkills.Text = "Nombre Lista Skill";
+            this.lblNameListSkills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSkill
             // 
@@ -226,45 +248,47 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1192, 640);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.pnlLetrasSkills);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.cbxTcolors);
-            this.Controls.Add(this.cbxBcolors);
-            this.Controls.Add(this.lblTcolor);
-            this.Controls.Add(this.lblBColor);
-            this.Controls.Add(this.lblLetraSkill);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtNombreSkill);
-            this.Controls.Add(this.lblNombreSkill);
+            this.Controls.Add(this.lblNameListSkills);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtTcolor);
+            this.Controls.Add(this.btnTColor);
+            this.Controls.Add(this.txtBcolor);
+            this.Controls.Add(this.btnBColor);
+            this.Controls.Add(this.flpSkills);
+            this.Controls.Add(this.cboActivate);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblLetraSkill);
+            this.Controls.Add(this.txtWordSkill);
+            this.Controls.Add(this.txtNameSkill);
+            this.Controls.Add(this.lblNombreSkill);
             this.Name = "FormSkill";
             this.Text = "FormSkill";
-            this.panel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FormSkill_Load);
             this.panel2.ResumeLayout(false);
-            this.pnlLetrasSkills.ResumeLayout(false);
+            this.flpSkills.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCerrarSesión;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNombreSkill;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtWordSkill;
         private System.Windows.Forms.Label lblLetraSkill;
-        private System.Windows.Forms.Label lblBColor;
-        private System.Windows.Forms.Label lblTcolor;
-        private System.Windows.Forms.ComboBox cbxBcolors;
-        private System.Windows.Forms.ComboBox cbxTcolors;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel pnlLetrasSkills;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtNombreSkill;
-        private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtNameSkill;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.CheckBox cboActivate;
+        private System.Windows.Forms.FlowLayoutPanel flpSkills;
+        private System.Windows.Forms.ColorDialog cdBackgroundColor;
+        private System.Windows.Forms.Button btnBColor;
+        private System.Windows.Forms.TextBox txtBcolor;
+        private System.Windows.Forms.Button btnTColor;
+        private System.Windows.Forms.TextBox txtTcolor;
+        private System.Windows.Forms.ColorDialog cdTextColor;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblNameListSkills;
     }
 }
