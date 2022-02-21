@@ -136,6 +136,7 @@
             this.btnManagmentGroups.TabIndex = 18;
             this.btnManagmentGroups.Text = "Gestionar Grupos";
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
+            this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
             // 
             // btnAdd
             // 

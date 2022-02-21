@@ -252,5 +252,11 @@ namespace DesktopApp
             
 
         }
+
+        private void btnManagmentGroups_Click(object sender, EventArgs e)
+        {
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
+            formGestionGrupo.ShowDialog();
+        }
     }
 }

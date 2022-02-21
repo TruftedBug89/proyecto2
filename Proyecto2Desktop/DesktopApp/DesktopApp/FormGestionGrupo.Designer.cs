@@ -31,22 +31,24 @@ namespace DesktopApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionGrupo));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_close = new System.Windows.Forms.PictureBox();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pb_close = new System.Windows.Forms.PictureBox();
+            this.lblNameGroup = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.txtNameSkill = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboActivate = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbListSkills = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,62 +56,51 @@ namespace DesktopApp
             // 
             this.panel1.Controls.Add(this.pb_minimize);
             this.panel1.Controls.Add(this.pb_close);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(981, 32);
+            this.panel1.Size = new System.Drawing.Size(1404, 32);
             this.panel1.TabIndex = 0;
-            // 
-            // pb_close
-            // 
-            this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(943, 4);
-            this.pb_close.Name = "pb_close";
-            this.pb_close.Size = new System.Drawing.Size(25, 25);
-            this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_close.TabIndex = 0;
-            this.pb_close.TabStop = false;
             // 
             // pb_minimize
             // 
+            this.pb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(912, 3);
+            this.pb_minimize.Location = new System.Drawing.Point(1345, 4);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
             this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_minimize.TabIndex = 1;
             this.pb_minimize.TabStop = false;
             // 
-            // label1
+            // pb_close
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre del Grupo";
+            this.pb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
+            this.pb_close.Location = new System.Drawing.Point(1376, 4);
+            this.pb_close.Name = "pb_close";
+            this.pb_close.Size = new System.Drawing.Size(25, 25);
+            this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_close.TabIndex = 0;
+            this.pb_close.TabStop = false;
+            this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
             // 
-            // textBox1
+            // lblNameGroup
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(241, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(629, 28);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(60, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 3;
+            this.lblNameGroup.AutoSize = true;
+            this.lblNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameGroup.Location = new System.Drawing.Point(56, 84);
+            this.lblNameGroup.Name = "lblNameGroup";
+            this.lblNameGroup.Size = new System.Drawing.Size(190, 24);
+            this.lblNameGroup.TabIndex = 1;
+            this.lblNameGroup.Text = "Nombre del Grupo:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(166, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(378, 175);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(41, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -117,89 +108,152 @@ namespace DesktopApp
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(60, 189);
+            this.listView1.Location = new System.Drawing.Point(491, 221);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(146, 230);
-            this.listView1.TabIndex = 5;
+            this.listView1.Size = new System.Drawing.Size(359, 413);
+            this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // btn_delete
+            // txtNameSkill
             // 
-            this.btn_delete.Location = new System.Drawing.Point(404, 136);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 8;
-            this.btn_delete.Text = "Eliminar";
-            this.btn_delete.UseVisualStyleBackColor = true;
+            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameSkill.Location = new System.Drawing.Point(267, 68);
+            this.txtNameSkill.Name = "txtNameSkill";
+            this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
+            this.txtNameSkill.TabIndex = 16;
             // 
-            // btn_save
+            // btnSave
             // 
-            this.btn_save.Location = new System.Drawing.Point(358, 471);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(88, 23);
-            this.btn_save.TabIndex = 9;
-            this.btn_save.Text = "Guardar";
-            this.btn_save.UseVisualStyleBackColor = true;
+            this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(553, 660);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(106, 42);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // btn_exit
+            // btnExit
             // 
-            this.btn_exit.Location = new System.Drawing.Point(474, 471);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(87, 23);
-            this.btn_exit.TabIndex = 10;
-            this.btn_exit.Text = "Salir";
-            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(695, 660);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(106, 42);
+            this.btnExit.TabIndex = 18;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // listView2
+            // label1
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(387, 189);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(146, 230);
-            this.listView2.TabIndex = 11;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 178);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Usuarios";
             // 
-            // listView3
+            // cboActivate
             // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(724, 189);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(146, 230);
-            this.listView3.TabIndex = 12;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.cboActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboActivate.ForeColor = System.Drawing.Color.White;
+            this.cboActivate.Location = new System.Drawing.Point(738, 162);
+            this.cboActivate.Name = "cboActivate";
+            this.cboActivate.Size = new System.Drawing.Size(112, 49);
+            this.cboActivate.TabIndex = 22;
+            this.cboActivate.Text = "Activar";
+            this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(507, 136);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(487, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 17);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Eliminar grupo/s selec";
+            this.label2.Size = new System.Drawing.Size(175, 24);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Activar/Desactivar";
+            // 
+            // listView3
+            // 
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(60, 221);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(359, 413);
+            this.listView3.TabIndex = 25;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(968, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 24);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Listas de Skills";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(153, 175);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(219, 36);
+            this.textBox1.TabIndex = 10;
+            // 
+            // lbListSkills
+            // 
+            this.lbListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListSkills.FormattingEnabled = true;
+            this.lbListSkills.ItemHeight = 22;
+            this.lbListSkills.Location = new System.Drawing.Point(972, 221);
+            this.lbListSkills.Name = "lbListSkills";
+            this.lbListSkills.Size = new System.Drawing.Size(359, 400);
+            this.lbListSkills.TabIndex = 27;
             // 
             // FormGestionGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 534);
-            this.Controls.Add(this.label2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1404, 714);
+            this.Controls.Add(this.lbListSkills);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.listView3);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.btn_exit);
-            this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cboActivate);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.txtNameSkill);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNameGroup);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGestionGrupo";
             this.Text = "FormGestionGrupo";
+            this.Load += new System.EventHandler(this.FormGestionGrupo_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,16 +265,18 @@ namespace DesktopApp
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pb_minimize;
         private System.Windows.Forms.PictureBox pb_close;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblNameGroup;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_exit;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.TextBox txtNameSkill;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox lbListSkills;
     }
 }
