@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopApp.Models;
 
 namespace DesktopApp
 {
@@ -51,24 +52,41 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            String missatge = "";
+
+
 
             List<int> old_ids = new List<int>();
-            foreach (Models.kpis kpi in this.skill.kpis)
+            foreach (kpis kpi in this.skill.kpis)
             {
                 old_ids.Add(kpi.id);
             }
-            foreach (Models.kpis newkpi in this.updatedItems)
-            {
 
-                if (old_ids.Contains(newkpi.id))
-                {
-                    //update
-                }
-                else
-                {
-                    Models.KpisOrm.Insert(newkpi);//insert
-                }
+            foreach (kpis newkpi in this.updatedItems)
+            {
+                MessageBox.Show(newkpi.id.ToString());
+                //if (old_ids.Contains(newkpi.id))
+                //{
+                //   // update
+                //}
+                //else
+                //{
+                //    missatge = KpisOrm.Insert(newkpi);
+
+
+                //}
+
             }
+
+            if (missatge != "")
+            {
+                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("KPI Añadida");
+            }
+
         }
     }
 }

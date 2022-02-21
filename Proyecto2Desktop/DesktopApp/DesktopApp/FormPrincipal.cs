@@ -56,6 +56,7 @@ namespace DesktopApp
         {
             limpiarPanelSkills();
             dgvSkill.Columns.Clear();
+            btnManagmentKPI.Visible = false;
             _llistesSkills = llistesS;
 
             _skills = SkillsOrm.SelectActivate(_llistesSkills.id);
@@ -69,7 +70,7 @@ namespace DesktopApp
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
         {
             _skill = S;
-
+            btnManagmentKPI.Visible = true;
             dgvSkill.Columns.Clear();
             dgvSkill.DataSource = null;
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
@@ -165,12 +166,10 @@ namespace DesktopApp
             }
           }
 
-        private void btnGestionKPI_Click(object sender, EventArgs e)
+        private void btnManagmentKPI_Click(object sender, EventArgs e)
         {
-            Models.skills skillAEditar = new Models.skills();
-            FormKPI FormKPI = new FormKPI(skillAEditar);
+            FormKPI FormKPI = new FormKPI(_skill);
             FormKPI.ShowDialog();
-
         }
     }
 }

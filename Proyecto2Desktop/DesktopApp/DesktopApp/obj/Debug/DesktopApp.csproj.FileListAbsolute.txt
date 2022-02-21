@@ -19,7 +19,6 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debu
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormSkill.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormListaSkills.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionGrupo.resources
-C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormUsuarios.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe.config
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.exe
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\bin\Debug\DesktopApp.pdb
