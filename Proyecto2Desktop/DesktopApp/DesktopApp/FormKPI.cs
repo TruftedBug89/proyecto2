@@ -66,7 +66,7 @@ namespace DesktopApp
                 }
                 else
                 {
-                    //insert
+                    Models.KpisOrm.Insert(newkpi);//insert
                 }
             }
         }
