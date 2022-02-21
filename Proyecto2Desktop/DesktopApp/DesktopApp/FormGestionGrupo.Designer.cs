@@ -35,17 +35,17 @@ namespace DesktopApp
             this.pb_close = new System.Windows.Forms.PictureBox();
             this.lblNameGroup = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.txtNameSkill = new System.Windows.Forms.TextBox();
+            this.txtNameGroup = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbListSkills = new System.Windows.Forms.ListBox();
+            this.lbGroups = new System.Windows.Forms.ListBox();
+            this.lbUsers = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
@@ -105,24 +105,15 @@ namespace DesktopApp
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // listView1
+            // txtNameGroup
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(491, 221);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(359, 413);
-            this.listView1.TabIndex = 14;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // txtNameSkill
-            // 
-            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNameGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameSkill.Location = new System.Drawing.Point(267, 68);
-            this.txtNameSkill.Name = "txtNameSkill";
-            this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
-            this.txtNameSkill.TabIndex = 16;
+            this.txtNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameGroup.Location = new System.Drawing.Point(267, 68);
+            this.txtNameGroup.Name = "txtNameGroup";
+            this.txtNameGroup.Size = new System.Drawing.Size(789, 45);
+            this.txtNameGroup.TabIndex = 16;
             // 
             // btnSave
             // 
@@ -136,6 +127,7 @@ namespace DesktopApp
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -189,15 +181,6 @@ namespace DesktopApp
             this.label2.TabIndex = 23;
             this.label2.Text = "Activar/Desactivar";
             // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(60, 221);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(359, 413);
-            this.listView3.TabIndex = 25;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -225,8 +208,31 @@ namespace DesktopApp
             this.lbListSkills.ItemHeight = 22;
             this.lbListSkills.Location = new System.Drawing.Point(972, 221);
             this.lbListSkills.Name = "lbListSkills";
+            this.lbListSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbListSkills.Size = new System.Drawing.Size(359, 400);
             this.lbListSkills.TabIndex = 27;
+            // 
+            // lbGroups
+            // 
+            this.lbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGroups.FormattingEnabled = true;
+            this.lbGroups.ItemHeight = 22;
+            this.lbGroups.Location = new System.Drawing.Point(491, 221);
+            this.lbGroups.Name = "lbGroups";
+            this.lbGroups.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lbGroups.Size = new System.Drawing.Size(359, 400);
+            this.lbGroups.TabIndex = 28;
+            // 
+            // lbUsers
+            // 
+            this.lbUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsers.FormattingEnabled = true;
+            this.lbUsers.ItemHeight = 22;
+            this.lbUsers.Location = new System.Drawing.Point(60, 221);
+            this.lbUsers.Name = "lbUsers";
+            this.lbUsers.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lbUsers.Size = new System.Drawing.Size(359, 400);
+            this.lbUsers.TabIndex = 29;
             // 
             // FormGestionGrupo
             // 
@@ -234,17 +240,17 @@ namespace DesktopApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1404, 714);
+            this.Controls.Add(this.lbUsers);
+            this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.lbListSkills);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listView3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtNameSkill);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.txtNameGroup);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblNameGroup);
             this.Controls.Add(this.panel1);
@@ -267,16 +273,16 @@ namespace DesktopApp
         private System.Windows.Forms.PictureBox pb_close;
         private System.Windows.Forms.Label lblNameGroup;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox txtNameSkill;
+        private System.Windows.Forms.TextBox txtNameGroup;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox lbListSkills;
+        private System.Windows.Forms.ListBox lbGroups;
+        private System.Windows.Forms.ListBox lbUsers;
     }
 }

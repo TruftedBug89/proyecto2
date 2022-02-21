@@ -13,8 +13,9 @@ namespace DesktopApp
 {
     public partial class FormGestionGrupo : Form
     {
-        private llistes_skills _llistaSkill;
+        private llistes_skills _llistaSkill;        
         private List<llistes_skills> _llistesSkills;
+        private grups _grup;
 
         public FormGestionGrupo()
         {
@@ -39,6 +40,26 @@ namespace DesktopApp
             {
                 lbListSkills.Items.Add(ls.nom);
             }
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+            if (_grup != null) 
+            {
+
+            }
+            else
+            {
+                grups Grup = new grups();
+                Grup.nom = txtNameGroup.Text;
+
+                missatge = GrupsOrm.Insert(Grup);
+            }
+
+            
 
         }
     }
