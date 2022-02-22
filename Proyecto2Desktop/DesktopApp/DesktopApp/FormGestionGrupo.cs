@@ -17,6 +17,8 @@ namespace DesktopApp
         private List<llistes_skills> _llistesSkills;
         private grups _grup;
         private List<grups> _grups;
+        private usuaris _usuaris;
+        private List<usuaris> _ListUsuaris;
 
         public FormGestionGrupo()
         {
@@ -35,6 +37,7 @@ namespace DesktopApp
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
+            cargarUsuarios();
             cargarListasSkills();
             actualizarGrupos();
 
@@ -74,7 +77,13 @@ namespace DesktopApp
 
         private void cargarUsuarios()         
         {
-        
+            _ListUsuaris = UsuarisOrm.Select();
+
+            foreach (usuaris us in _ListUsuaris)
+            {
+                lbUsers.Items.Add(us.nom);
+            }
+
         }
 
 
@@ -84,9 +93,9 @@ namespace DesktopApp
 
             _grups = GrupsOrm.Select();
 
-            foreach (grups ls in _grups)
+            foreach (grups grp in _grups)
             {
-                lbGroups.Items.Add(ls.nom);
+                lbGroups.Items.Add(grp.nom);
             }
 
         }
