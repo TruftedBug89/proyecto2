@@ -52,6 +52,11 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.updatedItems.Count == 0)
+            {
+                MessageBox.Show("No se ha hecho ningun cambio");
+                return;
+            }
             String missatge = "";
 
 
@@ -64,17 +69,18 @@ namespace DesktopApp
 
             foreach (kpis newkpi in this.updatedItems)
             {
-                MessageBox.Show(newkpi.id.ToString());
-                //if (old_ids.Contains(newkpi.id))
-                //{
-                //   // update
-                //}
-                //else
-                //{
-                //    missatge = KpisOrm.Insert(newkpi);
+                if (old_ids.Contains(newkpi.id))
+                {
+                    KpisOrm.Update(KpisOrm.SelectSingleId(newkpi.id),newkpi.nom,newkpi.skills_id,newkpi.actiu);// update
+                }
+                else
+                {
+                    //MessageBox.Show(newkpi.ToString());
+                    missatge = KpisOrm.Insert(newkpi);
 
 
-                //}
+                }
+
 
             }
 
@@ -84,15 +90,30 @@ namespace DesktopApp
             }
             else
             {
-                MessageBox.Show("KPI Añadida");
+                MessageBox.Show(this.updatedItems.Count+" KPI's actualizados");
+                this.updatedItems.Clear();
             }
 
         }
 
-        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            DataRowVersion.
+            kpis deletedKpi = (kpis)e.Row.DataBoundItem;
+            deletedKpi.actiu = false;
+            this.updatedItems.Add(deletedKpi);
+        }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (this.updatedItems.Count != 0)
+            {
+                DialogResult dr = MessageBox.Show("Tienes elementos por guardar, estas segur@ que quieres cancelar", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else this.Close();
         }
     }
 }
