@@ -46,31 +46,9 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            String missatge = "";
+            usuaris _users = (usuaris)lbUsers.SelectedItem;
 
-            if (_grup != null) 
-            {
-                //update
-            }
-            else
-            {
-                grups Grup = new grups();
-                Grup.nom = txtNameGroup.Text;
-
-                missatge = GrupsOrm.Insert(Grup);
-
-                if (missatge != "")
-                {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Grupo añadido");
-                }
-
-            }
-
-            actualizarGrupos();
+            MessageBox.Show(_users.nom);
         }
 
 
@@ -111,6 +89,34 @@ namespace DesktopApp
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+            if (_grup != null)
+            {
+                //update
+            }
+            else
+            {
+                grups Grup = new grups();
+                Grup.nom = txtNameGroup.Text;
+
+                missatge = GrupsOrm.Insert(Grup);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Grupo añadido");
+                }
+
+            }
+
+            actualizarGrupos();
+        }
 
     }
 }

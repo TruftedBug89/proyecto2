@@ -46,6 +46,7 @@ namespace DesktopApp
             this.lbListSkills = new System.Windows.Forms.ListBox();
             this.lbGroups = new System.Windows.Forms.ListBox();
             this.lbUsers = new System.Windows.Forms.ListBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
@@ -234,12 +235,27 @@ namespace DesktopApp
             this.lbUsers.Size = new System.Drawing.Size(359, 400);
             this.lbUsers.TabIndex = 29;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(1078, 68);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(106, 42);
+            this.btnAdd.TabIndex = 30;
+            this.btnAdd.Text = "Añadir";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FormGestionGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1404, 714);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lbUsers);
             this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.lbListSkills);
@@ -284,5 +300,6 @@ namespace DesktopApp
         private System.Windows.Forms.ListBox lbListSkills;
         private System.Windows.Forms.ListBox lbGroups;
         private System.Windows.Forms.ListBox lbUsers;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
