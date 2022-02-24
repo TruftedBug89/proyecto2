@@ -39,13 +39,13 @@
             this.btnAddKpi = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillsidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actiuDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.valoracionsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
@@ -153,11 +153,8 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1269, 304);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow_1);
-            // 
-            // bindingSourceKPI
-            // 
-            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -205,6 +202,10 @@
             this.skillsDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.skillsDataGridViewTextBoxColumn1.Name = "skillsDataGridViewTextBoxColumn1";
             this.skillsDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // bindingSourceKPI
+            // 
+            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
             // 
             // FormKPI
             // 

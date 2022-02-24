@@ -46,7 +46,6 @@ namespace DesktopApp
                 this.updatedItems.Add(_kpi);
                 bindingSourceKPI.Add(_kpi);
                 txtNewKPI.Text = "";
-                btnAddKpi.Text = "";
             }
 
 
@@ -117,6 +116,13 @@ namespace DesktopApp
             deletedKpi.actiu = false;
 
             this.updatedItems.Add(deletedKpi);
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            kpis editedKpi = (kpis)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+            Console.WriteLine(editedKpi.nom);
+            this.updatedItems.Add(editedKpi);
         }
     }
 }
