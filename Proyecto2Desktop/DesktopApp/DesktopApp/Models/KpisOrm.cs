@@ -19,13 +19,16 @@ namespace DesktopApp.Models
             List<kpis> _kpis = (from k in Orm.bd.kpis where k.actiu == actiu where k.skills_id == skillid select k).ToList();
             return _kpis;
         }
-        public static String Update(kpis old,kpis nou)
+        public static kpis SelectSingleId(int id)
+        {
+            return (from k in Orm.bd.kpis where k.id == id select k).Single();
+        }
+        public static String Update(kpis old,String nouNom, int novaSkill,Boolean actiu)
 
         {
-            old.nom = nou.nom;
-            old.skills_id = nou.skills_id;
-            old.actiu = nou.actiu;
-            old.valoracions = nou.valoracions;
+            old.nom = nouNom;
+            old.skills_id = novaSkill;
+            old.actiu = actiu;
             return Orm.MySaveChanges();
         }
         // public static String Delete(kpis kpi)

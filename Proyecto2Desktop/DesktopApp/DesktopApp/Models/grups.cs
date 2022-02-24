@@ -24,6 +24,7 @@ namespace DesktopApp.Models
     
         public int id { get; set; }
         public string nom { get; set; }
+        public Nullable<bool> actiu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }

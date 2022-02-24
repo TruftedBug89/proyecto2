@@ -14,6 +14,7 @@
     <EntitySetMapping Name="grups">
       <EntityTypeMapping TypeName="frase_aluModel.grups">
         <MappingFragment StoreEntitySet="grups">
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
         </MappingFragment>
@@ -68,6 +69,12 @@
     <EntitySetMapping Name="rols">
       <EntityTypeMapping TypeName="frase_aluModel.rols">
         <MappingFragment StoreEntitySet="rols">
+          <ScalarProperty Name="GestionarGrupos" ColumnName="GestionarGrupos" />
+          <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
+          <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
+          <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
+          <ScalarProperty Name="GestionListaSkills" ColumnName="GestionListaSkills" />
+          <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="actiu" ColumnName="actiu" />
@@ -77,6 +84,8 @@
     <EntitySetMapping Name="usuaris">
       <EntityTypeMapping TypeName="frase_aluModel.usuaris">
         <MappingFragment StoreEntitySet="usuaris">
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="rols_id" ColumnName="rols_id" />
