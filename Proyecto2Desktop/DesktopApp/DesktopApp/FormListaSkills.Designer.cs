@@ -71,6 +71,7 @@
             this.dgvListaSkills.AllowUserToAddRows = false;
             this.dgvListaSkills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaSkills.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvListaSkills.Location = new System.Drawing.Point(215, 266);
             this.dgvListaSkills.Name = "dgvListaSkills";
             this.dgvListaSkills.RowHeadersWidth = 51;
