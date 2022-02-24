@@ -80,7 +80,7 @@ namespace DesktopApp
             dgvSkill.Columns.Add(S.nom, S.nom);
             dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
 
-            _kpis = KpisOrm.Select(true,S.id);
+            _kpis = KpisOrm.Select(true, _skill.id);
 
             foreach (kpis kpi in _kpis)
             {
