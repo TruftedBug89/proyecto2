@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCloseSesion = new System.Windows.Forms.Button();
             this.btnManagmentListSkills = new System.Windows.Forms.Button();
-            this.btnGestionKPI = new System.Windows.Forms.Button();
+            this.btnManagmentKPI = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -59,7 +59,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1751, 66);
+            this.panel1.Size = new System.Drawing.Size(1710, 66);
             this.panel1.TabIndex = 0;
             // 
             // btnCloseSesion
@@ -70,10 +70,10 @@
             this.btnCloseSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCloseSesion.Location = new System.Drawing.Point(1491, 11);
-            this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseSesion.Location = new System.Drawing.Point(1284, 9);
+            this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCloseSesion.Name = "btnCloseSesion";
-            this.btnCloseSesion.Size = new System.Drawing.Size(223, 43);
+            this.btnCloseSesion.Size = new System.Drawing.Size(198, 34);
             this.btnCloseSesion.TabIndex = 0;
             this.btnCloseSesion.Text = "Cerar Sesión";
             this.btnCloseSesion.UseVisualStyleBackColor = false;
@@ -85,35 +85,38 @@
             this.btnManagmentListSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentListSkills.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentListSkills.Location = new System.Drawing.Point(16, 10);
-            this.btnManagmentListSkills.Margin = new System.Windows.Forms.Padding(16, 10, 4, 4);
+            this.btnManagmentListSkills.Location = new System.Drawing.Point(14, 8);
+            this.btnManagmentListSkills.Margin = new System.Windows.Forms.Padding(14, 8, 4, 3);
             this.btnManagmentListSkills.Name = "btnManagmentListSkills";
-            this.btnManagmentListSkills.Size = new System.Drawing.Size(147, 66);
+            this.btnManagmentListSkills.Size = new System.Drawing.Size(131, 53);
             this.btnManagmentListSkills.TabIndex = 3;
             this.btnManagmentListSkills.Text = "Gestion Lista de Skils";
             this.btnManagmentListSkills.UseVisualStyleBackColor = false;
             this.btnManagmentListSkills.Click += new System.EventHandler(this.btnManagmentListSkills_Click);
             // 
-            // btnGestionKPI
+            // btnManagmentKPI
             // 
-            this.btnGestionKPI.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnGestionKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionKPI.ForeColor = System.Drawing.Color.White;
-            this.btnGestionKPI.Location = new System.Drawing.Point(74, 55);
-            this.btnGestionKPI.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGestionKPI.Name = "btnGestionKPI";
-            this.btnGestionKPI.Size = new System.Drawing.Size(155, 59);
-            this.btnGestionKPI.TabIndex = 5;
-            this.btnGestionKPI.Text = "Gestion KPI";
-            this.btnGestionKPI.UseVisualStyleBackColor = false;
+            this.btnManagmentKPI.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnManagmentKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentKPI.ForeColor = System.Drawing.Color.White;
+            this.btnManagmentKPI.Location = new System.Drawing.Point(59, 278);
+            this.btnManagmentKPI.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagmentKPI.Name = "btnManagmentKPI";
+            this.btnManagmentKPI.Size = new System.Drawing.Size(155, 59);
+            this.btnManagmentKPI.TabIndex = 5;
+            this.btnManagmentKPI.Text = "Gestion KPI";
+            this.btnManagmentKPI.UseVisualStyleBackColor = false;
+            this.btnManagmentKPI.Visible = false;
+            this.btnManagmentKPI.Click += new System.EventHandler(this.btnManagmentKPI_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.flpListSkills);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 66);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1751, 130);
+            this.panel4.Size = new System.Drawing.Size(1710, 104);
             this.panel4.TabIndex = 7;
             // 
             // flpListSkills
@@ -123,8 +126,9 @@
             this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
             this.flpListSkills.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpListSkills.Location = new System.Drawing.Point(0, 0);
+            this.flpListSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpListSkills.Name = "flpListSkills";
-            this.flpListSkills.Size = new System.Drawing.Size(1751, 105);
+            this.flpListSkills.Size = new System.Drawing.Size(1710, 84);
             this.flpListSkills.TabIndex = 22;
             this.flpListSkills.WrapContents = false;
             // 
@@ -132,9 +136,10 @@
             // 
             this.panel5.Controls.Add(this.flpSkills);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 794);
+            this.panel5.Location = new System.Drawing.Point(0, 714);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1751, 162);
+            this.panel5.Size = new System.Drawing.Size(1710, 130);
             this.panel5.TabIndex = 10;
             // 
             // flpSkills
@@ -143,9 +148,10 @@
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnManagmentSkills);
             this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpSkills.Location = new System.Drawing.Point(0, 12);
+            this.flpSkills.Location = new System.Drawing.Point(0, 10);
+            this.flpSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpSkills.Name = "flpSkills";
-            this.flpSkills.Size = new System.Drawing.Size(1751, 150);
+            this.flpSkills.Size = new System.Drawing.Size(1710, 120);
             this.flpSkills.TabIndex = 23;
             this.flpSkills.WrapContents = false;
             // 
@@ -155,10 +161,10 @@
             this.btnManagmentSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentSkills.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentSkills.Location = new System.Drawing.Point(16, 20);
-            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(16, 20, 4, 4);
+            this.btnManagmentSkills.Location = new System.Drawing.Point(14, 16);
+            this.btnManagmentSkills.Margin = new System.Windows.Forms.Padding(14, 16, 4, 3);
             this.btnManagmentSkills.Name = "btnManagmentSkills";
-            this.btnManagmentSkills.Size = new System.Drawing.Size(147, 87);
+            this.btnManagmentSkills.Size = new System.Drawing.Size(131, 70);
             this.btnManagmentSkills.TabIndex = 5;
             this.btnManagmentSkills.Text = "Gestion Skills";
             this.btnManagmentSkills.UseVisualStyleBackColor = false;
@@ -168,9 +174,10 @@
             // 
             this.panel6.Controls.Add(this.btnGestionUsuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 196);
+            this.panel6.Location = new System.Drawing.Point(0, 170);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(259, 598);
+            this.panel6.Size = new System.Drawing.Size(230, 544);
             this.panel6.TabIndex = 13;
             // 
             // btnGestionUsuarios
@@ -188,11 +195,12 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btnGestionKPI);
+            this.panel7.Controls.Add(this.btnManagmentKPI);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(1491, 196);
+            this.panel7.Location = new System.Drawing.Point(1479, 170);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(260, 598);
+            this.panel7.Size = new System.Drawing.Size(231, 544);
             this.panel7.TabIndex = 14;
             // 
             // dgvSkill
@@ -201,12 +209,12 @@
             this.dgvSkill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSkill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSkill.Location = new System.Drawing.Point(259, 196);
-            this.dgvSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSkill.Location = new System.Drawing.Point(230, 170);
+            this.dgvSkill.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;
-            this.dgvSkill.Size = new System.Drawing.Size(1232, 598);
+            this.dgvSkill.Size = new System.Drawing.Size(1249, 544);
             this.dgvSkill.TabIndex = 16;
             // 
             // FormPrincipal
@@ -214,7 +222,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1751, 956);
+            this.ClientSize = new System.Drawing.Size(1710, 844);
             this.Controls.Add(this.dgvSkill);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -242,7 +250,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCloseSesion;
         private System.Windows.Forms.Button btnManagmentListSkills;
-        private System.Windows.Forms.Button btnGestionKPI;
+        private System.Windows.Forms.Button btnManagmentKPI;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;

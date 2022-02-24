@@ -35,7 +35,6 @@ C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormPrincipal.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormSkill.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionGrupo.resources
-C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormUsuarios.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileInputs.cache
@@ -47,3 +46,6 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debu
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCrearUsuarios.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormKPI.resources
 C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionUsuarios.resources
+C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCrearUsuarios.resources
+C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormKPI.resources
+C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionUsuarios.resources

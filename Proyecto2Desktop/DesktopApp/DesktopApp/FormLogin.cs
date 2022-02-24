@@ -22,5 +22,15 @@ namespace DesktopApp
             FormPrincipal fp = new FormPrincipal();
             fp.Show();
         }
+
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
