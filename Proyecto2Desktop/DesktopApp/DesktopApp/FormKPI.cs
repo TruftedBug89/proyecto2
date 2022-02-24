@@ -45,6 +45,7 @@ namespace DesktopApp
                 _kpi.actiu = true;
                 this.updatedItems.Add(_kpi);
                 bindingSourceKPI.Add(_kpi);
+                txtNewKPI.Text = "";
                 btnAddKpi.Text = "";
             }
 

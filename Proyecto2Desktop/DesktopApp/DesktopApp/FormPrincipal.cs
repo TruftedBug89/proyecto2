@@ -13,10 +13,11 @@ namespace DesktopApp
 {
     public partial class FormPrincipal : Form
     {
-        List<llistes_skills> _llistes_Skills;
-        List<skills> _skills;
+        private List<llistes_skills> _llistes_Skills;
+        private List<skills> _skills;
         private llistes_skills _llistesSkills;
         private skills _skill;
+        private List<kpis> _kpis;
 
         public FormPrincipal()
         {
@@ -44,6 +45,7 @@ namespace DesktopApp
             ActualizarPanelListasSkills();
             limpiarPanelSkills();
             _llistesSkills = null;
+            dgvSkill.Columns.Clear();
         }
 
 
@@ -77,6 +79,13 @@ namespace DesktopApp
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             dgvSkill.Columns.Add(S.nom, S.nom);
             dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+
+            _kpis = KpisOrm.Select(true,S.id);
+
+            foreach (kpis kpi in _kpis)
+            {
+                dgvSkill.Rows.Add(kpi.nom);
+            }
 
         }
 
@@ -160,6 +169,8 @@ namespace DesktopApp
                 formSkill.ShowDialog();
                 ActualizarPanelListasSkills();
                 limpiarPanelSkills();
+                dgvSkill.Columns.Clear();
+
             }
             else
             {
@@ -171,6 +182,10 @@ namespace DesktopApp
         {
             FormKPI FormKPI = new FormKPI(_skill);
             FormKPI.ShowDialog();
+            ActualizarPanelListasSkills();
+            limpiarPanelSkills();
+            _llistesSkills = null;
+            dgvSkill.Columns.Clear();
         }
     }
 }
