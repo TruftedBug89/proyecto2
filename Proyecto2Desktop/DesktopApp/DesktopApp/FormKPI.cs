@@ -45,6 +45,7 @@ namespace DesktopApp
                 _kpi.actiu = true;
                 this.updatedItems.Add(_kpi);
                 bindingSourceKPI.Add(_kpi);
+                btnAddKpi.Text = "";
             }
 
 
@@ -95,16 +96,9 @@ namespace DesktopApp
             }
 
         }
-
-        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            kpis deletedKpi = (kpis)e.Row.DataBoundItem;
-            deletedKpi.actiu = false;
-            this.updatedItems.Add(deletedKpi);
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("updateditems count"+this.updatedItems.Count);
             if (this.updatedItems.Count != 0)
             {
                 DialogResult dr = MessageBox.Show("Tienes elementos por guardar, estas segur@ que quieres cancelar", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -114,6 +108,14 @@ namespace DesktopApp
                 }
             }
             else this.Close();
+        }
+
+        private void dataGridView1_UserDeletingRow_1(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            kpis deletedKpi = (kpis)e.Row.DataBoundItem;
+            deletedKpi.actiu = false;
+
+            this.updatedItems.Add(deletedKpi);
         }
     }
 }
