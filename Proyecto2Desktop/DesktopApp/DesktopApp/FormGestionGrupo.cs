@@ -41,14 +41,39 @@ namespace DesktopApp
             cargarListasSkills();
             actualizarGrupos();
 
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            usuaris _users = (usuaris)lbUsers.SelectedItem;
+            
+            foreach (DataGridViewRow row in dgvUsers.SelectedRows)
+            {
+                DataGridViewCheckBoxCell chkchecking = row.Cells[1] as DataGridViewCheckBoxCell;
+                string UserText = row.Cells[0].Value.ToString();
+                
+                bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
+                if (EsProfesor)
+                {
+                    MessageBox.Show("Docent: " + UserText);
+                    //añadir en grups_has_docents
+                }
+                else
+                {
+                    MessageBox.Show("Alumno: " + UserText);
+                    //añadir en grups_has_alumnes
+                }
 
-            MessageBox.Show(_users.nom);
+            }
+
+            if (lbGroups.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Mas de un grupo seleccionado");
+            }
+            else
+            {
+                MessageBox.Show("Solo un grupo");
+            }
+
         }
 
 
@@ -56,10 +81,20 @@ namespace DesktopApp
         private void cargarUsuarios()         
         {
             _ListUsuaris = UsuarisOrm.Select();
+                        
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "Docent";
+            checkBoxColumn.Name = "checkBox";
 
-            foreach (usuaris us in _ListUsuaris)
+
+            dgvUsers.DataSource = null;
+            dgvUsers.Columns.Add("Usuari", "Usuari");
+            dgvUsers.Columns["Usuari"].ReadOnly = true;
+            dgvUsers.Columns.Add(checkBoxColumn);
+
+            foreach (usuaris item in _ListUsuaris)
             {
-                lbUsers.Items.Add(us.nom);
+                dgvUsers.Rows.Add(item.nom);
             }
 
         }
@@ -70,6 +105,7 @@ namespace DesktopApp
             lbGroups.Items.Clear();
 
             _grups = GrupsOrm.Select();
+            lbGroups.Items.Add("Todas las relaciones");
 
             foreach (grups grp in _grups)
             {
@@ -118,5 +154,34 @@ namespace DesktopApp
             actualizarGrupos();
         }
 
+        private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbGroups.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Mas de un grupo seleccionado");
+                lbListSkills.SelectionMode = SelectionMode.One;
+                dgvUsers.MultiSelect = false;
+            }
+            else
+            {
+                MessageBox.Show("Solo un grupo");
+                lbListSkills.SelectionMode = SelectionMode.MultiExtended;
+                dgvUsers.MultiSelect = true;
+            }
+        }
+
+        private void lbListSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbListSkills.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Mas de una skill seleccionado");
+                lbGroups.SelectionMode = SelectionMode.One;
+            }
+            else
+            {
+                MessageBox.Show("Solo una skill");
+                lbGroups.SelectionMode = SelectionMode.MultiExtended;
+            }
+        }
     }
 }

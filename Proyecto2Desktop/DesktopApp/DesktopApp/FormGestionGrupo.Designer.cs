@@ -29,6 +29,7 @@ namespace DesktopApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionGrupo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
@@ -45,12 +46,15 @@ namespace DesktopApp
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbListSkills = new System.Windows.Forms.ListBox();
             this.lbGroups = new System.Windows.Forms.ListBox();
-            this.lbUsers = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,7 +159,6 @@ namespace DesktopApp
             // 
             // cboActivate
             // 
-            this.cboActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
             this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,8 +197,6 @@ namespace DesktopApp
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(153, 175);
             this.textBox1.Name = "textBox1";
@@ -204,6 +205,7 @@ namespace DesktopApp
             // 
             // lbListSkills
             // 
+            this.lbListSkills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbListSkills.FormattingEnabled = true;
             this.lbListSkills.ItemHeight = 22;
@@ -212,31 +214,23 @@ namespace DesktopApp
             this.lbListSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbListSkills.Size = new System.Drawing.Size(359, 400);
             this.lbListSkills.TabIndex = 27;
+            this.lbListSkills.SelectedIndexChanged += new System.EventHandler(this.lbListSkills_SelectedIndexChanged);
             // 
             // lbGroups
             // 
             this.lbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGroups.FormattingEnabled = true;
             this.lbGroups.ItemHeight = 22;
-            this.lbGroups.Location = new System.Drawing.Point(491, 221);
+            this.lbGroups.Location = new System.Drawing.Point(60, 221);
             this.lbGroups.Name = "lbGroups";
             this.lbGroups.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbGroups.Size = new System.Drawing.Size(359, 400);
             this.lbGroups.TabIndex = 28;
-            // 
-            // lbUsers
-            // 
-            this.lbUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsers.FormattingEnabled = true;
-            this.lbUsers.ItemHeight = 22;
-            this.lbUsers.Location = new System.Drawing.Point(60, 221);
-            this.lbUsers.Name = "lbUsers";
-            this.lbUsers.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbUsers.Size = new System.Drawing.Size(359, 400);
-            this.lbUsers.TabIndex = 29;
+            this.lbGroups.SelectedIndexChanged += new System.EventHandler(this.lbGroups_SelectedIndexChanged);
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -249,14 +243,34 @@ namespace DesktopApp
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // dgvUsers
+            // 
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(491, 221);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.RowTemplate.Height = 24;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsers.Size = new System.Drawing.Size(359, 387);
+            this.dgvUsers.TabIndex = 31;
+            // 
+            // bindingSourceUsers
+            // 
+            this.bindingSourceUsers.DataSource = typeof(DesktopApp.Models.usuaris);
+            // 
             // FormGestionGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1404, 714);
+            this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lbUsers);
             this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.lbListSkills);
             this.Controls.Add(this.textBox1);
@@ -277,6 +291,8 @@ namespace DesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +315,8 @@ namespace DesktopApp
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox lbListSkills;
         private System.Windows.Forms.ListBox lbGroups;
-        private System.Windows.Forms.ListBox lbUsers;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.BindingSource bindingSourceUsers;
     }
 }
