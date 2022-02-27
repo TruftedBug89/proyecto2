@@ -19,10 +19,12 @@ namespace DesktopApp
         private List<grups> _grups;
         private usuaris _usuaris;
         private List<usuaris> _ListUsuaris;
+        private String gruposStatus;
 
-        public FormGestionGrupo()
+        public FormGestionGrupo(String gruposStatus)
         {
             InitializeComponent();
+            this.gruposStatus = gruposStatus;
         }
 
         private void pb_close_Click(object sender, EventArgs e)
@@ -37,9 +39,18 @@ namespace DesktopApp
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
-            cargarUsuarios();
-            cargarListasSkills();
-            actualizarGrupos();
+            if (gruposStatus.Equals("GuposListasSkills"))
+            {
+                cargarListasSkills();
+                actualizarGrupos();
+                dgvUsers.Visible = false;
+                lbListSkills.Visible = true;
+            }
+            else
+            {
+                cargarUsuarios();
+            }
+            
 
         }
 

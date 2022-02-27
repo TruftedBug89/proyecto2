@@ -16,6 +16,7 @@ namespace DesktopApp
     {       
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
+        private String FormGruposSkills;
 
         public FormListaSkills()
         {
@@ -255,7 +256,8 @@ namespace DesktopApp
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
-            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
+            FormGruposSkills = "GuposListasSkills";
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo(FormGruposSkills);
             formGestionGrupo.ShowDialog();
         }
     }
