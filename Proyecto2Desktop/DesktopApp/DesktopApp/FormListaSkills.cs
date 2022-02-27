@@ -40,8 +40,7 @@ namespace DesktopApp
 
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
         {
-
-            cboBuildTable.Checked = false;           
+  
             _llistesSkills = llistesS;
 
             if (_llistesSkills != null) 
@@ -96,19 +95,6 @@ namespace DesktopApp
 
         }
 
-        private void btnBuildTable_Click(object sender, EventArgs e)
-        {
-            ConstruirEncabezadosTabla();
-
-            Char[] letras = txtNameListSkill.Text.ToCharArray();             
-
-            for(int i = 0; i < letras.Length; i++)
-            {
-                dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");                
-            }
-
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -149,36 +135,9 @@ namespace DesktopApp
 
                 missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
 
-                if (missatge != "" && cboBuildTable.Checked)
+                if (missatge != "")
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    foreach (DataGridViewRow row in dgvListaSkills.Rows)
-                    {
-
-                        skills _skill = new skills();
-                        char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
-                        var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
-                        String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
-
-                        _skill.nom = nombreSkill;
-
-                        _skill.llistes_skills_id = _llistes_Skills.id;
-                        _skill.actiu = true;
-                        _skill.colorFondo = Color.Black.ToArgb();
-                        _skill.colorTexto = Color.White.ToArgb();
-
-                        missatge = SkillsOrm.Insert(_skill);
-
-                        if (missatge != "")
-                        {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-
-                    }
                 }
 
             }
@@ -231,32 +190,18 @@ namespace DesktopApp
             dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         }
 
-        private void cboBuildTable_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (cboBuildTable.Checked) 
-            {               
-                ConstruirEncabezadosTabla();
-
-                Char[] letras = txtNameListSkill.Text.ToCharArray();
-
-                for (int i = 0; i < letras.Length; i++)
-                {
-                    dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");
-                }
-            }
-            else
-            {
-                dgvListaSkills.Columns.Clear();
-            }
-
-            
-
-        }
+      
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
             FormGruposSkills = "GuposListasSkills";
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo(FormGruposSkills);
+            formGestionGrupo.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormGruposSkills = "";
             FormGestionGrupo formGestionGrupo = new FormGestionGrupo(FormGruposSkills);
             formGestionGrupo.ShowDialog();
         }

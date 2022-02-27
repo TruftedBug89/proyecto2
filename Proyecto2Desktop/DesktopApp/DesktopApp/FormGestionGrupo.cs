@@ -39,16 +39,23 @@ namespace DesktopApp
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
+            actualizarGrupos();
+
             if (gruposStatus.Equals("GuposListasSkills"))
             {
                 cargarListasSkills();
-                actualizarGrupos();
+                lbListSkills.Visible = true;
+                pnlSearchUsers.Visible = false;
                 dgvUsers.Visible = false;
                 lbListSkills.Visible = true;
             }
             else
-            {
+            {               
                 cargarUsuarios();
+                lbListSkills.Visible = false;
+                pnlSearchUsers.Visible = true;
+                dgvUsers.Visible = true;
+                lbListSkills.Visible = false;
             }
             
 

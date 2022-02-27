@@ -40,8 +40,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.cboActivate = new System.Windows.Forms.CheckBox();
-            this.cboBuildTable = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
@@ -52,7 +52,7 @@
             // 
             this.lblNameListSkill.AutoSize = true;
             this.lblNameListSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameListSkill.Location = new System.Drawing.Point(51, 204);
+            this.lblNameListSkill.Location = new System.Drawing.Point(211, 203);
             this.lblNameListSkill.Name = "lblNameListSkill";
             this.lblNameListSkill.Size = new System.Drawing.Size(212, 24);
             this.lblNameListSkill.TabIndex = 3;
@@ -61,9 +61,9 @@
             // txtNameListSkill
             // 
             this.txtNameListSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameListSkill.Location = new System.Drawing.Point(282, 192);
+            this.txtNameListSkill.Location = new System.Drawing.Point(460, 194);
             this.txtNameListSkill.Name = "txtNameListSkill";
-            this.txtNameListSkill.Size = new System.Drawing.Size(673, 45);
+            this.txtNameListSkill.Size = new System.Drawing.Size(553, 45);
             this.txtNameListSkill.TabIndex = 4;
             // 
             // dgvListaSkills
@@ -183,25 +183,6 @@
             this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cboActivate.UseVisualStyleBackColor = false;
             // 
-            // cboBuildTable
-            // 
-            this.cboBuildTable.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cboBuildTable.BackColor = System.Drawing.SystemColors.ControlText;
-            this.cboBuildTable.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cboBuildTable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.cboBuildTable.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
-            this.cboBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboBuildTable.ForeColor = System.Drawing.Color.White;
-            this.cboBuildTable.Location = new System.Drawing.Point(989, 190);
-            this.cboBuildTable.Name = "cboBuildTable";
-            this.cboBuildTable.Size = new System.Drawing.Size(245, 45);
-            this.cboBuildTable.TabIndex = 21;
-            this.cboBuildTable.Text = "Añadir Skills";
-            this.cboBuildTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cboBuildTable.UseVisualStyleBackColor = false;
-            this.cboBuildTable.CheckedChanged += new System.EventHandler(this.cboBuildTable_CheckedChanged);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -210,6 +191,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1445, 51);
             this.panel1.TabIndex = 31;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1187, 477);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // bindingSourceSkills
             // 
@@ -221,9 +212,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cboBuildTable);
             this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.btnManagmentGroups);
             this.Controls.Add(this.cbxBcolors);
@@ -257,7 +248,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
         private System.Windows.Forms.BindingSource bindingSourceSkills;
         private System.Windows.Forms.CheckBox cboActivate;
-        private System.Windows.Forms.CheckBox cboBuildTable;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

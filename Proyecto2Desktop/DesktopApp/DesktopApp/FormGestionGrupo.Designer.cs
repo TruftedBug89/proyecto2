@@ -41,18 +41,20 @@ namespace DesktopApp
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblUsersSkills = new System.Windows.Forms.Label();
+            this.lblListSkills = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbListSkills = new System.Windows.Forms.ListBox();
             this.lbGroups = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +104,7 @@ namespace DesktopApp
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(852, 134);
+            this.pictureBox1.Location = new System.Drawing.Point(314, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,38 +152,38 @@ namespace DesktopApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(487, 144);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 24);
+            this.label1.Size = new System.Drawing.Size(97, 24);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Usuarios";
+            this.label1.Text = "Usuarios:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 178);
+            this.label2.Location = new System.Drawing.Point(156, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 23;
             this.label2.Text = "Lista de Grupos";
             // 
-            // lblUsersSkills
+            // lblListSkills
             // 
-            this.lblUsersSkills.AutoSize = true;
-            this.lblUsersSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsersSkills.Location = new System.Drawing.Point(718, 178);
-            this.lblUsersSkills.Name = "lblUsersSkills";
-            this.lblUsersSkills.Size = new System.Drawing.Size(146, 24);
-            this.lblUsersSkills.TabIndex = 26;
-            this.lblUsersSkills.Text = "Listas de Skills";
+            this.lblListSkills.AutoSize = true;
+            this.lblListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListSkills.Location = new System.Drawing.Point(800, 178);
+            this.lblListSkills.Name = "lblListSkills";
+            this.lblListSkills.Size = new System.Drawing.Size(146, 24);
+            this.lblListSkills.TabIndex = 26;
+            this.lblListSkills.Text = "Listas de Skills";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(603, 135);
+            this.textBox1.Location = new System.Drawing.Point(119, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 36);
+            this.textBox1.Size = new System.Drawing.Size(179, 36);
             this.textBox1.TabIndex = 10;
             // 
             // lbListSkills
@@ -238,6 +240,16 @@ namespace DesktopApp
             this.dgvUsers.Size = new System.Drawing.Size(359, 387);
             this.dgvUsers.TabIndex = 31;
             // 
+            // pnlSearchUsers
+            // 
+            this.pnlSearchUsers.Controls.Add(this.pictureBox1);
+            this.pnlSearchUsers.Controls.Add(this.textBox1);
+            this.pnlSearchUsers.Controls.Add(this.label1);
+            this.pnlSearchUsers.Location = new System.Drawing.Point(712, 139);
+            this.pnlSearchUsers.Name = "pnlSearchUsers";
+            this.pnlSearchUsers.Size = new System.Drawing.Size(358, 76);
+            this.pnlSearchUsers.TabIndex = 33;
+            // 
             // bindingSourceUsers
             // 
             this.bindingSourceUsers.DataSource = typeof(DesktopApp.Models.usuaris);
@@ -248,18 +260,16 @@ namespace DesktopApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1143, 714);
+            this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.lbListSkills);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblUsersSkills);
+            this.Controls.Add(this.lblListSkills);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNameGroup);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblNameGroup);
             this.Controls.Add(this.panel1);
             this.Name = "FormGestionGrupo";
@@ -270,6 +280,8 @@ namespace DesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.pnlSearchUsers.ResumeLayout(false);
+            this.pnlSearchUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,12 +300,13 @@ namespace DesktopApp
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblUsersSkills;
+        private System.Windows.Forms.Label lblListSkills;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox lbListSkills;
         private System.Windows.Forms.ListBox lbGroups;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.BindingSource bindingSourceUsers;
+        private System.Windows.Forms.Panel pnlSearchUsers;
     }
 }
