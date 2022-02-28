@@ -16,7 +16,8 @@ namespace DesktopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSkill());
+            Application.Run(new FormGestionPerfil());
         }
     }
 }
+

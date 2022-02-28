@@ -21,6 +21,7 @@
     <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_grups" FromRole="grups" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_grups" FromRole="grups" ToRole="grups_has_docents" />
     <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_grups" FromRole="grups" ToRole="grups_has_llistes_skills" />
+    <Property Name="actiu" Type="Boolean" />
   </EntityType>
   <EntityType Name="grups_has_alumnes">
     <Key>
@@ -90,6 +91,12 @@
     <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="usuaris" Relationship="Self.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
+    <Property Name="GestionarKPIs" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarListaSkills" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarSkills" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarUsuarios" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarPerfiles" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarGrupos" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="usuaris">
     <Key>
@@ -98,12 +105,14 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="rols_id" Type="Int32" Nullable="false" />
-    <Property Name="actu" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
     <NavigationProperty Name="rols" Relationship="Self.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
     <NavigationProperty Name="valoracions" Relationship="Self.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
     <NavigationProperty Name="valoracions1" Relationship="Self.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
+    <Property Name="actiu" Type="Boolean" Nullable="false" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="valoracions">
     <Key>
