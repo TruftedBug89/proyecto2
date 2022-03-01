@@ -11,7 +11,7 @@ namespace DesktopApp.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class rols
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace DesktopApp.Models
         {
             this.usuaris = new HashSet<usuaris>();
         }
-
+    
         public int id { get; set; }
         public string nom { get; set; }
         public bool actiu { get; set; }
@@ -29,7 +29,7 @@ namespace DesktopApp.Models
         public bool GestionarUsuarios { get; set; }
         public bool GestionarPerfiles { get; set; }
         public bool GestionarGrupos { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuaris> usuaris { get; set; }
     }
