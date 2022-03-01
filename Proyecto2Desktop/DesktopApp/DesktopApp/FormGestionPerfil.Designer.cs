@@ -31,9 +31,9 @@ namespace DesktopApp
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionPerfil));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelNombrePerfil = new System.Windows.Forms.Label();
             this.tbPerfilName = new System.Windows.Forms.TextBox();
             this.labelPermisos = new System.Windows.Forms.Label();
@@ -50,8 +50,6 @@ namespace DesktopApp
             this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pbClose = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonIniciarSesion = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actiuDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -63,6 +61,10 @@ namespace DesktopApp
             this.gestionarGruposDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.usuarisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsRols = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonIniciarSesion = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ckbActiu = new System.Windows.Forms.CheckBox();
+            this.btnNew = new System.Windows.Forms.Button();
             this.groupBoxPermisos.SuspendLayout();
             this.pnBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
@@ -74,7 +76,7 @@ namespace DesktopApp
             // labelNombrePerfil
             // 
             this.labelNombrePerfil.AutoSize = true;
-            this.labelNombrePerfil.Location = new System.Drawing.Point(290, 105);
+            this.labelNombrePerfil.Location = new System.Drawing.Point(337, 103);
             this.labelNombrePerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombrePerfil.Name = "labelNombrePerfil";
             this.labelNombrePerfil.Size = new System.Drawing.Size(94, 17);
@@ -83,7 +85,7 @@ namespace DesktopApp
             // 
             // tbPerfilName
             // 
-            this.tbPerfilName.Location = new System.Drawing.Point(411, 100);
+            this.tbPerfilName.Location = new System.Drawing.Point(458, 98);
             this.tbPerfilName.Margin = new System.Windows.Forms.Padding(4);
             this.tbPerfilName.Name = "tbPerfilName";
             this.tbPerfilName.Size = new System.Drawing.Size(545, 22);
@@ -92,7 +94,7 @@ namespace DesktopApp
             // labelPermisos
             // 
             this.labelPermisos.AutoSize = true;
-            this.labelPermisos.Location = new System.Drawing.Point(292, 174);
+            this.labelPermisos.Location = new System.Drawing.Point(339, 172);
             this.labelPermisos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPermisos.Name = "labelPermisos";
             this.labelPermisos.Size = new System.Drawing.Size(70, 17);
@@ -102,7 +104,7 @@ namespace DesktopApp
             // ckbAllPermision
             // 
             this.ckbAllPermision.AutoSize = true;
-            this.ckbAllPermision.Location = new System.Drawing.Point(411, 171);
+            this.ckbAllPermision.Location = new System.Drawing.Point(458, 169);
             this.ckbAllPermision.Margin = new System.Windows.Forms.Padding(4);
             this.ckbAllPermision.Name = "ckbAllPermision";
             this.ckbAllPermision.Size = new System.Drawing.Size(148, 21);
@@ -114,7 +116,7 @@ namespace DesktopApp
             // ckbEmptyPermision
             // 
             this.ckbEmptyPermision.AutoSize = true;
-            this.ckbEmptyPermision.Location = new System.Drawing.Point(674, 171);
+            this.ckbEmptyPermision.Location = new System.Drawing.Point(721, 169);
             this.ckbEmptyPermision.Margin = new System.Windows.Forms.Padding(4);
             this.ckbEmptyPermision.Name = "ckbEmptyPermision";
             this.ckbEmptyPermision.Size = new System.Drawing.Size(114, 21);
@@ -131,7 +133,7 @@ namespace DesktopApp
             this.groupBoxPermisos.Controls.Add(this.ckbSkillsGestion);
             this.groupBoxPermisos.Controls.Add(this.ckbListSkilsGestion);
             this.groupBoxPermisos.Controls.Add(this.ckbKPIGestion);
-            this.groupBoxPermisos.Location = new System.Drawing.Point(291, 228);
+            this.groupBoxPermisos.Location = new System.Drawing.Point(338, 226);
             this.groupBoxPermisos.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxPermisos.Name = "groupBoxPermisos";
             this.groupBoxPermisos.Padding = new System.Windows.Forms.Padding(4);
@@ -246,14 +248,14 @@ namespace DesktopApp
             this.dataGridView1.AccessibleDescription = "-";
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -267,53 +269,31 @@ namespace DesktopApp
             this.gestionarGruposDataGridViewCheckBoxColumn,
             this.usuarisDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsRols;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 147);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 147);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 285);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(278, 285);
             this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
-            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // buttonIniciarSesion
-            // 
-            this.buttonIniciarSesion.Location = new System.Drawing.Point(466, 474);
-            this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonIniciarSesion.Name = "buttonIniciarSesion";
-            this.buttonIniciarSesion.Size = new System.Drawing.Size(115, 28);
-            this.buttonIniciarSesion.TabIndex = 9;
-            this.buttonIniciarSesion.Text = "Guardar";
-            this.buttonIniciarSesion.UseVisualStyleBackColor = true;
-            this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonIniciarSesion_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(651, 474);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 28);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -341,7 +321,6 @@ namespace DesktopApp
             this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
             this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.actiuDataGridViewCheckBoxColumn.Visible = false;
             this.actiuDataGridViewCheckBoxColumn.Width = 125;
             // 
             // gestionarKPIsDataGridViewCheckBoxColumn
@@ -418,11 +397,57 @@ namespace DesktopApp
             // 
             this.bsRols.DataSource = typeof(DesktopApp.Models.rols);
             // 
+            // buttonIniciarSesion
+            // 
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(466, 474);
+            this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonIniciarSesion.Name = "buttonIniciarSesion";
+            this.buttonIniciarSesion.Size = new System.Drawing.Size(115, 28);
+            this.buttonIniciarSesion.TabIndex = 9;
+            this.buttonIniciarSesion.Text = "Guardar";
+            this.buttonIniciarSesion.UseVisualStyleBackColor = true;
+            this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonIniciarSesion_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(651, 474);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 28);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ckbActiu
+            // 
+            this.ckbActiu.AutoSize = true;
+            this.ckbActiu.Location = new System.Drawing.Point(351, 401);
+            this.ckbActiu.Margin = new System.Windows.Forms.Padding(4);
+            this.ckbActiu.Name = "ckbActiu";
+            this.ckbActiu.Size = new System.Drawing.Size(61, 21);
+            this.ckbActiu.TabIndex = 6;
+            this.ckbActiu.Text = "Actiu";
+            this.ckbActiu.UseVisualStyleBackColor = true;
+            this.ckbActiu.Visible = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(356, 477);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(53, 25);
+            this.btnNew.TabIndex = 11;
+            this.btnNew.Text = "+";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Visible = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // FormGestionPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.ckbActiu);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonIniciarSesion);
             this.Controls.Add(this.dataGridView1);
@@ -469,6 +494,7 @@ namespace DesktopApp
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonIniciarSesion;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource bsRols;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
@@ -479,6 +505,7 @@ namespace DesktopApp
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarPerfilesDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarGruposDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarisDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bsRols;
+        private System.Windows.Forms.CheckBox ckbActiu;
+        private System.Windows.Forms.Button btnNew;
     }
 }

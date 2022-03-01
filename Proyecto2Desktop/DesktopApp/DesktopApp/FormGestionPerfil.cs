@@ -14,11 +14,11 @@ namespace DesktopApp
 {
     public partial class FormGestionPerfil : Form
     {
-        public FormGestionPerfil()
-        {
+        rols _rol;
+        bool checkModificar = false;
+        public FormGestionPerfil(){
             InitializeComponent();
         }
-
 
         private void pbClose_Click(object sender, EventArgs e)
         {
@@ -49,7 +49,6 @@ namespace DesktopApp
             ckbUsersGestion.Checked = true;
             ckbPerfilGestion.Checked = true;
             ckbGroupGestion.Checked = true;
-
         }
 
         private void ckbEmptyPermision_CheckedChanged(object sender, EventArgs e)
@@ -81,9 +80,32 @@ namespace DesktopApp
             {
                 MessageBox.Show("El nombre del perfil esta vacio");
             }
+            else if (checkModificar == true) {
+
+                _rol.nom = tbPerfilName.Text;
+                _rol.actiu = ckbActiu.Checked;
+                _rol.GestionarGrupos = ckbGroupGestion.Checked;
+                _rol.GestionarKPIs = ckbKPIGestion.Checked;
+                _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
+                _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
+                _rol.GestionarSkills = ckbSkillsGestion.Checked;
+                _rol.GestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.actiu = ckbActiu.Checked;
+                RolsOrm.Update(_rol);
+                tbPerfilName.Text = "";
+                ckbActiu.Checked = false;
+                ckbGroupGestion.Checked = false;
+                ckbKPIGestion.Checked = false;
+                ckbListSkilsGestion.Checked = false;
+                ckbPerfilGestion.Checked = false;
+                ckbSkillsGestion.Checked = false;
+                ckbUsersGestion.Checked = false;
+                ckbActiu.Checked = false;
+                FormGestionPerfil_Load(_rol, e);
+            }
             else
             {
-                rols _rol = new rols();
+                _rol = new rols();
                 _rol.nom = tbPerfilName.Text;
                 _rol.GestionarKPIs = ckbKPIGestion.Checked;
                 _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
@@ -91,46 +113,52 @@ namespace DesktopApp
                 _rol.GestionarUsuarios = ckbUsersGestion.Checked;
                 _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
                 _rol.GestionarGrupos = ckbGroupGestion.Checked;
+                _rol.actiu = true;
                 RolsOrm.Insert(_rol);
                 tbPerfilName.Text = "";
+                ckbActiu.Checked=false;
+                ckbGroupGestion.Checked = false;
+                ckbKPIGestion.Checked = false;
+                ckbListSkilsGestion.Checked = false;
+                ckbPerfilGestion.Checked = false;
+                ckbSkillsGestion.Checked = false;
+                ckbUsersGestion.Checked = false;
+                ckbActiu.Checked = false;
                 FormGestionPerfil_Load(_rol, e);
             }
-
         }
-
-        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            String missatge = "";
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Estàs segur que vols borrar aquest curs?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.OK)
-                {
-                    RolsOrm.Delete((rols)dataGridView1.SelectedRows[0].DataBoundItem);
-
-                    if (missatge != "")
-                    {
-                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-
-        }
-
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-           
-        }
-
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                rols rolsObject = (rols)dataGridView1.SelectedRows[0].DataBoundItem;
-                rolsObject.nom = tbPerfilName.Text;
+                ckbActiu.Visible = true;
+                checkModificar = true;
+                btnNew.Visible = true;
+                _rol = (rols)dataGridView1.SelectedRows[0].DataBoundItem;
+                tbPerfilName.Text = _rol.nom;
+                ckbActiu.Checked = _rol.actiu;
+                ckbGroupGestion.Checked = _rol.GestionarGrupos;
+                ckbKPIGestion.Checked = _rol.GestionarKPIs;
+                ckbListSkilsGestion.Checked = _rol.GestionarListaSkills;
+                ckbPerfilGestion.Checked = _rol.GestionarPerfiles;
+                ckbSkillsGestion.Checked = _rol.GestionarSkills;
+                ckbUsersGestion.Checked = _rol.GestionarUsuarios;
+                ckbActiu.Checked = _rol.actiu;
             }
         }
-        //
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            tbPerfilName.Text = "";
+            ckbActiu.Checked = false;
+            ckbGroupGestion.Checked = false;
+            ckbKPIGestion.Checked = false;
+            ckbListSkilsGestion.Checked = false;
+            ckbPerfilGestion.Checked = false;
+            ckbSkillsGestion.Checked = false;
+            ckbUsersGestion.Checked = false;
+            ckbActiu.Checked = false;
+            checkModificar = false;
+        }
     }
 }

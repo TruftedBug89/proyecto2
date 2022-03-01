@@ -21,13 +21,14 @@ namespace DesktopApp.Models
             return missatge;
         }
 
-        public static String Delete(rols _rols) { 
-            
-                String missatge = "";
-                Orm.bd.rols.Remove(_rols);
-                missatge = Orm.MySaveChanges();
-                return missatge;
-            
+     
+        public static String Update(rols _rols)
+        {
+            String missatge = "";
+
+            missatge = Orm.MySaveChanges();
+            return missatge;
+
         }
 
 
