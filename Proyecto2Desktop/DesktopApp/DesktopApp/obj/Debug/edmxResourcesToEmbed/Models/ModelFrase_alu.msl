@@ -73,7 +73,7 @@
           <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
           <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
           <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
-          <ScalarProperty Name="GestionListaSkills" ColumnName="GestionListaSkills" />
+          <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
           <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
@@ -86,10 +86,10 @@
         <MappingFragment StoreEntitySet="usuaris">
           <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
           <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="rols_id" ColumnName="rols_id" />
-          <ScalarProperty Name="actu" ColumnName="actu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

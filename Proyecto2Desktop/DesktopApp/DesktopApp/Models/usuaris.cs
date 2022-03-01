@@ -11,7 +11,7 @@ namespace DesktopApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class usuaris
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,14 +22,14 @@ namespace DesktopApp.Models
             this.valoracions = new HashSet<valoracions>();
             this.valoracions1 = new HashSet<valoracions>();
         }
-    
+
         public int id { get; set; }
         public string nom { get; set; }
         public int rols_id { get; set; }
-        public bool actu { get; set; }
+        public bool actiu { get; set; }
         public string correo { get; set; }
         public string contrasenya { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

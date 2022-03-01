@@ -49,9 +49,9 @@
             this.panel2.SuspendLayout();
             this.flpSkills.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // lblNombreSkill
-            // 
+            //
             this.lblNombreSkill.AutoSize = true;
             this.lblNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreSkill.Location = new System.Drawing.Point(72, 139);
@@ -59,18 +59,18 @@
             this.lblNombreSkill.Size = new System.Drawing.Size(135, 24);
             this.lblNombreSkill.TabIndex = 2;
             this.lblNombreSkill.Text = "Nombre Skill:";
-            // 
+            //
             // txtWordSkill
-            // 
+            //
             this.txtWordSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWordSkill.Location = new System.Drawing.Point(225, 224);
             this.txtWordSkill.Name = "txtWordSkill";
             this.txtWordSkill.Size = new System.Drawing.Size(184, 158);
             this.txtWordSkill.TabIndex = 4;
             this.txtWordSkill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
+            //
             // lblLetraSkill
-            // 
+            //
             this.lblLetraSkill.AutoSize = true;
             this.lblLetraSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLetraSkill.Location = new System.Drawing.Point(101, 274);
@@ -78,9 +78,9 @@
             this.lblLetraSkill.Size = new System.Drawing.Size(106, 24);
             this.lblLetraSkill.TabIndex = 5;
             this.lblLetraSkill.Text = "Letra Skill:";
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -88,9 +88,9 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1192, 78);
             this.panel2.TabIndex = 10;
-            // 
+            //
             // btnExit
-            // 
+            //
             this.btnExit.BackColor = System.Drawing.Color.White;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,9 +101,9 @@
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
+            //
             // btnSave
-            // 
+            //
             this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,9 +115,9 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
+            //
             // btnAdd
-            // 
+            //
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,10 +130,10 @@
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
+            //
             // txtNameSkill
-            // 
-            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.txtNameSkill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameSkill.Location = new System.Drawing.Point(225, 136);
@@ -141,9 +141,9 @@
             this.txtNameSkill.Size = new System.Drawing.Size(789, 45);
             this.txtNameSkill.TabIndex = 3;
             this.txtNameSkill.TextChanged += new System.EventHandler(this.txtNameSkill_TextChanged);
-            // 
+            //
             // cboActivate
-            // 
+            //
             this.cboActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
@@ -160,9 +160,9 @@
             this.cboActivate.Text = "Activar";
             this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cboActivate.UseVisualStyleBackColor = false;
-            // 
+            //
             // flpSkills
-            // 
+            //
             this.flpSkills.AutoScroll = true;
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnAdd);
@@ -173,9 +173,9 @@
             this.flpSkills.Size = new System.Drawing.Size(1192, 150);
             this.flpSkills.TabIndex = 24;
             this.flpSkills.WrapContents = false;
-            // 
+            //
             // btnBColor
-            // 
+            //
             this.btnBColor.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnBColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,9 +187,9 @@
             this.btnBColor.Text = "Background Color";
             this.btnBColor.UseVisualStyleBackColor = false;
             this.btnBColor.Click += new System.EventHandler(this.btnBColor_Click);
-            // 
+            //
             // txtBcolor
-            // 
+            //
             this.txtBcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBcolor.Location = new System.Drawing.Point(923, 224);
             this.txtBcolor.Name = "txtBcolor";
@@ -197,9 +197,9 @@
             this.txtBcolor.Size = new System.Drawing.Size(91, 41);
             this.txtBcolor.TabIndex = 27;
             this.txtBcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
+            //
             // btnTColor
-            // 
+            //
             this.btnTColor.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnTColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -211,9 +211,9 @@
             this.btnTColor.Text = "Text Color";
             this.btnTColor.UseVisualStyleBackColor = false;
             this.btnTColor.Click += new System.EventHandler(this.btnTColor_Click);
-            // 
+            //
             // txtTcolor
-            // 
+            //
             this.txtTcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTcolor.Location = new System.Drawing.Point(923, 302);
             this.txtTcolor.Name = "txtTcolor";
@@ -221,18 +221,18 @@
             this.txtTcolor.Size = new System.Drawing.Size(91, 41);
             this.txtTcolor.TabIndex = 29;
             this.txtTcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1192, 56);
             this.panel1.TabIndex = 30;
-            // 
+            //
             // lblNameListSkills
-            // 
+            //
             this.lblNameListSkills.AutoSize = true;
             this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameListSkills.Location = new System.Drawing.Point(472, 79);
@@ -241,9 +241,9 @@
             this.lblNameListSkills.TabIndex = 31;
             this.lblNameListSkills.Text = "Nombre Lista Skill";
             this.lblNameListSkills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
+            //
             // FormSkill
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

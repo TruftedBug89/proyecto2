@@ -76,12 +76,12 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="actiu" Type="bit" Nullable="false" />
-          <Property Name="GestionarKPIs" Type="bit" />
-          <Property Name="GestionListaSkills" Type="bit" />
-          <Property Name="GestionarSkills" Type="bit" />
-          <Property Name="GestionarUsuarios" Type="bit" />
-          <Property Name="GestionarPerfiles" Type="bit" />
-          <Property Name="GestionarGrupos" Type="bit" />
+          <Property Name="GestionarKPIs" Type="bit" Nullable="false" />
+          <Property Name="GestionarListaSkills" Type="bit" Nullable="false" />
+          <Property Name="GestionarSkills" Type="bit" Nullable="false" />
+          <Property Name="GestionarUsuarios" Type="bit" Nullable="false" />
+          <Property Name="GestionarPerfiles" Type="bit" Nullable="false" />
+          <Property Name="GestionarGrupos" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="skills">
           <Key>
@@ -101,7 +101,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="rols_id" Type="int" Nullable="false" />
-          <Property Name="actu" Type="bit" Nullable="false" />
+          <Property Name="actiu" Type="bit" Nullable="false" />
           <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="contrasenya" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
@@ -466,12 +466,12 @@
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="actiu" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="usuaris" Relationship="Self.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
-          <Property Name="GestionarKPIs" Type="Boolean" />
-          <Property Name="GestionListaSkills" Type="Boolean" />
-          <Property Name="GestionarSkills" Type="Boolean" />
-          <Property Name="GestionarUsuarios" Type="Boolean" />
-          <Property Name="GestionarPerfiles" Type="Boolean" />
-          <Property Name="GestionarGrupos" Type="Boolean" />
+          <Property Name="GestionarKPIs" Type="Boolean" Nullable="false" />
+          <Property Name="GestionarListaSkills" Type="Boolean" Nullable="false" />
+          <Property Name="GestionarSkills" Type="Boolean" Nullable="false" />
+          <Property Name="GestionarUsuarios" Type="Boolean" Nullable="false" />
+          <Property Name="GestionarPerfiles" Type="Boolean" Nullable="false" />
+          <Property Name="GestionarGrupos" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="usuaris">
           <Key>
@@ -480,12 +480,12 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="rols_id" Type="Int32" Nullable="false" />
-          <Property Name="actu" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
           <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
           <NavigationProperty Name="rols" Relationship="Self.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
           <NavigationProperty Name="valoracions" Relationship="Self.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
           <NavigationProperty Name="valoracions1" Relationship="Self.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
+          <Property Name="actiu" Type="Boolean" Nullable="false" />
           <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -849,7 +849,7 @@
                 <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
                 <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
                 <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
-                <ScalarProperty Name="GestionListaSkills" ColumnName="GestionListaSkills" />
+                <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
                 <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
@@ -862,10 +862,10 @@
               <MappingFragment StoreEntitySet="usuaris">
                 <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="actiu" ColumnName="actiu" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
                 <ScalarProperty Name="rols_id" ColumnName="rols_id" />
-                <ScalarProperty Name="actu" ColumnName="actu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
