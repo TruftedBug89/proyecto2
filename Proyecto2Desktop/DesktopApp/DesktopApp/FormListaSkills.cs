@@ -48,7 +48,7 @@ namespace DesktopApp
                 txtNameListSkill.Text = _llistesSkills.nom;
                 cboActivate.Checked = llistesS.actiu;
 
-                if (_llistesSkills.skills.Count() != 0)
+                if (_llistesSkills.skills.Count() != 0 || _llistesSkills.skills != null)
                 {
                     
                     ConstruirEncabezadosTabla();

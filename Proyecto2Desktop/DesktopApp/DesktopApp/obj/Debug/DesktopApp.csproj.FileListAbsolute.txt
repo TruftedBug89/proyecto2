@@ -49,3 +49,4 @@ C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debu
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCrearUsuarios.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormKPI.resources
 C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormGestionUsuarios.resources
+C:\Users\david\Desktop\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCursos.resources

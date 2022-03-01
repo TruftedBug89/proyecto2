@@ -49,6 +49,7 @@ namespace DesktopApp
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
+            this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
@@ -65,14 +66,14 @@ namespace DesktopApp
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1143, 32);
+            this.panel1.Size = new System.Drawing.Size(1206, 32);
             this.panel1.TabIndex = 0;
             // 
             // pb_minimize
             // 
             this.pb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(1084, 4);
+            this.pb_minimize.Location = new System.Drawing.Point(1147, 4);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
             this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -83,7 +84,7 @@ namespace DesktopApp
             // 
             this.pb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(1115, 4);
+            this.pb_close.Location = new System.Drawing.Point(1178, 4);
             this.pb_close.Name = "pb_close";
             this.pb_close.Size = new System.Drawing.Size(25, 25);
             this.pb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,7 +119,7 @@ namespace DesktopApp
             this.txtNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameGroup.Location = new System.Drawing.Point(267, 68);
             this.txtNameGroup.Name = "txtNameGroup";
-            this.txtNameGroup.Size = new System.Drawing.Size(438, 45);
+            this.txtNameGroup.Size = new System.Drawing.Size(436, 45);
             this.txtNameGroup.TabIndex = 16;
             // 
             // btnSave
@@ -192,7 +193,7 @@ namespace DesktopApp
             this.lbListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbListSkills.FormattingEnabled = true;
             this.lbListSkills.ItemHeight = 22;
-            this.lbListSkills.Location = new System.Drawing.Point(711, 221);
+            this.lbListSkills.Location = new System.Drawing.Point(710, 221);
             this.lbListSkills.Name = "lbListSkills";
             this.lbListSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbListSkills.Size = new System.Drawing.Size(359, 400);
@@ -218,7 +219,7 @@ namespace DesktopApp
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(722, 71);
+            this.btnAdd.Location = new System.Drawing.Point(732, 71);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(106, 42);
             this.btnAdd.TabIndex = 30;
@@ -232,13 +233,14 @@ namespace DesktopApp
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(711, 221);
+            this.dgvUsers.Location = new System.Drawing.Point(712, 221);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(359, 387);
             this.dgvUsers.TabIndex = 31;
+            this.dgvUsers.SelectionChanged += new System.EventHandler(this.dgvUsers_SelectionChanged);
             // 
             // pnlSearchUsers
             // 
@@ -254,12 +256,28 @@ namespace DesktopApp
             // 
             this.bindingSourceUsers.DataSource = typeof(DesktopApp.Models.usuaris);
             // 
+            // btnManagmentCourses
+            // 
+            this.btnManagmentCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManagmentCourses.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnManagmentCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagmentCourses.ForeColor = System.Drawing.Color.White;
+            this.btnManagmentCourses.Location = new System.Drawing.Point(920, 71);
+            this.btnManagmentCourses.Name = "btnManagmentCourses";
+            this.btnManagmentCourses.Size = new System.Drawing.Size(192, 42);
+            this.btnManagmentCourses.TabIndex = 35;
+            this.btnManagmentCourses.Text = "Gestion Cursos";
+            this.btnManagmentCourses.UseVisualStyleBackColor = false;
+            this.btnManagmentCourses.Click += new System.EventHandler(this.btnManagmentCourses_Click);
+            // 
             // FormGestionGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1143, 714);
+            this.ClientSize = new System.Drawing.Size(1206, 714);
+            this.Controls.Add(this.btnManagmentCourses);
             this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.btnAdd);
@@ -308,5 +326,6 @@ namespace DesktopApp
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.BindingSource bindingSourceUsers;
         private System.Windows.Forms.Panel pnlSearchUsers;
+        private System.Windows.Forms.Button btnManagmentCourses;
     }
 }
