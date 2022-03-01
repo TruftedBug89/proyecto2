@@ -93,26 +93,32 @@ namespace DesktopApp
         private void cargarUsuarios()         
         {
             _ListUsuaris = UsuarisOrm.Select();
-                        
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-            checkBoxColumn.HeaderText = "Docent";
-            checkBoxColumn.Name = "checkBox";
 
-            DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.HeaderText = "Cursos";
-            comboBoxColumn.Name = "combobox";
-
-
-            dgvUsers.DataSource = null;
-            dgvUsers.Columns.Add("Usuari", "Usuari");
-            dgvUsers.Columns["Usuari"].ReadOnly = true;
-            dgvUsers.Columns.Add(checkBoxColumn);
-            dgvUsers.Columns.Add(comboBoxColumn);
-
-            foreach (usuaris item in _ListUsuaris)
+            if (_ListUsuaris != null)
             {
-                dgvUsers.Rows.Add(item.nom);
+                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+                checkBoxColumn.HeaderText = "Docent";
+                checkBoxColumn.Name = "checkBox";
+
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+                comboBoxColumn.HeaderText = "Cursos";
+                comboBoxColumn.Name = "combobox";
+                comboBoxColumn.DataSource = CursosOrm.Select();
+                comboBoxColumn.DisplayMember = "curs_inici";
+
+                dgvUsers.DataSource = null;
+                dgvUsers.Columns.Add("Usuari", "Usuari");
+                dgvUsers.Columns["Usuari"].ReadOnly = true;
+                dgvUsers.Columns.Add(checkBoxColumn);
+                dgvUsers.Columns.Add(comboBoxColumn);
+
+                foreach (usuaris item in _ListUsuaris)
+                {
+                    dgvUsers.Rows.Add(item.nom);
+                }
             }
+                        
+           
 
         }
 

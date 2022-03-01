@@ -44,10 +44,14 @@ namespace DesktopApp
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    MessageBox.Show("Curso actualizado");
+                }
             }
             else
             {
-                MessageBox.Show(dtpStartCourse.Text);
+               
 
                 cursos _curs = new cursos();
                 _curs.curs_inici = Convert.ToInt32(dtpStartCourse.Text);
@@ -60,14 +64,24 @@ namespace DesktopApp
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                else
+                {
+                    MessageBox.Show("Curso añadido");
+                }
 
             }
+
+
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+        
+
     }
 }

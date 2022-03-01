@@ -43,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
+            this.btnBuildTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
@@ -206,12 +207,27 @@
             // 
             this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
             // 
+            // btnBuildTable
+            // 
+            this.btnBuildTable.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuildTable.ForeColor = System.Drawing.Color.White;
+            this.btnBuildTable.Location = new System.Drawing.Point(1029, 197);
+            this.btnBuildTable.Name = "btnBuildTable";
+            this.btnBuildTable.Size = new System.Drawing.Size(182, 42);
+            this.btnBuildTable.TabIndex = 33;
+            this.btnBuildTable.Text = "Añadir Skills";
+            this.btnBuildTable.UseVisualStyleBackColor = false;
+            this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
+            // 
             // FormListaSkills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.btnBuildTable);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.panel1);
@@ -250,5 +266,6 @@
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuildTable;
     }
 }

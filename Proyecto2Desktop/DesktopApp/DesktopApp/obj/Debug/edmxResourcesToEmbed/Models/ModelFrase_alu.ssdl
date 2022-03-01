@@ -71,12 +71,12 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
-    <Property Name="GestionarKPIs" Type="bit" />
-    <Property Name="GestionListaSkills" Type="bit" />
-    <Property Name="GestionarSkills" Type="bit" />
-    <Property Name="GestionarUsuarios" Type="bit" />
-    <Property Name="GestionarPerfiles" Type="bit" />
-    <Property Name="GestionarGrupos" Type="bit" />
+    <Property Name="GestionarKPIs" Type="bit" Nullable="false" />
+    <Property Name="GestionarListaSkills" Type="bit" Nullable="false" />
+    <Property Name="GestionarSkills" Type="bit" Nullable="false" />
+    <Property Name="GestionarUsuarios" Type="bit" Nullable="false" />
+    <Property Name="GestionarPerfiles" Type="bit" Nullable="false" />
+    <Property Name="GestionarGrupos" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="skills">
     <Key>
@@ -96,7 +96,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="rols_id" Type="int" Nullable="false" />
-    <Property Name="actu" Type="bit" Nullable="false" />
+    <Property Name="actiu" Type="bit" Nullable="false" />
     <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="contrasenya" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>

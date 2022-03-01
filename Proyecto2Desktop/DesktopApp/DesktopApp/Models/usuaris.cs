@@ -26,7 +26,7 @@ namespace DesktopApp.Models
         public int id { get; set; }
         public string nom { get; set; }
         public int rols_id { get; set; }
-        public bool actu { get; set; }
+        public bool actiu { get; set; }
         public string correo { get; set; }
         public string contrasenya { get; set; }
     
