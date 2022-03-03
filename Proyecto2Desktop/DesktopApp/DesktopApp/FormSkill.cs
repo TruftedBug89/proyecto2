@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +41,7 @@ namespace DesktopApp
             {
                 CrearBotonSkills(skill);
             }
-            
+
         }
 
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
@@ -61,8 +62,8 @@ namespace DesktopApp
                 vaciarCampos();
             }
 
-            
-           
+
+
         }
 
 
@@ -71,7 +72,7 @@ namespace DesktopApp
             RadioButton btnSkill = new RadioButton();
             btnSkill.Appearance = Appearance.Button;
 
-            if (_skill == null) 
+            if (_skill == null)
             {
                 btnSkill.Text = "N";
                 btnSkill.BackColor = Color.Black;
@@ -104,7 +105,7 @@ namespace DesktopApp
         private void btnBColor_Click(object sender, EventArgs e)
         {
             cdBackgroundColor.ShowDialog();
-            Color color = cdBackgroundColor.Color;            
+            Color color = cdBackgroundColor.Color;
             txtBcolor.BackColor = color;
         }
 
@@ -149,7 +150,7 @@ namespace DesktopApp
             else
             {
                 skills S = new skills();
-                char[] letrasS = txtNameSkill.Text.ToCharArray(); 
+                char[] letrasS = txtNameSkill.Text.ToCharArray();
                 var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
                 String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
 
@@ -170,7 +171,7 @@ namespace DesktopApp
                     char[] letras = _llistaS.nom.ToCharArray();
                     char[] letraSnueva = S.nom.ToCharArray();
                     String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
-                    
+
                     missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
 
                     if (missatge != "")
@@ -191,7 +192,7 @@ namespace DesktopApp
 
             }
 
-            
+
 
         }
 
@@ -212,7 +213,7 @@ namespace DesktopApp
             }
         }
 
-        private void ActualizarNombreListaSkills(String msg) 
+        private void ActualizarNombreListaSkills(String msg)
         {
             List<skills> _Skills = SkillsOrm.SelectIdLlista(_llistaS.id);
             char[] letras = new char[_Skills.Count()];
@@ -246,7 +247,7 @@ namespace DesktopApp
 
         }
 
-        private void vaciarCampos() 
+        private void vaciarCampos()
         {
             txtNameSkill.Text = "";
             txtWordSkill.Text = "";

@@ -4,7 +4,6 @@
     <EntitySetMapping Name="cursos">
       <EntityTypeMapping TypeName="frase_aluModel.cursos">
         <MappingFragment StoreEntitySet="cursos">
-          <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="curs_inici" ColumnName="curs_inici" />
           <ScalarProperty Name="curs_fi" ColumnName="curs_fi" />
@@ -67,6 +66,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="rols">
+      <EntityTypeMapping TypeName="frase_aluModel.rols">
+        <MappingFragment StoreEntitySet="rols">
+          <ScalarProperty Name="GestionarGrupos" ColumnName="GestionarGrupos" />
+          <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
+          <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
+          <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
+          <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
+          <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuaris">
+      <EntityTypeMapping TypeName="frase_aluModel.usuaris">
+        <MappingFragment StoreEntitySet="usuaris">
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="rols_id" ColumnName="rols_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="valoracions">
       <EntityTypeMapping TypeName="frase_aluModel.valoracions">
         <MappingFragment StoreEntitySet="valoracions">
@@ -85,33 +111,6 @@
           <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
           <ScalarProperty Name="actiu" ColumnName="actiu" />
           <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
-          <ScalarProperty Name="nom" ColumnName="nom" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="rols">
-      <EntityTypeMapping TypeName="frase_aluModel.rols">
-        <MappingFragment StoreEntitySet="rols">
-          <ScalarProperty Name="GestionarGrupos" ColumnName="GestionarGrupos" />
-          <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
-          <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
-          <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
-          <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
-          <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
-          <ScalarProperty Name="actiu" ColumnName="actiu" />
-          <ScalarProperty Name="nom" ColumnName="nom" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="usuaris">
-      <EntityTypeMapping TypeName="frase_aluModel.usuaris">
-        <MappingFragment StoreEntitySet="usuaris">
-          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="actiu" ColumnName="actiu" />
-          <ScalarProperty Name="rols_id" ColumnName="rols_id" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
