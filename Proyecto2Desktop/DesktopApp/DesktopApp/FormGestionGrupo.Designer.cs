@@ -40,9 +40,9 @@ namespace DesktopApp
             this.btnExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbGroups = new System.Windows.Forms.ListBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
+            this.cboActivate = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
@@ -87,7 +87,7 @@ namespace DesktopApp
             // 
             this.lblNameGroup.AutoSize = true;
             this.lblNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameGroup.Location = new System.Drawing.Point(392, 141);
+            this.lblNameGroup.Location = new System.Drawing.Point(337, 141);
             this.lblNameGroup.Name = "lblNameGroup";
             this.lblNameGroup.Size = new System.Drawing.Size(190, 24);
             this.lblNameGroup.TabIndex = 1;
@@ -96,9 +96,9 @@ namespace DesktopApp
             // txtNameGroup
             // 
             this.txtNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameGroup.Location = new System.Drawing.Point(608, 141);
+            this.txtNameGroup.Location = new System.Drawing.Point(533, 125);
             this.txtNameGroup.Name = "txtNameGroup";
-            this.txtNameGroup.Size = new System.Drawing.Size(132, 45);
+            this.txtNameGroup.Size = new System.Drawing.Size(201, 45);
             this.txtNameGroup.TabIndex = 16;
             // 
             // btnSave
@@ -120,7 +120,7 @@ namespace DesktopApp
             this.btnExit.BackColor = System.Drawing.Color.White;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(395, 471);
+            this.btnExit.Location = new System.Drawing.Point(421, 481);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(106, 42);
             this.btnExit.TabIndex = 18;
@@ -146,21 +146,8 @@ namespace DesktopApp
             this.lbGroups.Location = new System.Drawing.Point(26, 121);
             this.lbGroups.Name = "lbGroups";
             this.lbGroups.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbGroups.Size = new System.Drawing.Size(276, 312);
+            this.lbGroups.Size = new System.Drawing.Size(261, 312);
             this.lbGroups.TabIndex = 28;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(395, 216);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(106, 42);
-            this.btnAdd.TabIndex = 30;
-            this.btnAdd.Text = "Añadir";
-            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // bindingSourceCourses
             // 
@@ -170,13 +157,31 @@ namespace DesktopApp
             // 
             this.bindingSourceUsers.DataSource = typeof(DesktopApp.Models.usuaris);
             // 
+            // cboActivate
+            // 
+            this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboActivate.ForeColor = System.Drawing.Color.White;
+            this.cboActivate.Location = new System.Drawing.Point(341, 202);
+            this.cboActivate.Name = "cboActivate";
+            this.cboActivate.Size = new System.Drawing.Size(106, 41);
+            this.cboActivate.TabIndex = 31;
+            this.cboActivate.Text = "Activar";
+            this.cboActivate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.UseVisualStyleBackColor = false;
+            // 
             // FormGestionGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(791, 609);
-            this.Controls.Add(this.btnAdd);
+            this.ClientSize = new System.Drawing.Size(791, 555);
+            this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExit);
@@ -208,8 +213,8 @@ namespace DesktopApp
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lbGroups;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.BindingSource bindingSourceUsers;
         private System.Windows.Forms.BindingSource bindingSourceCourses;
+        private System.Windows.Forms.CheckBox cboActivate;
     }
 }
