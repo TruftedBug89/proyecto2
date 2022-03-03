@@ -20,6 +20,8 @@ namespace DesktopApp
         private usuaris _usuaris;
         private List<usuaris> _ListUsuaris;
         private String gruposStatus;
+        private cursos _curs;
+        private List<cursos> _cursos;
 
         public FormGestionGrupo(String gruposStatus)
         {
@@ -40,6 +42,7 @@ namespace DesktopApp
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
             actualizarGrupos();
+            cargarCursos();
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
@@ -88,7 +91,14 @@ namespace DesktopApp
 
         }
 
+        private void cargarCursos() 
+        {
+            _cursos = CursosOrm.Select();
+            cbxCourses.DataSource = _cursos;
+            cbxCourses.DisplayMember = "curs_inici";
 
+
+        }
 
         private void cargarUsuarios()         
         {

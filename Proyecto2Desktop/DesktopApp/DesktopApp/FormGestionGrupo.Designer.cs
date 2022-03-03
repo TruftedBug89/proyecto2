@@ -50,7 +50,7 @@ namespace DesktopApp
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxCourses = new System.Windows.Forms.ComboBox();
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
@@ -282,15 +282,15 @@ namespace DesktopApp
             this.label3.TabIndex = 20;
             this.label3.Text = "Cursos:";
             // 
-            // comboBox1
+            // cbxCourses
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(778, 70);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 37);
-            this.comboBox1.TabIndex = 36;
+            this.cbxCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCourses.FormattingEnabled = true;
+            this.cbxCourses.Location = new System.Drawing.Point(778, 70);
+            this.cbxCourses.Name = "cbxCourses";
+            this.cbxCourses.Size = new System.Drawing.Size(158, 37);
+            this.cbxCourses.TabIndex = 36;
             // 
             // bindingSourceUsers
             // 
@@ -302,7 +302,7 @@ namespace DesktopApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1160, 714);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxCourses);
             this.Controls.Add(this.btnManagmentCourses);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlSearchUsers);
@@ -355,6 +355,6 @@ namespace DesktopApp
         private System.Windows.Forms.Panel pnlSearchUsers;
         private System.Windows.Forms.Button btnManagmentCourses;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxCourses;
     }
 }
