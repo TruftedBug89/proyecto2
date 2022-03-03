@@ -8,6 +8,7 @@
     <Property Name="curs_inici" Type="int" Nullable="false" />
     <Property Name="curs_fi" Type="int" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="grups">
     <Key>

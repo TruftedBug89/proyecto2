@@ -11,6 +11,7 @@
     <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_cursos" FromRole="cursos" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_cursos" FromRole="cursos" ToRole="grups_has_docents" />
     <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_cursos" FromRole="cursos" ToRole="grups_has_llistes_skills" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="grups">
     <Key>

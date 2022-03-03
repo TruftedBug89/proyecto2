@@ -23,11 +23,12 @@ namespace DesktopApp.Models
             return missatge;
         }
 
-        public static String Update(cursos _curs, int CursInici, int CursFinal, bool actiu)
+        public static String Update(cursos _curs, int CursInici, int CursFinal, bool actiu, String nom)
         {
             _curs.curs_inici = CursInici;
             _curs.curs_fi = CursFinal;
             _curs.actiu = actiu;
+            _curs.nom = nom;
             String missatge = Orm.MySaveChanges();
             return missatge;
         }

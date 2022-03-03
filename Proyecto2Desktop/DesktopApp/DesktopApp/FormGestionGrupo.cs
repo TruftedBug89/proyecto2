@@ -93,10 +93,8 @@ namespace DesktopApp
 
         private void cargarCursos() 
         {
-            _cursos = CursosOrm.Select();
-            cbxCourses.DataSource = _cursos;
-            cbxCourses.DisplayMember = "curs_inici";
-
+            bindingSourceCourses.DataSource = null;
+            bindingSourceCourses.DataSource = CursosOrm.Select();
 
         }
 
@@ -224,7 +222,7 @@ namespace DesktopApp
         {
             FormCursos formCursos = new FormCursos();
             formCursos.ShowDialog();
-
+            cargarCursos();
         }
     }
 }

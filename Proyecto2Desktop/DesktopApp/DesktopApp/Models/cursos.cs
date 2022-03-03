@@ -26,6 +26,7 @@ namespace DesktopApp.Models
         public int curs_inici { get; set; }
         public int curs_fi { get; set; }
         public bool actiu { get; set; }
+        public string nom { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }

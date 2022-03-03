@@ -187,5 +187,15 @@ namespace DesktopApp
             _llistesSkills = null;
             dgvSkill.Columns.Clear();
         }
+
+        private void btnManagmentRoles_Click(object sender, EventArgs e)
+        {
+            FormGestionPerfil formGestionPerfil = new FormGestionPerfil();
+            formGestionPerfil.ShowDialog();
+            ActualizarPanelListasSkills();
+            limpiarPanelSkills();
+            _llistesSkills = null;
+            dgvSkill.Columns.Clear();
+        }
     }
 }

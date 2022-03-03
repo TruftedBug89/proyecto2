@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCourses = new System.Windows.Forms.Label();
             this.dtpStartCourse = new System.Windows.Forms.DateTimePicker();
             this.lbCourses = new System.Windows.Forms.ListBox();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.gbStartCourse = new System.Windows.Forms.GroupBox();
             this.gbFinishCourse = new System.Windows.Forms.GroupBox();
-            this.dtpFinishCourse = new System.Windows.Forms.DateTimePicker();
+            this.txtFinishCourse = new System.Windows.Forms.TextBox();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             this.gbStartCourse.SuspendLayout();
             this.gbFinishCourse.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +63,12 @@
             this.dtpStartCourse.Name = "dtpStartCourse";
             this.dtpStartCourse.Size = new System.Drawing.Size(78, 28);
             this.dtpStartCourse.TabIndex = 5;
+            this.dtpStartCourse.ValueChanged += new System.EventHandler(this.dtpStartCourse_ValueChanged);
             // 
             // lbCourses
             // 
+            this.lbCourses.DataSource = this.bindingSourceCourses;
+            this.lbCourses.DisplayMember = "nom";
             this.lbCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCourses.FormattingEnabled = true;
             this.lbCourses.ItemHeight = 22;
@@ -70,6 +76,11 @@
             this.lbCourses.Name = "lbCourses";
             this.lbCourses.Size = new System.Drawing.Size(159, 268);
             this.lbCourses.TabIndex = 6;
+            this.lbCourses.ValueMember = "id";
+            // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
             // 
             // gbStartCourse
             // 
@@ -83,7 +94,7 @@
             // 
             // gbFinishCourse
             // 
-            this.gbFinishCourse.Controls.Add(this.dtpFinishCourse);
+            this.gbFinishCourse.Controls.Add(this.txtFinishCourse);
             this.gbFinishCourse.Location = new System.Drawing.Point(385, 57);
             this.gbFinishCourse.Name = "gbFinishCourse";
             this.gbFinishCourse.Size = new System.Drawing.Size(183, 112);
@@ -91,15 +102,14 @@
             this.gbFinishCourse.TabStop = false;
             this.gbFinishCourse.Text = "Curs Final";
             // 
-            // dtpFinishCourse
+            // txtFinishCourse
             // 
-            this.dtpFinishCourse.CustomFormat = "yyyy";
-            this.dtpFinishCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFinishCourse.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFinishCourse.Location = new System.Drawing.Point(20, 35);
-            this.dtpFinishCourse.Name = "dtpFinishCourse";
-            this.dtpFinishCourse.Size = new System.Drawing.Size(78, 28);
-            this.dtpFinishCourse.TabIndex = 5;
+            this.txtFinishCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFinishCourse.Location = new System.Drawing.Point(6, 37);
+            this.txtFinishCourse.Name = "txtFinishCourse";
+            this.txtFinishCourse.ReadOnly = true;
+            this.txtFinishCourse.Size = new System.Drawing.Size(100, 28);
+            this.txtFinishCourse.TabIndex = 24;
             // 
             // cboActivate
             // 
@@ -161,8 +171,10 @@
             this.Name = "FormCursos";
             this.Text = "FormCursos";
             this.Load += new System.EventHandler(this.FormCursos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             this.gbStartCourse.ResumeLayout(false);
             this.gbFinishCourse.ResumeLayout(false);
+            this.gbFinishCourse.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,9 +187,10 @@
         private System.Windows.Forms.ListBox lbCourses;
         private System.Windows.Forms.GroupBox gbStartCourse;
         private System.Windows.Forms.GroupBox gbFinishCourse;
-        private System.Windows.Forms.DateTimePicker dtpFinishCourse;
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.BindingSource bindingSourceCourses;
+        private System.Windows.Forms.TextBox txtFinishCourse;
     }
 }

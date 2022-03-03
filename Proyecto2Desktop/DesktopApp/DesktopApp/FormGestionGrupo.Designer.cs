@@ -51,6 +51,7 @@ namespace DesktopApp
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxCourses = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
@@ -58,6 +59,7 @@ namespace DesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,7 +123,7 @@ namespace DesktopApp
             this.txtNameGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameGroup.Location = new System.Drawing.Point(267, 68);
             this.txtNameGroup.Name = "txtNameGroup";
-            this.txtNameGroup.Size = new System.Drawing.Size(263, 45);
+            this.txtNameGroup.Size = new System.Drawing.Size(211, 45);
             this.txtNameGroup.TabIndex = 16;
             // 
             // btnSave
@@ -221,7 +223,7 @@ namespace DesktopApp
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(553, 68);
+            this.btnAdd.Location = new System.Drawing.Point(495, 68);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(106, 42);
             this.btnAdd.TabIndex = 30;
@@ -276,7 +278,7 @@ namespace DesktopApp
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(691, 78);
+            this.label3.Location = new System.Drawing.Point(648, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 24);
             this.label3.TabIndex = 20;
@@ -285,12 +287,19 @@ namespace DesktopApp
             // cbxCourses
             // 
             this.cbxCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCourses.DataSource = this.bindingSourceCourses;
+            this.cbxCourses.DisplayMember = "nom";
             this.cbxCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCourses.FormattingEnabled = true;
-            this.cbxCourses.Location = new System.Drawing.Point(778, 70);
+            this.cbxCourses.Location = new System.Drawing.Point(735, 70);
             this.cbxCourses.Name = "cbxCourses";
-            this.cbxCourses.Size = new System.Drawing.Size(158, 37);
+            this.cbxCourses.Size = new System.Drawing.Size(201, 37);
             this.cbxCourses.TabIndex = 36;
+            this.cbxCourses.ValueMember = "id";
+            // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
             // 
             // bindingSourceUsers
             // 
@@ -327,6 +336,7 @@ namespace DesktopApp
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.pnlSearchUsers.ResumeLayout(false);
             this.pnlSearchUsers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -356,5 +366,6 @@ namespace DesktopApp
         private System.Windows.Forms.Button btnManagmentCourses;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxCourses;
+        private System.Windows.Forms.BindingSource bindingSourceCourses;
     }
 }

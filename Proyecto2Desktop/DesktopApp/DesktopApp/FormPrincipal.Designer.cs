@@ -41,6 +41,7 @@
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvSkill = new System.Windows.Forms.DataGridView();
+            this.btnManagmentRoles = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flpListSkills.SuspendLayout();
@@ -172,6 +173,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnManagmentRoles);
             this.panel6.Controls.Add(this.btnGestionUsuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 170);
@@ -185,7 +187,7 @@
             this.btnGestionUsuarios.BackColor = System.Drawing.Color.Black;
             this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(49, 267);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(46, 88);
             this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(133, 81);
@@ -216,6 +218,20 @@
             this.dgvSkill.RowHeadersWidth = 51;
             this.dgvSkill.Size = new System.Drawing.Size(1249, 544);
             this.dgvSkill.TabIndex = 16;
+            // 
+            // btnManagmentRoles
+            // 
+            this.btnManagmentRoles.BackColor = System.Drawing.Color.Black;
+            this.btnManagmentRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentRoles.ForeColor = System.Drawing.Color.White;
+            this.btnManagmentRoles.Location = new System.Drawing.Point(49, 232);
+            this.btnManagmentRoles.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagmentRoles.Name = "btnManagmentRoles";
+            this.btnManagmentRoles.Size = new System.Drawing.Size(133, 81);
+            this.btnManagmentRoles.TabIndex = 8;
+            this.btnManagmentRoles.Text = "Gestion Roles";
+            this.btnManagmentRoles.UseVisualStyleBackColor = false;
+            this.btnManagmentRoles.Click += new System.EventHandler(this.btnManagmentRoles_Click);
             // 
             // FormPrincipal
             // 
@@ -260,5 +276,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
         private System.Windows.Forms.FlowLayoutPanel flpSkills;
         private System.Windows.Forms.Button btnManagmentSkills;
+        private System.Windows.Forms.Button btnManagmentRoles;
     }
 }

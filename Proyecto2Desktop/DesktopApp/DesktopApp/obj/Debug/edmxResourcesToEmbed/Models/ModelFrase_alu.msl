@@ -4,6 +4,7 @@
     <EntitySetMapping Name="cursos">
       <EntityTypeMapping TypeName="frase_aluModel.cursos">
         <MappingFragment StoreEntitySet="cursos">
+          <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="curs_inici" ColumnName="curs_inici" />
           <ScalarProperty Name="curs_fi" ColumnName="curs_fi" />
