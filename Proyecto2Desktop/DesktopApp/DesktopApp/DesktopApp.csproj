@@ -94,6 +94,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRelacionesGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelacionesGrupo.Designer.cs">
+      <DependentUpon>FormRelacionesGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSkill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelacionesGrupo.resx">
+      <DependentUpon>FormRelacionesGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSkill.resx">
       <DependentUpon>FormSkill.cs</DependentUpon>

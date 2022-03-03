@@ -42,115 +42,11 @@ namespace DesktopApp
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
             actualizarGrupos();
-            cargarCursos();
-
-            if (gruposStatus.Equals("GuposListasSkills"))
-            {
-                cargarListasSkills();
-                lbListSkills.Visible = true;
-                pnlSearchUsers.Visible = false;
-                dgvUsers.Visible = false;
-                lbListSkills.Visible = true;
-            }
-            else
-            {               
-                cargarUsuarios();
-                lbListSkills.Visible = false;
-                pnlSearchUsers.Visible = true;
-                dgvUsers.Visible = true;
-                lbListSkills.Visible = false;
-            }
-            
+                        
 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            String missatge = "";
-
-            foreach (DataGridViewRow row in dgvUsers.SelectedRows)
-            {
-                DataGridViewCheckBoxCell chkchecking = row.Cells[1] as DataGridViewCheckBoxCell;
-                string UserText = row.Cells[0].Value.ToString();
-                
-                bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
-                if (EsProfesor)
-                {
-                    MessageBox.Show("Docent: " + UserText);
-                    //añadir en grups_has_docents
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Alumno: " + UserText);
-                    //añadir en grups_has_alumnes
-                }
-
-            }
-
-        }
-
-        private void cargarCursos() 
-        {
-            bindingSourceCourses.DataSource = null;
-            bindingSourceCourses.DataSource = CursosOrm.Select();
-
-        }
-
-        private void cargarUsuarios()         
-        {
-            _ListUsuaris = UsuarisOrm.Select();
-
-            if (_ListUsuaris != null)
-            {
-                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-                checkBoxColumn.HeaderText = "Docent";
-                checkBoxColumn.Name = "checkBox";
-
-                
-
-                dgvUsers.DataSource = null;
-                dgvUsers.Columns.Add("Usuari", "Usuari");
-                dgvUsers.Columns["Usuari"].ReadOnly = true;
-                dgvUsers.Columns.Add(checkBoxColumn);
-
-                foreach (usuaris item in _ListUsuaris)
-                {
-                    dgvUsers.Rows.Add(item.nom);
-                }
-            }
-                        
-           
-
-        }
-
-
-        private void actualizarGrupos()
-        {
-            lbGroups.Items.Clear();
-
-            _grups = GrupsOrm.Select();
-
-            foreach (grups grp in _grups)
-            {
-                lbGroups.Items.Add(grp.nom);
-            }
-
-        }
-
-
-        private void cargarListasSkills()
-        {
-            _llistesSkills = Llistes_SkillsOrm.Select();
-
-            foreach (llistes_skills ls in _llistesSkills)
-            {
-                lbListSkills.Items.Add(ls.nom);
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
         {
             String missatge = "";
 
@@ -177,46 +73,32 @@ namespace DesktopApp
             }
 
             actualizarGrupos();
+
         }
 
-        private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void cargarCursos() 
         {
-            if (lbGroups.SelectedItems.Count > 1)
-            {
-                lbListSkills.SelectionMode = SelectionMode.One;
-                dgvUsers.MultiSelect = false;
-            }
-            else
-            {
-                lbListSkills.SelectionMode = SelectionMode.MultiExtended;
-                dgvUsers.MultiSelect = true;
-            }
+            bindingSourceCourses.DataSource = null;
+            bindingSourceCourses.DataSource = CursosOrm.Select();
+
         }
 
-        private void lbListSkills_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void actualizarGrupos()
         {
-            if (lbListSkills.SelectedItems.Count > 1)
-            {               
-                lbGroups.SelectionMode = SelectionMode.One;
-            }
-            else
+            lbGroups.Items.Clear();
+
+            _grups = GrupsOrm.Select();
+
+            foreach (grups grp in _grups)
             {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
+                lbGroups.Items.Add(grp.nom);
             }
+
         }
 
-        private void dgvUsers_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvUsers.SelectedRows.Count > 1)
-            {
-               
-                lbGroups.SelectionMode = SelectionMode.One;
-            }
-            else
-            {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
-            }
-        }
+
 
         private void btnManagmentCourses_Click(object sender, EventArgs e)
         {
