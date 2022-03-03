@@ -121,7 +121,7 @@
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivate.ForeColor = System.Drawing.Color.White;
-            this.cboActivate.Location = new System.Drawing.Point(327, 205);
+            this.cboActivate.Location = new System.Drawing.Point(214, 197);
             this.cboActivate.Name = "cboActivate";
             this.cboActivate.Size = new System.Drawing.Size(106, 41);
             this.cboActivate.TabIndex = 21;

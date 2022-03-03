@@ -19,14 +19,12 @@ namespace DesktopApp
         private List<grups> _grups;
         private usuaris _usuaris;
         private List<usuaris> _ListUsuaris;
-        private String gruposStatus;
         private cursos _curs;
         private List<cursos> _cursos;
 
-        public FormGestionGrupo(String gruposStatus)
+        public FormGestionGrupo()
         {
             InitializeComponent();
-            this.gruposStatus = gruposStatus;
         }
 
         private void pb_close_Click(object sender, EventArgs e)
@@ -34,15 +32,19 @@ namespace DesktopApp
             this.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
             actualizarGrupos();
-                        
+
+        }
+
+
+        private void actualizarGrupos()
+        {
+                    
+            bindingSourceGroups.DataSource = null;
+            bindingSourceGroups.DataSource = GrupsOrm.Select();
 
         }
 
@@ -52,12 +54,23 @@ namespace DesktopApp
 
             if (_grup != null)
             {
-                //update
+                missatge = GrupsOrm.Update(_grup,txtNameGroup.Text,cboActivate.Checked);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Grupo actualizado");
+                }
+
             }
             else
             {
                 grups Grup = new grups();
                 Grup.nom = txtNameGroup.Text;
+                Grup.actiu = cboActivate.Checked;
 
                 missatge = GrupsOrm.Insert(Grup);
 
@@ -73,38 +86,41 @@ namespace DesktopApp
             }
 
             actualizarGrupos();
+            VaciarCampos();
 
         }
 
-        private void cargarCursos() 
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            bindingSourceCourses.DataSource = null;
-            bindingSourceCourses.DataSource = CursosOrm.Select();
-
+            this.Close();
         }
 
-
-
-        private void actualizarGrupos()
+        private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbGroups.Items.Clear();
+           _grup = (grups)lbGroups.SelectedItem;
 
-            _grups = GrupsOrm.Select();
-
-            foreach (grups grp in _grups)
+            if (_grup != null)
             {
-                lbGroups.Items.Add(grp.nom);
+
+                txtNameGroup.Text = _grup.nom;
+                cboActivate.Checked = (bool)_grup.actiu;
             }
+            
+        }
+
+        private void VaciarCampos() 
+        {
+            _grup = null;
+            lbGroups.SelectedItem = null;
+            txtNameGroup.Text = "";
+            cboActivate.Checked = false;          
 
         }
 
-
-
-        private void btnManagmentCourses_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            FormCursos formCursos = new FormCursos();
-            formCursos.ShowDialog();
-            cargarCursos();
+            
+            VaciarCampos();
         }
     }
 }

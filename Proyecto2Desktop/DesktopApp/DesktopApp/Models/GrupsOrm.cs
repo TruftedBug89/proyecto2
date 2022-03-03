@@ -45,6 +45,13 @@ namespace DesktopApp.Models
         }
 
 
+        public static String Update(grups _grups, String nom, bool actiu) 
+        {
+            _grups.nom = nom;
+            _grups.actiu = actiu;
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
 
 
 

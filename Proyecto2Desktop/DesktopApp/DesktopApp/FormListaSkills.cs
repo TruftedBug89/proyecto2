@@ -217,14 +217,14 @@ namespace DesktopApp
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
             FormGruposSkills = "GuposListasSkills";
-            FormGestionGrupo formGestionGrupo = new FormGestionGrupo(FormGruposSkills);
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
             formGestionGrupo.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             FormGruposSkills = "";
-            FormGestionGrupo formGestionGrupo = new FormGestionGrupo(FormGruposSkills);
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
             formGestionGrupo.ShowDialog();
         }
 
