@@ -14,5 +14,16 @@ namespace DesktopApp.Models
 
             return _usuaris;
         }
+
+        internal static object SelectByName(string text)
+        {
+            List<usuaris> _usuaris = Orm.bd.usuaris
+                            .Where(c => c.nom.Contains(text))
+                            .ToList();
+            //List<usuaris> _usuaris = (from u in Orm.bd.usuaris
+                                      //join r in Orm.bd.rols on u.rols_id equals r.id
+                                     // select u).ToList();
+            return _usuaris;
+        }
     }
 }

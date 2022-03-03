@@ -187,5 +187,11 @@ namespace DesktopApp
             _llistesSkills = null;
             dgvSkill.Columns.Clear();
         }
+
+        private void btnGestionUsuarios_Click(object sender, EventArgs e)
+        {
+            FormGestionUsuarios fgu = new FormGestionUsuarios();
+            fgu.ShowDialog();
+        }
     }
 }
