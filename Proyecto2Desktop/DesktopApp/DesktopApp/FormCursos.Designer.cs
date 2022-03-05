@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblCourses = new System.Windows.Forms.Label();
-            this.dtpStartCourse = new System.Windows.Forms.DateTimePicker();
             this.lbCourses = new System.Windows.Forms.ListBox();
             this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.gbStartCourse = new System.Windows.Forms.GroupBox();
+            this.cbxYears = new System.Windows.Forms.ComboBox();
             this.gbFinishCourse = new System.Windows.Forms.GroupBox();
             this.txtFinishCourse = new System.Windows.Forms.TextBox();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             this.gbStartCourse.SuspendLayout();
             this.gbFinishCourse.SuspendLayout();
@@ -54,17 +55,6 @@
             this.lblCourses.TabIndex = 4;
             this.lblCourses.Text = "Cursos";
             // 
-            // dtpStartCourse
-            // 
-            this.dtpStartCourse.CustomFormat = "yyyy";
-            this.dtpStartCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStartCourse.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartCourse.Location = new System.Drawing.Point(20, 35);
-            this.dtpStartCourse.Name = "dtpStartCourse";
-            this.dtpStartCourse.Size = new System.Drawing.Size(78, 28);
-            this.dtpStartCourse.TabIndex = 5;
-            this.dtpStartCourse.ValueChanged += new System.EventHandler(this.dtpStartCourse_ValueChanged);
-            // 
             // lbCourses
             // 
             this.lbCourses.DataSource = this.bindingSourceCourses;
@@ -72,11 +62,12 @@
             this.lbCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCourses.FormattingEnabled = true;
             this.lbCourses.ItemHeight = 22;
-            this.lbCourses.Location = new System.Drawing.Point(12, 55);
+            this.lbCourses.Location = new System.Drawing.Point(12, 105);
             this.lbCourses.Name = "lbCourses";
-            this.lbCourses.Size = new System.Drawing.Size(159, 268);
+            this.lbCourses.Size = new System.Drawing.Size(159, 224);
             this.lbCourses.TabIndex = 6;
             this.lbCourses.ValueMember = "id";
+            this.lbCourses.SelectedIndexChanged += new System.EventHandler(this.lbCourses_SelectedIndexChanged);
             // 
             // bindingSourceCourses
             // 
@@ -84,13 +75,23 @@
             // 
             // gbStartCourse
             // 
-            this.gbStartCourse.Controls.Add(this.dtpStartCourse);
+            this.gbStartCourse.Controls.Add(this.cbxYears);
             this.gbStartCourse.Location = new System.Drawing.Point(194, 57);
             this.gbStartCourse.Name = "gbStartCourse";
             this.gbStartCourse.Size = new System.Drawing.Size(181, 112);
             this.gbStartCourse.TabIndex = 7;
             this.gbStartCourse.TabStop = false;
             this.gbStartCourse.Text = "Curs Inici";
+            // 
+            // cbxYears
+            // 
+            this.cbxYears.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxYears.FormattingEnabled = true;
+            this.cbxYears.Location = new System.Drawing.Point(6, 37);
+            this.cbxYears.Name = "cbxYears";
+            this.cbxYears.Size = new System.Drawing.Size(100, 30);
+            this.cbxYears.TabIndex = 34;
+            this.cbxYears.SelectionChangeCommitted += new System.EventHandler(this.cbxYears_SelectionChangeCommitted);
             // 
             // gbFinishCourse
             // 
@@ -156,11 +157,26 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(12, 57);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(159, 42);
+            this.btnAdd.TabIndex = 33;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FormCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 445);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboActivate);
@@ -183,7 +199,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblCourses;
-        private System.Windows.Forms.DateTimePicker dtpStartCourse;
         private System.Windows.Forms.ListBox lbCourses;
         private System.Windows.Forms.GroupBox gbStartCourse;
         private System.Windows.Forms.GroupBox gbFinishCourse;
@@ -192,5 +207,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.BindingSource bindingSourceCourses;
         private System.Windows.Forms.TextBox txtFinishCourse;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ComboBox cbxYears;
     }
 }

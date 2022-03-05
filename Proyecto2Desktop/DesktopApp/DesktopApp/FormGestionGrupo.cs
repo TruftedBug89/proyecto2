@@ -101,7 +101,6 @@ namespace DesktopApp
 
             if (_grup != null)
             {
-
                 txtNameGroup.Text = _grup.nom;
                 cboActivate.Checked = (bool)_grup.actiu;
             }
