@@ -136,30 +136,41 @@ namespace DesktopApp
                 }
                 else
                 {
-                    foreach (DataGridViewRow row in dgvListaSkills.Rows)
+
+                    if (dgvListaSkills.Columns.Count > 1)
                     {
 
-                        skills _skill = new skills();
-                        char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
-                        var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
-                        String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
-
-                        _skill.nom = nombreSkill;
-
-                        _skill.llistes_skills_id = _llistes_Skills.id;
-                        _skill.actiu = true;
-                        _skill.colorFondo = Color.Black.ToArgb();
-                        _skill.colorTexto = Color.White.ToArgb();
-
-                        missatge = SkillsOrm.Insert(_skill);
-
-                        if (missatge != "")
+                        foreach (DataGridViewRow row in dgvListaSkills.Rows)
                         {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            skills _skill = new skills();
+                            char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
+                            var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                            String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
+
+                            _skill.nom = nombreSkill;
+
+                            _skill.llistes_skills_id = _llistes_Skills.id;
+                            _skill.actiu = true;
+                            _skill.colorFondo = Color.Black.ToArgb();
+                            _skill.colorTexto = Color.White.ToArgb();
+
+                            missatge = SkillsOrm.Insert(_skill);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
 
                         }
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Test");
+                    }
+
                 }
 
             }
@@ -217,15 +228,15 @@ namespace DesktopApp
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
             FormGruposSkills = "GuposListasSkills";
-            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
-            formGestionGrupo.ShowDialog();
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+            formRelacionesGrupo.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             FormGruposSkills = "";
-            FormGestionGrupo formGestionGrupo = new FormGestionGrupo();
-            formGestionGrupo.ShowDialog();
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+            formRelacionesGrupo.ShowDialog();
         }
 
         private void btnBuildTable_Click(object sender, EventArgs e)

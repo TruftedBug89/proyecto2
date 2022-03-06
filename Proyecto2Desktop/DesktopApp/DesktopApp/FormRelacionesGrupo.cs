@@ -23,9 +23,10 @@ namespace DesktopApp
         private cursos _curs;
         private List<cursos> _cursos;
 
-        public FormRelacionesGrupo()
+        public FormRelacionesGrupo(String status)
         {
             InitializeComponent();
+            this.gruposStatus = status;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace DesktopApp
 
         private void FormRelacionesGrupo_Load(object sender, EventArgs e)
         {
-            actualizarGrupos();
+            cargarGrupos();
             cargarCursos();
 
             if (gruposStatus.Equals("GuposListasSkills"))
@@ -106,7 +107,7 @@ namespace DesktopApp
         private void cargarCursos()
         {
             bindingSourceCourses.DataSource = null;
-            bindingSourceCourses.DataSource = CursosOrm.Select();
+            bindingSourceCourses.DataSource = CursosOrm.SelectActius();
 
         }
 
@@ -138,16 +139,19 @@ namespace DesktopApp
         }
 
 
-        private void actualizarGrupos()
+        private void cargarGrupos()
         {
-            lbGroups.Items.Clear();
+            //lbGroups.Items.Clear();
 
-            _grups = GrupsOrm.Select();
+            //_grups = GrupsOrm.Select();
 
-            foreach (grups grp in _grups)
-            {
-                lbGroups.Items.Add(grp.nom);
-            }
+            //foreach (grups grp in _grups)
+            //{
+            //    lbGroups.Items.Add(grp.nom);
+            //}
+            
+            bindingSourceGroups.DataSource = null;
+            bindingSourceGroups.DataSource = GrupsOrm.Select();
 
         }
 
@@ -162,5 +166,52 @@ namespace DesktopApp
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+
+            if (gruposStatus.Equals("GuposListasSkills"))
+            {
+                int gruposSelec = lbGroups.SelectedItems.Count;
+                if (gruposSelec <= 1)
+                {
+                    //Solo un grupo seleccionado
+                    foreach (llistes_skills llistes in lbListSkills.SelectedItems)
+                    {
+
+                    }
+                }
+                else
+                {
+                    //Mas de un grupo seleccionado
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvUsers.SelectedRows)
+                {
+                    DataGridViewCheckBoxCell chkchecking = row.Cells[1] as DataGridViewCheckBoxCell;
+                    string UserText = row.Cells[0].Value.ToString();
+
+                    bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
+                    if (EsProfesor)
+                    {
+                        MessageBox.Show("Docent: " + UserText);
+                        //añadir en grups_has_docents
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alumno: " + UserText);
+                        //añadir en grups_has_alumnes
+                    }
+
+                }
+            }
+
+
+          
+
+
+        }
     }
 }

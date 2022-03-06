@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelacionesGrupo));
             this.label2 = new System.Windows.Forms.Label();
             this.lbGroups = new System.Windows.Forms.ListBox();
+            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,9 +42,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.cbxCourses = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -62,6 +64,8 @@
             // 
             // lbGroups
             // 
+            this.lbGroups.DataSource = this.bindingSourceGroups;
+            this.lbGroups.DisplayMember = "nom";
             this.lbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGroups.FormattingEnabled = true;
             this.lbGroups.ItemHeight = 22;
@@ -70,7 +74,12 @@
             this.lbGroups.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbGroups.Size = new System.Drawing.Size(359, 400);
             this.lbGroups.TabIndex = 29;
+            this.lbGroups.ValueMember = "id";
             this.lbGroups.SelectedIndexChanged += new System.EventHandler(this.lbGroups_SelectedIndexChanged);
+            // 
+            // bindingSourceGroups
+            // 
+            this.bindingSourceGroups.DataSource = typeof(DesktopApp.Models.grups);
             // 
             // pnlSearchUsers
             // 
@@ -136,7 +145,7 @@
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(359, 387);
+            this.dgvUsers.Size = new System.Drawing.Size(359, 373);
             this.dgvUsers.TabIndex = 36;
             this.dgvUsers.SelectionChanged += new System.EventHandler(this.dgvUsers_SelectionChanged);
             // 
@@ -152,6 +161,7 @@
             this.btnSave.TabIndex = 37;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -179,6 +189,10 @@
             this.cbxCourses.TabIndex = 41;
             this.cbxCourses.ValueMember = "id";
             // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
+            // 
             // btnManagmentCourses
             // 
             this.btnManagmentCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -205,10 +219,6 @@
             this.label3.TabIndex = 39;
             this.label3.Text = "Cursos:";
             // 
-            // bindingSourceCourses
-            // 
-            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
-            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,6 +238,7 @@
             this.Name = "FormRelacionesGrupo";
             this.Text = "FormRelacionesGrupo";
             this.Load += new System.EventHandler(this.FormRelacionesGrupo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).EndInit();
             this.pnlSearchUsers.ResumeLayout(false);
             this.pnlSearchUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -254,5 +265,6 @@
         private System.Windows.Forms.Button btnManagmentCourses;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource bindingSourceCourses;
+        private System.Windows.Forms.BindingSource bindingSourceGroups;
     }
 }

@@ -16,6 +16,14 @@ namespace DesktopApp.Models
         
         }
 
+        public static List<cursos> SelectActius() 
+        {
+            List<cursos> _cursos = Orm.bd.cursos
+                            .Where(c => c.actiu == true)
+                            .ToList();
+            return _cursos;
+        }
+
         public static String Insert(cursos _curs)
         {
             Orm.bd.cursos.Add(_curs);
