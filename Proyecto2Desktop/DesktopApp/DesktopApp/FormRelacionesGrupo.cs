@@ -56,9 +56,12 @@ namespace DesktopApp
             {
                 lbGroups.SelectionMode = SelectionMode.MultiExtended;
             }
-                        
-            foreach (DataGridViewComboBoxColumn item in DataCombosSelecionados)
+            
+            
+            
+            foreach (DataGridViewRow item in dgvUsers.SelectedRows)
             {
+                
                 DataCombosSelecionados.Add(item);
             }
         
