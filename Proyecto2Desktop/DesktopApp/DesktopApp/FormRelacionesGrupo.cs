@@ -22,6 +22,8 @@ namespace DesktopApp
         private String gruposStatus;
         private cursos _curs;
         private List<cursos> _cursos;
+        private DataGridViewComboBoxColumn SelectedcomboBoxColumn;
+        private List<DataGridViewComboBoxColumn> DataCombosSelecionados = new List<DataGridViewComboBoxColumn>();
 
         public FormRelacionesGrupo(String status)
         {
@@ -43,6 +45,8 @@ namespace DesktopApp
 
         private void dgvUsers_SelectionChanged(object sender, EventArgs e)
         {
+            
+
             if (dgvUsers.SelectedRows.Count > 1)
             {
 
@@ -52,6 +56,12 @@ namespace DesktopApp
             {
                 lbGroups.SelectionMode = SelectionMode.MultiExtended;
             }
+                        
+            foreach (DataGridViewComboBoxColumn item in DataCombosSelecionados)
+            {
+                DataCombosSelecionados.Add(item);
+            }
+        
         }
 
         private void lbListSkills_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,11 +132,22 @@ namespace DesktopApp
                 checkBoxColumn.Name = "checkBox";
 
 
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+                comboBoxColumn.HeaderText = "Curso";
+                comboBoxColumn.Name = "combobox";
+
+
 
                 dgvUsers.DataSource = null;
                 dgvUsers.Columns.Add("Usuari", "Usuari");
                 dgvUsers.Columns["Usuari"].ReadOnly = true;
                 dgvUsers.Columns.Add(checkBoxColumn);
+                dgvUsers.Columns.Add(comboBoxColumn);
+
+                comboBoxColumn.DataSource = CursosOrm.SelectActius();
+                comboBoxColumn.DisplayMember = "nom";
+                comboBoxColumn.ValueMember = "id";
+                
 
                 foreach (usuaris item in _ListUsuaris)
                 {
@@ -211,6 +232,17 @@ namespace DesktopApp
 
           
 
+
+        }
+
+        private void cbxCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cursos curs = (cursos)cbxCourses.SelectedItem;
+
+            foreach (DataGridViewComboBoxColumn item in DataCombosSelecionados)
+            {
+                item.DefaultCellStyle.NullValue = curs.nom;
+            }
 
         }
     }

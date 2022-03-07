@@ -140,12 +140,12 @@
             this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(664, 182);
+            this.dgvUsers.Location = new System.Drawing.Point(614, 182);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(359, 373);
+            this.dgvUsers.Size = new System.Drawing.Size(409, 373);
             this.dgvUsers.TabIndex = 36;
             this.dgvUsers.SelectionChanged += new System.EventHandler(this.dgvUsers_SelectionChanged);
             // 
@@ -188,6 +188,7 @@
             this.cbxCourses.Size = new System.Drawing.Size(201, 37);
             this.cbxCourses.TabIndex = 41;
             this.cbxCourses.ValueMember = "id";
+            this.cbxCourses.SelectedIndexChanged += new System.EventHandler(this.cbxCourses_SelectedIndexChanged);
             // 
             // bindingSourceCourses
             // 
