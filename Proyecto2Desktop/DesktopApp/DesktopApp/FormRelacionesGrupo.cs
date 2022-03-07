@@ -56,14 +56,13 @@ namespace DesktopApp
             {
                 lbGroups.SelectionMode = SelectionMode.MultiExtended;
             }
+
+
+            //foreach (DataGridViewRow item in dgvUsers.SelectedRows)
+            //{
+
+            //}
             
-            
-            
-            foreach (DataGridViewRow item in dgvUsers.SelectedRows)
-            {
-                
-                DataCombosSelecionados.Add(item);
-            }
         
         }
 
@@ -130,31 +129,31 @@ namespace DesktopApp
 
             if (_ListUsuaris != null)
             {
-                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-                checkBoxColumn.HeaderText = "Docent";
-                checkBoxColumn.Name = "checkBox";
+                //DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+                //checkBoxColumn.HeaderText = "Docent";
+                //checkBoxColumn.Name = "checkBox";
 
 
-                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-                comboBoxColumn.HeaderText = "Curso";
-                comboBoxColumn.Name = "combobox";
-
-
-
-                dgvUsers.DataSource = null;
-                dgvUsers.Columns.Add("Usuari", "Usuari");
-                dgvUsers.Columns["Usuari"].ReadOnly = true;
-                dgvUsers.Columns.Add(checkBoxColumn);
-                dgvUsers.Columns.Add(comboBoxColumn);
-
-                comboBoxColumn.DataSource = CursosOrm.SelectActius();
-                comboBoxColumn.DisplayMember = "nom";
-                comboBoxColumn.ValueMember = "id";
+                //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+                //comboBoxColumn.HeaderText = "Curso";
+                //comboBoxColumn.Name = "combobox";
+                ////comboBoxColumn.DataSource = CursosOrm.SelectActius();
+                ////comboBoxColumn.DisplayMember = "nom";
+                ////comboBoxColumn.ValueMember = "id";
                 
+
+
+                //dgvUsers.DataSource = null;
+                //dgvUsers.Columns.Add("Usuari", "Usuari");
+                //dgvUsers.Columns["Usuari"].ReadOnly = true;
+                //dgvUsers.Columns.Add(checkBoxColumn);
+                //dgvUsers.Columns.Add(comboBoxColumn);
+
 
                 foreach (usuaris item in _ListUsuaris)
                 {
                     dgvUsers.Rows.Add(item.nom);
+                    
                 }
             }
 
@@ -242,11 +241,29 @@ namespace DesktopApp
         {
             cursos curs = (cursos)cbxCourses.SelectedItem;
 
-            foreach (DataGridViewComboBoxColumn item in DataCombosSelecionados)
-            {
-                item.DefaultCellStyle.NullValue = curs.nom;
-            }
 
+            //foreach (DataGridViewRow item in dgvUsers.SelectedRows)
+            //{
+            //    DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
+            //    ComboBox comboBox = new ComboBox();
+            //    //comboBoxColumn.DefaultCellStyle.NullValue = curs.nom;
+            //    item.Cells[2] = comboBoxCell;
+            //    comboBoxCell.DataSource = CursosOrm.SelectActius();
+
+            //}
+
+            //dgvUsers.Rows[0].Cells[2].Value = ((ComboBox)sender).SelectedValue;
+
+
+        }
+
+        private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            //if (e.ColumnIndex == 0)
+            //{
+            //    usuaris usuari = (usuaris)dgvUsers.Rows[e.RowIndex].DataBoundItem;
+            //    e.Value = usuari.nom;
+            //}
         }
     }
 }
