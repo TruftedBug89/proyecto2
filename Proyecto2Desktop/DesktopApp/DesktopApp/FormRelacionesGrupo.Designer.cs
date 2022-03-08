@@ -37,24 +37,27 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbListSkills = new System.Windows.Forms.ListBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.cbxCourses = new System.Windows.Forms.ComboBox();
-            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvListSkills = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -125,19 +128,6 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Usuarios:";
             // 
-            // lbListSkills
-            // 
-            this.lbListSkills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbListSkills.FormattingEnabled = true;
-            this.lbListSkills.ItemHeight = 22;
-            this.lbListSkills.Location = new System.Drawing.Point(664, 182);
-            this.lbListSkills.Name = "lbListSkills";
-            this.lbListSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbListSkills.Size = new System.Drawing.Size(359, 400);
-            this.lbListSkills.TabIndex = 35;
-            this.lbListSkills.SelectedIndexChanged += new System.EventHandler(this.lbListSkills_SelectedIndexChanged);
-            // 
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
@@ -149,14 +139,13 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvUsers.Location = new System.Drawing.Point(664, 182);
+            this.dgvUsers.Location = new System.Drawing.Point(602, 182);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(359, 373);
+            this.dgvUsers.Size = new System.Drawing.Size(421, 373);
             this.dgvUsers.TabIndex = 36;
-            this.dgvUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsers_CellFormatting);
             this.dgvUsers.SelectionChanged += new System.EventHandler(this.dgvUsers_SelectionChanged);
             // 
             // Column1
@@ -176,11 +165,17 @@
             // 
             // Column3
             // 
+            this.Column3.DataSource = this.bindingSourceCourses;
+            this.Column3.DisplayMember = "nom";
             this.Column3.HeaderText = "Curso";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
             // 
             // btnSave
             // 
@@ -223,10 +218,6 @@
             this.cbxCourses.ValueMember = "id";
             this.cbxCourses.SelectedIndexChanged += new System.EventHandler(this.cbxCourses_SelectedIndexChanged);
             // 
-            // bindingSourceCourses
-            // 
-            this.bindingSourceCourses.DataSource = typeof(DesktopApp.Models.cursos);
-            // 
             // btnManagmentCourses
             // 
             this.btnManagmentCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -257,19 +248,56 @@
             // 
             this.bindingSourceUsers.DataSource = typeof(DesktopApp.Models.usuaris);
             // 
+            // dgvListSkills
+            // 
+            this.dgvListSkills.AllowUserToAddRows = false;
+            this.dgvListSkills.AllowUserToDeleteRows = false;
+            this.dgvListSkills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListSkills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListSkills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewComboBoxColumn1});
+            this.dgvListSkills.Location = new System.Drawing.Point(664, 182);
+            this.dgvListSkills.Name = "dgvListSkills";
+            this.dgvListSkills.RowHeadersWidth = 51;
+            this.dgvListSkills.RowTemplate.Height = 24;
+            this.dgvListSkills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListSkills.Size = new System.Drawing.Size(359, 400);
+            this.dgvListSkills.TabIndex = 42;
+            this.dgvListSkills.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListSkills_CellFormatting);
+            this.dgvListSkills.SelectionChanged += new System.EventHandler(this.dgvListSkills_SelectionChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataSource = this.bindingSourceCourses;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "nom";
+            this.dataGridViewComboBoxColumn1.HeaderText = "Curso";
+            this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1080, 687);
+            this.Controls.Add(this.dgvListSkills);
             this.Controls.Add(this.cbxCourses);
             this.Controls.Add(this.btnManagmentCourses);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvUsers);
-            this.Controls.Add(this.lbListSkills);
             this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.lbGroups);
             this.Controls.Add(this.label2);
@@ -283,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +325,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbListSkills;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
@@ -309,5 +337,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
+        private System.Windows.Forms.DataGridView dgvListSkills;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
     }
 }
