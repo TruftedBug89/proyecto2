@@ -15,6 +15,7 @@ namespace DesktopApp
     {
         private llistes_skills _llistaSkill;
         private List<llistes_skills> _llistesSkills;
+       
         private grups _grup;
         private List<grups> _grups;
         private usuaris _usuaris;
@@ -22,8 +23,10 @@ namespace DesktopApp
         private String gruposStatus;
         private cursos _curs;
         private List<cursos> _cursos;
-        private DataGridViewComboBoxColumn SelectedcomboBoxColumn;
-        private List<DataGridViewComboBoxCell> DataCombosSelecionados = new List<DataGridViewComboBoxCell>();
+
+        private grups_has_llistes_skills _grupsLListes;
+        private List<grups_has_llistes_skills> Lista_grups_LListes;
+
 
         public FormRelacionesGrupo(String status)
         {
@@ -83,6 +86,8 @@ namespace DesktopApp
 
         private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _grup = (grups)lbGroups.SelectedItem;
+
             if (lbGroups.SelectedItems.Count > 1)
             {
                 dgvListSkills.MultiSelect = false;
@@ -176,18 +181,46 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
+          
             if (gruposStatus.Equals("GuposListasSkills"))
             {
                 int gruposSelec = lbGroups.SelectedItems.Count;
+
                 if (gruposSelec <= 1)
                 {
                     //Solo un grupo seleccionado
+
+                  
                     foreach (DataGridViewRow rowLListes in dgvListSkills.SelectedRows)
                     {
                         
+                        foreach (llistes_skills llista in _llistesSkills)
+                        {
+
+                            if (rowLListes.Cells[0].Value.Equals(llista.nom))
+                            {
+                                
+
+                                grups_has_llistes_skills Select_grupsLListes = new grups_has_llistes_skills();
+                                Select_grupsLListes.grups_id = _grup.id;
+                                Select_grupsLListes.llistes_skills_id = llista.id;
+
+                                cursos curs = new cursos();
+                                DataGridViewComboBoxCell comboBoxCell = rowLListes.Cells[1] as DataGridViewComboBoxCell;
+                                
+                                //Select_grupsLListes.curs_id = curs.id;
+                                Lista_grups_LListes.Add(Select_grupsLListes);
+                            }
+                        }
                     }
+
+
+                    //foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
+                    //{
+                    //    MessageBox.Show("IdGrup: " + gLlistes.grups_id + ", idSkill: " + gLlistes.llistes_skills_id + ", idCurs: " + gLlistes.curs_id);
+                    //}
+
+                   
                 }
                 else
                 {
@@ -222,7 +255,7 @@ namespace DesktopApp
         private void cbxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             cursos curs = (cursos)cbxCourses.SelectedItem;
-            int indexCurs = cbxCourses.SelectedIndex;
+            //int indexCurs = cbxCourses.SelectedIndex;
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
