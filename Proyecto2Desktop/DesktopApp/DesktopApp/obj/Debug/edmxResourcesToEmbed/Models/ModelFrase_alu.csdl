@@ -11,6 +11,7 @@
     <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_cursos" FromRole="cursos" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_cursos" FromRole="cursos" ToRole="grups_has_docents" />
     <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_cursos" FromRole="cursos" ToRole="grups_has_llistes_skills" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="grups">
     <Key>
@@ -113,6 +114,9 @@
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="valoracions">
     <Key>

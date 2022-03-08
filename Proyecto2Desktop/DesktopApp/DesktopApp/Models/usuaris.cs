@@ -29,6 +29,9 @@ namespace DesktopApp.Models
         public bool actiu { get; set; }
         public string correo { get; set; }
         public string contrasenya { get; set; }
+        public string cognoms { get; set; }
+        public string nomUsuari { get; set; }
+        public string imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }

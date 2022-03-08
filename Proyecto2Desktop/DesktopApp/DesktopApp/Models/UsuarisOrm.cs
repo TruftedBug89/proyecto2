@@ -14,5 +14,12 @@ namespace DesktopApp.Models
 
             return _usuaris;
         }
+
+        public static String Insert(usuaris _usuaris)
+        {
+            Orm.bd.usuaris.Add(_usuaris);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
     }
 }
