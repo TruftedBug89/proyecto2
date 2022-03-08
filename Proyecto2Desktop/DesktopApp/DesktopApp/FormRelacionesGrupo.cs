@@ -153,8 +153,17 @@ namespace DesktopApp
                 foreach (usuaris item in _ListUsuaris)
                 {
                     dgvUsers.Rows.Add(item.nom);
-                    
                 }
+
+                for (int i = 0; i < dgvUsers.Rows.Count; i++)
+                {
+                    DataGridViewComboBoxCell cell = dgvUsers.Rows[i].Cells[2] as DataGridViewComboBoxCell;
+                    cell.DataSource = null;
+                    cell.DataSource = CursosOrm.SelectActius();
+                    cell.DisplayMember = "nom";
+                    cell.ValueMember = "id";
+                }
+
             }
 
 
@@ -240,17 +249,20 @@ namespace DesktopApp
         private void cbxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             cursos curs = (cursos)cbxCourses.SelectedItem;
+            int indexCurs = cbxCourses.SelectedIndex;
 
+            foreach (DataGridViewRow item in dgvUsers.SelectedRows)
+            {
+                DataGridViewComboBoxCell comboBoxCell = item.Cells[2] as DataGridViewComboBoxCell;
+                //item.Cells["Column3"].Value = (item.Cells["Column3"] as DataGridViewComboBoxCell).Items[indexCurs];
+                cursos cursSelec = (cursos)comboBoxCell.Items[indexCurs];
+                MessageBox.Show(cursSelec.nom);
+                //comboBoxCell.Items[indexCurs] = cursSelec.nom;
 
-            //foreach (DataGridViewRow item in dgvUsers.SelectedRows)
-            //{
-            //    DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
-            //    ComboBox comboBox = new ComboBox();
-            //    //comboBoxColumn.DefaultCellStyle.NullValue = curs.nom;
-            //    item.Cells[2] = comboBoxCell;
-            //    comboBoxCell.DataSource = CursosOrm.SelectActius();
+                //dgvUsers[colIndex, item.Index].Value = "valor deseado";
+                //comboBoxCell.DataSource = CursosOrm.SelectActius();
 
-            //}
+            }
 
             //dgvUsers.Rows[0].Cells[2].Value = ((ComboBox)sender).SelectedValue;
 
