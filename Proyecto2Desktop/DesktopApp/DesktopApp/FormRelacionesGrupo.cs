@@ -25,7 +25,6 @@ namespace DesktopApp
         private List<cursos> _cursos;
 
         private grups_has_llistes_skills _grupsLListes;
-        private List<grups_has_llistes_skills> Lista_grups_LListes;
 
 
         public FormRelacionesGrupo(String status)
@@ -111,6 +110,10 @@ namespace DesktopApp
                 dgvListSkills.Visible = true;
                 pnlSearchUsers.Visible = false;
                 dgvUsers.Visible = false;
+                pnlGroupsHasSkills.Visible = true;
+                pnlGrupsStudTeach.Visible = false;
+                
+                
             }
             else
             {
@@ -118,12 +121,15 @@ namespace DesktopApp
                 dgvListSkills.Visible = false;
                 pnlSearchUsers.Visible = true;
                 dgvUsers.Visible = true;
+                pnlGroupsHasSkills.Visible = false;
+                pnlGrupsStudTeach.Visible = true;
             }
         }
 
 
         private void cargarCursos()
         {
+            _cursos = CursosOrm.SelectActius();
             bindingSourceCourses.DataSource = null;
             bindingSourceCourses.DataSource = CursosOrm.SelectActius();
 
@@ -175,13 +181,18 @@ namespace DesktopApp
                 dgvListSkills.Rows.Add(ls.nom);
             }
 
-
-
         }
+
+        
+
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-          
+
+
+         List<grups_has_llistes_skills> Lista_grups_LListes = new List<grups_has_llistes_skills>();
+
             if (gruposStatus.Equals("GuposListasSkills"))
             {
                 int gruposSelec = lbGroups.SelectedItems.Count;
@@ -199,16 +210,28 @@ namespace DesktopApp
 
                             if (rowLListes.Cells[0].Value.Equals(llista.nom))
                             {
-                                
-
+                                //Crear objeto grups_hasllistesSkills de las rows seleccionadas
                                 grups_has_llistes_skills Select_grupsLListes = new grups_has_llistes_skills();
                                 Select_grupsLListes.grups_id = _grup.id;
                                 Select_grupsLListes.llistes_skills_id = llista.id;
-
-                                cursos curs = new cursos();
+                                                                
                                 DataGridViewComboBoxCell comboBoxCell = rowLListes.Cells[1] as DataGridViewComboBoxCell;
                                 
-                                //Select_grupsLListes.curs_id = curs.id;
+                                //pasar a String el combobox de la datagridview seleccionado
+                                String nomCurs = (string)comboBoxCell.Value;
+
+                                int idCurs = 0;
+                                //Recorrer todos los dadots de los cursos y filtrar para coger el id del seleccionado
+                                foreach (cursos cursos in _cursos)
+                                {
+                                    if (nomCurs.Equals(cursos.nom))
+                                    {
+                                        idCurs = cursos.id;
+                                    }
+                                }
+
+
+                                Select_grupsLListes.curs_id = idCurs;
                                 Lista_grups_LListes.Add(Select_grupsLListes);
                             }
                         }
@@ -220,7 +243,7 @@ namespace DesktopApp
                     //    MessageBox.Show("IdGrup: " + gLlistes.grups_id + ", idSkill: " + gLlistes.llistes_skills_id + ", idCurs: " + gLlistes.curs_id);
                     //}
 
-                   
+
                 }
                 else
                 {
