@@ -53,15 +53,15 @@
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pnlGroupsHasSkills = new System.Windows.Forms.Panel();
             this.lbGroupsHasSkills = new System.Windows.Forms.ListBox();
+            this.bindingSourceGrupsHasSkills = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.pnlGrupsStudTeach = new System.Windows.Forms.Panel();
             this.lbStudents = new System.Windows.Forms.ListBox();
+            this.bindingSourceGrupsHasStudents = new System.Windows.Forms.BindingSource(this.components);
             this.lbTeachers = new System.Windows.Forms.ListBox();
+            this.bindingSourceGroupsHasTeachers = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.bindingSourceGrupsHasSkills = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceGrupsHasStudents = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceGroupsHasTeachers = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,8 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).BeginInit();
             this.pnlGroupsHasSkills.SuspendLayout();
-            this.pnlGrupsStudTeach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasSkills)).BeginInit();
+            this.pnlGrupsStudTeach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroupsHasTeachers)).BeginInit();
             this.SuspendLayout();
@@ -325,6 +325,10 @@
             this.lbGroupsHasSkills.TabIndex = 43;
             this.lbGroupsHasSkills.ValueMember = "grups_id";
             // 
+            // bindingSourceGrupsHasSkills
+            // 
+            this.bindingSourceGrupsHasSkills.DataSource = typeof(DesktopApp.Models.grups_has_llistes_skills);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -342,7 +346,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(352, 116);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(573, 46);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(306, 422);
             this.pnlGrupsStudTeach.TabIndex = 44;
@@ -361,6 +365,10 @@
             this.lbStudents.TabIndex = 46;
             this.lbStudents.ValueMember = "grups_id";
             // 
+            // bindingSourceGrupsHasStudents
+            // 
+            this.bindingSourceGrupsHasStudents.DataSource = typeof(DesktopApp.Models.grups_has_alumnes);
+            // 
             // lbTeachers
             // 
             this.lbTeachers.DataSource = this.bindingSourceGroupsHasTeachers;
@@ -374,6 +382,10 @@
             this.lbTeachers.Size = new System.Drawing.Size(244, 136);
             this.lbTeachers.TabIndex = 45;
             this.lbTeachers.ValueMember = "grups_id";
+            // 
+            // bindingSourceGroupsHasTeachers
+            // 
+            this.bindingSourceGroupsHasTeachers.DataSource = typeof(DesktopApp.Models.grups_has_docents);
             // 
             // label6
             // 
@@ -394,18 +406,6 @@
             this.label5.Size = new System.Drawing.Size(92, 24);
             this.label5.TabIndex = 19;
             this.label5.Text = "Alumnos";
-            // 
-            // bindingSourceGrupsHasSkills
-            // 
-            this.bindingSourceGrupsHasSkills.DataSource = typeof(DesktopApp.Models.grups_has_llistes_skills);
-            // 
-            // bindingSourceGrupsHasStudents
-            // 
-            this.bindingSourceGrupsHasStudents.DataSource = typeof(DesktopApp.Models.grups_has_alumnes);
-            // 
-            // bindingSourceGroupsHasTeachers
-            // 
-            this.bindingSourceGroupsHasTeachers.DataSource = typeof(DesktopApp.Models.grups_has_docents);
             // 
             // FormRelacionesGrupo
             // 
@@ -438,9 +438,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSkills)).EndInit();
             this.pnlGroupsHasSkills.ResumeLayout(false);
             this.pnlGroupsHasSkills.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasSkills)).EndInit();
             this.pnlGrupsStudTeach.ResumeLayout(false);
             this.pnlGrupsStudTeach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasSkills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroupsHasTeachers)).EndInit();
             this.ResumeLayout(false);

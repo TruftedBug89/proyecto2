@@ -37,13 +37,7 @@ namespace DesktopApp.Models
             return missatge;
         }
 
-        public static String InsertSkills(grups_has_llistes_skills _grups_llistes_skills)
-        {
-            Orm.bd.grups_has_llistes_skills.Add(_grups_llistes_skills);
-            String missatge = Orm.MySaveChanges();
-            return missatge;
-        }
-
+        
 
         public static String Update(grups _grups, String nom, bool actiu) 
         {
