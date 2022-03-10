@@ -8,6 +8,7 @@
     <Property Name="curs_inici" Type="int" Nullable="false" />
     <Property Name="curs_fi" Type="int" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="grups">
     <Key>
@@ -99,6 +100,9 @@
     <Property Name="actiu" Type="bit" Nullable="false" />
     <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="contrasenya" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="cognoms" Type="varchar" MaxLength="50" />
+    <Property Name="nomUsuari" Type="varchar" MaxLength="100" />
+    <Property Name="imagen" Type="nchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="valoracions">
     <Key>

@@ -15,6 +15,7 @@ namespace DesktopApp.Models
             return _usuaris;
         }
 
+
         internal static object SelectByName(string text)
         {
             List<usuaris> _usuaris = Orm.bd.usuaris
@@ -26,7 +27,7 @@ namespace DesktopApp.Models
             return _usuaris;
         }
 
-        internal static String Insert(string nom, string rol, string correo, string contra)
+        internal static String InsertValues(string nom, string rol, string correo, string contra)
 
         {
             usuaris user = new usuaris();
@@ -40,7 +41,14 @@ namespace DesktopApp.Models
             Orm.bd.usuaris.Add(user);
             String missatge = Orm.MySaveChanges();
             return missatge;
-            
+        }
+
+        public static String Insert(usuaris _usuaris)
+        {
+            Orm.bd.usuaris.Add(_usuaris);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+
         }
     }
 }
