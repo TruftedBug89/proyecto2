@@ -139,7 +139,7 @@ namespace DesktopApp
 
         private void cargarCursos()
         {
-            //_cursos = CursosOrm.SelectActius();
+            _cursos = CursosOrm.SelectActius();
             bindingSourceCourses.DataSource = null;
             bindingSourceCourses.DataSource = CursosOrm.SelectActius();
             dgvGroups.ClearSelection();
@@ -220,11 +220,12 @@ namespace DesktopApp
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
-                int gruposSelec = lbGroups.SelectedItems.Count;
+                int gruposSelec = dgvGroups.SelectedRows.Count;
 
                 if (gruposSelec <= 1)
                 {
-                    //Solo un grupo seleccionado                  
+                    //Solo un grupo seleccionado     
+                    
                     foreach (DataGridViewRow rowLListes in dgvListSkills.SelectedRows)
                     {
                         
@@ -292,7 +293,64 @@ namespace DesktopApp
                 {
                     //Mas de un grupo seleccionado
 
+                    foreach (DataGridViewRow rowGrups in dgvGroups.SelectedRows)
+                    {
+                        foreach (grups grup in _grups)
+                        {
 
+                            if (rowGrups.Cells[0].Value.Equals(grup.nom))
+                            {
+                                //Crear objeto grups_hasllistesSkills de las rows seleccionadas
+                                grups_has_llistes_skills Select_grupsLListes = new grups_has_llistes_skills();
+                                Select_grupsLListes.grups_id = grup.id;
+                                Select_grupsLListes.llistes_skills_id = _llistaSkill.id;
+
+                                DataGridViewComboBoxCell comboBoxCell = rowGrups.Cells[1] as DataGridViewComboBoxCell;
+
+                                //pasar a String el combobox de la datagridview seleccionado
+                                String nomCurs = (string)comboBoxCell.Value;
+
+                                if (nomCurs != null)
+                                {
+                                    int idCurs = 0;
+                                    //Recorrer todos los dadots de los cursos y filtrar para coger el id del seleccionado
+                                    foreach (cursos cursos in _cursos)
+                                    {
+                                        if (nomCurs.Equals(cursos.nom))
+                                        {
+                                            idCurs = cursos.id;
+                                        }
+                                    }
+
+                                    Select_grupsLListes.curs_id = idCurs;
+                                    Lista_grups_LListes.Add(Select_grupsLListes);
+
+
+
+                                }
+                            }
+                        }
+                    }
+
+                    //Si la lista tiene al menos un elemento añadir a la base de datos
+                    if (Lista_grups_LListes.Count >= 1)
+                    {
+                        //Una vez guardados los datos seleccionados añadirlos a la tabla de Grups_has_llistes_skillls
+                        foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
+                        {
+
+                            missatge = GrupsHasLlistesSkillsOrm.Insert(gLlistes);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+
+                        }
+
+                        MessageBox.Show("grupos añadidos a las listas");
+                    }
 
                 }
             }
@@ -358,6 +416,7 @@ namespace DesktopApp
             {
                 String nombre = (string)item.Cells[0].Value;
                 grup.nom = nombre;
+
                 foreach (grups itemGrup in _grups)
                 {
                     if (itemGrup.nom.Equals(nombre))
@@ -366,13 +425,11 @@ namespace DesktopApp
                         grup.actiu = itemGrup.actiu;
                     }
                 }
-
             }
 
             return grup;
 
         }
-
 
 
 
@@ -410,7 +467,7 @@ namespace DesktopApp
             else
             {
                 dgvListSkills.MultiSelect = true;
-                dgvUsers.MultiSelect = false;
+                dgvUsers.MultiSelect = true;
                 _grup = CogerGrupoSeleccionado();
                 cargarGruposListas(_grup.id);
             }
