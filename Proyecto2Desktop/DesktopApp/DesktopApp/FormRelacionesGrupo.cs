@@ -26,7 +26,6 @@ namespace DesktopApp
 
         private grups_has_llistes_skills _grupsLListes;
 
-
         public FormRelacionesGrupo(String status)
         {
             InitializeComponent();
@@ -59,12 +58,7 @@ namespace DesktopApp
                 lbGroups.SelectionMode = SelectionMode.MultiExtended;
             }
 
-
-            //foreach (DataGridViewRow item in dgvUsers.SelectedRows)
-            //{
-
-            //}
-            
+                        
         }
 
 
@@ -78,6 +72,7 @@ namespace DesktopApp
             else
             {
                 lbGroups.SelectionMode = SelectionMode.MultiExtended;
+                _llistaSkill = CogerListaSkillSeleccionada();
             }
 
         }
@@ -85,27 +80,39 @@ namespace DesktopApp
 
         private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
 
-            if (lbGroups.SelectedItems.Count > 1)
-            {
-                dgvListSkills.MultiSelect = false;
-                dgvUsers.MultiSelect = false;
-            }
-            else
-            {
-                dgvListSkills.MultiSelect = true;
-                dgvUsers.MultiSelect = true;
-                _grup = (grups)lbGroups.SelectedItem;
-                cargarGruposListas(_grup.id);
+            //if (lbGroups.SelectedItems.Count > 1)
+            //{
+            //    dgvListSkills.MultiSelect = false;
+            //    dgvUsers.MultiSelect = false;
+            //}
+            //else
+            //{
+            //    dgvListSkills.MultiSelect = true;
+            //    dgvUsers.MultiSelect = true;
 
-            }
+
+            //    if (lbGroups.SelectedItem != null)
+            //    {
+            //        _grup = CogerGrupoSeleccionado();
+            //        cargarGruposListas(_grup.id);
+            //    }
+            //    else
+            //    {
+            //        bindingSourceGrupsHasSkills.DataSource = null;
+            //    }
+
+            //}
+
         }
 
         private void FormRelacionesGrupo_Load(object sender, EventArgs e)
         {
             cargarGrupos();
             cargarCursos();
+           
+           
+           
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
@@ -132,9 +139,10 @@ namespace DesktopApp
 
         private void cargarCursos()
         {
-            _cursos = CursosOrm.SelectActius();
+            //_cursos = CursosOrm.SelectActius();
             bindingSourceCourses.DataSource = null;
             bindingSourceCourses.DataSource = CursosOrm.SelectActius();
+            dgvGroups.ClearSelection();
 
         }
 
@@ -143,16 +151,14 @@ namespace DesktopApp
             _ListUsuaris = UsuarisOrm.Select();
 
             if (_ListUsuaris != null)
-            {
-               
+            {               
                 foreach (usuaris item in _ListUsuaris)
                 {
                     dgvUsers.Rows.Add(item.nom);
                 }
 
-
             }
-
+            dgvUsers.ClearSelection();
 
 
         }
@@ -162,16 +168,16 @@ namespace DesktopApp
         {
             //lbGroups.Items.Clear();
 
-            //_grups = GrupsOrm.Select();
+            _grups = GrupsOrm.Select();
 
-            //foreach (grups grp in _grups)
-            //{
-            //    lbGroups.Items.Add(grp.nom);
-            //}
-            
-            bindingSourceGroups.DataSource = null;
-            bindingSourceGroups.DataSource = GrupsOrm.Select();
+            foreach (grups grup in _grups)
+            {
+                dgvGroups.Rows.Add(grup.nom);
+            }
 
+            ////bindingSourceGroups.DataSource = null;
+            //bindingSourceGroups.DataSource = GrupsOrm.Select();
+            //lbGroups.ClearSelected();
         }
 
 
@@ -183,7 +189,7 @@ namespace DesktopApp
             {
                 dgvListSkills.Rows.Add(ls.nom);
             }
-
+            dgvListSkills.ClearSelection();
         }
 
         private void cargarGruposListas(int id) 
@@ -218,9 +224,7 @@ namespace DesktopApp
 
                 if (gruposSelec <= 1)
                 {
-                    //Solo un grupo seleccionado
-
-                  
+                    //Solo un grupo seleccionado                  
                     foreach (DataGridViewRow rowLListes in dgvListSkills.SelectedRows)
                     {
                         
@@ -266,8 +270,7 @@ namespace DesktopApp
                         //Una vez guardados los datos seleccionados añadirlos a la tabla de Grups_has_llistes_skillls
                         foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
                         {
-                            MessageBox.Show("IdGrup: " + gLlistes.grups_id + ", idSkill: " + gLlistes.llistes_skills_id + ", idCurs: " + gLlistes.curs_id);
-
+                           
                             missatge = GrupsHasLlistesSkillsOrm.Insert(gLlistes);
 
                             if (missatge != "")
@@ -288,6 +291,9 @@ namespace DesktopApp
                 else
                 {
                     //Mas de un grupo seleccionado
+
+
+
                 }
             }
             else
@@ -343,15 +349,88 @@ namespace DesktopApp
 
         }
 
-        private void dgvListSkills_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+
+        private grups CogerGrupoSeleccionado() 
         {
-            //if (e.ColumnIndex == 0)
-            //{
-            //    llistes_skills _llistes = (llistes_skills)dgvListSkills.Rows[e.RowIndex].DataBoundItem;
-            //    e.Value = _llistes.nom;
-            //}
-            
+            grups grup = new grups();
+
+            foreach (DataGridViewRow item in dgvGroups.SelectedRows)
+            {
+                String nombre = (string)item.Cells[0].Value;
+                grup.nom = nombre;
+                foreach (grups itemGrup in _grups)
+                {
+                    if (itemGrup.nom.Equals(nombre))
+                    {
+                        grup.id = itemGrup.id;
+                        grup.actiu = itemGrup.actiu;
+                    }
+                }
+
+            }
+
+            return grup;
+
         }
+
+
+
+
+        private llistes_skills CogerListaSkillSeleccionada() 
+        {
+            llistes_skills llistes_Skills = new llistes_skills();
+
+            foreach (DataGridViewRow item in dgvListSkills.SelectedRows)
+            {               
+                String nombre = (string)item.Cells[0].Value;
+                llistes_Skills.nom = nombre;
+                
+                foreach (llistes_skills lskils in _llistesSkills)
+                {
+                    if (lskils.nom.Equals(nombre))
+                    {
+                        llistes_Skills.id = lskils.id;
+                        llistes_Skills.actiu = lskils.actiu;
+                    }
+                }
+            }
+
+
+            return llistes_Skills;
+        }
+
+        private void dgvGroups_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvGroups.SelectedRows.Count > 1)
+            {
+
+                dgvListSkills.MultiSelect = false;
+                dgvUsers.MultiSelect = false;
+            }
+            else
+            {
+                dgvListSkills.MultiSelect = true;
+                dgvUsers.MultiSelect = false;
+                _grup = CogerGrupoSeleccionado();
+                cargarGruposListas(_grup.id);
+            }
+        }
+
+        private void cbxGroupsCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cursos curs = (cursos)cbxGroupsCourses.SelectedItem;
+            //int indexCurs = cbxCourses.SelectedIndex;
+
+            foreach (DataGridViewRow item in dgvGroups.SelectedRows)
+            {
+                DataGridViewComboBoxCell comboBoxCell = item.Cells[1] as DataGridViewComboBoxCell;
+                comboBoxCell.Value = curs.nom;
+            }
+
+        }
+
+
+
 
 
     }
