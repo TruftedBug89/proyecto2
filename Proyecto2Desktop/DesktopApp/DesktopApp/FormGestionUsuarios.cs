@@ -41,7 +41,7 @@ namespace DesktopApp
         private void btnDownload_Click(object sender, EventArgs e)
         {
             List<Models.usuaris> usersToDownload = Models.UsuarisOrm.Select();
-            
+
                 StringBuilder sb = new StringBuilder();
                 foreach (var data in usersToDownload)
                 {
@@ -88,10 +88,10 @@ namespace DesktopApp
                 }
                 if (!failedAdd)
                 {
-                    Models.UsuarisOrm.Insert(lines[1], lines[2], lines[3], lines[4]);
+                    Models.UsuarisOrm.InsertValues(lines[1], lines[2], lines[3], lines[4]);
                     addedUsers++;
                 }
-                
+
 
             }
             MessageBox.Show(!failedAdd ? "Añadidos "+addedUsers+ " usuarios" : "Añadidos " + addedUsers + " usuarios, error al añadir usuarios con correos ya existentes");
@@ -106,7 +106,7 @@ namespace DesktopApp
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pb_close_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace DesktopApp
             {
                 Models.usuaris u = (Models.usuaris)dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 e.Value = u.rols.nom;
-                
+
             }
         }
 
