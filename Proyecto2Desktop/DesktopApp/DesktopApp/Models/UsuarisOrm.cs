@@ -25,5 +25,22 @@ namespace DesktopApp.Models
                                      // select u).ToList();
             return _usuaris;
         }
+
+        internal static String Insert(string nom, string rol, string correo, string contra)
+
+        {
+            usuaris user = new usuaris();
+            user.nom = nom;
+            user.rols_id = int.Parse(rol);
+            user.correo = correo;
+            user.contrasenya = contra;
+            user.actiu = true;
+
+
+            Orm.bd.usuaris.Add(user);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+            
+        }
     }
 }
