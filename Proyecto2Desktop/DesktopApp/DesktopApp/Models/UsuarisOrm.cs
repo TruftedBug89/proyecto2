@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesktopApp.Models;
 
 namespace DesktopApp.Models
 {
     public static class UsuarisOrm
     {
+
         public static List<usuaris> Select()
         {
             List<usuaris> _usuaris = Orm.bd.usuaris.ToList();
@@ -21,9 +25,7 @@ namespace DesktopApp.Models
             List<usuaris> _usuaris = Orm.bd.usuaris
                             .Where(c => c.nom.Contains(text))
                             .ToList();
-            //List<usuaris> _usuaris = (from u in Orm.bd.usuaris
-                                      //join r in Orm.bd.rols on u.rols_id equals r.id
-                                     // select u).ToList();
+
             return _usuaris;
         }
 
@@ -51,4 +53,33 @@ namespace DesktopApp.Models
 
         }
     }
+
+
+        public static Boolean SelectLogin(string correu, string contrasenya)
+        {
+            Boolean acceptar;
+
+            usuaris user =  Orm.bd.usuaris
+                .Where (u => u.correo == correu )
+                .First();
+
+            Boolean passcorrecto = BCrypt.Net.BCrypt.EnhancedVerify(contrasenya, user.contrasenya, BCrypt.Net.HashType.SHA512);
+
+            if (passcorrecto)
+            {
+                System.Windows.Forms.MessageBox.Show("El usuario o la contrasenya són correctos!");
+                acceptar = true;
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("El usuario o la contrasenya són incorrectos!");
+                acceptar = false;
+            }
+
+            return acceptar;
+         }
+
+
+        }
+
 }

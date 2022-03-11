@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopApp.Models;
 
 namespace DesktopApp
 {
@@ -19,8 +20,26 @@ namespace DesktopApp
 
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            FormPrincipal fp = new FormPrincipal();
-            fp.Show();
+            Boolean entrar;
+
+            String correu = textBoxUsername.Text;
+            String contrasenya = textBoxContrasenya.Text;
+            entrar = UsuarisOrm.SelectLogin(correu, contrasenya);
+            if (entrar)
+            {
+                
+                FormPrincipal formprincipal = new FormPrincipal();
+                this.Hide();
+                formprincipal.ShowDialog();
+                
+            }
+            else
+            {
+                MessageBox.Show("Vuelve a introducir los credenciales");
+            }
+           
+           
+
         }
 
         private void pb_close_Click(object sender, EventArgs e)
