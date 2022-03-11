@@ -46,16 +46,14 @@ namespace DesktopApp
 
         private void dgvUsers_SelectionChanged(object sender, EventArgs e)
         {
-            
-
             if (dgvUsers.SelectedRows.Count > 1)
             {
 
-                lbGroups.SelectionMode = SelectionMode.One;
+                dgvGroups.MultiSelect = false;
             }
             else
             {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
+                dgvGroups.MultiSelect = true;
             }
 
                         
@@ -66,13 +64,18 @@ namespace DesktopApp
         {
             if (dgvListSkills.SelectedRows.Count > 1)
             {
-
-                lbGroups.SelectionMode = SelectionMode.One;
+                dgvGroups.MultiSelect = false;
             }
             else
             {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
+                dgvGroups.MultiSelect = true;
                 _llistaSkill = CogerListaSkillSeleccionada();
+                cargarGruposDeLista(_llistaSkill.id);
+
+                lblDates.Text = "Grupos de:";
+                lblDataSelect.Text = _llistaSkill.nom;
+                //bindingSourceGrupsHasSkills = null;
+                //bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(_llistaSkill.id);
             }
 
         }
@@ -110,9 +113,7 @@ namespace DesktopApp
         {
             cargarGrupos();
             cargarCursos();
-           
-           
-           
+
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
@@ -122,6 +123,7 @@ namespace DesktopApp
                 dgvUsers.Visible = false;
                 pnlGroupsHasSkills.Visible = true;
                 pnlGrupsStudTeach.Visible = false;
+               
                 
                 
             }
@@ -206,6 +208,12 @@ namespace DesktopApp
             bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.Select(id);
             
 
+        }
+
+        private void cargarGruposDeLista(int id) 
+        {
+            bindingSourceGrupsHasSkills.DataSource = null;
+            bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
         }
 
         
@@ -313,7 +321,7 @@ namespace DesktopApp
                                 if (nomCurs != null)
                                 {
                                     int idCurs = 0;
-                                    //Recorrer todos los dadots de los cursos y filtrar para coger el id del seleccionado
+                                    //Recorrer todos los datos de los cursos y filtrar para coger el id del seleccionado
                                     foreach (cursos cursos in _cursos)
                                     {
                                         if (nomCurs.Equals(cursos.nom))
@@ -470,6 +478,10 @@ namespace DesktopApp
                 dgvUsers.MultiSelect = true;
                 _grup = CogerGrupoSeleccionado();
                 cargarGruposListas(_grup.id);
+                lblDates.Text = "Skills de:";
+                lblDataSelect.Text = _grup.nom;
+                //bindingSourceGrupsHasSkills = null;
+                //bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.Select(_grup.id);
             }
         }
 

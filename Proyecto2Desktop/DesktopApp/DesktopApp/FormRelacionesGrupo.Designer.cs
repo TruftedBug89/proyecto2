@@ -47,9 +47,10 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pnlGroupsHasSkills = new System.Windows.Forms.Panel();
+            this.lblDataSelect = new System.Windows.Forms.Label();
             this.lbGroupsHasSkills = new System.Windows.Forms.ListBox();
             this.bindingSourceGrupsHasSkills = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDates = new System.Windows.Forms.Label();
             this.pnlGrupsStudTeach = new System.Windows.Forms.Panel();
             this.lbStudents = new System.Windows.Forms.ListBox();
             this.bindingSourceGrupsHasStudents = new System.Windows.Forms.BindingSource(this.components);
@@ -63,7 +64,6 @@
             this.bgCoursesGroups = new System.Windows.Forms.GroupBox();
             this.cbxGroupsCourses = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbGroups = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -260,12 +260,23 @@
             // pnlGroupsHasSkills
             // 
             this.pnlGroupsHasSkills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGroupsHasSkills.Controls.Add(this.lblDataSelect);
             this.pnlGroupsHasSkills.Controls.Add(this.lbGroupsHasSkills);
-            this.pnlGroupsHasSkills.Controls.Add(this.label4);
-            this.pnlGroupsHasSkills.Location = new System.Drawing.Point(1175, 142);
+            this.pnlGroupsHasSkills.Controls.Add(this.lblDates);
+            this.pnlGroupsHasSkills.Location = new System.Drawing.Point(1129, 131);
             this.pnlGroupsHasSkills.Name = "pnlGroupsHasSkills";
             this.pnlGroupsHasSkills.Size = new System.Drawing.Size(259, 517);
             this.pnlGroupsHasSkills.TabIndex = 35;
+            // 
+            // lblDataSelect
+            // 
+            this.lblDataSelect.AutoSize = true;
+            this.lblDataSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataSelect.Location = new System.Drawing.Point(156, 21);
+            this.lblDataSelect.Name = "lblDataSelect";
+            this.lblDataSelect.Size = new System.Drawing.Size(52, 24);
+            this.lblDataSelect.TabIndex = 45;
+            this.lblDataSelect.Text = "Dato";
             // 
             // lbGroupsHasSkills
             // 
@@ -286,15 +297,15 @@
             // 
             this.bindingSourceGrupsHasSkills.DataSource = typeof(DesktopApp.Models.grups_has_llistes_skills);
             // 
-            // label4
+            // lblDates
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 24);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Skills de Grupo";
+            this.lblDates.AutoSize = true;
+            this.lblDates.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDates.Location = new System.Drawing.Point(40, 21);
+            this.lblDates.Name = "lblDates";
+            this.lblDates.Size = new System.Drawing.Size(94, 24);
+            this.lblDates.TabIndex = 19;
+            this.lblDates.Text = "Skills de:";
             // 
             // pnlGrupsStudTeach
             // 
@@ -303,7 +314,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1186, 128);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1156, 128);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(259, 517);
             this.pnlGrupsStudTeach.TabIndex = 44;
@@ -436,21 +447,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asignar Cursos a Listas Seleccionadas";
             // 
-            // lbGroups
-            // 
-            this.lbGroups.DataSource = this.bindingSourceGroups;
-            this.lbGroups.DisplayMember = "nom";
-            this.lbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGroups.FormattingEnabled = true;
-            this.lbGroups.ItemHeight = 22;
-            this.lbGroups.Location = new System.Drawing.Point(50, 154);
-            this.lbGroups.Name = "lbGroups";
-            this.lbGroups.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbGroups.Size = new System.Drawing.Size(187, 510);
-            this.lbGroups.TabIndex = 29;
-            this.lbGroups.ValueMember = "id";
-            this.lbGroups.SelectedIndexChanged += new System.EventHandler(this.lbGroups_SelectedIndexChanged);
-            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,17 +454,16 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1457, 742);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pnlGroupsHasSkills);
+            this.Controls.Add(this.pnlGrupsStudTeach);
             this.Controls.Add(this.bgCoursesGroups);
             this.Controls.Add(this.dgvGroups);
-            this.Controls.Add(this.pnlGrupsStudTeach);
-            this.Controls.Add(this.pnlGroupsHasSkills);
             this.Controls.Add(this.dgvListSkills);
             this.Controls.Add(this.btnManagmentCourses);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.pnlSearchUsers);
-            this.Controls.Add(this.lbGroups);
             this.Name = "FormRelacionesGrupo";
             this.Text = "FormRelacionesGrupo";
             this.Load += new System.EventHandler(this.FormRelacionesGrupo_Load);
@@ -512,7 +507,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.Panel pnlGroupsHasSkills;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDates;
         private System.Windows.Forms.ListBox lbGroupsHasSkills;
         private System.Windows.Forms.Panel pnlGrupsStudTeach;
         private System.Windows.Forms.Label label5;
@@ -528,6 +523,6 @@
         private System.Windows.Forms.GroupBox bgCoursesGroups;
         private System.Windows.Forms.ComboBox cbxGroupsCourses;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox lbGroups;
+        private System.Windows.Forms.Label lblDataSelect;
     }
 }

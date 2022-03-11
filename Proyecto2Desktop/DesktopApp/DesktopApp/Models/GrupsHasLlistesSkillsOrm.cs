@@ -16,6 +16,17 @@ namespace DesktopApp.Models
             return _grupsLlistes;
         }
 
+        public static List<grups_has_llistes_skills> SelectGrupsOfLists(int id)
+        {
+            List<grups_has_llistes_skills> _grupsLlistes = Orm.bd.grups_has_llistes_skills
+                                            .Where(c => c.llistes_skills_id == id)
+                                            .ToList();
+            return _grupsLlistes;
+        }
+
+
+
+
 
         //public static List<llistes_skills> Select()
         //{
