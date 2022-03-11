@@ -15,7 +15,15 @@ namespace DesktopApp.Models
 
             return _grups;
         }
-        
+
+        public static grups SelectGrup(int idGrup)
+        {
+            grups _grup = Orm.bd.grups
+                            .Where(c => c.id == idGrup)
+                            .FirstOrDefault();
+            return _grup;
+        }
+
         public static String Insert(grups _grups)
         {
             Orm.bd.grups.Add(_grups);

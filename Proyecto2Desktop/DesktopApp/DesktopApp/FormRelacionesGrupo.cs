@@ -44,70 +44,50 @@ namespace DesktopApp
             cargarCursos();
         }
 
+
+        private void dgvGroups_SelectionChanged(object sender, EventArgs e)
+        {
+            //Si hay una sola row seleccionada y el combobox de la relacion de un grupo tiene muchas listas esta activada mostrar en 
+            //la listbox las Listas del grupo seleccionado
+            if (dgvGroups.SelectedRows.Count == 1 && rdbOneGroupHasListUsers.Checked)
+            {
+                _grup = CogerGrupoSeleccionado();                
+                lblDates.Text = "Skills de:";
+                lblDataSelect.Text = _grup.nom;
+                cargarListasDeGrupo(_grup.id);
+            }
+        }
+
+
+        private void dgvListSkills_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvListSkills.SelectedRows.Count == 1 && rdbOneListUserHasGroups.Checked)
+            {
+                _llistaSkill = CogerListaSkillSeleccionada();                
+                lblDates.Text = "Grupos de:";
+                lblDataSelect.Text = _llistaSkill.nom;
+                cargarGruposDeLista(_llistaSkill.id);
+
+            }
+
+        }
+
         private void dgvUsers_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvUsers.SelectedRows.Count > 1)
             {
 
-                dgvGroups.MultiSelect = false;
+                
             }
             else
             {
-                dgvGroups.MultiSelect = true;
+                
             }
 
                         
         }
 
 
-        private void dgvListSkills_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvListSkills.SelectedRows.Count > 1)
-            {
-                dgvGroups.MultiSelect = false;
-            }
-            else
-            {
-                dgvGroups.MultiSelect = true;
-                _llistaSkill = CogerListaSkillSeleccionada();
-                cargarGruposDeLista(_llistaSkill.id);
-
-                lblDates.Text = "Grupos de:";
-                lblDataSelect.Text = _llistaSkill.nom;
-                //bindingSourceGrupsHasSkills = null;
-                //bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(_llistaSkill.id);
-            }
-
-        }
-
-
-        private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //if (lbGroups.SelectedItems.Count > 1)
-            //{
-            //    dgvListSkills.MultiSelect = false;
-            //    dgvUsers.MultiSelect = false;
-            //}
-            //else
-            //{
-            //    dgvListSkills.MultiSelect = true;
-            //    dgvUsers.MultiSelect = true;
-
-
-            //    if (lbGroups.SelectedItem != null)
-            //    {
-            //        _grup = CogerGrupoSeleccionado();
-            //        cargarGruposListas(_grup.id);
-            //    }
-            //    else
-            //    {
-            //        bindingSourceGrupsHasSkills.DataSource = null;
-            //    }
-
-            //}
-
-        }
 
         private void FormRelacionesGrupo_Load(object sender, EventArgs e)
         {
@@ -142,9 +122,12 @@ namespace DesktopApp
         private void cargarCursos()
         {
             _cursos = CursosOrm.SelectActius();
+
             bindingSourceCourses.DataSource = null;
-            bindingSourceCourses.DataSource = CursosOrm.SelectActius();
-            dgvGroups.ClearSelection();
+            bindingSourceCourses.DataSource = _cursos;
+
+            bindingSourceCoursesListSkillsUsers.DataSource = null;
+            bindingSourceCoursesListSkillsUsers.DataSource = _cursos;
 
         }
 
@@ -194,26 +177,29 @@ namespace DesktopApp
             dgvListSkills.ClearSelection();
         }
 
-        private void cargarGruposListas(int id) 
+        private void cargarListasDeGrupo(int id) 
         {
-            
-            //List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
+            lbGroupsHasSkills.Items.Clear();
+            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
 
-            //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
-            //{
-            //    lbGroupsHasSkills.Items.Add(item.llistes_skills.nom);
-            //}
-
-            bindingSourceGrupsHasSkills.DataSource = null;
-            bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.Select(id);
-            
+            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            {
+                llistes_skills _llistes = Llistes_SkillsOrm.SelectListaSkill(item.llistes_skills_id);
+                lbGroupsHasSkills.Items.Add(_llistes.nom);
+            }
 
         }
 
         private void cargarGruposDeLista(int id) 
         {
-            bindingSourceGrupsHasSkills.DataSource = null;
-            bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
+            lbGroupsHasSkills.Items.Clear();
+            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);        
+
+            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            {
+                grups _grup = GrupsOrm.SelectGrup(item.grups_id);
+                lbGroupsHasSkills.Items.Add(_grup.nom);
+            }
         }
 
         
@@ -390,23 +376,19 @@ namespace DesktopApp
         private void cbxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             cursos curs = (cursos)cbxCourses.SelectedItem;
-            //int indexCurs = cbxCourses.SelectedIndex;
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
                 foreach (DataGridViewRow item in dgvListSkills.SelectedRows)
-                {
-                    DataGridViewComboBoxCell comboBoxCell = item.Cells[1] as DataGridViewComboBoxCell;                                      
-                    comboBoxCell.Value = curs.nom;
+                {                  
+                    item.Cells[1].Value = curs.nom;
                 }
             }
             else
             {
                 foreach (DataGridViewRow item in dgvUsers.SelectedRows)
-                {
-                    DataGridViewComboBoxCell comboBoxCell = item.Cells[2] as DataGridViewComboBoxCell;
-                    comboBoxCell.Value = curs.nom;
-
+                {                   
+                    item.Cells[2].Value = curs.nom;
                 }
             }
 
@@ -464,43 +446,32 @@ namespace DesktopApp
             return llistes_Skills;
         }
 
-        private void dgvGroups_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvGroups.SelectedRows.Count > 1)
-            {
 
-                dgvListSkills.MultiSelect = false;
-                dgvUsers.MultiSelect = false;
-            }
-            else
-            {
-                dgvListSkills.MultiSelect = true;
-                dgvUsers.MultiSelect = true;
-                _grup = CogerGrupoSeleccionado();
-                cargarGruposListas(_grup.id);
-                lblDates.Text = "Skills de:";
-                lblDataSelect.Text = _grup.nom;
-                //bindingSourceGrupsHasSkills = null;
-                //bindingSourceGrupsHasSkills.DataSource = GrupsHasLlistesSkillsOrm.Select(_grup.id);
-            }
-        }
 
         private void cbxGroupsCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             cursos curs = (cursos)cbxGroupsCourses.SelectedItem;
-            //int indexCurs = cbxCourses.SelectedIndex;
 
             foreach (DataGridViewRow item in dgvGroups.SelectedRows)
             {
-                DataGridViewComboBoxCell comboBoxCell = item.Cells[1] as DataGridViewComboBoxCell;
-                comboBoxCell.Value = curs.nom;
+                item.Cells[1].Value = curs.nom;
+              
             }
 
         }
 
+        private void rdbOneGroupHasListUsers_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvGroups.MultiSelect = false;
+            dgvListSkills.MultiSelect = true;
+            dgvUsers.MultiSelect = true;
+        }
 
-
-
-
+        private void rdbOneListUserHasGroups_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvGroups.MultiSelect = true;
+            dgvListSkills.MultiSelect = false;
+            dgvUsers.MultiSelect = false;
+        }
     }
 }

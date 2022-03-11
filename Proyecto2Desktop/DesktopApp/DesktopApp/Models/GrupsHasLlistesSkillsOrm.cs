@@ -24,6 +24,7 @@ namespace DesktopApp.Models
             return _grupsLlistes;
         }
 
+       
 
 
 
