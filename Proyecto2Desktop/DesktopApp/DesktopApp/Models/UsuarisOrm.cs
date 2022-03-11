@@ -52,7 +52,7 @@ namespace DesktopApp.Models
             return missatge;
 
         }
-    }
+    
 
 
         public static Boolean SelectLogin(string correu, string contrasenya)

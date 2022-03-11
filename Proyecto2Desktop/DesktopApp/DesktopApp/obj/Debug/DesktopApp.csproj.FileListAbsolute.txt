@@ -76,3 +76,4 @@ C:\Users\Hariiko\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopA
 C:\Users\Hariiko\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 C:\Users\Hariiko\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 C:\Users\Hariiko\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
+C:\Users\lavvo\Documents\GitHub\proyecto2\Proyecto2Desktop\DesktopApp\DesktopApp\obj\Debug\DesktopApp.FormCursos.resources
