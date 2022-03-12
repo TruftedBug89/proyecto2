@@ -35,7 +35,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxBcolors = new System.Windows.Forms.ComboBox();
+            this.cbxGroups = new System.Windows.Forms.ComboBox();
             this.btnManagmentGroups = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
@@ -117,14 +117,14 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Grupos:";
             // 
-            // cbxBcolors
+            // cbxGroups
             // 
-            this.cbxBcolors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxBcolors.FormattingEnabled = true;
-            this.cbxBcolors.Location = new System.Drawing.Point(1240, 310);
-            this.cbxBcolors.Name = "cbxBcolors";
-            this.cbxBcolors.Size = new System.Drawing.Size(179, 30);
-            this.cbxBcolors.TabIndex = 17;
+            this.cbxGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxGroups.FormattingEnabled = true;
+            this.cbxGroups.Location = new System.Drawing.Point(1240, 310);
+            this.cbxGroups.Name = "cbxGroups";
+            this.cbxGroups.Size = new System.Drawing.Size(179, 30);
+            this.cbxGroups.TabIndex = 17;
             // 
             // btnManagmentGroups
             // 
@@ -233,7 +233,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cboActivate);
             this.Controls.Add(this.btnManagmentGroups);
-            this.Controls.Add(this.cbxBcolors);
+            this.Controls.Add(this.cbxGroups);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
@@ -258,7 +258,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxBcolors;
+        private System.Windows.Forms.ComboBox cbxGroups;
         private System.Windows.Forms.Button btnManagmentGroups;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;

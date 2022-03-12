@@ -54,10 +54,10 @@ namespace DesktopApp
                     ConstruirEncabezadosTabla();
                     
                     foreach (skills skill in _llistesSkills.skills)
-                    {
+                    {                       
                         char[] letras = skill.nom.ToCharArray();
                         dgvListaSkills.Rows.Add(letras[0], skill.nom);
-
+                        
                     }
                 }
                 else
@@ -109,75 +109,126 @@ namespace DesktopApp
                 else
                 {
                     MessageBox.Show("Datos actualizados");
-                    if (dgvListaSkills.Columns.Count != 0)
-                    {
-                        MessageBox.Show("Test");
-                    }
+                    //if (dgvListaSkills.Columns.Count != 0)
+                    //{
+                    //    MessageBox.Show("Test");
+                    //}
+                    ActualizarPanelListaSkills();
                 }
                                
             }
-            else {
-
-                llistes_skills _llistes_Skills = new llistes_skills();
-                _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
-                _llistes_Skills.skills = null;
-                _llistes_Skills.actiu = false;
-
-                if (cboActivate.Checked) 
+            else
+            {
+                if (!txtNameListSkill.Text.Equals(""))
                 {
-                    _llistes_Skills.actiu = true;
-                } 
+                    llistes_skills _llistes_Skills = new llistes_skills();
+                    _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
+                    _llistes_Skills.skills = null;
+                    _llistes_Skills.actiu = cboActivate.Checked;
 
-                missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
+                    missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
 
-                if (missatge != "")
-                {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-
-                    if (dgvListaSkills.Columns.Count > 1)
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
                     {
 
-                        foreach (DataGridViewRow row in dgvListaSkills.Rows)
+                        if (dgvListaSkills.Columns.Count >= 1)
                         {
 
-                            skills _skill = new skills();
-                            char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
-                            var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
-                            String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
-
-                            _skill.nom = nombreSkill;
-
-                            _skill.llistes_skills_id = _llistes_Skills.id;
-                            _skill.actiu = true;
-                            _skill.colorFondo = Color.Black.ToArgb();
-                            _skill.colorTexto = Color.White.ToArgb();
-
-                            missatge = SkillsOrm.Insert(_skill);
-
-                            if (missatge != "")
+                            foreach (DataGridViewRow row in dgvListaSkills.Rows)
                             {
-                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                skills _skill = new skills();
+                                char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
+                                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+
+                                if (!row.Cells["Skill"].Value.Equals(""))
+                                {
+                                    String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
+                                    _skill.nom = nombreSkill;
+                                }
+                                else
+                                {
+                                    _skill.nom = row.Cells[0].Value.ToString().ToUpper();
+                                }
+
+                                _skill.llistes_skills_id = _llistes_Skills.id;
+                                _skill.actiu = true;
+                                _skill.colorFondo = Color.Black.ToArgb();
+                                _skill.colorTexto = Color.White.ToArgb();
+
+                                missatge = SkillsOrm.Insert(_skill);
+
+                                if (missatge != "")
+                                {
+                                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
 
                             }
 
                         }
+                        else
+                        {
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Test");
-                    }
+                            char[] letras = txtNameListSkill.Text.ToCharArray();
 
+                            for (int i = 0; i < letras.Length; i++)
+                            {
+                                skills _skill = new skills();
+                                _skill.llistes_skills_id = _llistes_Skills.id;
+                                _skill.nom = letras[i].ToString().ToUpper();
+                                _skill.actiu = false;
+                                _skill.colorFondo = Color.Black.ToArgb();
+                                _skill.colorTexto = Color.White.ToArgb();
+
+                                missatge = SkillsOrm.Insert(_skill);
+
+                                if (missatge != "")
+                                {
+                                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
+
+                            }
+
+
+                        }
+
+                        MessageBox.Show("Lista de skills añadida");
+                        ActualizarPanelListaSkills();
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Listas vacias");
+                }
+
+
+               
 
             }
 
 
-            this.Close();
+        }
 
+        private void ActualizarPanelListaSkills()
+        {
+            //Elimino todos los Controles menos el primero
+            while (flpListSkills.Controls.Count > 1)
+            {
+                flpListSkills.Controls.RemoveAt(1);
+            }
+
+            List<llistes_skills> _llistesSkills = Llistes_SkillsOrm.Select();
+
+            foreach (llistes_skills LS in _llistesSkills)
+            {
+                CrearBotonListaSkill(LS);
+            }
         }
 
 
@@ -217,10 +268,29 @@ namespace DesktopApp
         {
             dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
-            dgvListaSkills.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             dgvListaSkills.Columns.Add("Letra", "Letra");
             dgvListaSkills.Columns.Add("Skill", "Skill");
-            dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+
+            DataGridViewButtonColumn btnBackgroundSkill = new DataGridViewButtonColumn();
+            btnBackgroundSkill.UseColumnTextForButtonValue = true;
+            btnBackgroundSkill.Name = "btnBackColor";
+            btnBackgroundSkill.HeaderText = "Color de fondo de la skill";
+            btnBackgroundSkill.Text = "Background Color";
+
+            dgvListaSkills.Columns.Add(btnBackgroundSkill);
+
+            DataGridViewButtonColumn btnTextColorSkill = new DataGridViewButtonColumn();
+            btnTextColorSkill.UseColumnTextForButtonValue = true;
+            btnTextColorSkill.Name = "btnTextColumn";
+            btnTextColorSkill.HeaderText = "Color de texto de la skill";
+            btnTextColorSkill.Text = "Text Color";
+
+            dgvListaSkills.Columns.Add(btnTextColorSkill);
+
+
+
+
+            //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
         }
 
       

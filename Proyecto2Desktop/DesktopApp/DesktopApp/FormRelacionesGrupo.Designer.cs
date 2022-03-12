@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,8 +46,6 @@
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.bindingSourceUsers = new System.Windows.Forms.BindingSource(this.components);
             this.dgvListSkills = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pnlGroupsHasSkills = new System.Windows.Forms.Panel();
             this.lblDataSelect = new System.Windows.Forms.Label();
             this.lbGroupsHasSkills = new System.Windows.Forms.ListBox();
@@ -62,6 +61,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbgroups = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnManagmentGroups = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -209,11 +211,11 @@
             this.btnManagmentCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManagmentCourses.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnManagmentCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentCourses.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentCourses.Location = new System.Drawing.Point(1207, 57);
+            this.btnManagmentCourses.Location = new System.Drawing.Point(1123, 59);
             this.btnManagmentCourses.Name = "btnManagmentCourses";
-            this.btnManagmentCourses.Size = new System.Drawing.Size(184, 49);
+            this.btnManagmentCourses.Size = new System.Drawing.Size(184, 45);
             this.btnManagmentCourses.TabIndex = 40;
             this.btnManagmentCourses.Text = "Gestion Cursos";
             this.btnManagmentCourses.UseVisualStyleBackColor = false;
@@ -241,24 +243,6 @@
             this.dgvListSkills.Size = new System.Drawing.Size(639, 491);
             this.dgvListSkills.TabIndex = 42;
             this.dgvListSkills.SelectionChanged += new System.EventHandler(this.dgvListSkills_SelectionChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.DataSource = this.bindingSourceCoursesListSkillsUsers;
-            this.dataGridViewComboBoxColumn1.DisplayMember = "nom";
-            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.dataGridViewComboBoxColumn1.HeaderText = "Curso";
-            this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // pnlGroupsHasSkills
             // 
@@ -400,11 +384,46 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(97, 93);
+            this.label2.Location = new System.Drawing.Point(123, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 24);
             this.label2.TabIndex = 48;
             this.label2.Text = "Grupos";
+            // 
+            // btnManagmentGroups
+            // 
+            this.btnManagmentGroups.BackColor = System.Drawing.Color.Black;
+            this.btnManagmentGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagmentGroups.ForeColor = System.Drawing.Color.White;
+            this.btnManagmentGroups.Location = new System.Drawing.Point(55, 48);
+            this.btnManagmentGroups.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagmentGroups.Name = "btnManagmentGroups";
+            this.btnManagmentGroups.Size = new System.Drawing.Size(217, 45);
+            this.btnManagmentGroups.TabIndex = 49;
+            this.btnManagmentGroups.Text = "Gestion Grupos";
+            this.btnManagmentGroups.UseVisualStyleBackColor = false;
+            this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataSource = this.bindingSourceCoursesListSkillsUsers;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "nom";
+            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.dataGridViewComboBoxColumn1.HeaderText = "Curso";
+            this.dataGridViewComboBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormRelacionesGrupo
             // 
@@ -412,6 +431,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1457, 719);
+            this.Controls.Add(this.btnManagmentGroups);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbgroups);
             this.Controls.Add(this.pnlGrupsStudTeach);
@@ -477,9 +497,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.ListBox lbgroups;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnManagmentGroups;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
     }
 }

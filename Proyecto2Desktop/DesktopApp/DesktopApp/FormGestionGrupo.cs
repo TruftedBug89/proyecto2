@@ -21,10 +21,12 @@ namespace DesktopApp
         private List<usuaris> _ListUsuaris;
         private cursos _curs;
         private List<cursos> _cursos;
+        public String gruposStatus;
 
-        public FormGestionGrupo()
+        public FormGestionGrupo(String status)
         {
             InitializeComponent();
+            this.gruposStatus = status;
         }
 
         private void pb_close_Click(object sender, EventArgs e)

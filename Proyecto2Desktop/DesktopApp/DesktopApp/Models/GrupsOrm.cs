@@ -15,6 +15,15 @@ namespace DesktopApp.Models
 
             return _grups;
         }
+        public static List<grups> SelectActivos()
+        {
+            List<grups> _grups = Orm.bd.grups
+                        .Where(c => c.actiu == true)
+                        .ToList();
+
+            return _grups;
+        }
+
 
         public static grups SelectGrup(int idGrup)
         {

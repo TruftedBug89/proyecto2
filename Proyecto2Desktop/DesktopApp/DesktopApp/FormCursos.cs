@@ -15,7 +15,7 @@ namespace DesktopApp
     {
         private cursos _curs;
         private List<cursos> _cursos;
-        private String gruposStatus;
+        public String gruposStatus;
         public FormCursos(String status)
         {
             InitializeComponent();

@@ -151,9 +151,6 @@ namespace DesktopApp
             bindingSourceCourses.DataSource = null;
             bindingSourceCourses.DataSource = _cursos;
 
-            bindingSourceCoursesListSkillsUsers.DataSource = null;
-            bindingSourceCoursesListSkillsUsers.DataSource = _cursos;
-
         }
 
         private void cargarUsuarios()
@@ -183,9 +180,8 @@ namespace DesktopApp
 
         private void cargarGrupos()
         {
-            //lbGroups.Items.Clear();
-
-            _grups = GrupsOrm.Select();
+            
+            _grups = GrupsOrm.SelectActivos();
 
             //foreach (grups grup in _grups)
             //{
@@ -412,7 +408,7 @@ namespace DesktopApp
             }
             else
             {
-                MessageBox.Show("No hay ningun grupo seleccionado");
+                MessageBox.Show("No se puede hacer la relacion");
             }
 
 
@@ -515,7 +511,11 @@ namespace DesktopApp
              
         }
 
-
-        
+        private void btnManagmentGroups_Click(object sender, EventArgs e)
+        {
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo(gruposStatus);
+            formGestionGrupo.ShowDialog();
+            cargarGrupos();
+        }
     }
 }

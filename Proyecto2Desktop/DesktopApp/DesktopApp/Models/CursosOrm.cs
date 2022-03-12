@@ -10,7 +10,9 @@ namespace DesktopApp.Models
     {
         public static List<cursos> Select() 
         {
-            List<cursos> _cursos = Orm.bd.cursos.ToList();
+            List<cursos> _cursos = Orm.bd.cursos
+                            .OrderBy(c => c.nom)
+                            .ToList();
 
             return _cursos;
         
@@ -20,6 +22,7 @@ namespace DesktopApp.Models
         {
             List<cursos> _cursos = Orm.bd.cursos
                             .Where(c => c.actiu == true)
+                            .OrderBy(c => c.nom)
                             .ToList();
             return _cursos;
         }
