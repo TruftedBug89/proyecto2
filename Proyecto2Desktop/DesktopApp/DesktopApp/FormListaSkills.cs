@@ -271,21 +271,21 @@ namespace DesktopApp
             dgvListaSkills.Columns.Add("Letra", "Letra");
             dgvListaSkills.Columns.Add("Skill", "Skill");
 
-            DataGridViewButtonColumn btnBackgroundSkill = new DataGridViewButtonColumn();
-            btnBackgroundSkill.UseColumnTextForButtonValue = true;
-            btnBackgroundSkill.Name = "btnBackColor";
-            btnBackgroundSkill.HeaderText = "Color de fondo de la skill";
-            btnBackgroundSkill.Text = "Background Color";
+            String[] colores = Enum.GetNames(typeof(System.Drawing.KnownColor)); 
 
-            dgvListaSkills.Columns.Add(btnBackgroundSkill);
+            DataGridViewComboBoxColumn cbxCellBackgroundColorSkill = new DataGridViewComboBoxColumn();
+            cbxCellBackgroundColorSkill.Name = "btnBackColor";
+            cbxCellBackgroundColorSkill.HeaderText = "Color de fondo de la skill";
+            cbxCellBackgroundColorSkill.DataSource = colores;
 
-            DataGridViewButtonColumn btnTextColorSkill = new DataGridViewButtonColumn();
-            btnTextColorSkill.UseColumnTextForButtonValue = true;
-            btnTextColorSkill.Name = "btnTextColumn";
-            btnTextColorSkill.HeaderText = "Color de texto de la skill";
-            btnTextColorSkill.Text = "Text Color";
+            dgvListaSkills.Columns.Add(cbxCellBackgroundColorSkill);
 
-            dgvListaSkills.Columns.Add(btnTextColorSkill);
+            DataGridViewComboBoxColumn cbxCellColorSkill = new DataGridViewComboBoxColumn();          
+            cbxCellColorSkill.Name = "btnTextColumn";
+            cbxCellColorSkill.HeaderText = "Color de texto de la skill";
+            cbxCellColorSkill.DataSource = colores;
+
+            dgvListaSkills.Columns.Add(cbxCellColorSkill);
 
 
 
