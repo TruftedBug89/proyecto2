@@ -14,5 +14,15 @@ namespace DesktopApp.Models
 
             return _usuaris;
         }
+
+        public static usuaris SelectUsuari(int idUser)
+        {
+            usuaris _usuari = Orm.bd.usuaris
+                            .Where(c => c.id == idUser)
+                            .FirstOrDefault();
+            return _usuari;
+        }
+
+
     }
 }

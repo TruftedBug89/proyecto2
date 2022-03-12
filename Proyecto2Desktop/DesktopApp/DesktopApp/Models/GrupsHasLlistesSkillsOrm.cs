@@ -24,27 +24,6 @@ namespace DesktopApp.Models
             return _grupsLlistes;
         }
 
-       
-
-
-
-
-        //public static List<llistes_skills> Select()
-        //{
-        //    List<llistes_skills> _llistes_Skills = 
-        //        Orm.bd.grups_has_llistes_skills
-        //        .Join(Orm.bd.llistes_skills,
-        //            grupsLListes => grupsLListes.llistes_skills_id,
-        //            llistesSkills => llistesSkills.id,
-        //            (grupsLListes, llistesSkills) => new {
-        //                idGrupo = grupsLListes.grups_id,
-        //                idLlista = llistesSkills.id,
-        //                idCurs = grupsLListes.curs_id }
-        //        ).ToList();
-
-        //    return _llistes_Skills;
-        //}
-
 
         public static String Insert(grups_has_llistes_skills _grups_llistes_skills)
         {

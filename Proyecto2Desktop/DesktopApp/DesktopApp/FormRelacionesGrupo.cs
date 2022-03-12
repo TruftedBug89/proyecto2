@@ -18,7 +18,7 @@ namespace DesktopApp
        
         private grups _grup;
         private List<grups> _grups;
-        private usuaris _usuaris;
+        private usuaris _usuari;
         private List<usuaris> _ListUsuaris;
         private String gruposStatus;
         private cursos _curs;
@@ -39,29 +39,54 @@ namespace DesktopApp
 
         private void btnManagmentCourses_Click(object sender, EventArgs e)
         {
-            FormCursos formCursos = new FormCursos();
+            FormCursos formCursos = new FormCursos(gruposStatus);
             formCursos.ShowDialog();
             cargarCursos();
         }
 
+        private void lbgroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbgroups.SelectedItem != null)
+            {
+                _grup = (grups)lbgroups.SelectedItem;
+
+                if (gruposStatus.Equals("GuposListasSkills"))
+                {
+                    lblDates.Text = "Skills de:";
+                    lblDataSelect.Text = _grup.nom;
+                    cargarListasDeGrupo(_grup.id);
+                }
+                else
+                {
+                    cargarUsuariosDocentesDeGrupo(_grup.id);
+                    cargarUsuariosAlumnosDeGrupo(_grup.id);
+
+                }
+
+
+                
+                
+            }
+            
+        }
 
         private void dgvGroups_SelectionChanged(object sender, EventArgs e)
         {
-            //Si hay una sola row seleccionada y el combobox de la relacion de un grupo tiene muchas listas esta activada mostrar en 
-            //la listbox las Listas del grupo seleccionado
-            if (dgvGroups.SelectedRows.Count == 1 && rdbOneGroupHasListUsers.Checked)
-            {
-                _grup = CogerGrupoSeleccionado();                
-                lblDates.Text = "Skills de:";
-                lblDataSelect.Text = _grup.nom;
-                cargarListasDeGrupo(_grup.id);
-            }
+            //Si hay una sola row seleccionada  mostrar en la listbox las Listas del grupo seleccionado
+
+            //if (dgvGroups.SelectedRows.Count == 1)
+            //{
+            //    _grup = CogerGrupoSeleccionado();                
+            //    lblDates.Text = "Skills de:";
+            //    lblDataSelect.Text = _grup.nom;
+            //    cargarListasDeGrupo(_grup.id);
+            //}
         }
 
 
         private void dgvListSkills_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvListSkills.SelectedRows.Count == 1 && rdbOneListUserHasGroups.Checked)
+            if (dgvListSkills.SelectedRows.Count == 1)
             {
                 _llistaSkill = CogerListaSkillSeleccionada();                
                 lblDates.Text = "Grupos de:";
@@ -74,14 +99,14 @@ namespace DesktopApp
 
         private void dgvUsers_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvUsers.SelectedRows.Count > 1)
+            if (dgvUsers.SelectedRows.Count == 1)
             {
+                _usuari = CogerUsuarioSeleccionado();
+                lblDates.Text = "Grupos de:";
+                lblDataSelect.Text = _usuari.nom;
 
-                
-            }
-            else
-            {
-                
+
+
             }
 
                         
@@ -145,6 +170,13 @@ namespace DesktopApp
             }
             dgvUsers.ClearSelection();
 
+            cursos curs = (cursos)cbxCourses.SelectedItem;
+
+            foreach (DataGridViewRow item in dgvUsers.Rows)
+            {
+                item.Cells[2].Value = curs.nom;
+            }
+
 
         }
 
@@ -155,14 +187,14 @@ namespace DesktopApp
 
             _grups = GrupsOrm.Select();
 
-            foreach (grups grup in _grups)
-            {
-                dgvGroups.Rows.Add(grup.nom);
-            }
+            //foreach (grups grup in _grups)
+            //{
+            //    dgvGroups.Rows.Add(grup.nom);
+            //}
 
-            ////bindingSourceGroups.DataSource = null;
-            //bindingSourceGroups.DataSource = GrupsOrm.Select();
-            //lbGroups.ClearSelected();
+            bindingSourceGroups.DataSource = null;
+            bindingSourceGroups.DataSource = _grups;
+            lbgroups.ClearSelected();
         }
 
 
@@ -175,6 +207,15 @@ namespace DesktopApp
                 dgvListSkills.Rows.Add(ls.nom);
             }
             dgvListSkills.ClearSelection();
+
+            cursos curs = (cursos)cbxCourses.SelectedItem;
+
+            foreach (DataGridViewRow item in dgvListSkills.Rows)
+            {
+                item.Cells[1].Value = curs.nom;
+            }
+
+
         }
 
         private void cargarListasDeGrupo(int id) 
@@ -202,7 +243,32 @@ namespace DesktopApp
             }
         }
 
-        
+
+        private void cargarUsuariosDocentesDeGrupo(int id) 
+        {
+            lbTeachers.Items.Clear();
+            List<grups_has_docents> _GrupsDocents = GrupsHasDocentsOrm.Select(id);
+
+            foreach (grups_has_docents item in _GrupsDocents)
+            {
+                usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
+                lbTeachers.Items.Add(_user.nom);
+            }
+
+        }
+
+        private void cargarUsuariosAlumnosDeGrupo(int id)
+        {
+            lbStudents.Items.Clear();
+            List<grups_has_alumnes> _GrupsStudents = GrupsHasAlumnesOrm.Select(id);
+
+            foreach (grups_has_alumnes item in _GrupsStudents)
+            {              
+                usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
+                lbStudents.Items.Add(_user.nom);                
+            }
+
+        }
 
 
 
@@ -210,50 +276,30 @@ namespace DesktopApp
         {
             string missatge = "";
 
-            List<grups_has_llistes_skills> Lista_grups_LListes = new List<grups_has_llistes_skills>();
-
-            if (gruposStatus.Equals("GuposListasSkills"))
+            if (lbgroups.SelectedItems.Count == 1 && dgvListSkills.SelectedRows.Count >= 1 || dgvUsers.SelectedRows.Count >= 1)
             {
-                int gruposSelec = dgvGroups.SelectedRows.Count;
-
-                if (gruposSelec <= 1)
+                if (gruposStatus.Equals("GuposListasSkills"))
                 {
-                    //Solo un grupo seleccionado     
-                    
+                    List<grups_has_llistes_skills> Lista_grups_LListes = new List<grups_has_llistes_skills>();
+
+                    //Solo un grupo seleccionado, Recorrer la cantidad de rows de listas seleleccionadas
                     foreach (DataGridViewRow rowLListes in dgvListSkills.SelectedRows)
                     {
-                        
+                        //por cada row filtrar por la lista de skills cargadas anteriormente
                         foreach (llistes_skills llista in _llistesSkills)
                         {
-
+                            // filtrar por nombre para encontrar los ids de la lista
                             if (rowLListes.Cells[0].Value.Equals(llista.nom))
                             {
-                                //Crear objeto grups_hasllistesSkills de las rows seleccionadas
+                                //Crear objeto grups_hasllistesSkills de las rows seleccionadas con los ids de la lista y el id del grupo seleccionado
                                 grups_has_llistes_skills Select_grupsLListes = new grups_has_llistes_skills();
                                 Select_grupsLListes.grups_id = _grup.id;
                                 Select_grupsLListes.llistes_skills_id = llista.id;
-                                                                
-                                DataGridViewComboBoxCell comboBoxCell = rowLListes.Cells[1] as DataGridViewComboBoxCell;
-                                                                
-                                //pasar a String el combobox de la datagridview seleccionado
-                                String nomCurs = (string)comboBoxCell.Value;
+                                Select_grupsLListes.curs_id = cogerIdCursoDataGridViewCombo(rowLListes, 1);
 
-                                if (nomCurs != null)
-                                {
-
-                                    int idCurs = 0;
-                                    //Recorrer todos los dadots de los cursos y filtrar para coger el id del seleccionado
-                                    foreach (cursos cursos in _cursos)
-                                    {
-                                        if (nomCurs.Equals(cursos.nom))
-                                        {
-                                            idCurs = cursos.id;
-                                        }
-                                    }
-
-                                    Select_grupsLListes.curs_id = idCurs;
-                                    Lista_grups_LListes.Add(Select_grupsLListes);
-                                }
+                                //Finalmente añadir el objeto a una lista de grups_has_llistes_skills
+                                Lista_grups_LListes.Add(Select_grupsLListes);
+                                
 
                             }
                         }
@@ -265,7 +311,6 @@ namespace DesktopApp
                         //Una vez guardados los datos seleccionados añadirlos a la tabla de Grups_has_llistes_skillls
                         foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
                         {
-                           
                             missatge = GrupsHasLlistesSkillsOrm.Insert(gLlistes);
 
                             if (missatge != "")
@@ -273,101 +318,101 @@ namespace DesktopApp
                                 MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }
-
                         }
 
                         MessageBox.Show("Listas añadidas al grupo");
                     }
 
-                   
-
-
+                    
                 }
                 else
                 {
-                    //Mas de un grupo seleccionado
+                    List<grups_has_docents> Lista_grups_Docents = new List<grups_has_docents>();
+                    List<grups_has_alumnes> Lista_grups_Alumnes = new List<grups_has_alumnes>();
 
-                    foreach (DataGridViewRow rowGrups in dgvGroups.SelectedRows)
+                    foreach (DataGridViewRow rowUsuaris in dgvUsers.SelectedRows)
                     {
-                        foreach (grups grup in _grups)
+                        DataGridViewCheckBoxCell chkchecking = rowUsuaris.Cells[1] as DataGridViewCheckBoxCell;
+                        string UserText = rowUsuaris.Cells[0].Value.ToString();
+
+                        bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
+                        if (EsProfesor)
                         {
+                            //añadir en grups_has_docents                            
 
-                            if (rowGrups.Cells[0].Value.Equals(grup.nom))
+                            foreach (usuaris usuari in _ListUsuaris)
                             {
-                                //Crear objeto grups_hasllistesSkills de las rows seleccionadas
-                                grups_has_llistes_skills Select_grupsLListes = new grups_has_llistes_skills();
-                                Select_grupsLListes.grups_id = grup.id;
-                                Select_grupsLListes.llistes_skills_id = _llistaSkill.id;
-
-                                DataGridViewComboBoxCell comboBoxCell = rowGrups.Cells[1] as DataGridViewComboBoxCell;
-
-                                //pasar a String el combobox de la datagridview seleccionado
-                                String nomCurs = (string)comboBoxCell.Value;
-
-                                if (nomCurs != null)
+                                if (UserText.Equals(usuari.nom))
                                 {
-                                    int idCurs = 0;
-                                    //Recorrer todos los datos de los cursos y filtrar para coger el id del seleccionado
-                                    foreach (cursos cursos in _cursos)
-                                    {
-                                        if (nomCurs.Equals(cursos.nom))
-                                        {
-                                            idCurs = cursos.id;
-                                        }
-                                    }
-
-                                    Select_grupsLListes.curs_id = idCurs;
-                                    Lista_grups_LListes.Add(Select_grupsLListes);
-
+                                    grups_has_docents Select_GrupsDocents = new grups_has_docents();
+                                    Select_GrupsDocents.grups_id = _grup.id;
+                                    Select_GrupsDocents.usuaris_id = usuari.id;
+                                    Select_GrupsDocents.curs_id = cogerIdCursoDataGridViewCombo(rowUsuaris, 2);
+                                    Lista_grups_Docents.Add(Select_GrupsDocents);
 
 
                                 }
                             }
+
                         }
+                        else
+                        {
+                            //añadir en grups_has_alumnes                            
+
+                            foreach (usuaris usuari in _ListUsuaris)
+                            {
+                                if (UserText.Equals(usuari.nom))
+                                {
+                                    grups_has_alumnes Select_GrupsAlumnes = new grups_has_alumnes();
+                                    Select_GrupsAlumnes.grups_id = _grup.id;
+                                    Select_GrupsAlumnes.usuaris_id = usuari.id;
+                                    Select_GrupsAlumnes.curs_id = cogerIdCursoDataGridViewCombo(rowUsuaris, 2);
+                                    Lista_grups_Alumnes.Add(Select_GrupsAlumnes);
+
+
+                                }
+                            }
+
+
+                        }
+
                     }
 
-                    //Si la lista tiene al menos un elemento añadir a la base de datos
-                    if (Lista_grups_LListes.Count >= 1)
+                    if (Lista_grups_Docents.Count >= 1)
                     {
-                        //Una vez guardados los datos seleccionados añadirlos a la tabla de Grups_has_llistes_skillls
-                        foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
+                        foreach (grups_has_docents GrupsDocents in Lista_grups_Docents)
                         {
-
-                            missatge = GrupsHasLlistesSkillsOrm.Insert(gLlistes);
+                            missatge = GrupsHasDocentsOrm.Insert(GrupsDocents);
 
                             if (missatge != "")
                             {
                                 MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                             }
+                        }
+                        MessageBox.Show("Profesores añadidos al grupo");
+                    }
 
+                    if (Lista_grups_Alumnes.Count >= 1)
+                    {
+                        foreach (grups_has_alumnes GrupsAlumnes in Lista_grups_Alumnes)
+                        {
+                            missatge = GrupsHasAlumnesOrm.Insert(GrupsAlumnes);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
 
-                        MessageBox.Show("grupos añadidos a las listas");
+                        MessageBox.Show("Alumnos añadidos al grupo");
                     }
+
 
                 }
             }
             else
             {
-                foreach (DataGridViewRow rowUsuaris in dgvUsers.SelectedRows)
-                {
-                    DataGridViewCheckBoxCell chkchecking = rowUsuaris.Cells[1] as DataGridViewCheckBoxCell;
-                    string UserText = rowUsuaris.Cells[0].Value.ToString();
-
-                    bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
-                    if (EsProfesor)
-                    {
-                        MessageBox.Show("Docent: " + UserText);
-                        //añadir en grups_has_docents
-                    }
-                    else
-                    {
-                        MessageBox.Show("Alumno: " + UserText);
-                        //añadir en grups_has_alumnes
-                    }
-
-                }
+                MessageBox.Show("No hay ningun grupo seleccionado");
             }
 
 
@@ -398,31 +443,6 @@ namespace DesktopApp
         }
 
 
-        private grups CogerGrupoSeleccionado() 
-        {
-            grups grup = new grups();
-
-            foreach (DataGridViewRow item in dgvGroups.SelectedRows)
-            {
-                String nombre = (string)item.Cells[0].Value;
-                grup.nom = nombre;
-
-                foreach (grups itemGrup in _grups)
-                {
-                    if (itemGrup.nom.Equals(nombre))
-                    {
-                        grup.id = itemGrup.id;
-                        grup.actiu = itemGrup.actiu;
-                    }
-                }
-            }
-
-            return grup;
-
-        }
-
-
-
         private llistes_skills CogerListaSkillSeleccionada() 
         {
             llistes_skills llistes_Skills = new llistes_skills();
@@ -446,32 +466,56 @@ namespace DesktopApp
             return llistes_Skills;
         }
 
-
-
-        private void cbxGroupsCourses_SelectedIndexChanged(object sender, EventArgs e)
+        private usuaris CogerUsuarioSeleccionado() 
         {
-            cursos curs = (cursos)cbxGroupsCourses.SelectedItem;
+            usuaris usuari = new usuaris();
 
-            foreach (DataGridViewRow item in dgvGroups.SelectedRows)
+            foreach (DataGridViewRow item in dgvUsers.SelectedRows)
             {
-                item.Cells[1].Value = curs.nom;
-              
+                String nombre = (string)item.Cells[0].Value;
+                usuari.nom = nombre;
+
+                foreach (usuaris lusuaris in _ListUsuaris)
+                {
+                    if (lusuaris.nom.Equals(nombre))
+                    {
+                        usuari.id = lusuaris.id;
+                        usuari.rols_id = lusuaris.rols_id;
+                        usuari.actiu = lusuaris.actiu;
+                        usuari.correo = lusuaris.correo;
+                        usuari.contrasenya = lusuaris.contrasenya;
+
+                    }
+                }
+            }
+            return usuari;
+
+
+        }
+
+
+
+
+        private int cogerIdCursoDataGridViewCombo(DataGridViewRow fila, int celda) 
+        {
+            //pasar a String el combobox de la datagridview seleccionado
+            String nomCurs = (string)fila.Cells[celda].Value;
+
+            int idCurs = 0;
+            //Recorrer todos los datos de los cursos y filtrar para coger el id del seleccionado y añdirlo al ultimo dato del objeto
+            foreach (cursos cursos in _cursos)
+            {
+                if (nomCurs.Equals(cursos.nom))
+                {
+                    idCurs = cursos.id;
+                }
             }
 
+            return idCurs;
+             
         }
 
-        private void rdbOneGroupHasListUsers_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvGroups.MultiSelect = false;
-            dgvListSkills.MultiSelect = true;
-            dgvUsers.MultiSelect = true;
-        }
 
-        private void rdbOneListUserHasGroups_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvGroups.MultiSelect = true;
-            dgvListSkills.MultiSelect = false;
-            dgvUsers.MultiSelect = false;
-        }
+        
     }
 }

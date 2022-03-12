@@ -200,7 +200,7 @@ namespace DesktopApp
 
         private void btnManagmentCourses_Click(object sender, EventArgs e)
         {
-            FormCursos formCursos = new FormCursos();
+            FormCursos formCursos = new FormCursos("");
             formCursos.ShowDialog();
             ActualizarDatos();
         }

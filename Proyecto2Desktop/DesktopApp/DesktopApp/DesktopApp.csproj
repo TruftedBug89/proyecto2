@@ -125,6 +125,8 @@
     <Compile Include="Models\grups.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GrupsHasAlumnesOrm.cs" />
+    <Compile Include="Models\GrupsHasDocentsOrm.cs" />
     <Compile Include="Models\GrupsHasLlistesSkillsOrm.cs" />
     <Compile Include="Models\GrupsOrm.cs" />
     <Compile Include="Models\grups_has_alumnes.cs">
