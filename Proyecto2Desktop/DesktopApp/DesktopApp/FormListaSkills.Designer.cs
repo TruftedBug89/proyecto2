@@ -43,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuildTable = new System.Windows.Forms.Button();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
@@ -79,6 +80,7 @@
             this.dgvListaSkills.RowTemplate.Height = 24;
             this.dgvListaSkills.Size = new System.Drawing.Size(918, 366);
             this.dgvListaSkills.TabIndex = 7;
+            this.dgvListaSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellClick);
             // 
             // btnSave
             // 
@@ -267,5 +269,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBuildTable;
+        private System.Windows.Forms.ColorDialog colorDialog;
     }
 }

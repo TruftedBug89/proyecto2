@@ -13,11 +13,11 @@ using DesktopApp.Models;
 namespace DesktopApp
 {
     public partial class FormListaSkills : Form
-    {       
+    {
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
         private String FormGruposSkills;
-        ComboBox cb;
+        ComboBox cbxColumn;
         public FormListaSkills()
         {
             InitializeComponent();
@@ -38,31 +38,31 @@ namespace DesktopApp
         }
 
 
-        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)         
+        private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
-  
+
             _llistesSkills = llistesS;
 
-            if (_llistesSkills != null) 
+            if (_llistesSkills != null)
             {
                 txtNameListSkill.Text = _llistesSkills.nom;
                 cboActivate.Checked = llistesS.actiu;
 
                 if (_llistesSkills.skills.Count() != 0 || _llistesSkills.skills != null)
                 {
-                    
+
                     ConstruirEncabezadosTabla();
-                    
+
                     foreach (skills skill in _llistesSkills.skills)
-                    {                       
+                    {
                         char[] letras = skill.nom.ToCharArray();
                         dgvListaSkills.Rows.Add(letras[0], skill.nom);
-                        
+
                     }
                 }
                 else
                 {
-                    
+
                     dgvListaSkills.Columns.Clear();
 
                 }
@@ -73,14 +73,14 @@ namespace DesktopApp
                 dgvListaSkills.Columns.Clear();
             }
 
-            
+
         }
 
         private void FormListaSkills_Load(object sender, EventArgs e)
         {
             _llistesS = Llistes_SkillsOrm.Select();
 
-            if (_llistesS.Count() >= 1)            
+            if (_llistesS.Count() >= 1)
             {
                 foreach (llistes_skills lSkills in _llistesS)
                 {
@@ -99,8 +99,8 @@ namespace DesktopApp
             if (_llistesSkills != null)
             {
                 _llistesSkills.actiu = cboActivate.Checked;
-                
-                missatge = Llistes_SkillsOrm.Update(_llistesSkills,txtNameListSkill.Text.ToUpper(), _llistesSkills.actiu);
+
+                missatge = Llistes_SkillsOrm.Update(_llistesSkills, txtNameListSkill.Text.ToUpper(), _llistesSkills.actiu);
 
                 if (missatge != "")
                 {
@@ -115,7 +115,7 @@ namespace DesktopApp
                     //}
                     ActualizarPanelListaSkills();
                 }
-                               
+
             }
             else
             {
@@ -208,7 +208,7 @@ namespace DesktopApp
                 }
 
 
-               
+
 
             }
 
@@ -232,22 +232,22 @@ namespace DesktopApp
         }
 
 
-        private void CrearBotonListaSkill(llistes_skills ls)         
+        private void CrearBotonListaSkill(llistes_skills ls)
         {
-            
+
             RadioButton btnListSkill = new RadioButton();
             btnListSkill.Appearance = Appearance.Button;
             if (ls == null)
             {
-                btnListSkill.Text = "Nueva Lista";                
+                btnListSkill.Text = "Nueva Lista";
                 txtNameListSkill.Text = "";
                 dgvListaSkills.Columns.Clear();
             }
-            else 
+            else
             {
                 btnListSkill.Text = ls.nom;
             }
-            
+
             String nombre = btnListSkill.Text;
             btnListSkill.FlatStyle = FlatStyle.Flat;
             btnListSkill.TextAlign = ContentAlignment.MiddleCenter;
@@ -264,33 +264,31 @@ namespace DesktopApp
 
         }
 
-        private void ConstruirEncabezadosTabla() 
+        private void ConstruirEncabezadosTabla()
         {
             dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
             dgvListaSkills.Columns.Add("Letra", "Letra");
             dgvListaSkills.Columns.Add("Skill", "Skill");
 
-            String[] colores = Enum.GetNames(typeof(System.Drawing.KnownColor)); 
 
-            DataGridViewComboBoxColumn cbxCellBackgroundColorSkill = new DataGridViewComboBoxColumn();
-            cbxCellBackgroundColorSkill.Name = "cbxColumnBackColor";
-            cbxCellBackgroundColorSkill.HeaderText = "Color de fondo de la skill";
-            cbxCellBackgroundColorSkill.DataSource = colores;           
-            dgvListaSkills.Columns.Add(cbxCellBackgroundColorSkill);
-            dgvListaSkills.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dgvListaSkills_EditingControlShowing);
+            DataGridViewButtonColumn btnBackgroundColorSkill = new DataGridViewButtonColumn();
+            btnBackgroundColorSkill.Name = "btnColumnTextColumn";
+            btnBackgroundColorSkill.HeaderText = "Color de texto de la skill";
 
-            DataGridViewComboBoxColumn cbxCellColorSkill = new DataGridViewComboBoxColumn();          
-            cbxCellColorSkill.Name = "cbxColumnTextColumn";
-            cbxCellColorSkill.HeaderText = "Color de texto de la skill";
-            cbxCellColorSkill.DataSource = colores;
+            dgvListaSkills.Columns.Add(btnBackgroundColorSkill);
 
-            dgvListaSkills.Columns.Add(cbxCellColorSkill);
-            
+
+            DataGridViewButtonColumn btnColorSkill = new DataGridViewButtonColumn();
+            btnColorSkill.Name = "cbxColumnTextColumn";
+            btnColorSkill.HeaderText = "Color de texto de la skill";
+
+            dgvListaSkills.Columns.Add(btnColorSkill);
+
             //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 30);
         }
 
-      
+
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
@@ -318,50 +316,32 @@ namespace DesktopApp
             }
         }
 
-        private void dgvListaSkills_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+
+
+        private void dgvListaSkills_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ComboBox combo = e.Control as ComboBox;
-            if (combo != null)
+            if (e.ColumnIndex == 2)
             {
-                // Remove an existing event-handler, if present, to avoid 
-                // adding multiple handlers when the editing control is reused.
-                combo.DrawItem -= new DrawItemEventHandler(cb_DrawItem);
-
-                // Add the event handler. 
-                combo.DrawItem += new DrawItemEventHandler(cb_DrawItem);
+                cambiarColorBotonCelda(e.RowIndex, 2);
             }
-        }
-
-        private void cb_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            ComboBox cbxColumn = sender as ComboBox;
-
-            try
+            else if (e.ColumnIndex == 3)
             {
-                e.DrawBackground();
-                String texto = cbxColumn.Items[e.Index].ToString();
-                Brush borde = new SolidBrush(e.ForeColor);
-                Color color = Color.FromName(texto);
-                Brush pincel = new SolidBrush(color);
-                Pen boli = new Pen(e.ForeColor);
-
-                e.Graphics.DrawRectangle(boli, new Rectangle(e.Bounds.Left + 2, e.Bounds.Top + 2, 50, e.Bounds.Height - 4));
-                e.Graphics.FillRectangle(pincel, new Rectangle(e.Bounds.Left + 3, e.Bounds.Top + 3, 48, e.Bounds.Height - 6));
-                e.Graphics.DrawString(texto, e.Font, borde,e.Bounds.Left + 65, e.Bounds.Top + 2);
-
-                e.DrawFocusRectangle();
-
+                cambiarColorBotonCelda(e.RowIndex, 3);
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
 
         }
 
 
+        private void cambiarColorBotonCelda(int indexRow, int celda)
+        {
+            colorDialog.ShowDialog();
+            Color color = colorDialog.Color;
+            var cell = ((DataGridViewButtonCell)dgvListaSkills.Rows[indexRow].Cells[celda]);
+            cell.FlatStyle = FlatStyle.Flat;
+            dgvListaSkills.Rows[indexRow].Cells[celda].Style.BackColor = color;
+        }
 
     }
+
 }
+
