@@ -17,7 +17,7 @@ namespace DesktopApp
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
         private String FormGruposSkills;
-
+        ComboBox cb;
         public FormListaSkills()
         {
             InitializeComponent();
@@ -274,23 +274,20 @@ namespace DesktopApp
             String[] colores = Enum.GetNames(typeof(System.Drawing.KnownColor)); 
 
             DataGridViewComboBoxColumn cbxCellBackgroundColorSkill = new DataGridViewComboBoxColumn();
-            cbxCellBackgroundColorSkill.Name = "btnBackColor";
+            cbxCellBackgroundColorSkill.Name = "cbxColumnBackColor";
             cbxCellBackgroundColorSkill.HeaderText = "Color de fondo de la skill";
-            cbxCellBackgroundColorSkill.DataSource = colores;
-
+            cbxCellBackgroundColorSkill.DataSource = colores;           
             dgvListaSkills.Columns.Add(cbxCellBackgroundColorSkill);
+            dgvListaSkills.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dgvListaSkills_EditingControlShowing);
 
             DataGridViewComboBoxColumn cbxCellColorSkill = new DataGridViewComboBoxColumn();          
-            cbxCellColorSkill.Name = "btnTextColumn";
+            cbxCellColorSkill.Name = "cbxColumnTextColumn";
             cbxCellColorSkill.HeaderText = "Color de texto de la skill";
             cbxCellColorSkill.DataSource = colores;
 
             dgvListaSkills.Columns.Add(cbxCellColorSkill);
-
-
-
-
-            //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+            
+            //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 30);
         }
 
       
@@ -320,5 +317,51 @@ namespace DesktopApp
                 dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");
             }
         }
+
+        private void dgvListaSkills_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            ComboBox combo = e.Control as ComboBox;
+            if (combo != null)
+            {
+                // Remove an existing event-handler, if present, to avoid 
+                // adding multiple handlers when the editing control is reused.
+                combo.DrawItem -= new DrawItemEventHandler(cb_DrawItem);
+
+                // Add the event handler. 
+                combo.DrawItem += new DrawItemEventHandler(cb_DrawItem);
+            }
+        }
+
+        private void cb_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            ComboBox cbxColumn = sender as ComboBox;
+
+            try
+            {
+                e.DrawBackground();
+                String texto = cbxColumn.Items[e.Index].ToString();
+                Brush borde = new SolidBrush(e.ForeColor);
+                Color color = Color.FromName(texto);
+                Brush pincel = new SolidBrush(color);
+                Pen boli = new Pen(e.ForeColor);
+
+                e.Graphics.DrawRectangle(boli, new Rectangle(e.Bounds.Left + 2, e.Bounds.Top + 2, 50, e.Bounds.Height - 4));
+                e.Graphics.FillRectangle(pincel, new Rectangle(e.Bounds.Left + 3, e.Bounds.Top + 3, 48, e.Bounds.Height - 6));
+                e.Graphics.DrawString(texto, e.Font, borde,e.Bounds.Left + 65, e.Bounds.Top + 2);
+
+                e.DrawFocusRectangle();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
+
     }
 }

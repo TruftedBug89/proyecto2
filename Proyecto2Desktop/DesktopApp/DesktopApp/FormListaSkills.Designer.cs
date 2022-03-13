@@ -42,8 +42,8 @@
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             this.btnBuildTable = new System.Windows.Forms.Button();
+            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
@@ -203,10 +203,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bindingSourceSkills
-            // 
-            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
-            // 
             // btnBuildTable
             // 
             this.btnBuildTable.BackColor = System.Drawing.SystemColors.Desktop;
@@ -220,6 +216,10 @@
             this.btnBuildTable.Text = "Añadir Skills";
             this.btnBuildTable.UseVisualStyleBackColor = false;
             this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
+            // 
+            // bindingSourceSkills
+            // 
+            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
             // 
             // FormListaSkills
             // 
