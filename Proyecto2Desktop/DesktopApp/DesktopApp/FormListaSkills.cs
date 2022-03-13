@@ -31,7 +31,6 @@ namespace DesktopApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             _llistesSkills = null;
-            dgvListaSkills.Columns.Clear();
             dgvListaSkills.DataSource = null;
 
             CrearBotonListaSkill(_llistesSkills);
@@ -50,27 +49,44 @@ namespace DesktopApp
 
                 if (_llistesSkills.skills.Count() != 0 || _llistesSkills.skills != null)
                 {
-
-                    ConstruirEncabezadosTabla();
-
+                    dgvListaSkills.Rows.Clear();
+                    //ConstruirEncabezadosTabla();
+                    int i = 0;
                     foreach (skills skill in _llistesSkills.skills)
                     {
                         char[] letras = skill.nom.ToCharArray();
+
+                        Button button = new Button();
+                        button.Name = "btnColor";
+                        button.Text = "sdfs";
+                        button.BackColor = Color.Red;
+                        DataGridViewButtonCell buttonCell = new DataGridViewButtonCell();
                         dgvListaSkills.Rows.Add(letras[0], skill.nom);
 
+                        var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
+                        cellBtnBackColor.FlatStyle = FlatStyle.Flat;
+                        dgvListaSkills.Rows[i].Cells[2].Style.BackColor = Color.FromArgb(skill.colorFondo);
+
+                        var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
+                        cellBtnTextColor.FlatStyle = FlatStyle.Flat;
+                        dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.FromArgb(skill.colorTexto);
+
+
+
+                        i++;
                     }
                 }
                 else
                 {
 
-                    dgvListaSkills.Columns.Clear();
+                    dgvListaSkills.Rows.Clear();
 
                 }
             }
             else
             {
                 txtNameListSkill.Text = "";
-                dgvListaSkills.Columns.Clear();
+                dgvListaSkills.Rows.Clear();
             }
 
 
@@ -135,19 +151,19 @@ namespace DesktopApp
                     else
                     {
 
-                        if (dgvListaSkills.Columns.Count >= 1)
+                        if (dgvListaSkills.Rows.Count >= 1)
                         {
 
                             foreach (DataGridViewRow row in dgvListaSkills.Rows)
                             {
 
                                 skills _skill = new skills();
-                                char[] letrasS = row.Cells["Skill"].Value.ToString().ToCharArray();
+                                char[] letrasS = row.Cells[1].Value.ToString().ToCharArray();
                                 var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
 
-                                if (!row.Cells["Skill"].Value.Equals(""))
+                                if (!row.Cells[1].Value.Equals(""))
                                 {
-                                    String nombreSkill = regex.Replace(row.Cells["Skill"].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
+                                    String nombreSkill = regex.Replace(row.Cells[1].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
                                     _skill.nom = nombreSkill;
                                 }
                                 else
@@ -157,9 +173,26 @@ namespace DesktopApp
 
                                 _skill.llistes_skills_id = _llistes_Skills.id;
                                 _skill.actiu = true;
-                                _skill.colorFondo = Color.Black.ToArgb();
-                                _skill.colorTexto = Color.White.ToArgb();
+                               
+                                //if (row.Cells[2].Style.BackColor.IsEmpty)
+                                //{
+                                //    _skill.colorFondo = Color.Black.ToArgb();
+                                //}
+                                //else
+                                //{
+                                //    _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
+                                //}
 
+                                //if (row.Cells[3].Style.BackColor.IsEmpty)
+                                //{
+                                //    _skill.colorFondo = Color.White.ToArgb();
+                                //}
+                                //else
+                                //{
+                                //    _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
+                                //}
+                                _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
+                                _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
                                 missatge = SkillsOrm.Insert(_skill);
 
                                 if (missatge != "")
@@ -241,7 +274,7 @@ namespace DesktopApp
             {
                 btnListSkill.Text = "Nueva Lista";
                 txtNameListSkill.Text = "";
-                dgvListaSkills.Columns.Clear();
+                dgvListaSkills.Rows.Clear();
             }
             else
             {
@@ -273,15 +306,15 @@ namespace DesktopApp
 
 
             DataGridViewButtonColumn btnBackgroundColorSkill = new DataGridViewButtonColumn();
-            btnBackgroundColorSkill.Name = "btnColumnTextColumn";
-            btnBackgroundColorSkill.HeaderText = "Color de texto de la skill";
+            btnBackgroundColorSkill.Name = "btnBackgroundColorSkill";
+            btnBackgroundColorSkill.HeaderText = "Background Color";
 
             dgvListaSkills.Columns.Add(btnBackgroundColorSkill);
 
 
             DataGridViewButtonColumn btnColorSkill = new DataGridViewButtonColumn();
-            btnColorSkill.Name = "cbxColumnTextColumn";
-            btnColorSkill.HeaderText = "Color de texto de la skill";
+            btnColorSkill.Name = "btnTextColorSkill";
+            btnColorSkill.HeaderText = "Text Color";
 
             dgvListaSkills.Columns.Add(btnColorSkill);
 
@@ -306,7 +339,12 @@ namespace DesktopApp
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
-            ConstruirEncabezadosTabla();
+            //ConstruirEncabezadosTabla();
+            
+            if (dgvListaSkills.Rows.Count >= 1)
+            {
+                dgvListaSkills.Rows.Clear();
+            }
 
             Char[] letras = txtNameListSkill.Text.ToCharArray();
 
@@ -320,6 +358,7 @@ namespace DesktopApp
 
         private void dgvListaSkills_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             if (e.ColumnIndex == 2)
             {
                 cambiarColorBotonCelda(e.RowIndex, 2);
@@ -328,17 +367,22 @@ namespace DesktopApp
             {
                 cambiarColorBotonCelda(e.RowIndex, 3);
             }
+            
+            
 
         }
 
 
         private void cambiarColorBotonCelda(int indexRow, int celda)
-        {
-            colorDialog.ShowDialog();
-            Color color = colorDialog.Color;
-            var cell = ((DataGridViewButtonCell)dgvListaSkills.Rows[indexRow].Cells[celda]);
-            cell.FlatStyle = FlatStyle.Flat;
-            dgvListaSkills.Rows[indexRow].Cells[celda].Style.BackColor = color;
+        {           
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                Color color = colorDialog.Color;
+                var cell = ((DataGridViewButtonCell)dgvListaSkills.Rows[indexRow].Cells[celda]);
+                cell.FlatStyle = FlatStyle.Flat;
+                dgvListaSkills.Rows[indexRow].Cells[celda].Style.BackColor = color;
+            }
+          
         }
 
     }
