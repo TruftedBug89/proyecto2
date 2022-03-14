@@ -55,13 +55,11 @@ namespace DesktopApp
                     foreach (skills skill in _llistesSkills.skills)
                     {
                         char[] letras = skill.nom.ToCharArray();
-
-                        Button button = new Button();
-                        button.Name = "btnColor";
-                        button.Text = "sdfs";
-                        button.BackColor = Color.Red;
-                        DataGridViewButtonCell buttonCell = new DataGridViewButtonCell();
+                                               
                         dgvListaSkills.Rows.Add(letras[0], skill.nom);
+
+                        dgvListaSkills.Rows[i].Cells[0].Style.BackColor = Color.FromArgb(skill.colorFondo);
+                        dgvListaSkills.Rows[i].Cells[0].Style.ForeColor = Color.FromArgb(skill.colorTexto);
 
                         var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
                         cellBtnBackColor.FlatStyle = FlatStyle.Flat;
@@ -71,7 +69,8 @@ namespace DesktopApp
                         cellBtnTextColor.FlatStyle = FlatStyle.Flat;
                         dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.FromArgb(skill.colorTexto);
 
-
+                        dgvListaSkills.Rows[i].Cells[4].Value = skill.actiu;
+                        
 
                         i++;
                     }
@@ -112,6 +111,8 @@ namespace DesktopApp
         {
             String missatge = "";
 
+           
+
             if (_llistesSkills != null)
             {
                 _llistesSkills.actiu = cboActivate.Checked;
@@ -124,12 +125,42 @@ namespace DesktopApp
                 }
                 else
                 {
-                    MessageBox.Show("Datos actualizados");
-                    //if (dgvListaSkills.Columns.Count != 0)
-                    //{
-                    //    MessageBox.Show("Test");
-                    //}
+
+                    int i = 0;
+                    foreach (skills skill in _llistesSkills.skills)
+                    {
+                           
+                        skill.nom = dgvListaSkills.Rows[i].Cells[1].Value.ToString();
+
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvListaSkills.Rows[i].Cells[4];
+
+                        if ((bool)chk.Value == true)
+                        {
+                            skill.actiu = true;
+                        }
+                        else
+                        {
+                            skill.actiu = false;
+                        }
+                        //skill.actiu = true;
+                        skill.colorFondo = dgvListaSkills.Rows[i].Cells[2].Style.BackColor.ToArgb();
+                        skill.colorTexto = dgvListaSkills.Rows[i].Cells[3].Style.BackColor.ToArgb();
+
+                        missatge = SkillsOrm.Update(skill);
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+                        i++;
+                    }
+
+
+                    MessageBox.Show("Lista de skills actualizada");
                     ActualizarPanelListaSkills();
+
                 }
 
             }
@@ -174,6 +205,7 @@ namespace DesktopApp
                                 _skill.llistes_skills_id = _llistes_Skills.id;
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
 
+                                
                                 if (chk.Value == chk.TrueValue)
                                 {
                                     _skill.actiu = true;
@@ -183,7 +215,7 @@ namespace DesktopApp
                                     _skill.actiu = false;
                                 }
 
-                                
+
                                 _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
                                 _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
                                 missatge = SkillsOrm.Insert(_skill);
@@ -238,6 +270,7 @@ namespace DesktopApp
 
             }
 
+            
 
         }
 
@@ -290,29 +323,29 @@ namespace DesktopApp
 
         }
 
-        private void ConstruirEncabezadosTabla()
-        {
-            dgvListaSkills.Columns.Clear();
-            dgvListaSkills.DataSource = null;
-            dgvListaSkills.Columns.Add("Letra", "Letra");
-            dgvListaSkills.Columns.Add("Skill", "Skill");
+        //private void ConstruirEncabezadosTabla()
+        //{
+        //    dgvListaSkills.Columns.Clear();
+        //    dgvListaSkills.DataSource = null;
+        //    dgvListaSkills.Columns.Add("Letra", "Letra");
+        //    dgvListaSkills.Columns.Add("Skill", "Skill");
 
 
-            DataGridViewButtonColumn btnBackgroundColorSkill = new DataGridViewButtonColumn();
-            btnBackgroundColorSkill.Name = "btnBackgroundColorSkill";
-            btnBackgroundColorSkill.HeaderText = "Background Color";
+        //    DataGridViewButtonColumn btnBackgroundColorSkill = new DataGridViewButtonColumn();
+        //    btnBackgroundColorSkill.Name = "btnBackgroundColorSkill";
+        //    btnBackgroundColorSkill.HeaderText = "Background Color";
 
-            dgvListaSkills.Columns.Add(btnBackgroundColorSkill);
+        //    dgvListaSkills.Columns.Add(btnBackgroundColorSkill);
 
 
-            DataGridViewButtonColumn btnColorSkill = new DataGridViewButtonColumn();
-            btnColorSkill.Name = "btnTextColorSkill";
-            btnColorSkill.HeaderText = "Text Color";
+        //    DataGridViewButtonColumn btnColorSkill = new DataGridViewButtonColumn();
+        //    btnColorSkill.Name = "btnTextColorSkill";
+        //    btnColorSkill.HeaderText = "Text Color";
 
-            dgvListaSkills.Columns.Add(btnColorSkill);
+        //    dgvListaSkills.Columns.Add(btnColorSkill);
 
-            //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 30);
-        }
+        //    //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 30);
+        //}
 
 
 
@@ -351,17 +384,22 @@ namespace DesktopApp
 
         private void dgvListaSkills_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-            if (e.ColumnIndex == 2)
+                       
+            if (e.RowIndex != -1)
             {
-                cambiarColorBotonCelda(e.RowIndex, 2);
+                if (e.ColumnIndex == 2)
+                {
+                    cambiarColorBotonCelda(e.RowIndex, 2);
+                }
+                else if (e.ColumnIndex == 3)
+                {
+                    cambiarColorBotonCelda(e.RowIndex, 3);
+                }
             }
-            else if (e.ColumnIndex == 3)
-            {
-                cambiarColorBotonCelda(e.RowIndex, 3);
-            }
-            
-            
+
+
+
+
 
         }
 
@@ -375,7 +413,9 @@ namespace DesktopApp
                 cell.FlatStyle = FlatStyle.Flat;
                 dgvListaSkills.Rows[indexRow].Cells[celda].Style.BackColor = color;
             }
-          
+
+            dgvListaSkills.ClearSelection();
+
         }
 
     }

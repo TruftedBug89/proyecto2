@@ -47,7 +47,7 @@ namespace DesktopApp.Models
 
 
 
-        public static String Update(skills _skills, String nombre, Boolean actiu,int colorFondo, int colortexto)
+        public static String Update(skills _skills, String nombre, Boolean actiu, int colorFondo, int colortexto)
         {
 
             _skills.nom = nombre;
@@ -59,7 +59,14 @@ namespace DesktopApp.Models
 
         }
 
-        
+        public static String Update(skills _skills)
+        {
+                       
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+
+        }
+
 
 
     }
