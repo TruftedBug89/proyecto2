@@ -172,25 +172,18 @@ namespace DesktopApp
                                 }
 
                                 _skill.llistes_skills_id = _llistes_Skills.id;
-                                _skill.actiu = true;
-                               
-                                //if (row.Cells[2].Style.BackColor.IsEmpty)
-                                //{
-                                //    _skill.colorFondo = Color.Black.ToArgb();
-                                //}
-                                //else
-                                //{
-                                //    _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
-                                //}
+                                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
 
-                                //if (row.Cells[3].Style.BackColor.IsEmpty)
-                                //{
-                                //    _skill.colorFondo = Color.White.ToArgb();
-                                //}
-                                //else
-                                //{
-                                //    _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
-                                //}
+                                if (chk.Value == chk.TrueValue)
+                                {
+                                    _skill.actiu = true;
+                                }
+                                else
+                                {
+                                    _skill.actiu = false;
+                                }
+
+                                
                                 _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
                                 _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
                                 missatge = SkillsOrm.Insert(_skill);
