@@ -272,9 +272,9 @@ namespace DesktopApp
         {
             string missatge = "";
 
-            if (lbgroups.SelectedItems.Count == 1 && dgvListSkills.SelectedRows.Count >= 1 || dgvUsers.SelectedRows.Count >= 1)
+            if (lbgroups.SelectedItems.Count == 1)
             {
-                if (gruposStatus.Equals("GuposListasSkills"))
+                if (gruposStatus.Equals("GuposListasSkills") && dgvListSkills.SelectedRows.Count >=1)
                 {
                     List<grups_has_llistes_skills> Lista_grups_LListes = new List<grups_has_llistes_skills>();
 
@@ -321,7 +321,7 @@ namespace DesktopApp
 
                     
                 }
-                else
+                else if(dgvUsers.SelectedRows.Count >= 1)
                 {
                     List<grups_has_docents> Lista_grups_Docents = new List<grups_has_docents>();
                     List<grups_has_alumnes> Lista_grups_Alumnes = new List<grups_has_alumnes>();
@@ -404,6 +404,10 @@ namespace DesktopApp
                     }
 
 
+                }
+                else
+                {
+                    MessageBox.Show("No se puede hacer la relacion");
                 }
             }
             else
