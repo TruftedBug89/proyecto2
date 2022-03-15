@@ -105,6 +105,9 @@
           <Property Name="actiu" Type="bit" Nullable="false" />
           <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="contrasenya" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cognoms" Type="varchar" MaxLength="50" />
+          <Property Name="nomUsuari" Type="varchar" MaxLength="100" />
+          <Property Name="imagen" Type="nchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="valoracions">
           <Key>
@@ -712,6 +715,9 @@
           <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
           <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
           <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
+          <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_grups_has_alumnes_usuaris">
           <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
@@ -886,6 +892,9 @@
           <EntitySetMapping Name="usuaris">
             <EntityTypeMapping TypeName="frase_aluModel.usuaris">
               <MappingFragment StoreEntitySet="usuaris">
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="nomUsuari" ColumnName="nomUsuari" />
+                <ScalarProperty Name="cognoms" ColumnName="cognoms" />
                 <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="actiu" ColumnName="actiu" />

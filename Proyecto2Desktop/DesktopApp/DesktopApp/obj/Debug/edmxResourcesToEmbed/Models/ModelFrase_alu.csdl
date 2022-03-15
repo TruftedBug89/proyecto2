@@ -336,6 +336,9 @@
     <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
     <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
     <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
+    <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_usuaris">
     <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />

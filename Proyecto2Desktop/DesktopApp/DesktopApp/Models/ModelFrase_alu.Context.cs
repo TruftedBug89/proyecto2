@@ -12,19 +12,19 @@ namespace DesktopApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class frase_aluEntities : DbContext
     {
         public frase_aluEntities()
             : base("name=frase_aluEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<cursos> cursos { get; set; }
         public virtual DbSet<grups> grups { get; set; }
         public virtual DbSet<grups_has_alumnes> grups_has_alumnes { get; set; }
