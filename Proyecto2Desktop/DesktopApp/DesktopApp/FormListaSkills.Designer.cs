@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
@@ -48,17 +51,25 @@
             this.btnBuildTable = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.gbGroupsSkill = new System.Windows.Forms.GroupBox();
+            this.txtAddNewSkills = new System.Windows.Forms.TextBox();
+            this.lblplus = new System.Windows.Forms.Label();
+            this.dgvListaNewSkills = new System.Windows.Forms.DataGridView();
+            this.lblPlus2 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
-            this.txtAddNewSkills = new System.Windows.Forms.TextBox();
-            this.lblplus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             this.gbGroupsSkill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaNewSkills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +123,7 @@
             this.dgvListaSkills.Name = "dgvListaSkills";
             this.dgvListaSkills.RowHeadersWidth = 51;
             this.dgvListaSkills.RowTemplate.Height = 24;
-            this.dgvListaSkills.Size = new System.Drawing.Size(891, 362);
+            this.dgvListaSkills.Size = new System.Drawing.Size(891, 200);
             this.dgvListaSkills.TabIndex = 7;
             this.dgvListaSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellClick);
             // 
@@ -207,6 +218,8 @@
             this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
             this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.Checked = true;
+            this.cboActivate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -265,6 +278,121 @@
             this.gbGroupsSkill.TabStop = false;
             this.gbGroupsSkill.Text = "Grupos de Skill";
             // 
+            // txtAddNewSkills
+            // 
+            this.txtAddNewSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNewSkills.Location = new System.Drawing.Point(766, 194);
+            this.txtAddNewSkills.Name = "txtAddNewSkills";
+            this.txtAddNewSkills.Size = new System.Drawing.Size(185, 45);
+            this.txtAddNewSkills.TabIndex = 35;
+            this.txtAddNewSkills.Visible = false;
+            // 
+            // lblplus
+            // 
+            this.lblplus.AutoSize = true;
+            this.lblplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblplus.Location = new System.Drawing.Point(722, 197);
+            this.lblplus.Name = "lblplus";
+            this.lblplus.Size = new System.Drawing.Size(38, 39);
+            this.lblplus.TabIndex = 36;
+            this.lblplus.Text = "+";
+            this.lblplus.Visible = false;
+            // 
+            // dgvListaNewSkills
+            // 
+            this.dgvListaNewSkills.AllowUserToAddRows = false;
+            this.dgvListaNewSkills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaNewSkills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvListaNewSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaNewSkills.ColumnHeadersVisible = false;
+            this.dgvListaNewSkills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewButtonColumn1,
+            this.dataGridViewButtonColumn2,
+            this.dataGridViewCheckBoxColumn1});
+            this.dgvListaNewSkills.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaNewSkills.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaNewSkills.Location = new System.Drawing.Point(215, 508);
+            this.dgvListaNewSkills.Name = "dgvListaNewSkills";
+            this.dgvListaNewSkills.RowHeadersWidth = 51;
+            this.dgvListaNewSkills.RowTemplate.Height = 24;
+            this.dgvListaNewSkills.Size = new System.Drawing.Size(891, 118);
+            this.dgvListaNewSkills.TabIndex = 37;
+            this.dgvListaNewSkills.Visible = false;
+            this.dgvListaNewSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaNewSkills_CellClick);
+            // 
+            // lblPlus2
+            // 
+            this.lblPlus2.AutoSize = true;
+            this.lblPlus2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlus2.Location = new System.Drawing.Point(653, 466);
+            this.lblPlus2.Name = "lblPlus2";
+            this.lblPlus2.Size = new System.Drawing.Size(38, 39);
+            this.lblPlus2.TabIndex = 38;
+            this.lblPlus2.Text = "+";
+            this.lblPlus2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn1.FillWeight = 40.63752F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Letra";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 155.9785F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Skill";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.FillWeight = 137.2569F;
+            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dataGridViewButtonColumn1.HeaderText = "Background Color";
+            this.dataGridViewButtonColumn1.MinimumWidth = 6;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn2
+            // 
+            this.dataGridViewButtonColumn2.FillWeight = 85.91298F;
+            this.dataGridViewButtonColumn2.HeaderText = "Text Color";
+            this.dataGridViewButtonColumn2.MinimumWidth = 6;
+            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
+            this.dataGridViewButtonColumn2.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.FillWeight = 80.21388F;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Activar";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // bindingSourceSkills
+            // 
+            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
+            // 
             // Column1
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -304,30 +432,7 @@
             this.Column5.HeaderText = "Activar";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
-            // 
-            // bindingSourceSkills
-            // 
-            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
-            // 
-            // txtAddNewSkills
-            // 
-            this.txtAddNewSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddNewSkills.Location = new System.Drawing.Point(766, 194);
-            this.txtAddNewSkills.Name = "txtAddNewSkills";
-            this.txtAddNewSkills.Size = new System.Drawing.Size(185, 45);
-            this.txtAddNewSkills.TabIndex = 35;
-            this.txtAddNewSkills.Visible = false;
-            // 
-            // lblplus
-            // 
-            this.lblplus.AutoSize = true;
-            this.lblplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblplus.Location = new System.Drawing.Point(722, 197);
-            this.lblplus.Name = "lblplus";
-            this.lblplus.Size = new System.Drawing.Size(38, 39);
-            this.lblplus.TabIndex = 36;
-            this.lblplus.Text = "+";
-            this.lblplus.Visible = false;
+            this.Column5.TrueValue = "";
             // 
             // FormListaSkills
             // 
@@ -335,6 +440,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.lblPlus2);
+            this.Controls.Add(this.dgvListaNewSkills);
             this.Controls.Add(this.lblplus);
             this.Controls.Add(this.txtAddNewSkills);
             this.Controls.Add(this.gbGroupsSkill);
@@ -355,6 +462,7 @@
             this.flpListSkills.ResumeLayout(false);
             this.gbGroupsSkill.ResumeLayout(false);
             this.gbGroupsSkill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaNewSkills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -379,12 +487,19 @@
         private System.Windows.Forms.Button btnBuildTable;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.GroupBox gbGroupsSkill;
+        private System.Windows.Forms.TextBox txtAddNewSkills;
+        private System.Windows.Forms.Label lblplus;
+        private System.Windows.Forms.DataGridView dgvListaNewSkills;
+        private System.Windows.Forms.Label lblPlus2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
-        private System.Windows.Forms.TextBox txtAddNewSkills;
-        private System.Windows.Forms.Label lblplus;
     }
 }
