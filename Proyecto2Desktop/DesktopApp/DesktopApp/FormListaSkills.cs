@@ -191,11 +191,12 @@ namespace DesktopApp
                             {
 
                                 skills _skill = new skills();
-                                char[] letrasS = row.Cells[1].Value.ToString().ToCharArray();
-                                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                                
 
                                 if (!row.Cells[1].Value.Equals(""))
                                 {
+                                    char[] letrasS = row.Cells[1].Value.ToString().ToCharArray();
+                                    var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
                                     String nombreSkill = regex.Replace(row.Cells[1].Value.ToString(), letrasS[0].ToString().ToUpper(), 1);
                                     _skill.nom = nombreSkill;
                                 }
