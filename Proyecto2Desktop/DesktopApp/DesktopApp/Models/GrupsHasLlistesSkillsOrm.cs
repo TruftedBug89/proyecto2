@@ -32,6 +32,15 @@ namespace DesktopApp.Models
             return missatge;
         }
 
+        public static String Delete(grups_has_llistes_skills _grupsLlista)
+        {
+            Orm.bd.grups_has_llistes_skills.Remove(_grupsLlista);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
+
+
+
 
     }
 }
