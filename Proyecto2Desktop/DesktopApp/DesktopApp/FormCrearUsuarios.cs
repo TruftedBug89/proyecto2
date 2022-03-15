@@ -68,7 +68,7 @@ namespace DesktopApp
 
                 _usuaris.correo = tbEmail.Text;
                 
-                _usuaris.contrasenya = tbPassword.Text;
+                _usuaris.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text,hashType: BCrypt.Net.HashType.SHA512);
 
                 _usuaris.rols= (rols)cbxSelectionPerfil.SelectedItem;
                
@@ -113,7 +113,7 @@ namespace DesktopApp
 
         private void cbRepeatPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbLookPassword.Checked)
+            if (cbRepeatPassword.Checked)
             {
                 tbRepeatPassword.UseSystemPasswordChar = false;
             }

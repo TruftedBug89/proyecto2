@@ -22,20 +22,26 @@ namespace DesktopApp
 
         private void btnGroups_Click(object sender, EventArgs e)
         {
-            FormGestionGrupo gr = new FormGestionGrupo("");
+            FormRelacionesGrupo gr = new FormRelacionesGrupo("");
             gr.ShowDialog();
+            bindingSource1.DataSource = Models.UsuarisOrm.Select();
+            dataGridView1.DataSource = bindingSource1;
         }
 
         private void btnRoles_Click(object sender, EventArgs e)
         {
             FormGestionPerfil gr = new FormGestionPerfil();
             gr.ShowDialog();
+            bindingSource1.DataSource = Models.UsuarisOrm.Select();
+            dataGridView1.DataSource = bindingSource1;
         }
 
         private void btnAddUsers_Click(object sender, EventArgs e)
         {
             FormCrearUsuarios fcu = new FormCrearUsuarios();
             fcu.ShowDialog();
+            bindingSource1.DataSource = Models.UsuarisOrm.Select();
+            dataGridView1.DataSource = bindingSource1;
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
