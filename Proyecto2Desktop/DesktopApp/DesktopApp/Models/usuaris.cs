@@ -11,7 +11,7 @@ namespace DesktopApp.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class usuaris
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,7 +32,7 @@ namespace DesktopApp.Models
         public string cognoms { get; set; }
         public string nomUsuari { get; set; }
         public string imagen { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

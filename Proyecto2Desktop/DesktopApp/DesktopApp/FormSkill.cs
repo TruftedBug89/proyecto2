@@ -93,7 +93,6 @@ namespace DesktopApp
             btnSkill.TextAlign = ContentAlignment.MiddleCenter;
             btnSkill.Font = new Font(new FontFamily("Microsoft Sans Serif"), 30, FontStyle.Bold);
             btnSkill.Size = new Size(85, 75);
-            //btnSkill.FlatAppearance.CheckedBackColor = Color.Blue;
             btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
 
@@ -135,7 +134,7 @@ namespace DesktopApp
                 String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
 
                 missatge = SkillsOrm.Update(_skill, nombreSkill, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
-
+                
                 if (missatge != "")
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
