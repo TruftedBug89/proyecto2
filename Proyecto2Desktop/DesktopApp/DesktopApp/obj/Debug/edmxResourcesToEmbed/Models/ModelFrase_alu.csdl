@@ -84,40 +84,6 @@
     <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_llistes_skills" FromRole="llistes_skills" ToRole="grups_has_llistes_skills" />
     <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_skills_llistes_skills" FromRole="llistes_skills" ToRole="skills" />
   </EntityType>
-  <EntityType Name="rols">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="actiu" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="usuaris" Relationship="Self.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
-    <Property Name="GestionarKPIs" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarListaSkills" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarSkills" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarUsuarios" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarPerfiles" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarGrupos" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <EntityType Name="usuaris">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="rols_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
-    <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
-    <NavigationProperty Name="rols" Relationship="Self.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
-    <NavigationProperty Name="valoracions" Relationship="Self.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
-    <NavigationProperty Name="valoracions1" Relationship="Self.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
-    <Property Name="actiu" Type="Boolean" Nullable="false" />
-    <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-  </EntityType>
   <EntityType Name="valoracions">
     <Key>
       <PropertyRef Name="kpis_id" />
@@ -238,7 +204,6 @@
     <EntitySet Name="grups_has_llistes_skills" EntityType="Self.grups_has_llistes_skills" />
     <EntitySet Name="kpis" EntityType="Self.kpis" />
     <EntitySet Name="llistes_skills" EntityType="Self.llistes_skills" />
-    <EntitySet Name="rols" EntityType="Self.rols" />
     <EntitySet Name="valoracions" EntityType="Self.valoracions" />
     <AssociationSet Name="FK_grups_has_alumnes_cursos" Association="Self.FK_grups_has_alumnes_cursos">
       <End Role="cursos" EntitySet="cursos" />
@@ -281,6 +246,7 @@
       <End Role="llistes_skills" EntitySet="llistes_skills" />
       <End Role="skills" EntitySet="skills" />
     </AssociationSet>
+    <EntitySet Name="rols" EntityType="frase_aluModel.rols" />
     <EntitySet Name="usuaris" EntityType="frase_aluModel.usuaris" />
     <AssociationSet Name="FK_grups_has_alumnes_usuaris" Association="frase_aluModel.FK_grups_has_alumnes_usuaris">
       <End Role="usuaris" EntitySet="usuaris" />
@@ -340,6 +306,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="rols">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="actiu" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarKPIs" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarListaSkills" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarSkills" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarUsuarios" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarPerfiles" Type="Boolean" Nullable="false" />
+    <Property Name="GestionarGrupos" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
+  </EntityType>
   <EntityType Name="usuaris">
     <Key>
       <PropertyRef Name="id" />

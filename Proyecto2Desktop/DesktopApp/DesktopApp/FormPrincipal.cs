@@ -134,6 +134,14 @@ namespace DesktopApp
         }
 
 
+        private void ActualizarDatos() 
+        {
+            ActualizarPanelListasSkills();
+            limpiarPanelSkills();
+            _llistesSkills = null;
+            dgvSkill.Columns.Clear();
+        }
+
         private void ActualizarPanelListasSkills()
         {
            //Elimino todos los Controles menos el primero
@@ -167,9 +175,7 @@ namespace DesktopApp
             {
                 FormSkill formSkill = new FormSkill(_llistesSkills);
                 formSkill.ShowDialog();
-                ActualizarPanelListasSkills();
-                limpiarPanelSkills();
-                dgvSkill.Columns.Clear();
+                ActualizarDatos();
 
             }
             else
@@ -182,10 +188,28 @@ namespace DesktopApp
         {
             FormKPI FormKPI = new FormKPI(_skill);
             FormKPI.ShowDialog();
-            ActualizarPanelListasSkills();
-            limpiarPanelSkills();
-            _llistesSkills = null;
-            dgvSkill.Columns.Clear();
+            ActualizarDatos();
+        }
+
+        private void btnManagmentRoles_Click(object sender, EventArgs e)
+        {
+            FormGestionPerfil formGestionPerfil = new FormGestionPerfil();
+            formGestionPerfil.ShowDialog();
+            ActualizarDatos();
+        }
+
+        private void btnManagmentCourses_Click(object sender, EventArgs e)
+        {
+            FormCursos formCursos = new FormCursos("");
+            formCursos.ShowDialog();
+            ActualizarDatos();
+        }
+
+        private void btnManagmentGroups_Click(object sender, EventArgs e)
+        {
+            FormGestionGrupo formGestionGrupo = new FormGestionGrupo("");
+            formGestionGrupo.ShowDialog();
+            ActualizarDatos();
         }
 
         private void btnGestionUsuarios_Click(object sender, EventArgs e)

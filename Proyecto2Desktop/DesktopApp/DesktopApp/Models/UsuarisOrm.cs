@@ -20,6 +20,7 @@ namespace DesktopApp.Models
         }
 
 
+
         internal static object SelectByName(string text)
         {
             List<usuaris> _usuaris = Orm.bd.usuaris
@@ -52,7 +53,7 @@ namespace DesktopApp.Models
             return missatge;
 
         }
-    
+
 
 
         public static Boolean SelectLogin(string correu, string contrasenya)
@@ -60,7 +61,7 @@ namespace DesktopApp.Models
             Boolean acceptar;
             if(String.IsNullOrWhiteSpace(correu))
             {
-               
+
                 return false;
             }
 
@@ -95,6 +96,15 @@ namespace DesktopApp.Models
          }
 
 
+        public static usuaris SelectUsuari(int idUser)
+        {
+            usuaris _usuari = Orm.bd.usuaris
+                            .Where(c => c.id == idUser)
+                            .FirstOrDefault();
+            return _usuari;
         }
+
+
+    }
 
 }

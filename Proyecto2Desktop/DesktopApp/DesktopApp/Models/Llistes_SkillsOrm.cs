@@ -24,6 +24,15 @@ namespace DesktopApp.Models
             return _llistes_Skills;
         }
 
+        public static llistes_skills SelectListaSkill(int idLista)
+        {
+            llistes_skills _llistes = Orm.bd.llistes_skills
+                            .Where(c => c.id == idLista)
+                            .FirstOrDefault();
+            return _llistes;
+        }
+
+
         public static String Insert(llistes_skills _llistes_Skills) 
         {
             Orm.bd.llistes_skills.Add(_llistes_Skills);

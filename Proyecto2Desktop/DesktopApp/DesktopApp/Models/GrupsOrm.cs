@@ -15,7 +15,24 @@ namespace DesktopApp.Models
 
             return _grups;
         }
-        
+        public static List<grups> SelectActivos()
+        {
+            List<grups> _grups = Orm.bd.grups
+                        .Where(c => c.actiu == true)
+                        .ToList();
+
+            return _grups;
+        }
+
+
+        public static grups SelectGrup(int idGrup)
+        {
+            grups _grup = Orm.bd.grups
+                            .Where(c => c.id == idGrup)
+                            .FirstOrDefault();
+            return _grup;
+        }
+
         public static String Insert(grups _grups)
         {
             Orm.bd.grups.Add(_grups);
@@ -37,14 +54,15 @@ namespace DesktopApp.Models
             return missatge;
         }
 
-        public static String InsertSkils(grups_has_llistes_skills _grups_llistes_skills)
+        
+
+        public static String Update(grups _grups, String nom, bool actiu) 
         {
-            Orm.bd.grups_has_llistes_skills.Add(_grups_llistes_skills);
+            _grups.nom = nom;
+            _grups.actiu = actiu;
             String missatge = Orm.MySaveChanges();
             return missatge;
         }
-
-
 
 
 

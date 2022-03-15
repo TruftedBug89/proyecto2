@@ -19,12 +19,14 @@ namespace DesktopApp
         private List<grups> _grups;
         private usuaris _usuaris;
         private List<usuaris> _ListUsuaris;
-        private String gruposStatus;
+        private cursos _curs;
+        private List<cursos> _cursos;
+        public String gruposStatus;
 
-        public FormGestionGrupo(String gruposStatus)
+        public FormGestionGrupo(String status)
         {
             InitializeComponent();
-            this.gruposStatus = gruposStatus;
+            this.gruposStatus = status;
         }
 
         private void pb_close_Click(object sender, EventArgs e)
@@ -32,32 +34,19 @@ namespace DesktopApp
             this.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void FormGestionGrupo_Load(object sender, EventArgs e)
         {
             actualizarGrupos();
 
-            if (gruposStatus.Equals("GuposListasSkills"))
-            {
-                cargarListasSkills();
-                lbListSkills.Visible = true;
-                pnlSearchUsers.Visible = false;
-                dgvUsers.Visible = false;
-                lbListSkills.Visible = true;
-            }
-            else
-            {               
-                cargarUsuarios();
-                lbListSkills.Visible = false;
-                pnlSearchUsers.Visible = true;
-                dgvUsers.Visible = true;
-                lbListSkills.Visible = false;
-            }
-            
+        }
+
+
+        private void actualizarGrupos()
+        {
+                    
+            bindingSourceGroups.DataSource = null;
+            bindingSourceGroups.DataSource = GrupsOrm.Select();
 
         }
 
@@ -65,94 +54,25 @@ namespace DesktopApp
         {
             String missatge = "";
 
-            foreach (DataGridViewRow row in dgvUsers.SelectedRows)
+            if (_grup != null)
             {
-                DataGridViewCheckBoxCell chkchecking = row.Cells[1] as DataGridViewCheckBoxCell;
-                string UserText = row.Cells[0].Value.ToString();
-                
-                bool EsProfesor = Convert.ToBoolean(chkchecking.Value);
-                if (EsProfesor)
+                missatge = GrupsOrm.Update(_grup,txtNameGroup.Text,cboActivate.Checked);
+
+                if (missatge != "")
                 {
-                    MessageBox.Show("Docent: " + UserText);
-                    //añadir en grups_has_docents
-
-
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Alumno: " + UserText);
-                    //añadir en grups_has_alumnes
+                    MessageBox.Show("Grupo actualizado");
                 }
 
-            }
-
-        }
-
-
-
-        private void cargarUsuarios()         
-        {
-            _ListUsuaris = UsuarisOrm.Select();
-                        
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-            checkBoxColumn.HeaderText = "Docent";
-            checkBoxColumn.Name = "checkBox";
-
-            DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.HeaderText = "Cursos";
-            comboBoxColumn.Name = "combobox";
-
-
-            dgvUsers.DataSource = null;
-            dgvUsers.Columns.Add("Usuari", "Usuari");
-            dgvUsers.Columns["Usuari"].ReadOnly = true;
-            dgvUsers.Columns.Add(checkBoxColumn);
-            dgvUsers.Columns.Add(comboBoxColumn);
-
-            foreach (usuaris item in _ListUsuaris)
-            {
-                dgvUsers.Rows.Add(item.nom);
-            }
-
-        }
-
-
-        private void actualizarGrupos()
-        {
-            lbGroups.Items.Clear();
-
-            _grups = GrupsOrm.Select();
-
-            foreach (grups grp in _grups)
-            {
-                lbGroups.Items.Add(grp.nom);
-            }
-
-        }
-
-
-        private void cargarListasSkills()
-        {
-            _llistesSkills = Llistes_SkillsOrm.Select();
-
-            foreach (llistes_skills ls in _llistesSkills)
-            {
-                lbListSkills.Items.Add(ls.nom);
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            String missatge = "";
-
-            if (_grup != null)
-            {
-                //update
             }
             else
             {
                 grups Grup = new grups();
                 Grup.nom = txtNameGroup.Text;
+                Grup.actiu = cboActivate.Checked;
 
                 missatge = GrupsOrm.Insert(Grup);
 
@@ -168,52 +88,40 @@ namespace DesktopApp
             }
 
             actualizarGrupos();
+            VaciarCampos();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void lbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbGroups.SelectedItems.Count > 1)
+           _grup = (grups)lbGroups.SelectedItem;
+
+            if (_grup != null)
             {
-                lbListSkills.SelectionMode = SelectionMode.One;
-                dgvUsers.MultiSelect = false;
+                txtNameGroup.Text = _grup.nom;
+                cboActivate.Checked = (bool)_grup.actiu;
             }
-            else
-            {
-                lbListSkills.SelectionMode = SelectionMode.MultiExtended;
-                dgvUsers.MultiSelect = true;
-            }
+            
         }
 
-        private void lbListSkills_SelectedIndexChanged(object sender, EventArgs e)
+        private void VaciarCampos() 
         {
-            if (lbListSkills.SelectedItems.Count > 1)
-            {               
-                lbGroups.SelectionMode = SelectionMode.One;
-            }
-            else
-            {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
-            }
+            _grup = null;
+            lbGroups.SelectedItem = null;
+            txtNameGroup.Text = "";
+            cboActivate.Checked = false;          
+
         }
 
-        private void dgvUsers_SelectionChanged(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dgvUsers.SelectedRows.Count > 1)
-            {
-               
-                lbGroups.SelectionMode = SelectionMode.One;
-            }
-            else
-            {
-                lbGroups.SelectionMode = SelectionMode.MultiExtended;
-            }
-        }
-
-        private void btnManagmentCourses_Click(object sender, EventArgs e)
-        {
-            FormCursos formCursos = new FormCursos();
-            formCursos.ShowDialog();
-
+            
+            VaciarCampos();
         }
     }
 }

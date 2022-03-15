@@ -15,19 +15,17 @@ namespace DesktopApp
     {
         private cursos _curs;
         private List<cursos> _cursos;
-        public FormCursos()
+        public String gruposStatus;
+        public FormCursos(String status)
         {
             InitializeComponent();
+            this.gruposStatus = status;
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
         {
-            _cursos = CursosOrm.Select();
-
-            foreach (cursos curs in _cursos)
-            {
-                lbCourses.Items.Add(curs.curs_inici + " - " + curs.curs_fi);
-            }
+            cargarCursos();
+            cargarAños();
 
         }
 
@@ -38,21 +36,28 @@ namespace DesktopApp
 
             if (_curs != null)
             {
-                missatge = CursosOrm.Update(_curs, Convert.ToInt32(dtpStartCourse.Text),Convert.ToInt32(dtpFinishCourse.Text),cboActivate.Checked);
+                String nom = cbxYears.SelectedItem.ToString() + " - " + txtFinishCourse.Text;
+                missatge = CursosOrm.Update(_curs, Convert.ToInt32(cbxYears.SelectedItem),Convert.ToInt32(txtFinishCourse.Text),cboActivate.Checked,nom);
 
                 if (missatge != "")
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    MessageBox.Show("Curso actualizado");
+                    cargarCursos();
+                }
             }
             else
             {
-                MessageBox.Show(dtpStartCourse.Text);
+               
 
                 cursos _curs = new cursos();
-                _curs.curs_inici = Convert.ToInt32(dtpStartCourse.Text);
-                _curs.curs_fi = Convert.ToInt32(dtpFinishCourse.Text);
+                _curs.curs_inici = Convert.ToInt32(cbxYears.SelectedItem);
+                _curs.curs_fi = Convert.ToInt32(txtFinishCourse.Text);
                 _curs.actiu = cboActivate.Checked;
+                _curs.nom = cbxYears.SelectedItem.ToString() + " - " + txtFinishCourse.Text;
 
                 missatge = CursosOrm.Insert(_curs);
 
@@ -60,14 +65,75 @@ namespace DesktopApp
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                else
+                {
+                    MessageBox.Show("Curso añadido");
+                    cargarCursos();
+                }
 
             }
+
+
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void cargarCursos() 
+        {
+            bindingSourceCourses.DataSource = null;
+            bindingSourceCourses.DataSource = CursosOrm.Select();
+        }
+
+       
+
+        private void cargarAños() 
+        {
+            string currentYear = DateTime.Now.Year.ToString();
+            int añoActual = Convert.ToInt32(currentYear);
+
+            for (int i = añoActual; i < 2122; i++)
+            {
+                cbxYears.Items.Add(i);
+            }
+        }
+
+        private void cbxYears_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int CursFi = Convert.ToInt32(cbxYears.SelectedItem) + 1;
+            txtFinishCourse.Text = CursFi.ToString();
+        }
+
+        private void lbCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _curs = (cursos)lbCourses.SelectedItem;
+
+            if (_curs != null)
+            {
+                cbxYears.SelectedItem = _curs.curs_inici;
+                txtFinishCourse.Text = _curs.curs_fi.ToString();
+                cboActivate.Checked = (bool)_curs.actiu;
+            }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            VaciarCampos();
+        }
+
+        private void VaciarCampos()
+        {
+            _curs = null;
+            cbxYears.SelectedItem = null;
+            txtFinishCourse.Text = "";
+            cboActivate.Checked = false;
+
+        }
+
+
     }
 }
