@@ -330,7 +330,7 @@
     <Property Name="rols_id" Type="Int32" Nullable="false" />
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenya" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="grups_has_alumnes" Relationship="frase_aluModel.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="frase_aluModel.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
     <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />

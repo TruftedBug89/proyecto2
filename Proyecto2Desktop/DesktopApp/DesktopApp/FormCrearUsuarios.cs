@@ -69,7 +69,7 @@ namespace DesktopApp
                 _usuaris.correo = tbEmail.Text;
                 
                 _usuaris.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text,hashType: BCrypt.Net.HashType.SHA512);
-
+               
                 _usuaris.rols= (rols)cbxSelectionPerfil.SelectedItem;
                
                 _usuaris.nom = tbName.Text;
@@ -78,7 +78,7 @@ namespace DesktopApp
                 _usuaris.actiu = cbActiu.Checked;
                 _usuaris.imagen = null;
 
-               String missatge = UsuarisOrm.Insert(_usuaris);
+                String missatge = UsuarisOrm.Insert(_usuaris);
 
                 if (missatge != "")
                 {

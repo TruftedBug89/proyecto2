@@ -70,20 +70,28 @@ namespace DesktopApp
             }
             else
             {
-                grups Grup = new grups();
-                Grup.nom = txtNameGroup.Text;
-                Grup.actiu = cboActivate.Checked;
-
-                missatge = GrupsOrm.Insert(Grup);
-
-                if (missatge != "")
+                if (txtNameGroup.Text.Equals(""))
                 {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Introduce un nombre del grupo");
                 }
                 else
                 {
-                    MessageBox.Show("Grupo añadido");
+                    grups Grup = new grups();
+                    Grup.nom = txtNameGroup.Text;
+                    Grup.actiu = cboActivate.Checked;
+
+                    missatge = GrupsOrm.Insert(Grup);
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Grupo añadido");
+                    }
                 }
+              
 
             }
 
