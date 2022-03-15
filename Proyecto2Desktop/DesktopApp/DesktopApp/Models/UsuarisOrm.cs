@@ -58,21 +58,36 @@ namespace DesktopApp.Models
         public static Boolean SelectLogin(string correu, string contrasenya)
         {
             Boolean acceptar;
+            if(String.IsNullOrWhiteSpace(correu))
+            {
+               
+                return false;
+            }
 
-            usuaris user =  Orm.bd.usuaris
-                .Where (u => u.correo == correu )
-                .First();
+            List<usuaris> users = UsuarisOrm.Select();
+            usuaris usuarioALoguear = null;
 
-            Boolean passcorrecto = BCrypt.Net.BCrypt.EnhancedVerify(contrasenya, user.contrasenya, BCrypt.Net.HashType.SHA512);
+            foreach (usuaris user in users)
+            {
+                if (user.correo.Equals(correu))
+                {
+                    usuarioALoguear = user;
+                }
+            }
+
+            if (usuarioALoguear == null) return false;
+
+
+            Boolean passcorrecto = BCrypt.Net.BCrypt.EnhancedVerify(contrasenya, usuarioALoguear.contrasenya, BCrypt.Net.HashType.SHA512);
 
             if (passcorrecto)
             {
-                System.Windows.Forms.MessageBox.Show("El usuario o la contrasenya són correctos!");
+                System.Windows.Forms.MessageBox.Show("El usuario o la contraseña són correctos!");
                 acceptar = true;
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("El usuario o la contrasenya són incorrectos!");
+                System.Windows.Forms.MessageBox.Show("El usuario o la contraseña són incorrectos!");
                 acceptar = false;
             }
 
