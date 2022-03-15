@@ -30,17 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +49,11 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.gbGroupsSkill = new System.Windows.Forms.GroupBox();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             this.gbGroupsSkill.SuspendLayout();
@@ -99,14 +98,14 @@
             this.Column4,
             this.Column5});
             this.dgvListaSkills.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaSkills.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaSkills.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListaSkills.Location = new System.Drawing.Point(215, 262);
             this.dgvListaSkills.Name = "dgvListaSkills";
             this.dgvListaSkills.RowHeadersWidth = 51;
@@ -114,49 +113,6 @@
             this.dgvListaSkills.Size = new System.Drawing.Size(891, 362);
             this.dgvListaSkills.TabIndex = 7;
             this.dgvListaSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellClick);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.FillWeight = 40.63752F;
-            this.Column1.HeaderText = "Letra";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 155.9785F;
-            this.Column2.HeaderText = "Skill";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.FillWeight = 137.2569F;
-            this.Column3.HeaderText = "Background Color";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 85.91298F;
-            this.Column4.HeaderText = "Text Color";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 80.21388F;
-            this.Column5.HeaderText = "Activar";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
             // 
             // btnSave
             // 
@@ -311,6 +267,45 @@
             // 
             this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.FillWeight = 40.63752F;
+            this.Column1.HeaderText = "Letra";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 155.9785F;
+            this.Column2.HeaderText = "Skill";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 137.2569F;
+            this.Column3.HeaderText = "Background Color";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 85.91298F;
+            this.Column4.HeaderText = "Text Color";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 80.21388F;
+            this.Column5.HeaderText = "Activar";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
             // FormListaSkills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,11 +353,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBuildTable;
         private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.GroupBox gbGroupsSkill;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
-        private System.Windows.Forms.GroupBox gbGroupsSkill;
     }
 }

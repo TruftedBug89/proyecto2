@@ -361,8 +361,7 @@ namespace DesktopApp
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
-            //ConstruirEncabezadosTabla();
-            
+                        
             if (dgvListaSkills.Rows.Count >= 1)
             {
                 dgvListaSkills.Rows.Clear();
@@ -372,7 +371,17 @@ namespace DesktopApp
 
             for (int i = 0; i < letras.Length; i++)
             {
-                dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper(), "");
+                dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper());
+                dgvListaSkills.Rows[i].Cells[1].Value = "";
+                var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
+                cellBtnBackColor.FlatStyle = FlatStyle.Flat;
+                dgvListaSkills.Rows[i].Cells[2].Style.BackColor = Color.Black;
+
+                var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
+                cellBtnTextColor.FlatStyle = FlatStyle.Flat;
+                dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
+
+
             }
         }
 
