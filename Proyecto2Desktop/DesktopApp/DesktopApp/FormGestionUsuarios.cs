@@ -145,6 +145,17 @@ namespace DesktopApp
             }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            int rowIndex = e.RowIndex;
+            DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+            Models.usuaris usuarioAEditar = r.DataBoundItem as Models.usuaris;
+            FormCrearUsuarios fenc = new FormCrearUsuarios(usuarioAEditar);
+            fenc.ShowDialog();
 
+            bindingSource1.DataSource = Models.UsuarisOrm.Select();
+            dataGridView1.DataSource = bindingSource1;
+        }
     }
 }

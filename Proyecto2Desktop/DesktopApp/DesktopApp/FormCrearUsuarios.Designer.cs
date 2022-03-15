@@ -61,9 +61,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(300, 160);
+            this.label1.Location = new System.Drawing.Point(338, 200);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 24);
+            this.label1.Size = new System.Drawing.Size(207, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de Usuario:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -72,9 +72,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(300, 236);
+            this.label2.Location = new System.Drawing.Point(338, 295);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 24);
+            this.label2.Size = new System.Drawing.Size(130, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
@@ -82,9 +82,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(300, 322);
+            this.label3.Location = new System.Drawing.Point(338, 402);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 24);
+            this.label3.Size = new System.Drawing.Size(206, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Repetir Contraseña:";
             // 
@@ -92,18 +92,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(300, 400);
+            this.label4.Location = new System.Drawing.Point(338, 500);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 24);
+            this.label4.Size = new System.Drawing.Size(188, 26);
             this.label4.TabIndex = 3;
             this.label4.Text = "Seleccionar Perfil:";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(530, 554);
+            this.btnSave.Location = new System.Drawing.Point(596, 692);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(99, 35);
+            this.btnSave.Size = new System.Drawing.Size(111, 44);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -111,20 +111,20 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(650, 554);
+            this.btnCancel.Location = new System.Drawing.Point(731, 692);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(99, 35);
+            this.btnCancel.Size = new System.Drawing.Size(111, 44);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnGroupManagment
             // 
-            this.btnGroupManagment.Location = new System.Drawing.Point(686, 495);
+            this.btnGroupManagment.Location = new System.Drawing.Point(772, 619);
             this.btnGroupManagment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGroupManagment.Name = "btnGroupManagment";
-            this.btnGroupManagment.Size = new System.Drawing.Size(180, 28);
+            this.btnGroupManagment.Size = new System.Drawing.Size(202, 35);
             this.btnGroupManagment.TabIndex = 7;
             this.btnGroupManagment.Text = "Gestión de Grupos";
             this.btnGroupManagment.UseVisualStyleBackColor = true;
@@ -132,10 +132,10 @@
             // tbUser
             // 
             this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUser.Location = new System.Drawing.Point(530, 158);
+            this.tbUser.Location = new System.Drawing.Point(596, 198);
             this.tbUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUser.Name = "tbUser";
-            this.tbUser.Size = new System.Drawing.Size(483, 28);
+            this.tbUser.Size = new System.Drawing.Size(543, 32);
             this.tbUser.TabIndex = 10;
             // 
             // cbxSelectionPerfil
@@ -144,10 +144,10 @@
             this.cbxSelectionPerfil.DisplayMember = "nom";
             this.cbxSelectionPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSelectionPerfil.FormattingEnabled = true;
-            this.cbxSelectionPerfil.Location = new System.Drawing.Point(530, 402);
+            this.cbxSelectionPerfil.Location = new System.Drawing.Point(596, 502);
             this.cbxSelectionPerfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxSelectionPerfil.Name = "cbxSelectionPerfil";
-            this.cbxSelectionPerfil.Size = new System.Drawing.Size(308, 24);
+            this.cbxSelectionPerfil.Size = new System.Drawing.Size(346, 28);
             this.cbxSelectionPerfil.TabIndex = 13;
             this.cbxSelectionPerfil.ValueMember = "id";
             // 
@@ -158,19 +158,19 @@
             // tbRepeatPassword
             // 
             this.tbRepeatPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRepeatPassword.Location = new System.Drawing.Point(530, 317);
+            this.tbRepeatPassword.Location = new System.Drawing.Point(596, 396);
             this.tbRepeatPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbRepeatPassword.Name = "tbRepeatPassword";
-            this.tbRepeatPassword.Size = new System.Drawing.Size(308, 28);
+            this.tbRepeatPassword.Size = new System.Drawing.Size(346, 32);
             this.tbRepeatPassword.TabIndex = 15;
             // 
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(530, 231);
+            this.tbPassword.Location = new System.Drawing.Point(596, 289);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(308, 28);
+            this.tbPassword.Size = new System.Drawing.Size(346, 32);
             this.tbPassword.TabIndex = 16;
             // 
             // panel1
@@ -180,9 +180,9 @@
             this.panel1.Controls.Add(this.btnCerrarSesión);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1453, 51);
+            this.panel1.Size = new System.Drawing.Size(1635, 64);
             this.panel1.TabIndex = 18;
             // 
             // label6
@@ -190,9 +190,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label6.ForeColor = System.Drawing.Color.FloralWhite;
-            this.label6.Location = new System.Drawing.Point(597, 15);
+            this.label6.Location = new System.Drawing.Point(672, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(183, 26);
+            this.label6.Size = new System.Drawing.Size(216, 30);
             this.label6.TabIndex = 1;
             this.label6.Text = "Creació d\'Usuaris";
             // 
@@ -201,10 +201,10 @@
             this.btnCerrarSesión.BackColor = System.Drawing.Color.Tomato;
             this.btnCerrarSesión.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
             this.btnCerrarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesión.Location = new System.Drawing.Point(1491, 11);
-            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrarSesión.Location = new System.Drawing.Point(1677, 14);
+            this.btnCerrarSesión.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarSesión.Name = "btnCerrarSesión";
-            this.btnCerrarSesión.Size = new System.Drawing.Size(223, 43);
+            this.btnCerrarSesión.Size = new System.Drawing.Size(251, 54);
             this.btnCerrarSesión.TabIndex = 0;
             this.btnCerrarSesión.Text = "Cerar Sesión";
             this.btnCerrarSesión.UseVisualStyleBackColor = false;
@@ -212,9 +212,10 @@
             // cbActiu
             // 
             this.cbActiu.AutoSize = true;
-            this.cbActiu.Location = new System.Drawing.Point(259, 471);
+            this.cbActiu.Location = new System.Drawing.Point(291, 589);
+            this.cbActiu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbActiu.Name = "cbActiu";
-            this.cbActiu.Size = new System.Drawing.Size(68, 21);
+            this.cbActiu.Size = new System.Drawing.Size(78, 24);
             this.cbActiu.TabIndex = 2;
             this.cbActiu.Text = "Activo";
             this.cbActiu.UseVisualStyleBackColor = true;
@@ -222,78 +223,83 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(301, 105);
+            this.label5.Location = new System.Drawing.Point(339, 131);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "Correo";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(384, 105);
+            this.tbEmail.Location = new System.Drawing.Point(432, 131);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(286, 22);
+            this.tbEmail.Size = new System.Drawing.Size(321, 26);
             this.tbEmail.TabIndex = 20;
             // 
             // cbLookPassword
             // 
             this.cbLookPassword.AutoSize = true;
-            this.cbLookPassword.Location = new System.Drawing.Point(858, 236);
+            this.cbLookPassword.Location = new System.Drawing.Point(965, 295);
+            this.cbLookPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLookPassword.Name = "cbLookPassword";
-            this.cbLookPassword.Size = new System.Drawing.Size(98, 21);
+            this.cbLookPassword.Size = new System.Drawing.Size(216, 36);
             this.cbLookPassword.TabIndex = 21;
-            this.cbLookPassword.Text = "checkBox1";
+            this.cbLookPassword.Text = "Mostrar/Ocultar";
             this.cbLookPassword.UseVisualStyleBackColor = true;
             this.cbLookPassword.CheckedChanged += new System.EventHandler(this.cbLookPassword_CheckedChanged);
             // 
             // cbRepeatPassword
             // 
             this.cbRepeatPassword.AutoSize = true;
-            this.cbRepeatPassword.Location = new System.Drawing.Point(858, 324);
+            this.cbRepeatPassword.Location = new System.Drawing.Point(965, 405);
+            this.cbRepeatPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbRepeatPassword.Name = "cbRepeatPassword";
-            this.cbRepeatPassword.Size = new System.Drawing.Size(98, 21);
+            this.cbRepeatPassword.Size = new System.Drawing.Size(216, 36);
             this.cbRepeatPassword.TabIndex = 22;
-            this.cbRepeatPassword.Text = "checkBox2";
+            this.cbRepeatPassword.Text = "Mostrar/Ocultar";
             this.cbRepeatPassword.UseVisualStyleBackColor = true;
             this.cbRepeatPassword.CheckedChanged += new System.EventHandler(this.cbRepeatPassword_CheckedChanged);
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(299, 442);
+            this.lbName.Location = new System.Drawing.Point(336, 552);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(58, 17);
+            this.lbName.Size = new System.Drawing.Size(65, 20);
             this.lbName.TabIndex = 23;
             this.lbName.Text = "Nombre";
             // 
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(217, 552);
+            this.lbLastName.Location = new System.Drawing.Point(244, 690);
             this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(67, 17);
+            this.lbLastName.Size = new System.Drawing.Size(77, 20);
             this.lbLastName.TabIndex = 24;
             this.lbLastName.Text = "Cognoms";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(363, 442);
+            this.tbName.Location = new System.Drawing.Point(408, 552);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(286, 22);
+            this.tbName.Size = new System.Drawing.Size(321, 26);
             this.tbName.TabIndex = 25;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(290, 549);
+            this.tbLastName.Location = new System.Drawing.Point(326, 686);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(100, 22);
+            this.tbLastName.Size = new System.Drawing.Size(112, 26);
             this.tbLastName.TabIndex = 26;
             // 
             // FormCrearUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1453, 607);
+            this.ClientSize = new System.Drawing.Size(1635, 759);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbLastName);

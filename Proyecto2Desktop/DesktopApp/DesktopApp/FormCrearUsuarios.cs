@@ -15,8 +15,16 @@ namespace DesktopApp
     public partial class FormCrearUsuarios : Form
     {
         usuaris _usuaris = new usuaris();
+        private usuaris usuarioAEditar;
+
         public FormCrearUsuarios()
         {
+            InitializeComponent();
+        }
+
+        public FormCrearUsuarios(usuaris usuarioAEditar)
+        {
+            this.usuarioAEditar = usuarioAEditar;
             InitializeComponent();
         }
 
@@ -32,6 +40,18 @@ namespace DesktopApp
             cbxSelectionPerfil.SelectedItem = null;
             tbPassword.UseSystemPasswordChar = true;
             tbRepeatPassword.UseSystemPasswordChar = true;
+            if(usuarioAEditar != null)
+            {
+
+                tbName.Text = usuarioAEditar.nom;
+                tbLastName.Text = usuarioAEditar.cognoms;
+                tbEmail.Text = usuarioAEditar.correo;
+                tbUser.Text = usuarioAEditar.nomUsuari;
+                cbActiu.Checked = usuarioAEditar.actiu;
+                cbxSelectionPerfil.SelectedItem = usuarioAEditar.rols;
+                MessageBox.Show("Dejar el campo de contraseña en blanco para seguir utilizando la contraseña antigua","Información",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace DesktopApp.Models
 
             return _llistes_Skills;
         }
-
+         
         public static List<llistes_skills> SelectActivate()
         {
             List<llistes_skills> _llistes_Skills = Orm.bd.llistes_skills
