@@ -61,7 +61,7 @@ namespace DesktopApp
                 check = true;
             }
 
-            if (cbxSelectionPerfil.SelectedIndex == null) {
+            if (cbxSelectionPerfil.SelectedIndex == -1) {
                 checkPass = true;
             }
             if (check == false && checkPass == true && checkEmail == true) {
