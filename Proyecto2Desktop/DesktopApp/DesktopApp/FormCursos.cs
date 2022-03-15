@@ -51,25 +51,33 @@ namespace DesktopApp
             }
             else
             {
-               
 
-                cursos _curs = new cursos();
-                _curs.curs_inici = Convert.ToInt32(cbxYears.SelectedItem);
-                _curs.curs_fi = Convert.ToInt32(txtFinishCourse.Text);
-                _curs.actiu = cboActivate.Checked;
-                _curs.nom = cbxYears.SelectedItem.ToString() + " - " + txtFinishCourse.Text;
-
-                missatge = CursosOrm.Insert(_curs);
-
-                if (missatge != "")
+                if (cbxYears.SelectedIndex == -1)
                 {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Selecciona un año");
                 }
                 else
                 {
-                    MessageBox.Show("Curso añadido");
-                    cargarCursos();
+                    cursos _curs = new cursos();
+                    _curs.curs_inici = Convert.ToInt32(cbxYears.SelectedItem);
+                    _curs.curs_fi = Convert.ToInt32(txtFinishCourse.Text);
+                    _curs.actiu = cboActivate.Checked;
+                    _curs.nom = cbxYears.SelectedItem.ToString() + " - " + txtFinishCourse.Text;
+
+                    missatge = CursosOrm.Insert(_curs);
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Curso añadido");
+                        cargarCursos();
+                    }
                 }
+
+
 
             }
 
