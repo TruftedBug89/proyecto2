@@ -34,6 +34,11 @@ namespace DesktopApp
             dgvListaSkills.DataSource = null;
 
             CrearBotonListaSkill(_llistesSkills);
+
+            txtNameListSkill.ReadOnly = false;
+            lblplus.Visible = false;
+            txtAddNewSkills.Visible = false;
+
         }
 
 
@@ -48,6 +53,10 @@ namespace DesktopApp
 
                 txtNameListSkill.Text = _llistesSkills.nom;
                 cboActivate.Checked = llistesS.actiu;
+
+                txtNameListSkill.ReadOnly = true;
+                lblplus.Visible = true;
+                txtAddNewSkills.Visible = true;
 
                 if (_llistesSkills.skills.Count() != 0 || _llistesSkills.skills != null)
                 {
@@ -127,37 +136,46 @@ namespace DesktopApp
                 }
                 else
                 {
-
-                    int i = 0;
-                    foreach (skills skill in _llistesSkills.skills)
+                    //Si el nombre de la lista de skills es igual al nombre del texto actualizame todo
+                    if (_llistesSkills.nom.Equals(txtNameListSkill.Text))
                     {
-                           
-                        skill.nom = dgvListaSkills.Rows[i].Cells[1].Value.ToString();
 
-                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvListaSkills.Rows[i].Cells[4];
-
-                        if ((bool)chk.Value == true)
+                        int i = 0;
+                        foreach (skills skill in _llistesSkills.skills)
                         {
-                            skill.actiu = true;
+
+                            skill.nom = dgvListaSkills.Rows[i].Cells[1].Value.ToString();
+
+                            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvListaSkills.Rows[i].Cells[4];
+
+                            if ((bool)chk.Value == true)
+                            {
+                                skill.actiu = true;
+                            }
+                            else
+                            {
+                                skill.actiu = false;
+                            }
+                            skill.colorFondo = dgvListaSkills.Rows[i].Cells[2].Style.BackColor.ToArgb();
+                            skill.colorTexto = dgvListaSkills.Rows[i].Cells[3].Style.BackColor.ToArgb();
+
+                            missatge = SkillsOrm.Update(skill);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+
+                            i++;
                         }
-                        else
-                        {
-                            skill.actiu = false;
-                        }
-                        //skill.actiu = true;
-                        skill.colorFondo = dgvListaSkills.Rows[i].Cells[2].Style.BackColor.ToArgb();
-                        skill.colorTexto = dgvListaSkills.Rows[i].Cells[3].Style.BackColor.ToArgb();
-
-                        missatge = SkillsOrm.Update(skill);
-
-                        if (missatge != "")
-                        {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-                        i++;
                     }
+                    else
+                    {
+
+                    }
+
+
 
 
                     MessageBox.Show("Lista de skills actualizada");
@@ -209,7 +227,7 @@ namespace DesktopApp
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
 
                                 
-                                if (chk.Value == chk.TrueValue)
+                                if ((bool)chk.Value == true)
                                 {
                                     _skill.actiu = true;
                                 }
@@ -361,28 +379,37 @@ namespace DesktopApp
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
-                        
+            //limpiar rows si hay alguna fila            
             if (dgvListaSkills.Rows.Count >= 1)
             {
                 dgvListaSkills.Rows.Clear();
             }
 
-            Char[] letras = txtNameListSkill.Text.ToCharArray();
-
-            for (int i = 0; i < letras.Length; i++)
+            if (_llistesSkills != null)
             {
-                dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper());
-                dgvListaSkills.Rows[i].Cells[1].Value = "";
-                var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
-                cellBtnBackColor.FlatStyle = FlatStyle.Flat;
-                dgvListaSkills.Rows[i].Cells[2].Style.BackColor = Color.Black;
-
-                var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
-                cellBtnTextColor.FlatStyle = FlatStyle.Flat;
-                dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
-
-
+                //añadir rows como caracteres haya en le txtaddNewSkills
             }
+            else
+            {
+                Char[] letras = txtNameListSkill.Text.ToCharArray();
+
+                for (int i = 0; i < letras.Length; i++)
+                {
+                    dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper());
+                    dgvListaSkills.Rows[i].Cells[1].Value = "";
+                    var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
+                    cellBtnBackColor.FlatStyle = FlatStyle.Flat;
+                    dgvListaSkills.Rows[i].Cells[2].Style.BackColor = Color.Black;
+
+                    var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
+                    cellBtnTextColor.FlatStyle = FlatStyle.Flat;
+                    dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
+
+
+                }
+            }
+
+            
         }
 
 

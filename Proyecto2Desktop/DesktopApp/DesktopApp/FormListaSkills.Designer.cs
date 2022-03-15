@@ -48,12 +48,14 @@
             this.btnBuildTable = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.gbGroupsSkill = new System.Windows.Forms.GroupBox();
-            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
+            this.txtAddNewSkills = new System.Windows.Forms.TextBox();
+            this.lblplus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             this.gbGroupsSkill.SuspendLayout();
@@ -73,9 +75,9 @@
             // txtNameListSkill
             // 
             this.txtNameListSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameListSkill.Location = new System.Drawing.Point(460, 194);
+            this.txtNameListSkill.Location = new System.Drawing.Point(449, 194);
             this.txtNameListSkill.Name = "txtNameListSkill";
-            this.txtNameListSkill.Size = new System.Drawing.Size(553, 45);
+            this.txtNameListSkill.Size = new System.Drawing.Size(267, 45);
             this.txtNameListSkill.TabIndex = 4;
             // 
             // dgvListaSkills
@@ -243,9 +245,9 @@
             this.btnBuildTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuildTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuildTable.ForeColor = System.Drawing.Color.White;
-            this.btnBuildTable.Location = new System.Drawing.Point(1029, 197);
+            this.btnBuildTable.Location = new System.Drawing.Point(965, 197);
             this.btnBuildTable.Name = "btnBuildTable";
-            this.btnBuildTable.Size = new System.Drawing.Size(182, 42);
+            this.btnBuildTable.Size = new System.Drawing.Size(141, 42);
             this.btnBuildTable.TabIndex = 33;
             this.btnBuildTable.Text = "Añadir Skills";
             this.btnBuildTable.UseVisualStyleBackColor = false;
@@ -262,10 +264,6 @@
             this.gbGroupsSkill.TabIndex = 34;
             this.gbGroupsSkill.TabStop = false;
             this.gbGroupsSkill.Text = "Grupos de Skill";
-            // 
-            // bindingSourceSkills
-            // 
-            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
             // 
             // Column1
             // 
@@ -288,6 +286,7 @@
             // Column3
             // 
             this.Column3.FillWeight = 137.2569F;
+            this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column3.HeaderText = "Background Color";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -306,12 +305,38 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+            // bindingSourceSkills
+            // 
+            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
+            // 
+            // txtAddNewSkills
+            // 
+            this.txtAddNewSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNewSkills.Location = new System.Drawing.Point(766, 194);
+            this.txtAddNewSkills.Name = "txtAddNewSkills";
+            this.txtAddNewSkills.Size = new System.Drawing.Size(185, 45);
+            this.txtAddNewSkills.TabIndex = 35;
+            this.txtAddNewSkills.Visible = false;
+            // 
+            // lblplus
+            // 
+            this.lblplus.AutoSize = true;
+            this.lblplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblplus.Location = new System.Drawing.Point(722, 197);
+            this.lblplus.Name = "lblplus";
+            this.lblplus.Size = new System.Drawing.Size(38, 39);
+            this.lblplus.TabIndex = 36;
+            this.lblplus.Text = "+";
+            this.lblplus.Visible = false;
+            // 
             // FormListaSkills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.lblplus);
+            this.Controls.Add(this.txtAddNewSkills);
             this.Controls.Add(this.gbGroupsSkill);
             this.Controls.Add(this.btnBuildTable);
             this.Controls.Add(this.button1);
@@ -359,5 +384,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
+        private System.Windows.Forms.TextBox txtAddNewSkills;
+        private System.Windows.Forms.Label lblplus;
     }
 }
