@@ -66,6 +66,7 @@
             this.txtWordSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWordSkill.Location = new System.Drawing.Point(225, 224);
             this.txtWordSkill.Name = "txtWordSkill";
+            this.txtWordSkill.ReadOnly = true;
             this.txtWordSkill.Size = new System.Drawing.Size(184, 158);
             this.txtWordSkill.TabIndex = 4;
             this.txtWordSkill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

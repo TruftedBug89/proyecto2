@@ -36,6 +36,11 @@
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,14 +53,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuildTable = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.gbGroupsSkill = new System.Windows.Forms.GroupBox();
             this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
+            this.gbGroupsSkill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,6 +115,49 @@
             this.dgvListaSkills.TabIndex = 7;
             this.dgvListaSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellClick);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.FillWeight = 40.63752F;
+            this.Column1.HeaderText = "Letra";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 155.9785F;
+            this.Column2.HeaderText = "Skill";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.FillWeight = 137.2569F;
+            this.Column3.HeaderText = "Background Color";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 85.91298F;
+            this.Column4.HeaderText = "Text Color";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 80.21388F;
+            this.Column5.HeaderText = "Activar";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
@@ -144,7 +189,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1150, 310);
+            this.label1.Location = new System.Drawing.Point(14, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 24);
             this.label1.TabIndex = 16;
@@ -154,9 +199,9 @@
             // 
             this.cbxGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGroups.FormattingEnabled = true;
-            this.cbxGroups.Location = new System.Drawing.Point(1240, 310);
+            this.cbxGroups.Location = new System.Drawing.Point(120, 39);
             this.cbxGroups.Name = "cbxGroups";
-            this.cbxGroups.Size = new System.Drawing.Size(179, 30);
+            this.cbxGroups.Size = new System.Drawing.Size(133, 30);
             this.cbxGroups.TabIndex = 17;
             // 
             // btnManagmentGroups
@@ -165,7 +210,7 @@
             this.btnManagmentGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentGroups.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentGroups.Location = new System.Drawing.Point(1154, 379);
+            this.btnManagmentGroups.Location = new System.Drawing.Point(18, 105);
             this.btnManagmentGroups.Name = "btnManagmentGroups";
             this.btnManagmentGroups.Size = new System.Drawing.Size(182, 42);
             this.btnManagmentGroups.TabIndex = 18;
@@ -228,7 +273,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1187, 477);
+            this.button1.Location = new System.Drawing.Point(1159, 491);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 32;
@@ -250,52 +295,21 @@
             this.btnBuildTable.UseVisualStyleBackColor = false;
             this.btnBuildTable.Click += new System.EventHandler(this.btnBuildTable_Click);
             // 
+            // gbGroupsSkill
+            // 
+            this.gbGroupsSkill.Controls.Add(this.label1);
+            this.gbGroupsSkill.Controls.Add(this.cbxGroups);
+            this.gbGroupsSkill.Controls.Add(this.btnManagmentGroups);
+            this.gbGroupsSkill.Location = new System.Drawing.Point(1136, 262);
+            this.gbGroupsSkill.Name = "gbGroupsSkill";
+            this.gbGroupsSkill.Size = new System.Drawing.Size(283, 175);
+            this.gbGroupsSkill.TabIndex = 34;
+            this.gbGroupsSkill.TabStop = false;
+            this.gbGroupsSkill.Text = "Grupos de Skill";
+            // 
             // bindingSourceSkills
             // 
             this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.FillWeight = 40.63752F;
-            this.Column1.HeaderText = "Letra";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 155.9785F;
-            this.Column2.HeaderText = "Skill";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.FillWeight = 137.2569F;
-            this.Column3.HeaderText = "Background Color";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 85.91298F;
-            this.Column4.HeaderText = "Text Color";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 80.21388F;
-            this.Column5.HeaderText = "Activar";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
             // 
             // FormListaSkills
             // 
@@ -303,14 +317,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1445, 731);
+            this.Controls.Add(this.gbGroupsSkill);
             this.Controls.Add(this.btnBuildTable);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cboActivate);
-            this.Controls.Add(this.btnManagmentGroups);
-            this.Controls.Add(this.cbxGroups);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvListaSkills);
@@ -321,6 +333,8 @@
             this.Load += new System.EventHandler(this.FormListaSkills_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).EndInit();
             this.flpListSkills.ResumeLayout(false);
+            this.gbGroupsSkill.ResumeLayout(false);
+            this.gbGroupsSkill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSkills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,5 +363,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
+        private System.Windows.Forms.GroupBox gbGroupsSkill;
     }
 }

@@ -44,6 +44,8 @@ namespace DesktopApp
 
             if (_llistesSkills != null)
             {
+                CargarGruposRelacionados();
+
                 txtNameListSkill.Text = _llistesSkills.nom;
                 cboActivate.Checked = llistesS.actiu;
 
@@ -323,30 +325,23 @@ namespace DesktopApp
 
         }
 
-        //private void ConstruirEncabezadosTabla()
-        //{
-        //    dgvListaSkills.Columns.Clear();
-        //    dgvListaSkills.DataSource = null;
-        //    dgvListaSkills.Columns.Add("Letra", "Letra");
-        //    dgvListaSkills.Columns.Add("Skill", "Skill");
+        private void CargarGruposRelacionados() 
+        {
+            cbxGroups.Items.Clear();
 
+            if (_llistesSkills != null)
+            {
+                List<grups_has_llistes_skills> GrupsDeSkill = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(_llistesSkills.id);
 
-        //    DataGridViewButtonColumn btnBackgroundColorSkill = new DataGridViewButtonColumn();
-        //    btnBackgroundColorSkill.Name = "btnBackgroundColorSkill";
-        //    btnBackgroundColorSkill.HeaderText = "Background Color";
+                foreach (grups_has_llistes_skills item in GrupsDeSkill)
+                {
+                    grups _grup = GrupsOrm.SelectGrup(item.grups_id);
+                    cbxGroups.Items.Add(_grup.nom);
+                }
 
-        //    dgvListaSkills.Columns.Add(btnBackgroundColorSkill);
-
-
-        //    DataGridViewButtonColumn btnColorSkill = new DataGridViewButtonColumn();
-        //    btnColorSkill.Name = "btnTextColorSkill";
-        //    btnColorSkill.HeaderText = "Text Color";
-
-        //    dgvListaSkills.Columns.Add(btnColorSkill);
-
-        //    //dgvListaSkills.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 30);
-        //}
-
+            }
+        
+        }
 
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
