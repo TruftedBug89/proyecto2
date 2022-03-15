@@ -71,11 +71,11 @@
             this.btnCloseSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseSesion.ForeColor = System.Drawing.Color.White;
             this.btnCloseSesion.Location = new System.Drawing.Point(1585, 15);
-            this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseSesion.Name = "btnCloseSesion";
             this.btnCloseSesion.Size = new System.Drawing.Size(223, 42);
             this.btnCloseSesion.TabIndex = 0;
-            this.btnCloseSesion.Text = "Cerar Sesión";
+            this.btnCloseSesion.Text = "Cerrar Sesión";
             this.btnCloseSesion.UseVisualStyleBackColor = false;
             this.btnCloseSesion.Click += new System.EventHandler(this.btnCloseSesion_Click);
             // 
@@ -90,7 +90,7 @@
             this.btnManagmentListSkills.Name = "btnManagmentListSkills";
             this.btnManagmentListSkills.Size = new System.Drawing.Size(147, 66);
             this.btnManagmentListSkills.TabIndex = 3;
-            this.btnManagmentListSkills.Text = "Gestion Lista de Skils";
+            this.btnManagmentListSkills.Text = "Gestión Lista de Skils";
             this.btnManagmentListSkills.UseVisualStyleBackColor = false;
             this.btnManagmentListSkills.Click += new System.EventHandler(this.btnManagmentListSkills_Click);
             // 
@@ -104,7 +104,7 @@
             this.btnManagmentKPI.Name = "btnManagmentKPI";
             this.btnManagmentKPI.Size = new System.Drawing.Size(174, 74);
             this.btnManagmentKPI.TabIndex = 5;
-            this.btnManagmentKPI.Text = "Gestion KPI";
+            this.btnManagmentKPI.Text = "Gestión KPI";
             this.btnManagmentKPI.UseVisualStyleBackColor = false;
             this.btnManagmentKPI.Visible = false;
             this.btnManagmentKPI.Click += new System.EventHandler(this.btnManagmentKPI_Click);
@@ -190,7 +190,7 @@
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(150, 101);
             this.btnGestionUsuarios.TabIndex = 7;
-            this.btnGestionUsuarios.Text = "Gestion Usuarios";
+            this.btnGestionUsuarios.Text = "Gestión Usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = false;
             this.btnGestionUsuarios.Click += new System.EventHandler(this.btnGestionUsuarios_Click);
             // 
@@ -211,7 +211,7 @@
             this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSkill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSkill.Location = new System.Drawing.Point(259, 212);
-            this.dgvSkill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSkill.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;

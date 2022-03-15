@@ -88,8 +88,17 @@ namespace DesktopApp
                 }
                 if (!failedAdd)
                 {
-                    Models.UsuarisOrm.InsertValues(lines[1], lines[2], lines[3], lines[4]);
-                    addedUsers++;
+                    try
+                    {
+                        Models.UsuarisOrm.InsertValues(lines[1], lines[2], lines[3], lines[4]);
+                        addedUsers++;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede procesar el archivo selecionado","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
+                    
                 }
 
 
