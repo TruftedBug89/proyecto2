@@ -263,6 +263,17 @@ namespace DesktopApp
 
                         }
 
+                        String FusionNombre = (_llistesSkills.nom + txtAddNewSkills.Text.Trim()).ToUpper();
+
+                        _llistesSkills.nom = FusionNombre;
+
+                        missatge = Llistes_SkillsOrm.Update(_llistesSkills);
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
 
                     }
 
