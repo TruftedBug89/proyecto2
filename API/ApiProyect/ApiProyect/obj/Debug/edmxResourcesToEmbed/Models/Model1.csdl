@@ -121,7 +121,7 @@
     <Property Name="rols_id" Type="Int32" Nullable="false" />
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contrasenya" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contrasenya" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
     <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
