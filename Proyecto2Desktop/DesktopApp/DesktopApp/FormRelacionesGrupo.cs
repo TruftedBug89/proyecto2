@@ -39,9 +39,12 @@ namespace DesktopApp
 
         private void btnManagmentCourses_Click(object sender, EventArgs e)
         {
+            dgvListSkills.ClearSelection();
+            dgvUsers.ClearSelection();
             FormCursos formCursos = new FormCursos(gruposStatus);
             formCursos.ShowDialog();
             cargarCursos();
+           
         }
 
         private void lbgroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,12 +170,16 @@ namespace DesktopApp
             }
             dgvUsers.ClearSelection();
 
-            cursos curs = (cursos)cbxCourses.SelectedItem;
-
-            foreach (DataGridViewRow item in dgvUsers.Rows)
+            if (cbxCourses.Items.Count != 0)
             {
-                item.Cells[2].Value = curs.nom;
+                cursos curs = (cursos)cbxCourses.SelectedItem;
+
+                foreach (DataGridViewRow item in dgvUsers.Rows)
+                {
+                    item.Cells[2].Value = curs.nom;
+                }
             }
+                      
 
 
         }
@@ -204,12 +211,17 @@ namespace DesktopApp
             }
             dgvListSkills.ClearSelection();
 
-            cursos curs = (cursos)cbxCourses.SelectedItem;
 
-            foreach (DataGridViewRow item in dgvListSkills.Rows)
+            if (cbxCourses.Items.Count != 0)
             {
-                item.Cells[1].Value = curs.nom;
+                cursos curs = (cursos)cbxCourses.SelectedItem;
+
+                foreach (DataGridViewRow item in dgvListSkills.Rows)
+                {
+                    item.Cells[1].Value = curs.nom;
+                }
             }
+            
 
 
         }
@@ -420,25 +432,32 @@ namespace DesktopApp
 
         private void cbxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cursos curs = (cursos)cbxCourses.SelectedItem;
-
-            if (gruposStatus.Equals("GuposListasSkills"))
+            if (cbxCourses.Items.Count > 0)
             {
-                foreach (DataGridViewRow item in dgvListSkills.SelectedRows)
-                {                  
-                    item.Cells[1].Value = curs.nom;
-                }
-            }
-            else
-            {
-                foreach (DataGridViewRow item in dgvUsers.SelectedRows)
-                {                   
-                    item.Cells[2].Value = curs.nom;
-                }
-            }
+                if (dgvListSkills.SelectedRows.Count > 0 || dgvUsers.SelectedRows.Count > 0)
+                {
+                    cursos curs = (cursos)cbxCourses.SelectedItem;
 
-            
+                    if (gruposStatus.Equals("GuposListasSkills"))
+                    {
+                        foreach (DataGridViewRow item in dgvListSkills.SelectedRows)
+                        {
+                            item.Cells[1].Value = curs.nom;
+                        }
+                    }
+                    else
+                    {
+                        foreach (DataGridViewRow item in dgvUsers.SelectedRows)
+                        {
+                            item.Cells[2].Value = curs.nom;
+                        }
+                    }
+                }
 
+             
+
+
+            }
 
         }
 
@@ -517,6 +536,8 @@ namespace DesktopApp
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
+            dgvListSkills.ClearSelection();
+            dgvUsers.ClearSelection();
             FormGestionGrupo formGestionGrupo = new FormGestionGrupo(gruposStatus);
             formGestionGrupo.ShowDialog();
             cargarGrupos();

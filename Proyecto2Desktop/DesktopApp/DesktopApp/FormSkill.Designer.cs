@@ -150,6 +150,8 @@
             this.cboActivate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cboActivate.BackColor = System.Drawing.SystemColors.ControlText;
             this.cboActivate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cboActivate.Checked = true;
+            this.cboActivate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

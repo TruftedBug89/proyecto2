@@ -16,7 +16,6 @@ namespace DesktopApp
     {
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
-        private String FormGruposSkills;
         private int filasNuevas = 0;
         public FormListaSkills()
         {
@@ -59,8 +58,7 @@ namespace DesktopApp
                 cboActivate.Checked = llistesS.actiu;
 
                 txtNameListSkill.ReadOnly = true;
-
-               
+                txtNameListSkill.Visible = true;
                 lblplus.Visible = true;
                 txtAddNewSkills.Visible = true;
                 lblPlus2.Visible = true;
@@ -152,24 +150,16 @@ namespace DesktopApp
                 }
                 else
                 {
-                    //Si el texto del txtAddNewSkill esta vacio actualizame todo
-                    
+                                        
                     int i = 0;
                     foreach (skills skill in _llistesSkills.skills)
                     {
 
                         skill.nom = dgvListaSkills.Rows[i].Cells[1].Value.ToString();
+                                                
+                        DataGridViewCheckBoxCell chk = dgvListaSkills.Rows[i].Cells[4] as DataGridViewCheckBoxCell;
 
-                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvListaSkills.Rows[i].Cells[4];
-
-                        if ((bool)chk.Value == true)
-                        {
-                            skill.actiu = true;
-                        }
-                        else
-                        {
-                            skill.actiu = false;
-                        }
+                        skill.actiu = Convert.ToBoolean(chk.Value);
                         skill.colorFondo = dgvListaSkills.Rows[i].Cells[2].Style.BackColor.ToArgb();
                         skill.colorTexto = dgvListaSkills.Rows[i].Cells[3].Style.BackColor.ToArgb();
 
@@ -183,6 +173,17 @@ namespace DesktopApp
 
                         i++;
                     }
+
+                    _llistesSkills.nom = ActualizarNombreSkillActivadas(_llistesSkills.id);
+
+                    missatge = Llistes_SkillsOrm.Update(_llistesSkills);
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
 
                     //si el texto del addNewSkill no esta vacio añademe x skills como caracteres tenga el texto
                     if (!txtAddNewSkills.Text.Equals(""))
@@ -211,18 +212,8 @@ namespace DesktopApp
 
                                 _skill.llistes_skills_id = _llistesSkills.id;
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
-
-
-                                if ((bool)chk.Value == true)
-                                {
-                                    _skill.actiu = true;
-                                }
-                                else
-                                {
-                                    _skill.actiu = false;
-                                }
-
-
+                                                               
+                                _skill.actiu = Convert.ToBoolean(chk.Value);
                                 _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
                                 _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
                                 missatge = SkillsOrm.Insert(_skill);
@@ -234,6 +225,30 @@ namespace DesktopApp
                                 }
 
                             }
+
+                            List<skills> skillsLlistaSkills = SkillsOrm.SelectActivate(_llistesSkills.id);
+                            char[] LetrasActivadas = new char[skillsLlistaSkills.Count];
+
+                            int j = 0;
+                            foreach (skills skill in skillsLlistaSkills)
+                            {
+                                char[] letraSkill = skill.nom.ToCharArray();
+
+                                LetrasActivadas[j] = letraSkill[0];
+                                j++;
+                            }
+
+                            String nuevoNombre = new String(LetrasActivadas);
+
+                            _llistesSkills.nom = nuevoNombre.ToUpper();
+
+                            missatge = Llistes_SkillsOrm.Update(_llistesSkills);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
 
                             dgvListaNewSkills.Rows.Clear();
 
@@ -247,7 +262,7 @@ namespace DesktopApp
                                 skills _skill = new skills();
                                 _skill.llistes_skills_id = _llistesSkills.id;
                                 _skill.nom = letras[j].ToString().ToUpper();
-                                _skill.actiu = false;
+                                _skill.actiu = true;
                                 _skill.colorFondo = Color.Black.ToArgb();
                                 _skill.colorTexto = Color.White.ToArgb();
 
@@ -263,12 +278,33 @@ namespace DesktopApp
 
                         }
 
+                        string NuevasSkillsActivadas = ActualizarNombreSkillActivadas(_llistesSkills.id);
+
+                        missatge = Llistes_SkillsOrm.Update(_llistesSkills);
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+                        String FusionNombre = (_llistesSkills.nom + txtAddNewSkills.Text.Trim()).ToUpper();
+
+                        _llistesSkills.nom = NuevasSkillsActivadas;
+
+                        missatge = Llistes_SkillsOrm.Update(_llistesSkills);
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
 
                     }
 
+
                    
-                    MessageBox.Show("Lista de skills actualizada");
-                    ActualizarPanelListaSkills();
+                    MessageBox.Show("Lista de skills actualizada");                   
 
                 }
 
@@ -315,17 +351,7 @@ namespace DesktopApp
                                 _skill.llistes_skills_id = _llistes_Skills.id;
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
 
-                                
-                                if ((bool)chk.Value == true)
-                                {
-                                    _skill.actiu = true;
-                                }
-                                else
-                                {
-                                    _skill.actiu = false;
-                                }
-
-
+                                _skill.actiu = Convert.ToBoolean(chk.Value);
                                 _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
                                 _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
                                 missatge = SkillsOrm.Insert(_skill);
@@ -338,6 +364,18 @@ namespace DesktopApp
 
                             }
 
+
+                            _llistes_Skills.nom = ActualizarNombreSkillActivadas(_llistes_Skills.id);
+
+                            missatge = Llistes_SkillsOrm.Update(_llistes_Skills);
+
+                            if (missatge != "")
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+
+
                         }
                         else
                         {
@@ -349,7 +387,7 @@ namespace DesktopApp
                                 skills _skill = new skills();
                                 _skill.llistes_skills_id = _llistes_Skills.id;
                                 _skill.nom = letras[i].ToString().ToUpper();
-                                _skill.actiu = false;
+                                _skill.actiu = true;
                                 _skill.colorFondo = Color.Black.ToArgb();
                                 _skill.colorTexto = Color.White.ToArgb();
 
@@ -367,7 +405,8 @@ namespace DesktopApp
                         }
 
                         MessageBox.Show("Lista de skills añadida");
-                        ActualizarPanelListaSkills();
+                        
+                        
                     }
                 }
                 else
@@ -376,13 +415,47 @@ namespace DesktopApp
                 }
 
 
-
-
             }
 
-            
+            ActualizarPanelListaSkills();
+            dgvListaSkills.Rows.Clear();
+            dgvListaNewSkills.Rows.Clear();
+            dgvListaNewSkills.Visible = false;
+            txtNameListSkill.Text = "";
+            txtAddNewSkills.Text = "";
+            lblplus.Visible = false;
+            lblPlus2.Visible = false;
+            txtAddNewSkills.Visible = false;
+            txtNameListSkill.Visible = false;
 
         }
+
+
+        private String ActualizarNombreSkillActivadas(int idLista) 
+        {
+
+            //Una vez añadidas las skills mirar las que esten activadas y actualizar el nombre de la lista de skills
+            //concatenando las letras de skills activadas.
+            //Ej: FRASE la R y la S estan desactivadas --> FAE
+
+            List<skills> skillsLlistaSkills = SkillsOrm.SelectActivate(idLista);
+            char[] LetrasActivadas = new char[skillsLlistaSkills.Count];
+
+            int i = 0;
+            foreach (skills skill in skillsLlistaSkills)
+            {
+                char[] letraSkill = skill.nom.ToCharArray();
+
+                LetrasActivadas[i] = letraSkill[0];
+                i++;
+            }
+
+            String nuevoNombre = new String(LetrasActivadas);
+
+            return nuevoNombre.ToUpper();
+
+        }
+
 
         private void ActualizarPanelListaSkills()
         {
@@ -454,15 +527,15 @@ namespace DesktopApp
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
-            FormGruposSkills = "GuposListasSkills";
-            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+           
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("GuposListasSkills");
             formRelacionesGrupo.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGruposSkills = "";
-            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+           
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("");
             formRelacionesGrupo.ShowDialog();
         }
 
@@ -602,6 +675,22 @@ namespace DesktopApp
                 {
                     cambiarColorBotonCelda2(e.RowIndex, 3);
                 }
+            }
+        }
+
+        private void dgvListaSkills_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                if (!dgvListaSkills.Rows[e.RowIndex].Cells[1].Value.Equals(""))
+                {
+                    char[] letras = dgvListaSkills.Rows[e.RowIndex].Cells[1].Value.ToString().ToCharArray();
+                    String letraMayuscula = letras[0].ToString().ToUpper();
+
+                    dgvListaSkills.Rows[e.RowIndex].Cells[0].Value = letraMayuscula;
+                }
+                
+
             }
         }
     }
