@@ -165,6 +165,7 @@
     <Compile Include="Clases\Error.cs" />
     <Compile Include="Controllers\cursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\llistes_skillsController.cs" />
     <Compile Include="Controllers\skillsController.cs" />
     <Compile Include="Controllers\valoracionsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
