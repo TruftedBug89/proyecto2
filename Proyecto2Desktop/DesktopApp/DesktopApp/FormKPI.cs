@@ -26,8 +26,9 @@ namespace DesktopApp
 
         private void FormKPI_Load(object sender, EventArgs e)
         {
-            bindingSourceKPI.DataSource = Models.KpisOrm.Select(true, this.skillId);
+            bindingSourceKPI.DataSource = Models.KpisOrm.Select(false, this.skillId);
             lblKPIName.Text = this.skill.nom;
+            setActiveCheck();
         }
 
         private void btnAddKpi_Click(object sender, EventArgs e)
@@ -47,6 +48,7 @@ namespace DesktopApp
                 bindingSourceKPI.Add(_kpi);
                 txtNewKPI.Text = "";
             }
+            setActiveCheck();
 
 
         }
@@ -121,8 +123,17 @@ namespace DesktopApp
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             kpis editedKpi = (kpis)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+            editedKpi.actiu = (bool)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
             Console.WriteLine(editedKpi.nom);
             this.updatedItems.Add(editedKpi);
+        }
+        private void setActiveCheck()
+        {
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                Models.kpis uae = (Models.kpis)row.DataBoundItem;
+                row.Cells[6].Value = uae.actiu;
+            }
         }
     }
 }

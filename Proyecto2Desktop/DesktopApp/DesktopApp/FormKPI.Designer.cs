@@ -45,6 +45,7 @@
             this.actiuDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.valoracionsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -145,7 +146,8 @@
             this.skillsidDataGridViewTextBoxColumn1,
             this.actiuDataGridViewCheckBoxColumn1,
             this.valoracionsDataGridViewTextBoxColumn1,
-            this.skillsDataGridViewTextBoxColumn1});
+            this.skillsDataGridViewTextBoxColumn1,
+            this.activo});
             this.dataGridView1.DataSource = this.bindingSourceKPI;
             this.dataGridView1.Location = new System.Drawing.Point(192, 196);
             this.dataGridView1.Name = "dataGridView1";
@@ -203,6 +205,13 @@
             this.skillsDataGridViewTextBoxColumn1.Name = "skillsDataGridViewTextBoxColumn1";
             this.skillsDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // activo
+            // 
+            this.activo.FillWeight = 20F;
+            this.activo.HeaderText = "Activo";
+            this.activo.MinimumWidth = 8;
+            this.activo.Name = "activo";
+            // 
             // bindingSourceKPI
             // 
             this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
@@ -250,5 +259,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn skillsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activo;
     }
 }
