@@ -125,53 +125,19 @@ namespace DesktopApp
         {
             String missatge = "";
 
-            if (_skill != null)
+
+            if (!txtNameSkill.Text.Equals(""))
             {
-                char[] letrasS = txtNameSkill.Text.ToCharArray();
+                String nombreSkill = "";
 
-                //remplazar la primera letra en caso de repeticion de caracteres
-                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
-                String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
-
-                missatge = SkillsOrm.Update(_skill, nombreSkill, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
-                
-                if (missatge != "")
+                if (_skill != null)
                 {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Skill Actualizada");
-                    ActualizarPanelSkills();
-                    ActualizarNombreListaSkills(missatge);
-                }
-            }
-            else
-            {
-                skills S = new skills();
-                char[] letrasS = txtNameSkill.Text.ToCharArray();
-                var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
-                String nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
+                    char[] letrasS = txtNameSkill.Text.ToCharArray();
+                    //remplazar la primera letra en caso de repeticion de caracteres
+                    var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                    nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
 
-                S.nom = nombreSkill;
-                S.llistes_skills_id = _llistaS.id;
-                S.actiu = cboActivate.Checked;
-                S.colorFondo = txtBcolor.BackColor.ToArgb();
-                S.colorTexto = txtTcolor.BackColor.ToArgb();
-
-                missatge = SkillsOrm.Insert(S);
-
-                if (missatge != "")
-                {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    char[] letras = _llistaS.nom.ToCharArray();
-                    char[] letraSnueva = S.nom.ToCharArray();
-                    String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
-
-                    missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
+                    missatge = SkillsOrm.Update(_skill, nombreSkill, cboActivate.Checked, txtBcolor.BackColor.ToArgb(), txtTcolor.BackColor.ToArgb());
 
                     if (missatge != "")
                     {
@@ -179,17 +145,69 @@ namespace DesktopApp
                     }
                     else
                     {
-                        MessageBox.Show("Skill añadida");
+                        MessageBox.Show("Skill Actualizada");
                         ActualizarPanelSkills();
                         ActualizarNombreListaSkills(missatge);
+                    }
+
+
+
+
+
+                }
+                else
+                {
+                    skills S = new skills();
+                    char[] letrasS = txtNameSkill.Text.ToCharArray();
+                    var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
+                    nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
+
+                    S.nom = nombreSkill;
+                    S.llistes_skills_id = _llistaS.id;
+                    S.actiu = cboActivate.Checked;
+                    S.colorFondo = txtBcolor.BackColor.ToArgb();
+                    S.colorTexto = txtTcolor.BackColor.ToArgb();
+
+                    missatge = SkillsOrm.Insert(S);
+
+                    if (missatge != "")
+                    {
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        char[] letras = _llistaS.nom.ToCharArray();
+                        char[] letraSnueva = S.nom.ToCharArray();
+                        String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
+
+                        missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
+
+                        if (missatge != "")
+                        {
+                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Skill añadida");
+                            ActualizarPanelSkills();
+                            ActualizarNombreListaSkills(missatge);
+
+                        }
+
 
                     }
 
 
                 }
 
-
             }
+            else
+            {
+                MessageBox.Show("Introduce el nombre de la Skill");
+            }
+
+                   
+            
 
 
 

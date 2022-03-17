@@ -16,7 +16,6 @@ namespace DesktopApp
     {
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
-        private String FormGruposSkills;
         private int filasNuevas = 0;
         public FormListaSkills()
         {
@@ -59,8 +58,7 @@ namespace DesktopApp
                 cboActivate.Checked = llistesS.actiu;
 
                 txtNameListSkill.ReadOnly = true;
-
-               
+                txtNameListSkill.Visible = true;
                 lblplus.Visible = true;
                 txtAddNewSkills.Visible = true;
                 lblPlus2.Visible = true;
@@ -529,15 +527,15 @@ namespace DesktopApp
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
-            FormGruposSkills = "GuposListasSkills";
-            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+           
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("GuposListasSkills");
             formRelacionesGrupo.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGruposSkills = "";
-            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo(FormGruposSkills);
+           
+            FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("");
             formRelacionesGrupo.ShowDialog();
         }
 

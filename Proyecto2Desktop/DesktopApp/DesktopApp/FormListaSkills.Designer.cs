@@ -31,13 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNameListSkill = new System.Windows.Forms.Label();
             this.txtNameListSkill = new System.Windows.Forms.TextBox();
             this.dgvListaSkills = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,18 +59,13 @@
             this.txtAddNewSkills = new System.Windows.Forms.TextBox();
             this.lblplus = new System.Windows.Forms.Label();
             this.dgvListaNewSkills = new System.Windows.Forms.DataGridView();
-            this.lblPlus2 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblPlus2 = new System.Windows.Forms.Label();
+            this.bindingSourceSkills = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSkills)).BeginInit();
             this.flpListSkills.SuspendLayout();
             this.gbGroupsSkill.SuspendLayout();
@@ -128,6 +128,48 @@
             this.dgvListaSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellClick);
             this.dgvListaSkills.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaSkills_CellValueChanged);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.FillWeight = 40.63752F;
+            this.Column1.HeaderText = "Letra";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 155.9785F;
+            this.Column2.HeaderText = "Skill";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 137.2569F;
+            this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column3.HeaderText = "Background Color";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 85.91298F;
+            this.Column4.HeaderText = "Text Color";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.FalseValue = "False";
+            this.Column5.FillWeight = 80.21388F;
+            this.Column5.HeaderText = "Activar";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.TrueValue = "True";
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.Desktop;
@@ -180,7 +222,7 @@
             this.btnManagmentGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentGroups.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentGroups.Location = new System.Drawing.Point(18, 105);
+            this.btnManagmentGroups.Location = new System.Drawing.Point(23, 103);
             this.btnManagmentGroups.Name = "btnManagmentGroups";
             this.btnManagmentGroups.Size = new System.Drawing.Size(182, 42);
             this.btnManagmentGroups.TabIndex = 18;
@@ -337,63 +379,6 @@
             this.dgvListaNewSkills.Visible = false;
             this.dgvListaNewSkills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaNewSkills_CellClick);
             // 
-            // lblPlus2
-            // 
-            this.lblPlus2.AutoSize = true;
-            this.lblPlus2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlus2.Location = new System.Drawing.Point(653, 466);
-            this.lblPlus2.Name = "lblPlus2";
-            this.lblPlus2.Size = new System.Drawing.Size(38, 39);
-            this.lblPlus2.TabIndex = 38;
-            this.lblPlus2.Text = "+";
-            this.lblPlus2.Visible = false;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.FillWeight = 40.63752F;
-            this.Column1.HeaderText = "Letra";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 155.9785F;
-            this.Column2.HeaderText = "Skill";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 137.2569F;
-            this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column3.HeaderText = "Background Color";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 85.91298F;
-            this.Column4.HeaderText = "Text Color";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.FalseValue = "False";
-            this.Column5.FillWeight = 80.21388F;
-            this.Column5.HeaderText = "Activar";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.TrueValue = "True";
-            // 
-            // bindingSourceSkills
-            // 
-            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -437,6 +422,21 @@
             this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             this.dataGridViewCheckBoxColumn1.TrueValue = "True";
+            // 
+            // lblPlus2
+            // 
+            this.lblPlus2.AutoSize = true;
+            this.lblPlus2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlus2.Location = new System.Drawing.Point(653, 466);
+            this.lblPlus2.Name = "lblPlus2";
+            this.lblPlus2.Size = new System.Drawing.Size(38, 39);
+            this.lblPlus2.TabIndex = 38;
+            this.lblPlus2.Text = "+";
+            this.lblPlus2.Visible = false;
+            // 
+            // bindingSourceSkills
+            // 
+            this.bindingSourceSkills.DataSource = typeof(DesktopApp.Models.skills);
             // 
             // FormListaSkills
             // 
