@@ -104,7 +104,11 @@ namespace DesktopApp.Models
             return _usuari;
         }
 
-
+        internal static string Update(usuaris usuarioAEditar)
+        {
+            
+                return Orm.MySaveChanges();
+        }
     }
 
 }

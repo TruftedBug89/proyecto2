@@ -56,47 +56,63 @@ namespace DesktopApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool check = false;
-            bool checkPass = false;
-            bool checkEmail = false;
+            bool campoVacio = false;
+            bool contrasIguales = false;
+            bool emailValido = false;
             
-            if (tbEmail.Equals("")) {
-                check = true;
+            if (String.IsNullOrWhiteSpace(tbEmail.Text)) {
+                campoVacio = true;
             }
-            checkEmail = ValidarEmail(tbEmail.Text);
+            emailValido = ValidarEmail(tbEmail.Text);
             
-            if (tbUser.Text.Equals("")) {
-                check = true;
+            if (String.IsNullOrWhiteSpace(tbUser.Text)) {
+                campoVacio = true;
             }
-            if (tbPassword.Text.Equals("")) {
-                check = true;
+            if (String.IsNullOrWhiteSpace(tbPassword.Text)) {
+                contrasIguales = true;
             }
             if (tbPassword.Text.Equals(tbRepeatPassword.Text)) {
-                checkPass = true;
+                contrasIguales = true;
             }
-            if (tbLastName.Text.Equals("")) {
-                check = true;
+            if (String.IsNullOrWhiteSpace(tbLastName.Text)) {
+                campoVacio = true;
             }
-            if (tbName.Text.Equals("")) {
-                check = true;
+            if (String.IsNullOrWhiteSpace(tbName.Text)) {
+                campoVacio = true;
             }
 
             if (cbxSelectionPerfil.SelectedIndex == -1) {
-                checkPass = true;
+                campoVacio = true;
             }
-            if (usuarioAEditar != null && !check && checkEmail)
+            if (usuarioAEditar != null && !campoVacio && emailValido)
             {
-                _usuaris.nom = tbName.Text;
-                _usuaris.cognoms = tbLastName.Text;
-                _usuaris.nomUsuari = tbUser.Text;
-                _usuaris.actiu = cbActiu.Checked;
+                usuarioAEditar.nom = tbName.Text;
+                usuarioAEditar.cognoms = tbLastName.Text;
+                usuarioAEditar.nomUsuari = tbUser.Text;
+                usuarioAEditar.actiu = cbActiu.Checked;
                 rols rolselect = (rols)cbxSelectionPerfil.SelectedItem;
-                _usuaris.rols_id = rolselect.id;
-                _usuaris.correo = tbEmail.Text;
+                usuarioAEditar.rols_id = rolselect.id;
+                usuarioAEditar.correo = tbEmail.Text;
+                if (!String.IsNullOrWhiteSpace(tbPassword.Text))
+                {
+                    if ((tbPassword.Text).Equals(tbRepeatPassword.Text)) {
+                        usuarioAEditar.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text, hashType: BCrypt.Net.HashType.SHA512);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las contraseñas no son iguales");
+                        return;
+                    }
+                }
+                Models.UsuarisOrm.Update(usuarioAEditar);
+                MessageBox.Show("Usuari "+ usuarioAEditar.nom +" actualizado correctamente");
+                this.Close();
+                        
 
                 return;
             }
-            if (check == false && checkPass == true && checkEmail == true) {
+            
+            if (campoVacio == false && contrasIguales == true && emailValido == true) {
 
                 _usuaris.correo = tbEmail.Text;
                 
@@ -122,6 +138,7 @@ namespace DesktopApp
                 }
                 this.Close();
             }
+            MessageBox.Show("Nothing happended");
         }
         public static bool ValidarEmail(string email)
         {

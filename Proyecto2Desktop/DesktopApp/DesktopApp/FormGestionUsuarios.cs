@@ -147,6 +147,11 @@ namespace DesktopApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex < 0) return;
             int rowIndex = e.RowIndex;
             DataGridViewRow r = dataGridView1.Rows[e.RowIndex];

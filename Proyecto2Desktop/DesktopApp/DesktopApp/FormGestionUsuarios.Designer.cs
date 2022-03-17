@@ -40,11 +40,6 @@ namespace DesktopApp
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnAddUsers = new System.Windows.Forms.Button();
-            this.btnRoles = new System.Windows.Forms.Button();
-            this.btnGroups = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +52,11 @@ namespace DesktopApp
             this.valoracionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valoracions1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddUsers = new System.Windows.Forms.Button();
+            this.btnRoles = new System.Windows.Forms.Button();
+            this.btnGroups = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
@@ -173,62 +173,8 @@ namespace DesktopApp
             this.dataGridView1.Size = new System.Drawing.Size(921, 248);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // btnAddUsers
-            // 
-            this.btnAddUsers.Location = new System.Drawing.Point(98, 498);
-            this.btnAddUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddUsers.Name = "btnAddUsers";
-            this.btnAddUsers.Size = new System.Drawing.Size(127, 40);
-            this.btnAddUsers.TabIndex = 10;
-            this.btnAddUsers.Text = "Añadir Usuario";
-            this.btnAddUsers.UseVisualStyleBackColor = true;
-            this.btnAddUsers.Click += new System.EventHandler(this.btnAddUsers_Click);
-            // 
-            // btnRoles
-            // 
-            this.btnRoles.Location = new System.Drawing.Point(270, 496);
-            this.btnRoles.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRoles.Name = "btnRoles";
-            this.btnRoles.Size = new System.Drawing.Size(161, 41);
-            this.btnRoles.TabIndex = 11;
-            this.btnRoles.Text = "Gestionar Perfiles";
-            this.btnRoles.UseVisualStyleBackColor = true;
-            this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
-            // 
-            // btnGroups
-            // 
-            this.btnGroups.Location = new System.Drawing.Point(469, 499);
-            this.btnGroups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGroups.Name = "btnGroups";
-            this.btnGroups.Size = new System.Drawing.Size(184, 40);
-            this.btnGroups.TabIndex = 12;
-            this.btnGroups.Text = "Gestionar Grupos";
-            this.btnGroups.UseVisualStyleBackColor = true;
-            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(919, 499);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(108, 40);
-            this.btnDownload.TabIndex = 13;
-            this.btnDownload.Text = "Descargar";
-            this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(503, 601);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(84, 29);
-            this.btnExit.TabIndex = 14;
-            this.btnExit.Text = "Salir";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -329,6 +275,61 @@ namespace DesktopApp
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(DesktopApp.Models.usuaris);
+            // 
+            // btnAddUsers
+            // 
+            this.btnAddUsers.Location = new System.Drawing.Point(98, 498);
+            this.btnAddUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddUsers.Name = "btnAddUsers";
+            this.btnAddUsers.Size = new System.Drawing.Size(127, 40);
+            this.btnAddUsers.TabIndex = 10;
+            this.btnAddUsers.Text = "Añadir Usuario";
+            this.btnAddUsers.UseVisualStyleBackColor = true;
+            this.btnAddUsers.Click += new System.EventHandler(this.btnAddUsers_Click);
+            // 
+            // btnRoles
+            // 
+            this.btnRoles.Location = new System.Drawing.Point(270, 496);
+            this.btnRoles.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRoles.Name = "btnRoles";
+            this.btnRoles.Size = new System.Drawing.Size(161, 41);
+            this.btnRoles.TabIndex = 11;
+            this.btnRoles.Text = "Gestionar Perfiles";
+            this.btnRoles.UseVisualStyleBackColor = true;
+            this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
+            // 
+            // btnGroups
+            // 
+            this.btnGroups.Location = new System.Drawing.Point(469, 499);
+            this.btnGroups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Size = new System.Drawing.Size(184, 40);
+            this.btnGroups.TabIndex = 12;
+            this.btnGroups.Text = "Gestionar Grupos";
+            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(919, 499);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(108, 40);
+            this.btnDownload.TabIndex = 13;
+            this.btnDownload.Text = "Descargar";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(503, 601);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(84, 29);
+            this.btnExit.TabIndex = 14;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // FormGestionUsuarios
             // 
