@@ -20,6 +20,7 @@ namespace ApiProyect.Controllers
         // GET: api/skills
         public IQueryable<skills> Getskills()
         {
+            db.Configuration.LazyLoadingEnabled = false;
             return db.skills;
         }
 
@@ -27,6 +28,7 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(skills))]
         public async Task<IHttpActionResult> Getskills(int id)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             skills skills = await db.skills.FindAsync(id);
             if (skills == null)
             {
