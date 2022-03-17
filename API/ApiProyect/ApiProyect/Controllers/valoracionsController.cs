@@ -43,7 +43,7 @@ namespace ApiProyect.Controllers
 
             return result;
         }
-        [HttpGet]
+        
 
         // PUT: api/valoracions/5
         [ResponseType(typeof(void))]
@@ -53,7 +53,7 @@ namespace ApiProyect.Controllers
             String missatge = "";
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
             else {
                 if (id != valoracions.kpis_id)

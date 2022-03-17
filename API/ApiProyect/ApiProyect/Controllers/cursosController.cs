@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -28,80 +27,126 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(cursos))]
         public async Task<IHttpActionResult> Getcursos(int id)
         {
+            IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
-            cursos cursos = await db.cursos.FindAsync(id);
+            cursos cursos = db.cursos.Where(c => c.id == id).FirstOrDefault();
+            //cursos cursos = await db.cursos.FindAsync(id);
             if (cursos == null)
             {
-                return NotFound();
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(cursos);
             }
 
-            return Ok(cursos);
+            return result;
         }
 
         // PUT: api/cursos/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putcursos(int id, cursos cursos)
         {
+            IHttpActionResult result;
+            String missatge = "";
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != cursos.id)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(cursos).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!cursosExists(id))
+                if (id != cursos.id)
                 {
-                    return NotFound();
+                    result = BadRequest();
                 }
                 else
                 {
-                    throw;
+                    db.Entry(cursos).State = EntityState.Modified;
+
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                        result = StatusCode(HttpStatusCode.NoContent);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!cursosExists(id))
+                        {
+                            result = NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                        missatge = Clases.Error.MissatgeError(sqlException);
+                        result = BadRequest(missatge);
+                    }
                 }
             }
+            return result;
 
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/cursos
         [ResponseType(typeof(cursos))]
         public async Task<IHttpActionResult> Postcursos(cursos cursos)
         {
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            db.cursos.Add(cursos);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = cursos.id }, cursos);
+            else
+            {
+                db.cursos.Add(cursos);
+                String missatge = "";
+                try
+                {
+                    await db.SaveChangesAsync();
+                    result = CreatedAtRoute("DefaultApi", new { id = cursos.id }, cursos);
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = Clases.Error.MissatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
+            }
+            return result;
         }
 
         // DELETE: api/cursos/5
         [ResponseType(typeof(cursos))]
         public async Task<IHttpActionResult> Deletecursos(int id)
         {
+            IHttpActionResult result;
             cursos cursos = await db.cursos.FindAsync(id);
             if (cursos == null)
             {
-                return NotFound();
+                result =  NotFound();
+            }
+            else
+            {
+                String missatge = "";
+                try
+                {
+                    db.cursos.Remove(cursos);
+                    await db.SaveChangesAsync();
+                    result = Ok(cursos);
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = Clases.Error.MissatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
             }
 
-            db.cursos.Remove(cursos);
-            await db.SaveChangesAsync();
-
-            return Ok(cursos);
+            return result;
         }
 
         protected override void Dispose(bool disposing)
