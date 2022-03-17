@@ -84,19 +84,35 @@ namespace DesktopApp
             if (cbxSelectionPerfil.SelectedIndex == -1) {
                 checkPass = true;
             }
+            if (usuarioAEditar != null && !check && checkEmail)
+            {
+                _usuaris.nom = tbName.Text;
+                _usuaris.cognoms = tbLastName.Text;
+                _usuaris.nomUsuari = tbUser.Text;
+                _usuaris.actiu = cbActiu.Checked;
+                rols rolselect = (rols)cbxSelectionPerfil.SelectedItem;
+                _usuaris.rols_id = rolselect.id;
+                _usuaris.correo = tbEmail.Text;
+
+                return;
+            }
             if (check == false && checkPass == true && checkEmail == true) {
 
                 _usuaris.correo = tbEmail.Text;
                 
                 _usuaris.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text,hashType: BCrypt.Net.HashType.SHA512);
                
-                _usuaris.rols= (rols)cbxSelectionPerfil.SelectedItem;
+                //esto si 
+                rols rolselect = (rols)cbxSelectionPerfil.SelectedItem;
+                _usuaris.rols_id = rolselect.id;
                
+                //_usuaris.rols = (rols)cbxSelectionPerfil.SelectedItem;
                 _usuaris.nom = tbName.Text;
                 _usuaris.cognoms = tbLastName.Text;
                 _usuaris.nomUsuari = tbUser.Text;
                 _usuaris.actiu = cbActiu.Checked;
                 _usuaris.imagen = null;
+                
 
                 String missatge = UsuarisOrm.Insert(_usuaris);
 
@@ -143,5 +159,10 @@ namespace DesktopApp
             }
         }
 
+        private void btnGroupManagment_Click(object sender, EventArgs e)
+        {
+            FormGestionGrupo fgg = new FormGestionGrupo("");
+            fgg.ShowDialog();
+        }
     }
 }

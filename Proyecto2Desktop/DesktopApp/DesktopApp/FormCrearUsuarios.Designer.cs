@@ -61,7 +61,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(338, 200);
+            this.label1.Location = new System.Drawing.Point(297, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 26);
             this.label1.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(338, 295);
+            this.label2.Location = new System.Drawing.Point(338, 291);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 26);
             this.label2.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(338, 402);
+            this.label3.Location = new System.Drawing.Point(338, 389);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 26);
             this.label3.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(338, 500);
+            this.label4.Location = new System.Drawing.Point(855, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(188, 26);
             this.label4.TabIndex = 3;
@@ -121,21 +121,22 @@
             // 
             // btnGroupManagment
             // 
-            this.btnGroupManagment.Location = new System.Drawing.Point(772, 619);
+            this.btnGroupManagment.Location = new System.Drawing.Point(740, 557);
             this.btnGroupManagment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGroupManagment.Name = "btnGroupManagment";
             this.btnGroupManagment.Size = new System.Drawing.Size(202, 35);
             this.btnGroupManagment.TabIndex = 7;
             this.btnGroupManagment.Text = "Gestión de Grupos";
             this.btnGroupManagment.UseVisualStyleBackColor = true;
+            this.btnGroupManagment.Click += new System.EventHandler(this.btnGroupManagment_Click);
             // 
             // tbUser
             // 
             this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUser.Location = new System.Drawing.Point(596, 198);
+            this.tbUser.Location = new System.Drawing.Point(555, 180);
             this.tbUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUser.Name = "tbUser";
-            this.tbUser.Size = new System.Drawing.Size(543, 32);
+            this.tbUser.Size = new System.Drawing.Size(179, 32);
             this.tbUser.TabIndex = 10;
             // 
             // cbxSelectionPerfil
@@ -143,11 +144,12 @@
             this.cbxSelectionPerfil.DataSource = this.bsRols;
             this.cbxSelectionPerfil.DisplayMember = "nom";
             this.cbxSelectionPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSelectionPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cbxSelectionPerfil.FormattingEnabled = true;
-            this.cbxSelectionPerfil.Location = new System.Drawing.Point(596, 502);
+            this.cbxSelectionPerfil.Location = new System.Drawing.Point(1113, 174);
             this.cbxSelectionPerfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxSelectionPerfil.Name = "cbxSelectionPerfil";
-            this.cbxSelectionPerfil.Size = new System.Drawing.Size(346, 28);
+            this.cbxSelectionPerfil.Size = new System.Drawing.Size(195, 34);
             this.cbxSelectionPerfil.TabIndex = 13;
             this.cbxSelectionPerfil.ValueMember = "id";
             // 
@@ -158,7 +160,7 @@
             // tbRepeatPassword
             // 
             this.tbRepeatPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRepeatPassword.Location = new System.Drawing.Point(596, 396);
+            this.tbRepeatPassword.Location = new System.Drawing.Point(596, 384);
             this.tbRepeatPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbRepeatPassword.Name = "tbRepeatPassword";
             this.tbRepeatPassword.Size = new System.Drawing.Size(346, 32);
@@ -167,7 +169,7 @@
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(596, 289);
+            this.tbPassword.Location = new System.Drawing.Point(596, 291);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(346, 32);
@@ -190,11 +192,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label6.ForeColor = System.Drawing.Color.FloralWhite;
-            this.label6.Location = new System.Drawing.Point(672, 19);
+            this.label6.Location = new System.Drawing.Point(660, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(216, 30);
+            this.label6.Size = new System.Drawing.Size(255, 30);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Creació d\'Usuaris";
+            this.label6.Text = "Creación de usuarios";
             // 
             // btnCerrarSesión
             // 
@@ -212,7 +214,7 @@
             // cbActiu
             // 
             this.cbActiu.AutoSize = true;
-            this.cbActiu.Location = new System.Drawing.Point(291, 589);
+            this.cbActiu.Location = new System.Drawing.Point(587, 557);
             this.cbActiu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbActiu.Name = "cbActiu";
             this.cbActiu.Size = new System.Drawing.Size(78, 24);
@@ -223,18 +225,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(339, 131);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Location = new System.Drawing.Point(338, 483);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
+            this.label5.Size = new System.Drawing.Size(84, 26);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Correo";
+            this.label5.Text = "Correo:";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(432, 131);
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.tbEmail.Location = new System.Drawing.Point(596, 480);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(321, 26);
+            this.tbEmail.Size = new System.Drawing.Size(513, 32);
             this.tbEmail.TabIndex = 20;
             // 
             // cbLookPassword
@@ -243,7 +247,7 @@
             this.cbLookPassword.Location = new System.Drawing.Point(965, 295);
             this.cbLookPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLookPassword.Name = "cbLookPassword";
-            this.cbLookPassword.Size = new System.Drawing.Size(216, 36);
+            this.cbLookPassword.Size = new System.Drawing.Size(144, 24);
             this.cbLookPassword.TabIndex = 21;
             this.cbLookPassword.Text = "Mostrar/Ocultar";
             this.cbLookPassword.UseVisualStyleBackColor = true;
@@ -252,10 +256,10 @@
             // cbRepeatPassword
             // 
             this.cbRepeatPassword.AutoSize = true;
-            this.cbRepeatPassword.Location = new System.Drawing.Point(965, 405);
+            this.cbRepeatPassword.Location = new System.Drawing.Point(965, 384);
             this.cbRepeatPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbRepeatPassword.Name = "cbRepeatPassword";
-            this.cbRepeatPassword.Size = new System.Drawing.Size(216, 36);
+            this.cbRepeatPassword.Size = new System.Drawing.Size(144, 24);
             this.cbRepeatPassword.TabIndex = 22;
             this.cbRepeatPassword.Text = "Mostrar/Ocultar";
             this.cbRepeatPassword.UseVisualStyleBackColor = true;
@@ -264,35 +268,39 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(336, 552);
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbName.Location = new System.Drawing.Point(297, 97);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(65, 20);
+            this.lbName.Size = new System.Drawing.Size(96, 26);
             this.lbName.TabIndex = 23;
-            this.lbName.Text = "Nombre";
+            this.lbName.Text = "Nombre:";
             // 
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(244, 690);
+            this.lbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbLastName.Location = new System.Drawing.Point(647, 99);
             this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(77, 20);
+            this.lbLastName.Size = new System.Drawing.Size(107, 26);
             this.lbLastName.TabIndex = 24;
-            this.lbLastName.Text = "Cognoms";
+            this.lbLastName.Text = "Apellidos:";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(408, 552);
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.tbName.Location = new System.Drawing.Point(417, 99);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(321, 26);
+            this.tbName.Size = new System.Drawing.Size(207, 32);
             this.tbName.TabIndex = 25;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(326, 686);
+            this.tbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.tbLastName.Location = new System.Drawing.Point(773, 99);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(112, 26);
+            this.tbLastName.Size = new System.Drawing.Size(535, 32);
             this.tbLastName.TabIndex = 26;
             // 
             // FormCrearUsuarios
