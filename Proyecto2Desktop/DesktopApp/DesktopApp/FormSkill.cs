@@ -144,15 +144,9 @@ namespace DesktopApp
                         MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                    {
-                        MessageBox.Show("Skill Actualizada");
-                        ActualizarPanelSkills();
-                        ActualizarNombreListaSkills(missatge);
+                    {                    
+                        ActualizarNombreListaSkills("Skill Actualizada");
                     }
-
-
-
-
 
                 }
                 else
@@ -175,26 +169,8 @@ namespace DesktopApp
                         MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                    {
-                        char[] letras = _llistaS.nom.ToCharArray();
-                        char[] letraSnueva = S.nom.ToCharArray();
-                        String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
-
-                        missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
-
-                        if (missatge != "")
-                        {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Skill añadida");
-                            ActualizarPanelSkills();
-                            ActualizarNombreListaSkills(missatge);
-
-                        }
-
-
+                    {                       
+                        ActualizarNombreListaSkills("Skill Añadida");                        
                     }
 
 
@@ -230,28 +206,45 @@ namespace DesktopApp
             }
         }
 
-        private void ActualizarNombreListaSkills(String msg)
+        private void ActualizarNombreListaSkills(String Accion)
         {
-            List<skills> _Skills = SkillsOrm.SelectIdLlista(_llistaS.id);
+            String nuevoNombreLista, missatge = "";
+
+            List<skills> _Skills = SkillsOrm.SelectActivate(_llistaS.id);
             char[] letras = new char[_Skills.Count()];
             int i = 0;
-            foreach (skills S in _Skills)
+            foreach (skills Skill in _Skills)
             {
-                char[] letra = S.nom.ToCharArray();
+                char[] letra = Skill.nom.ToCharArray();
                 letras[i] = letra[0];
                 i++;
             }
 
-            String nuevoNombreLista = new string(letras);
+            nuevoNombreLista = new string(letras);
             lblNameListSkills.Text = nuevoNombreLista;
-            msg = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombreLista.ToUpper());
+            _llistaS.nom = nuevoNombreLista.ToUpper();
 
-            if (msg != "")
+
+            missatge = Llistes_SkillsOrm.Update(_llistaS);
+
+            if (missatge != "")
             {
-                MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show(Accion);
+                ActualizarPanelSkills();
             }
 
+
+
+
         }
+
+        
+
+
 
 
 
