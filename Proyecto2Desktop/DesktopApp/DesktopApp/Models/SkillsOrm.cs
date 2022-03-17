@@ -40,6 +40,7 @@ namespace DesktopApp.Models
 
         public static String Insert(skills _skills)
         {
+                       
             Orm.bd.skills.Add(_skills);
             String missatge = Orm.MySaveChanges();
             return missatge;

@@ -330,8 +330,10 @@ namespace DesktopApp
 
                         MessageBox.Show("Listas añadidas al grupo");
                     }
+                                        
 
-                    
+
+
                 }
                 else if(dgvUsers.SelectedRows.Count >= 1)
                 {

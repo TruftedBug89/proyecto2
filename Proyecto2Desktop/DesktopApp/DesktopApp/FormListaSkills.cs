@@ -191,12 +191,12 @@ namespace DesktopApp
                         
                         if (dgvListaNewSkills.Rows.Count >= 1)
                         {
+                                                      
 
                             foreach (DataGridViewRow row in dgvListaNewSkills.Rows)
                             {
 
                                 skills _skill = new skills();
-
 
                                 if (!row.Cells[1].Value.Equals(""))
                                 {
@@ -212,10 +212,11 @@ namespace DesktopApp
 
                                 _skill.llistes_skills_id = _llistesSkills.id;
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
-                                                               
+
                                 _skill.actiu = Convert.ToBoolean(chk.Value);
                                 _skill.colorFondo = row.Cells[2].Style.BackColor.ToArgb();
                                 _skill.colorTexto = row.Cells[3].Style.BackColor.ToArgb();
+
                                 missatge = SkillsOrm.Insert(_skill);
 
                                 if (missatge != "")
@@ -225,6 +226,7 @@ namespace DesktopApp
                                 }
 
                             }
+
 
                             List<skills> skillsLlistaSkills = SkillsOrm.SelectActivate(_llistesSkills.id);
                             char[] LetrasActivadas = new char[skillsLlistaSkills.Count];
@@ -249,8 +251,11 @@ namespace DesktopApp
                                 MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
+                            
 
-                            dgvListaNewSkills.Rows.Clear();
+
+
+
 
                         }
                         else
