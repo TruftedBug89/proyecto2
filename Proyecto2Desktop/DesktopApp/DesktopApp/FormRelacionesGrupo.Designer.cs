@@ -64,6 +64,7 @@
             this.lbgroups = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnManagmentGroups = new System.Windows.Forms.Button();
+            this.btnDeleteRelation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -267,12 +268,13 @@
             // pnlGroupsHasSkills
             // 
             this.pnlGroupsHasSkills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGroupsHasSkills.Controls.Add(this.btnDeleteRelation);
             this.pnlGroupsHasSkills.Controls.Add(this.lblDataSelect);
             this.pnlGroupsHasSkills.Controls.Add(this.lbGroupsHasSkills);
             this.pnlGroupsHasSkills.Controls.Add(this.lblDates);
             this.pnlGroupsHasSkills.Location = new System.Drawing.Point(1099, 157);
             this.pnlGroupsHasSkills.Name = "pnlGroupsHasSkills";
-            this.pnlGroupsHasSkills.Size = new System.Drawing.Size(259, 517);
+            this.pnlGroupsHasSkills.Size = new System.Drawing.Size(259, 550);
             this.pnlGroupsHasSkills.TabIndex = 35;
             // 
             // lblDataSelect
@@ -293,10 +295,10 @@
             this.lbGroupsHasSkills.ItemHeight = 22;
             this.lbGroupsHasSkills.Location = new System.Drawing.Point(21, 60);
             this.lbGroupsHasSkills.Name = "lbGroupsHasSkills";
-            this.lbGroupsHasSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbGroupsHasSkills.Size = new System.Drawing.Size(217, 422);
             this.lbGroupsHasSkills.TabIndex = 43;
             this.lbGroupsHasSkills.SelectedIndexChanged += new System.EventHandler(this.lbGroupsHasSkills_SelectedIndexChanged);
+            this.lbGroupsHasSkills.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lbGroupsHasSkills_Format);
             // 
             // lblDates
             // 
@@ -319,7 +321,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(901, 143);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(834, 143);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(259, 517);
             this.pnlGrupsStudTeach.TabIndex = 44;
@@ -426,6 +428,21 @@
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
             this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
             // 
+            // btnDeleteRelation
+            // 
+            this.btnDeleteRelation.BackColor = System.Drawing.Color.Black;
+            this.btnDeleteRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteRelation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRelation.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteRelation.Location = new System.Drawing.Point(21, 489);
+            this.btnDeleteRelation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteRelation.Name = "btnDeleteRelation";
+            this.btnDeleteRelation.Size = new System.Drawing.Size(217, 45);
+            this.btnDeleteRelation.TabIndex = 50;
+            this.btnDeleteRelation.Text = "Eliminar Relacion";
+            this.btnDeleteRelation.UseVisualStyleBackColor = false;
+            this.btnDeleteRelation.Click += new System.EventHandler(this.btnDeleteRelation_Click);
+            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -503,5 +520,6 @@
         private System.Windows.Forms.Button btnManagmentGroups;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.Button btnDeleteRelation;
     }
 }

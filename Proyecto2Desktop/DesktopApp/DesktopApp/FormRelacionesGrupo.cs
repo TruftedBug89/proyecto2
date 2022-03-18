@@ -228,27 +228,51 @@ namespace DesktopApp
 
         private void cargarListasDeGrupo(int id) 
         {
+            bindingSourceGrupsHasSkills.DataSource = null;
+            lbGroupsHasSkills.DataSource = null;
             lbGroupsHasSkills.Items.Clear();
             List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
 
-            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
-            {
-                llistes_skills _llistes = Llistes_SkillsOrm.SelectListaSkill(item.llistes_skills_id);
-                lbGroupsHasSkills.Items.Add(_llistes.nom);
-            }
+            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
+            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
+            lbGroupsHasSkills.DisplayMember = "llistes_skills_id";
+            lbGroupsHasSkills.ValueMember = "grups_id";
+
+            //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            //{
+            //    llistes_skills _llistes = Llistes_SkillsOrm.SelectListaSkill(item.llistes_skills_id);
+            //    lbGroupsHasSkills.Items.Add(_llistes.nom);
+            //}
+
+            //foreach (grups_has_llistes_skills item in lbGroupsHasSkills.Items)
+            //{
+            //    MessageBox.Show(item.llistes_skills_id.ToString());
+
+            //}
+
+
 
         }
 
         private void cargarGruposDeLista(int id) 
         {
+            bindingSourceGrupsHasSkills.DataSource = null;
+            lbGroupsHasSkills.DataSource = null;
             lbGroupsHasSkills.Items.Clear();
-            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);        
+            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
 
-            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
-            {
-                grups _grup = GrupsOrm.SelectGrup(item.grups_id);
-                lbGroupsHasSkills.Items.Add(_grup.nom);
-            }
+
+            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
+            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
+            lbGroupsHasSkills.DisplayMember = "grups_id";
+            lbGroupsHasSkills.ValueMember = "grups_id";
+
+
+            //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            //{
+            //    grups _grup = GrupsOrm.SelectGrup(item.grups_id);
+            //    lbGroupsHasSkills.Items.Add(_grup.nom);
+            //}
         }
 
 
@@ -545,53 +569,80 @@ namespace DesktopApp
 
         private void lbGroupsHasSkills_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbgroups.SelectedItems.Count >= 1)
+            if (lbGroupsHasSkills.SelectedItem != null)
             {
-                grups grup = (grups)lbgroups.SelectedItem;
+                _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
+                //MessageBox.Show("idGrup: " + gH.grups_id + ", idLlista: " + gH.llistes_skills_id + ", cursID: " + gH.curs_id);
+            }
 
-                int idLlistaSkill = 0;
 
-                foreach (llistes_skills item in _llistesSkills)
+
+            //if (lbgroups.SelectedItems.Count >= 1 && lblDates.Text.Equals("Skills de:"))
+            //{
+            //    grups grup = (grups)lbgroups.SelectedItem;
+
+            //    int idLlistaSkill = 0;
+
+            //    foreach (llistes_skills item in _llistesSkills)
+            //    {
+            //        if (lbGroupsHasSkills.SelectedItem.Equals(item.nom))
+            //        {
+            //            idLlistaSkill = item.id;
+            //        }
+            //    }
+
+
+            //    MessageBox.Show("idGrup: " + grup.id + ", idLlista: " + idLlistaSkill);
+            //}
+            //if (dgvListSkills.SelectedRows.Count >= 1 && lblDates.Text.Equals("Grups de:"))
+            //{
+            //    _llistaSkill = CogerListaSkillSeleccionada();
+
+            //    String grupoNombre = (string)lbGroupsHasSkills.SelectedItem;
+
+            //    int idGrup = 0;
+
+            //    foreach (grups item in _grups)
+            //    {
+            //        if (item.nom.Equals(grupoNombre))
+            //        {
+            //            idGrup = item.id;
+            //        }
+            //    }
+
+            //    MessageBox.Show("idGrup: " + idGrup + ", idLlista: " + _llistaSkill.id);
+            //}            
+
+
+
+        }
+
+        private void lbGroupsHasSkills_Format(object sender, ListControlConvertEventArgs e)
+        {
+            
+
+        }
+
+        private void btnDeleteRelation_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+            if (_grupsLListes != null)
+            {
+                missatge = GrupsHasLlistesSkillsOrm.Delete(_grupsLListes);
+
+                if (missatge != "")
                 {
-                    if (lbGroupsHasSkills.SelectedItem.Equals(item.nom))
-                    {
-                        idLlistaSkill = item.id;
-                    }
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Relacion Eliminada");
                 }
 
 
-                MessageBox.Show("idGrup: " + grup.id + ", idLlista: " + idLlistaSkill);
             }
-            else if (dgvListSkills.SelectedRows.Count >= 1) 
-            {
-                _llistaSkill = CogerListaSkillSeleccionada();
 
-                String grupoNombre = (string)lbGroupsHasSkills.SelectedItem;
-
-                int idGrup = 0;
-
-                foreach (grups item in _grups)
-                {
-                    if (item.nom.Equals(grupoNombre))
-                    {
-                        idGrup = item.id;
-                    }
-                }
-
-                MessageBox.Show("idGrup: " + idGrup + ", idLlista: " + _llistaSkill.id);
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un grupo");
-            }
-                  
-
-
-
-
-
-
-          
         }
     }
 }
