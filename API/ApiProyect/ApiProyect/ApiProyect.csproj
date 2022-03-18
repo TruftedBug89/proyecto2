@@ -164,6 +164,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\Error.cs" />
     <Compile Include="Controllers\cursosController.cs" />
+    <Compile Include="Controllers\grups_has_alumnesController.cs" />
+    <Compile Include="Controllers\grups_has_docentsController.cs" />
+    <Compile Include="Controllers\grups_has_llistes_skillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llistes_skillsController.cs" />
     <Compile Include="Controllers\skillsController.cs" />

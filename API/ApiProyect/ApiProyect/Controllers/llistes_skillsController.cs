@@ -28,13 +28,26 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(llistes_skills))]
         public async Task<IHttpActionResult> Getllistes_skills(int id)
         {
-            llistes_skills llistes_skills = await db.llistes_skills.FindAsync(id);
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+
+            llistes_skills llistes_skills = await db.llistes_skills
+                                    .Include("skills")
+                                    .Where(c => c.id == id)
+                                    .FirstOrDefaultAsync();
+
+            
             if (llistes_skills == null)
             {
-                return NotFound();
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(llistes_skills);
             }
 
-            return Ok(llistes_skills);
+            return result;
         }
 
         // PUT: api/llistes_skills/5
