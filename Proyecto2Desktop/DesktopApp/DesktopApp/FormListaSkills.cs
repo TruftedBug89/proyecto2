@@ -535,64 +535,46 @@ namespace DesktopApp
 
             if (_llistesSkills != null)
             {
-                //añadir rows en la otra datagridview como caracteres haya en la txtaddNewSkills
-                char[] letras = txtAddNewSkills.Text.ToCharArray();
-
-                //limpiar rows si hay alguna fila            
-                if (dgvListaNewSkills.Rows.Count >= 1)
-                {
-                    dgvListaNewSkills.Rows.Clear();
-                }
-
-
-                for (int i = 0; i < letras.Length; i++)
-                {
-                    dgvListaNewSkills.Rows.Add(letras[i].ToString().ToUpper());
-                    dgvListaNewSkills.Rows[i].Cells[1].Value = "";
-                    var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaNewSkills.Rows[i].Cells[2]);
-                    cellBtnBackColor.FlatStyle = FlatStyle.Flat;
-                    dgvListaNewSkills.Rows[i].Cells[2].Style.BackColor = Color.Black;
-
-                    var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaNewSkills.Rows[i].Cells[3]);
-                    cellBtnTextColor.FlatStyle = FlatStyle.Flat;
-                    dgvListaNewSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
-
-                    dgvListaNewSkills.Rows[i].Cells[4].Value = true;
-
-                }
-
-
-
+                ConstruirTabla(dgvListaNewSkills, txtAddNewSkills.Text);
             }
             else
             {
-                //limpiar rows si hay alguna fila            
-                if (dgvListaSkills.Rows.Count >= 1)
-                {
-                    dgvListaSkills.Rows.Clear();
-                }
+                ConstruirTabla(dgvListaSkills, txtNameListSkill.Text);
 
-                Char[] letras = txtNameListSkill.Text.ToCharArray();
-
-                for (int i = 0; i < letras.Length; i++)
-                {
-                    dgvListaSkills.Rows.Add(letras[i].ToString().ToUpper());
-                    dgvListaSkills.Rows[i].Cells[1].Value = "";
-                    var cellBtnBackColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[2]);
-                    cellBtnBackColor.FlatStyle = FlatStyle.Flat;
-                    dgvListaSkills.Rows[i].Cells[2].Style.BackColor = Color.Black;
-
-                    var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
-                    cellBtnTextColor.FlatStyle = FlatStyle.Flat;
-                    dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
-
-                    dgvListaSkills.Rows[i].Cells[4].Value = true;
-
-
-                }
             }
 
             
+        }
+
+
+        public void ConstruirTabla(DataGridView dataGridView, String Text) 
+        {
+            //limpiar rows si hay alguna fila            
+            if (dataGridView.Rows.Count >= 1)
+            {
+                dataGridView.Rows.Clear();
+            }
+
+            //añadir rows en la otra datagridview como caracteres haya en la txtaddNewSkills
+            Char[] letras = Text.ToCharArray();
+
+            for (int i = 0; i < letras.Length; i++)
+            {
+                dataGridView.Rows.Add(letras[i].ToString().ToUpper());
+                dataGridView.Rows[i].Cells[1].Value = "";
+                var cellBtnBackColor = ((DataGridViewButtonCell)dataGridView.Rows[i].Cells[2]);
+                cellBtnBackColor.FlatStyle = FlatStyle.Flat;
+                dataGridView.Rows[i].Cells[2].Style.BackColor = Color.Black;
+
+                var cellBtnTextColor = ((DataGridViewButtonCell)dataGridView.Rows[i].Cells[3]);
+                cellBtnTextColor.FlatStyle = FlatStyle.Flat;
+                dataGridView.Rows[i].Cells[3].Style.BackColor = Color.White;
+
+                dataGridView.Rows[i].Cells[4].Value = true;
+
+
+            }
+
         }
 
 
