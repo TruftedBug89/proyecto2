@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,39 +18,73 @@ namespace DesktopApp
         {
             InitializeComponent();
         }
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
+
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
 
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
             Boolean entrar;
 
-            String correu = textBoxUsername.Text;
-            String contrasenya = textBoxContrasenya.Text;
-            entrar = UsuarisOrm.SelectLogin(correu, contrasenya);
-            if (entrar)
-            {
+            String correu = txtBoxUsername.Text;
+            String contrasenya = txtBoxContrasenya.Text;
+            //entrar = UsuarisOrm.SelectLogin(correu, contrasenya);
+            //if (entrar)
+            //{
                 
                 FormPrincipal formprincipal = new FormPrincipal();
                 this.Hide();
                 formprincipal.ShowDialog();
                 
+            /*}
+            else
+            {
+                txtBoxUsername.Text = "";
+                txtBoxContrasenya.Text = "";
+                pbError.Visible = true;
+                txtError.Visible = true;
+                linkForgetPassword.Visible = true;
+            }*/
+        }
+
+       
+
+        private void ckbLookPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbLookPass.Checked)
+            {
+                txtBoxContrasenya.UseSystemPasswordChar = false;
             }
             else
             {
-                MessageBox.Show("Vuelve a introducir los credenciales");
+                txtBoxContrasenya.UseSystemPasswordChar = true;
             }
-           
-           
-
-        }
-
-        private void pb_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void pb_minimize_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -19,8 +19,6 @@ namespace DesktopApp.Models
             return _usuaris;
         }
 
-
-
         internal static object SelectByName(string text)
         {
             List<usuaris> _usuaris = Orm.bd.usuaris
