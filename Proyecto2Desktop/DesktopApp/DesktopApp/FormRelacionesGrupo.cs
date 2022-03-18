@@ -456,9 +456,6 @@ namespace DesktopApp
                     }
                 }
 
-             
-
-
             }
 
         }
@@ -531,6 +528,7 @@ namespace DesktopApp
                     idCurs = cursos.id;
                 }
             }
+
 
             return idCurs;
              

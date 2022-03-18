@@ -16,7 +16,6 @@ namespace DesktopApp
     {
         private llistes_skills _llistesSkills;
         private List<llistes_skills> _llistesS;
-        private int filasNuevas = 0;
         public FormListaSkills()
         {
             InitializeComponent();
@@ -48,7 +47,6 @@ namespace DesktopApp
         {
 
             _llistesSkills = llistesS;
-
 
             if (_llistesSkills != null)
             {
@@ -136,7 +134,7 @@ namespace DesktopApp
         {
             String missatge = "";
 
-           
+
 
             if (_llistesSkills != null)
             {
@@ -150,13 +148,13 @@ namespace DesktopApp
                 }
                 else
                 {
-                                        
+
                     int i = 0;
                     foreach (skills skill in _llistesSkills.skills)
                     {
 
                         skill.nom = dgvListaSkills.Rows[i].Cells[1].Value.ToString();
-                                                
+
                         DataGridViewCheckBoxCell chk = dgvListaSkills.Rows[i].Cells[4] as DataGridViewCheckBoxCell;
 
                         skill.actiu = Convert.ToBoolean(chk.Value);
@@ -188,10 +186,10 @@ namespace DesktopApp
                     //si el texto del addNewSkill no esta vacio añademe x skills como caracteres tenga el texto
                     if (!txtAddNewSkills.Text.Equals(""))
                     {
-                        
+
                         if (dgvListaNewSkills.Rows.Count >= 1)
                         {
-                                                      
+
 
                             foreach (DataGridViewRow row in dgvListaNewSkills.Rows)
                             {
@@ -251,7 +249,7 @@ namespace DesktopApp
                                 MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
-                            
+
 
 
 
@@ -283,19 +281,7 @@ namespace DesktopApp
 
                         }
 
-                        string NuevasSkillsActivadas = ActualizarNombreSkillActivadas(_llistesSkills.id);
-
-                        missatge = Llistes_SkillsOrm.Update(_llistesSkills);
-
-                        if (missatge != "")
-                        {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-                        String FusionNombre = (_llistesSkills.nom + txtAddNewSkills.Text.Trim()).ToUpper();
-
-                        _llistesSkills.nom = NuevasSkillsActivadas;
+                        _llistesSkills.nom = ActualizarNombreSkillActivadas(_llistesSkills.id);
 
                         missatge = Llistes_SkillsOrm.Update(_llistesSkills);
 
@@ -308,8 +294,8 @@ namespace DesktopApp
                     }
 
 
-                   
-                    MessageBox.Show("Lista de skills actualizada");                   
+
+                    MessageBox.Show("Lista de skills actualizada");
 
                 }
 
@@ -320,7 +306,6 @@ namespace DesktopApp
                 {
                     llistes_skills _llistes_Skills = new llistes_skills();
                     _llistes_Skills.nom = txtNameListSkill.Text.ToUpper();
-                    _llistes_Skills.skills = null;
                     _llistes_Skills.actiu = cboActivate.Checked;
 
                     missatge = Llistes_SkillsOrm.Insert(_llistes_Skills);
@@ -339,7 +324,7 @@ namespace DesktopApp
                             {
 
                                 skills _skill = new skills();
-                                
+
 
                                 if (!row.Cells[1].Value.Equals(""))
                                 {
@@ -410,8 +395,8 @@ namespace DesktopApp
                         }
 
                         MessageBox.Show("Lista de skills añadida");
-                        
-                        
+
+
                     }
                 }
                 else
@@ -419,7 +404,7 @@ namespace DesktopApp
                     MessageBox.Show("Listas vacias");
                 }
 
-
+            
             }
 
             ActualizarPanelListaSkills();
@@ -572,6 +557,7 @@ namespace DesktopApp
                     cellBtnTextColor.FlatStyle = FlatStyle.Flat;
                     dgvListaNewSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
 
+                    dgvListaNewSkills.Rows[i].Cells[4].Value = true;
 
                 }
 
@@ -599,6 +585,8 @@ namespace DesktopApp
                     var cellBtnTextColor = ((DataGridViewButtonCell)dgvListaSkills.Rows[i].Cells[3]);
                     cellBtnTextColor.FlatStyle = FlatStyle.Flat;
                     dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.White;
+
+                    dgvListaSkills.Rows[i].Cells[4].Value = true;
 
 
                 }
@@ -698,6 +686,10 @@ namespace DesktopApp
 
             }
         }
+
+
+        
+
     }
 
 }

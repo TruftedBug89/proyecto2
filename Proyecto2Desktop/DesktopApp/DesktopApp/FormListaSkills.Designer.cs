@@ -52,7 +52,6 @@
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.cboActivate = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnBuildTable = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.gbGroupsSkill = new System.Windows.Forms.GroupBox();
@@ -285,16 +284,6 @@
             this.panel1.Size = new System.Drawing.Size(1445, 51);
             this.panel1.TabIndex = 31;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1159, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnBuildTable
             // 
             this.btnBuildTable.BackColor = System.Drawing.SystemColors.Desktop;
@@ -450,7 +439,6 @@
             this.Controls.Add(this.txtAddNewSkills);
             this.Controls.Add(this.gbGroupsSkill);
             this.Controls.Add(this.btnBuildTable);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cboActivate);
@@ -487,7 +475,6 @@
         private System.Windows.Forms.BindingSource bindingSourceSkills;
         private System.Windows.Forms.CheckBox cboActivate;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBuildTable;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.GroupBox gbGroupsSkill;
