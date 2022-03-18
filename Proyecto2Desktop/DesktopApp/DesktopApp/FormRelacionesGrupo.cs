@@ -542,5 +542,56 @@ namespace DesktopApp
             formGestionGrupo.ShowDialog();
             cargarGrupos();
         }
+
+        private void lbGroupsHasSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbgroups.SelectedItems.Count >= 1)
+            {
+                grups grup = (grups)lbgroups.SelectedItem;
+
+                int idLlistaSkill = 0;
+
+                foreach (llistes_skills item in _llistesSkills)
+                {
+                    if (lbGroupsHasSkills.SelectedItem.Equals(item.nom))
+                    {
+                        idLlistaSkill = item.id;
+                    }
+                }
+
+
+                MessageBox.Show("idGrup: " + grup.id + ", idLlista: " + idLlistaSkill);
+            }
+            else if (dgvListSkills.SelectedRows.Count >= 1) 
+            {
+                _llistaSkill = CogerListaSkillSeleccionada();
+
+                String grupoNombre = (string)lbGroupsHasSkills.SelectedItem;
+
+                int idGrup = 0;
+
+                foreach (grups item in _grups)
+                {
+                    if (item.nom.Equals(grupoNombre))
+                    {
+                        idGrup = item.id;
+                    }
+                }
+
+                MessageBox.Show("idGrup: " + idGrup + ", idLlista: " + _llistaSkill.id);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un grupo");
+            }
+                  
+
+
+
+
+
+
+          
+        }
     }
 }

@@ -296,6 +296,7 @@
             this.lbGroupsHasSkills.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbGroupsHasSkills.Size = new System.Drawing.Size(217, 422);
             this.lbGroupsHasSkills.TabIndex = 43;
+            this.lbGroupsHasSkills.SelectedIndexChanged += new System.EventHandler(this.lbGroupsHasSkills_SelectedIndexChanged);
             // 
             // lblDates
             // 
@@ -318,7 +319,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1111, 145);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(901, 143);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(259, 517);
             this.pnlGrupsStudTeach.TabIndex = 44;
