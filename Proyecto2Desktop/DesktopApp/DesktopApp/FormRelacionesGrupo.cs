@@ -158,6 +158,11 @@ namespace DesktopApp
         }
 
 
+
+
+
+
+
         private void cargarCursos()
         {
             _cursos = CursosOrm.SelectActius();
