@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.btnCloseSesion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1710, 66);
             this.panel1.TabIndex = 0;
@@ -102,8 +102,8 @@
             this.btnManagmentKPI.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnManagmentKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentKPI.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentKPI.Location = new System.Drawing.Point(59, 278);
-            this.btnManagmentKPI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManagmentKPI.Location = new System.Drawing.Point(37, 263);
+            this.btnManagmentKPI.Margin = new System.Windows.Forms.Padding(4);
             this.btnManagmentKPI.Name = "btnManagmentKPI";
             this.btnManagmentKPI.Size = new System.Drawing.Size(155, 59);
             this.btnManagmentKPI.TabIndex = 5;
@@ -282,7 +282,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);

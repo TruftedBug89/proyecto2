@@ -25,6 +25,8 @@ namespace DesktopApp
         private List<cursos> _cursos;
 
         private grups_has_llistes_skills _grupsLListes;
+        private grups_has_docents _grupsDocents;
+        private grups_has_alumnes _grupsAlumnes;
 
         public FormRelacionesGrupo(String status)
         {
@@ -60,7 +62,9 @@ namespace DesktopApp
                     cargarListasDeGrupo(_grup.id);
                 }
                 else
-                {
+                {                   
+                    lblRelationType.Text = "Usuaris de:";
+                    lblData.Text = _grup.nom;
                     cargarUsuariosDocentesDeGrupo(_grup.id);
                     cargarUsuariosAlumnosDeGrupo(_grup.id);
 
@@ -105,8 +109,11 @@ namespace DesktopApp
             if (dgvUsers.SelectedRows.Count == 1)
             {
                 _usuari = CogerUsuarioSeleccionado();
-                lblDates.Text = "Grupos de:";
-                lblDataSelect.Text = _usuari.nom;
+                
+                lblRelationType.Text = "Grupos de:";
+                lblData.Text = _usuari.nom;
+                cargarUsuariosDocentesDeGrupo(_usuari.id);
+                cargarUsuariosAlumnosDeGrupo(_usuari.id);
 
 
 
@@ -282,27 +289,78 @@ namespace DesktopApp
 
         private void cargarUsuariosDocentesDeGrupo(int id) 
         {
-            lbTeachers.Items.Clear();
-            List<grups_has_docents> _GrupsDocents = GrupsHasDocentsOrm.Select(id);
+            bindingSourceGroupsHasTeachers.DataSource = null;
+            lbTeachers.DataSource = null;
 
-            foreach (grups_has_docents item in _GrupsDocents)
+            lbTeachers.Items.Clear();
+           
+            if (lblRelationType.Text.Equals("Usuaris de:"))
             {
-                usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
-                lbTeachers.Items.Add(_user.nom);
+                List<grups_has_docents> _GrupsDocents = GrupsHasDocentsOrm.Select(id);
+
+                bindingSourceGroupsHasTeachers.DataSource = _GrupsDocents;
+                lbTeachers.DataSource = bindingSourceGroupsHasTeachers;
+                lbTeachers.DisplayMember = "usuaris_id";
+                lbTeachers.ValueMember = "grups_id";
             }
+            else
+            {
+                List<grups_has_docents> _UsersGroup = GrupsHasDocentsOrm.SelectGroupOfUser(id);
+                bindingSourceGroupsHasTeachers.DataSource = _UsersGroup;
+                lbTeachers.DataSource = bindingSourceGroupsHasTeachers;
+                lbTeachers.DisplayMember = "grups_id";
+                lbTeachers.ValueMember = "usuaris_id";
+            }
+
+
+
+
+            //foreach (grups_has_docents item in _GrupsDocents)
+            //{
+            //    usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
+            //    lbTeachers.Items.Add(_user.nom);
+            //}
 
         }
 
         private void cargarUsuariosAlumnosDeGrupo(int id)
         {
-            lbStudents.Items.Clear();
-            List<grups_has_alumnes> _GrupsStudents = GrupsHasAlumnesOrm.Select(id);
+            
+            bindingSourceGrupsHasStudents.DataSource = null;
+            lbStudents.DataSource = null;
 
-            foreach (grups_has_alumnes item in _GrupsStudents)
-            {              
-                usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
-                lbStudents.Items.Add(_user.nom);                
+            lbStudents.Items.Clear();
+
+            if (lblRelationType.Text.Equals("Usuaris de:"))
+            {
+                
+                List<grups_has_alumnes> _GrupsStudents = GrupsHasAlumnesOrm.Select(id);
+                bindingSourceGrupsHasStudents.DataSource = _GrupsStudents;
+                lbStudents.DataSource = bindingSourceGrupsHasStudents;
+                lbStudents.DisplayMember = "usuaris_id";
+                lbStudents.ValueMember = "grups_id";
             }
+            else
+            {
+                List<grups_has_alumnes> _UsersGroup = GrupsHasAlumnesOrm.SelectGroupOfUser(id);
+                bindingSourceGrupsHasStudents.DataSource = _UsersGroup;
+                lbStudents.DataSource = bindingSourceGrupsHasStudents;
+                lbStudents.DisplayMember = "grups_id";
+                lbStudents.ValueMember = "usuaris_id";
+            }
+
+
+
+
+
+
+
+
+            //foreach (grups_has_alumnes item in _GrupsStudents)
+            //{              
+            //    usuaris _user = UsuarisOrm.SelectUsuari(item.usuaris_id);
+            //    lbStudents.Items.Add(_user.nom);                
+            //}
 
         }
 
@@ -573,51 +631,9 @@ namespace DesktopApp
 
         private void lbGroupsHasSkills_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbGroupsHasSkills.SelectedItem != null)
-            {
-                _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
-                //MessageBox.Show("idGrup: " + gH.grups_id + ", idLlista: " + gH.llistes_skills_id + ", cursID: " + gH.curs_id);
-            }
-
-
-
-            //if (lbgroups.SelectedItems.Count >= 1 && lblDates.Text.Equals("Skills de:"))
-            //{
-            //    grups grup = (grups)lbgroups.SelectedItem;
-
-            //    int idLlistaSkill = 0;
-
-            //    foreach (llistes_skills item in _llistesSkills)
-            //    {
-            //        if (lbGroupsHasSkills.SelectedItem.Equals(item.nom))
-            //        {
-            //            idLlistaSkill = item.id;
-            //        }
-            //    }
-
-
-            //    MessageBox.Show("idGrup: " + grup.id + ", idLlista: " + idLlistaSkill);
-            //}
-            //if (dgvListSkills.SelectedRows.Count >= 1 && lblDates.Text.Equals("Grups de:"))
-            //{
-            //    _llistaSkill = CogerListaSkillSeleccionada();
-
-            //    String grupoNombre = (string)lbGroupsHasSkills.SelectedItem;
-
-            //    int idGrup = 0;
-
-            //    foreach (grups item in _grups)
-            //    {
-            //        if (item.nom.Equals(grupoNombre))
-            //        {
-            //            idGrup = item.id;
-            //        }
-            //    }
-
-            //    MessageBox.Show("idGrup: " + idGrup + ", idLlista: " + _llistaSkill.id);
-            //}            
-
-
+            
+             _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
+            
 
         }
 
@@ -642,9 +658,26 @@ namespace DesktopApp
                 else
                 {
                     MessageBox.Show("Relacion Eliminada");
+                    _grupsLListes = null;
+
+
+                    if (lblDates.Text.Equals("Grupos de:"))
+                    {
+                        cargarGruposDeLista(_llistaSkill.id);
+                    }
+                    else
+                    {
+                        cargarListasDeGrupo(_grup.id);
+                    }
+
+
                 }
 
 
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un item");
             }
 
         }
@@ -653,5 +686,94 @@ namespace DesktopApp
         {
             dgvListSkills.Rows[0].Selected = false;
         }
+
+        private void btnDropTeachersRelation_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+            if (_grupsDocents != null)
+            {                              
+                missatge = GrupsHasDocentsOrm.Delete(_grupsDocents);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Relacion Eliminada");
+                    _grupsDocents = null;
+
+                    if (lblRelationType.Text.Equals("Usuaris de:"))
+                    {
+
+                        cargarUsuariosDocentesDeGrupo(_grup.id);
+                    }
+                    else
+                    {
+                        cargarUsuariosDocentesDeGrupo(_usuari.id);
+                    }
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un item");
+            }
+
+
+
+        }
+
+        private void lbTeachers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           _grupsDocents = (grups_has_docents)lbTeachers.SelectedItem;
+        }
+
+        private void lbStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _grupsAlumnes = (grups_has_alumnes)lbStudents.SelectedItem;
+        }
+
+        private void btnDropStudentsRelation_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+            if (_grupsAlumnes != null)
+            {
+                missatge = GrupsHasAlumnesOrm.Delete(_grupsAlumnes);
+
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Relacion Eliminada");
+                    _grupsAlumnes = null;
+
+                    if (lblRelationType.Text.Equals("Usuaris de:"))
+                    {
+
+                        cargarUsuariosAlumnosDeGrupo(_grup.id);
+                    }
+                    else
+                    {
+                        cargarUsuariosAlumnosDeGrupo(_usuari.id);
+                    }
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un item");
+            }
+        }
+
+
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -55,10 +55,14 @@
             this.lblDates = new System.Windows.Forms.Label();
             this.bindingSourceGrupsHasSkills = new System.Windows.Forms.BindingSource(this.components);
             this.pnlGrupsStudTeach = new System.Windows.Forms.Panel();
+            this.btnDropStudentsRelation = new System.Windows.Forms.Button();
+            this.btnDropTeachersRelation = new System.Windows.Forms.Button();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblRelationType = new System.Windows.Forms.Label();
             this.lbStudents = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lbTeachers = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.bindingSourceGrupsHasStudents = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceGroupsHasTeachers = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -248,8 +252,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -273,7 +277,7 @@
             this.pnlGroupsHasSkills.Controls.Add(this.lblDataSelect);
             this.pnlGroupsHasSkills.Controls.Add(this.lbGroupsHasSkills);
             this.pnlGroupsHasSkills.Controls.Add(this.lblDates);
-            this.pnlGroupsHasSkills.Location = new System.Drawing.Point(1099, 157);
+            this.pnlGroupsHasSkills.Location = new System.Drawing.Point(1096, 143);
             this.pnlGroupsHasSkills.Name = "pnlGroupsHasSkills";
             this.pnlGroupsHasSkills.Size = new System.Drawing.Size(259, 550);
             this.pnlGroupsHasSkills.TabIndex = 35;
@@ -333,14 +337,68 @@
             // pnlGrupsStudTeach
             // 
             this.pnlGrupsStudTeach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGrupsStudTeach.Controls.Add(this.btnDropStudentsRelation);
+            this.pnlGrupsStudTeach.Controls.Add(this.btnDropTeachersRelation);
+            this.pnlGrupsStudTeach.Controls.Add(this.lblData);
+            this.pnlGrupsStudTeach.Controls.Add(this.lblRelationType);
             this.pnlGrupsStudTeach.Controls.Add(this.lbStudents);
+            this.pnlGrupsStudTeach.Controls.Add(this.label5);
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
-            this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1120, 143);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1099, 113);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
-            this.pnlGrupsStudTeach.Size = new System.Drawing.Size(259, 517);
+            this.pnlGrupsStudTeach.Size = new System.Drawing.Size(270, 594);
             this.pnlGrupsStudTeach.TabIndex = 44;
+            // 
+            // btnDropStudentsRelation
+            // 
+            this.btnDropStudentsRelation.BackColor = System.Drawing.Color.Black;
+            this.btnDropStudentsRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDropStudentsRelation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDropStudentsRelation.ForeColor = System.Drawing.Color.White;
+            this.btnDropStudentsRelation.Location = new System.Drawing.Point(36, 550);
+            this.btnDropStudentsRelation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDropStudentsRelation.Name = "btnDropStudentsRelation";
+            this.btnDropStudentsRelation.Size = new System.Drawing.Size(199, 34);
+            this.btnDropStudentsRelation.TabIndex = 52;
+            this.btnDropStudentsRelation.Text = "Eliminar Relacion";
+            this.btnDropStudentsRelation.UseVisualStyleBackColor = false;
+            this.btnDropStudentsRelation.Click += new System.EventHandler(this.btnDropStudentsRelation_Click);
+            // 
+            // btnDropTeachersRelation
+            // 
+            this.btnDropTeachersRelation.BackColor = System.Drawing.Color.Black;
+            this.btnDropTeachersRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDropTeachersRelation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDropTeachersRelation.ForeColor = System.Drawing.Color.White;
+            this.btnDropTeachersRelation.Location = new System.Drawing.Point(36, 270);
+            this.btnDropTeachersRelation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDropTeachersRelation.Name = "btnDropTeachersRelation";
+            this.btnDropTeachersRelation.Size = new System.Drawing.Size(199, 34);
+            this.btnDropTeachersRelation.TabIndex = 51;
+            this.btnDropTeachersRelation.Text = "Eliminar Relacion";
+            this.btnDropTeachersRelation.UseVisualStyleBackColor = false;
+            this.btnDropTeachersRelation.Click += new System.EventHandler(this.btnDropTeachersRelation_Click);
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(183, 14);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(52, 24);
+            this.lblData.TabIndex = 48;
+            this.lblData.Text = "Dato";
+            // 
+            // lblRelationType
+            // 
+            this.lblRelationType.AutoSize = true;
+            this.lblRelationType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRelationType.Location = new System.Drawing.Point(32, 14);
+            this.lblRelationType.Name = "lblRelationType";
+            this.lblRelationType.Size = new System.Drawing.Size(115, 24);
+            this.lblRelationType.TabIndex = 47;
+            this.lblRelationType.Text = "Usuaris de:";
             // 
             // lbStudents
             // 
@@ -348,11 +406,22 @@
             this.lbStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStudents.FormattingEnabled = true;
             this.lbStudents.ItemHeight = 22;
-            this.lbStudents.Location = new System.Drawing.Point(24, 46);
+            this.lbStudents.Location = new System.Drawing.Point(36, 363);
             this.lbStudents.Name = "lbStudents";
             this.lbStudents.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbStudents.Size = new System.Drawing.Size(199, 180);
             this.lbStudents.TabIndex = 46;
+            this.lbStudents.SelectedIndexChanged += new System.EventHandler(this.lbStudents_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(95, 325);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 24);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Alumnos";
             // 
             // lbTeachers
             // 
@@ -360,31 +429,22 @@
             this.lbTeachers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTeachers.FormattingEnabled = true;
             this.lbTeachers.ItemHeight = 22;
-            this.lbTeachers.Location = new System.Drawing.Point(24, 303);
+            this.lbTeachers.Location = new System.Drawing.Point(36, 83);
             this.lbTeachers.Name = "lbTeachers";
             this.lbTeachers.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbTeachers.Size = new System.Drawing.Size(199, 180);
             this.lbTeachers.TabIndex = 45;
+            this.lbTeachers.SelectedIndexChanged += new System.EventHandler(this.lbTeachers_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(82, 266);
+            this.label6.Location = new System.Drawing.Point(89, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 24);
             this.label6.TabIndex = 44;
             this.label6.Text = "Docentes";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(82, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 24);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Alumnos";
             // 
             // bindingSourceGrupsHasStudents
             // 
@@ -522,5 +582,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.Button btnDeleteRelation;
+        private System.Windows.Forms.Label lblRelationType;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Button btnDropStudentsRelation;
+        private System.Windows.Forms.Button btnDropTeachersRelation;
     }
 }

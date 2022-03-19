@@ -16,12 +16,31 @@ namespace DesktopApp.Models
             return _GrupsAlumnes;
         }
 
+        public static List<grups_has_alumnes> SelectGroupOfUser(int id)
+        {
+            List<grups_has_alumnes> _GrupsAlumne = Orm.bd.grups_has_alumnes
+                                    .Where(c => c.usuaris_id == id)
+                                    .ToList();
+            return _GrupsAlumne;
+        }
+
+
+
         public static String Insert(grups_has_alumnes _grups_alumnes)
         {
             Orm.bd.grups_has_alumnes.Add(_grups_alumnes);
             String missatge = Orm.MySaveChanges();
             return missatge;
         }
+
+
+        public static String Delete(grups_has_alumnes _grups_alumnes)
+        {
+            Orm.bd.grups_has_alumnes.Remove(_grups_alumnes);
+            String missatge = Orm.MySaveChanges();
+            return missatge;
+        }
+
 
     }
 }
