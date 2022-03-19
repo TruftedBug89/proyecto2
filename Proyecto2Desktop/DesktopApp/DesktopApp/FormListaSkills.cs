@@ -536,6 +536,7 @@ namespace DesktopApp
             if (_llistesSkills != null)
             {
                 ConstruirTabla(dgvListaNewSkills, txtAddNewSkills.Text);
+                dgvListaSkills.ClearSelection();
             }
             else
             {

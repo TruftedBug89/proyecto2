@@ -49,6 +49,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pnlGroupsHasSkills = new System.Windows.Forms.Panel();
+            this.btnDeleteRelation = new System.Windows.Forms.Button();
             this.lblDataSelect = new System.Windows.Forms.Label();
             this.lbGroupsHasSkills = new System.Windows.Forms.ListBox();
             this.lblDates = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.lbgroups = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnManagmentGroups = new System.Windows.Forms.Button();
-            this.btnDeleteRelation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -243,6 +243,7 @@
             this.dgvListSkills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListSkills.Size = new System.Drawing.Size(639, 491);
             this.dgvListSkills.TabIndex = 42;
+            this.dgvListSkills.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvListSkills_DataBindingComplete);
             this.dgvListSkills.SelectionChanged += new System.EventHandler(this.dgvListSkills_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
@@ -276,6 +277,21 @@
             this.pnlGroupsHasSkills.Name = "pnlGroupsHasSkills";
             this.pnlGroupsHasSkills.Size = new System.Drawing.Size(259, 550);
             this.pnlGroupsHasSkills.TabIndex = 35;
+            // 
+            // btnDeleteRelation
+            // 
+            this.btnDeleteRelation.BackColor = System.Drawing.Color.Black;
+            this.btnDeleteRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteRelation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRelation.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteRelation.Location = new System.Drawing.Point(21, 489);
+            this.btnDeleteRelation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteRelation.Name = "btnDeleteRelation";
+            this.btnDeleteRelation.Size = new System.Drawing.Size(217, 45);
+            this.btnDeleteRelation.TabIndex = 50;
+            this.btnDeleteRelation.Text = "Eliminar Relacion";
+            this.btnDeleteRelation.UseVisualStyleBackColor = false;
+            this.btnDeleteRelation.Click += new System.EventHandler(this.btnDeleteRelation_Click);
             // 
             // lblDataSelect
             // 
@@ -321,7 +337,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(834, 143);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1120, 143);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(259, 517);
             this.pnlGrupsStudTeach.TabIndex = 44;
@@ -427,21 +443,6 @@
             this.btnManagmentGroups.Text = "Gestion Grupos";
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
             this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
-            // 
-            // btnDeleteRelation
-            // 
-            this.btnDeleteRelation.BackColor = System.Drawing.Color.Black;
-            this.btnDeleteRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteRelation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteRelation.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteRelation.Location = new System.Drawing.Point(21, 489);
-            this.btnDeleteRelation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeleteRelation.Name = "btnDeleteRelation";
-            this.btnDeleteRelation.Size = new System.Drawing.Size(217, 45);
-            this.btnDeleteRelation.TabIndex = 50;
-            this.btnDeleteRelation.Text = "Eliminar Relacion";
-            this.btnDeleteRelation.UseVisualStyleBackColor = false;
-            this.btnDeleteRelation.Click += new System.EventHandler(this.btnDeleteRelation_Click);
             // 
             // FormRelacionesGrupo
             // 

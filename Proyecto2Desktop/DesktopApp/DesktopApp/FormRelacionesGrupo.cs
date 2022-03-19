@@ -119,21 +119,22 @@ namespace DesktopApp
 
         private void FormRelacionesGrupo_Load(object sender, EventArgs e)
         {
+                        
             cargarGrupos();
             cargarCursos();
 
 
             if (gruposStatus.Equals("GuposListasSkills"))
             {
+               
                 cargarListasSkills();
+                
+               
                 dgvListSkills.Visible = true;
                 pnlSearchUsers.Visible = false;
                 dgvUsers.Visible = false;
                 pnlGroupsHasSkills.Visible = true;
                 pnlGrupsStudTeach.Visible = false;
-               
-                
-                
             }
             else
             {
@@ -144,6 +145,9 @@ namespace DesktopApp
                 pnlGroupsHasSkills.Visible = false;
                 pnlGrupsStudTeach.Visible = true;
             }
+
+           
+
         }
 
 
@@ -643,6 +647,11 @@ namespace DesktopApp
 
             }
 
+        }
+
+        private void dgvListSkills_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvListSkills.Rows[0].Selected = false;
         }
     }
 }
