@@ -183,6 +183,7 @@
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SkillsOrm.cs" />
+    <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\usuaris.cs">
       <DependentUpon>ModelFrase_alu.tt</DependentUpon>
     </Compile>

@@ -33,6 +33,8 @@ namespace DesktopApp
 
             CrearBotonListaSkill(_llistesSkills);
 
+
+            txtNameListSkill.Visible = true;
             txtNameListSkill.ReadOnly = false;
             lblplus.Visible = false;
             txtAddNewSkills.Visible = false;
@@ -126,8 +128,32 @@ namespace DesktopApp
                 }
             }
 
+            ControlPermisosUsuario();
+
+
 
         }
+
+
+        private void ControlPermisosUsuario()
+        {
+          
+            if (UsuarioLogin.UsuariLogin.rols.GestionarSkills == false)
+            {                
+                this.Controls.Remove(dgvListaSkills);
+                this.Controls.Remove(dgvListaNewSkills);
+                this.Controls.Remove(btnBuildTable);
+                this.Controls.Remove(lblPlus2);
+
+            }
+            if (UsuarioLogin.UsuariLogin.rols.GestionarGrupos == false)
+            {
+                this.Controls.Remove(gbGroupsSkill);
+            }
+
+
+        }
+
 
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -416,6 +442,7 @@ namespace DesktopApp
             lblplus.Visible = false;
             lblPlus2.Visible = false;
             txtAddNewSkills.Visible = false;
+            txtNameListSkill.ReadOnly = false;
             txtNameListSkill.Visible = false;
 
         }

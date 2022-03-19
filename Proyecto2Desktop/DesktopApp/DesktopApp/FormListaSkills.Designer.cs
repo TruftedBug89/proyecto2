@@ -263,7 +263,7 @@
             this.cboActivate.Checked = true;
             this.cboActivate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cboActivate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.cboActivate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Green;
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivate.ForeColor = System.Drawing.Color.White;

@@ -85,6 +85,7 @@ namespace DesktopApp.Models
             {
                 System.Windows.Forms.MessageBox.Show("El usuario o la contraseña són correctos!");
                 acceptar = true;
+                UsuarioLogin.UsuariLogin = usuarioALoguear;
             }
             else
             {

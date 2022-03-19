@@ -1,4 +1,5 @@
 ﻿using System;
+using DesktopApp.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -119,10 +120,6 @@ namespace DesktopApp
 
         }
 
-        private void FormGestionUsuarios_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void pb_close_Click(object sender, EventArgs e)
         {
@@ -162,5 +159,32 @@ namespace DesktopApp
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
             dataGridView1.DataSource = bindingSource1;
         }
+
+        private void FormGestionUsuarios_Load(object sender, EventArgs e)
+        {
+            ControlPermisosUsuario();
+        }
+
+
+        private void ControlPermisosUsuario()
+        {
+           
+            if (UsuarioLogin.UsuariLogin.rols.GestionarPerfiles == false)
+            {
+                
+                this.Controls.Remove(btnRoles);
+            }
+            if (UsuarioLogin.UsuariLogin.rols.GestionarGrupos == false)
+            {
+                this.Controls.Remove(btnGroups);
+            }
+
+
+        }
+
+
+
+
+
     }
 }

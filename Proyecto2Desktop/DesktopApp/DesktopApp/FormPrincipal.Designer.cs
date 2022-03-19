@@ -37,20 +37,20 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.flpSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.btnManagmentSkills = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnlManagmentOptions = new System.Windows.Forms.Panel();
             this.btnManagmentGroups = new System.Windows.Forms.Button();
             this.btnManagmentCourses = new System.Windows.Forms.Button();
             this.btnManagmentRoles = new System.Windows.Forms.Button();
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pnlButtonKPI = new System.Windows.Forms.Panel();
             this.dgvSkill = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flpListSkills.SuspendLayout();
             this.panel5.SuspendLayout();
             this.flpSkills.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnlManagmentOptions.SuspendLayout();
+            this.pnlButtonKPI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,18 +173,18 @@
             this.btnManagmentSkills.UseVisualStyleBackColor = false;
             this.btnManagmentSkills.Click += new System.EventHandler(this.btnManagmentSkills_Click);
             // 
-            // panel6
+            // pnlManagmentOptions
             // 
-            this.panel6.Controls.Add(this.btnManagmentGroups);
-            this.panel6.Controls.Add(this.btnManagmentCourses);
-            this.panel6.Controls.Add(this.btnManagmentRoles);
-            this.panel6.Controls.Add(this.btnGestionUsuarios);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 173);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(204, 541);
-            this.panel6.TabIndex = 13;
+            this.pnlManagmentOptions.Controls.Add(this.btnManagmentGroups);
+            this.pnlManagmentOptions.Controls.Add(this.btnManagmentCourses);
+            this.pnlManagmentOptions.Controls.Add(this.btnManagmentRoles);
+            this.pnlManagmentOptions.Controls.Add(this.btnGestionUsuarios);
+            this.pnlManagmentOptions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlManagmentOptions.Location = new System.Drawing.Point(0, 173);
+            this.pnlManagmentOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlManagmentOptions.Name = "pnlManagmentOptions";
+            this.pnlManagmentOptions.Size = new System.Drawing.Size(204, 541);
+            this.pnlManagmentOptions.TabIndex = 13;
             // 
             // btnManagmentGroups
             // 
@@ -246,15 +246,15 @@
             this.btnGestionUsuarios.UseVisualStyleBackColor = false;
             this.btnGestionUsuarios.Click += new System.EventHandler(this.btnGestionUsuarios_Click);
             // 
-            // panel7
+            // pnlButtonKPI
             // 
-            this.panel7.Controls.Add(this.btnManagmentKPI);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(1505, 173);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(205, 541);
-            this.panel7.TabIndex = 14;
+            this.pnlButtonKPI.Controls.Add(this.btnManagmentKPI);
+            this.pnlButtonKPI.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlButtonKPI.Location = new System.Drawing.Point(1505, 173);
+            this.pnlButtonKPI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlButtonKPI.Name = "pnlButtonKPI";
+            this.pnlButtonKPI.Size = new System.Drawing.Size(205, 541);
+            this.pnlButtonKPI.TabIndex = 14;
             // 
             // dgvSkill
             // 
@@ -277,8 +277,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1710, 844);
             this.Controls.Add(this.dgvSkill);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.pnlButtonKPI);
+            this.Controls.Add(this.pnlManagmentOptions);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -291,8 +291,8 @@
             this.flpListSkills.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.flpSkills.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.pnlManagmentOptions.ResumeLayout(false);
+            this.pnlButtonKPI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).EndInit();
             this.ResumeLayout(false);
 
@@ -306,9 +306,9 @@
         private System.Windows.Forms.Button btnManagmentKPI;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnlManagmentOptions;
         private System.Windows.Forms.Button btnGestionUsuarios;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pnlButtonKPI;
         private System.Windows.Forms.DataGridView dgvSkill;
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
         private System.Windows.Forms.FlowLayoutPanel flpSkills;
