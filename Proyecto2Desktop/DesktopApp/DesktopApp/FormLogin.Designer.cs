@@ -55,10 +55,12 @@ namespace DesktopApp
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(58, 98);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 198);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -106,6 +108,7 @@ namespace DesktopApp
             // buttonIniciarSesion
             // 
             this.buttonIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.buttonIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonIniciarSesion.Location = new System.Drawing.Point(535, 355);
             this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
@@ -118,6 +121,7 @@ namespace DesktopApp
             // linkForgetPassword
             // 
             this.linkForgetPassword.AutoSize = true;
+            this.linkForgetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkForgetPassword.Location = new System.Drawing.Point(347, 320);
             this.linkForgetPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkForgetPassword.Name = "linkForgetPassword";
@@ -190,6 +194,7 @@ namespace DesktopApp
             // ckbLookPass
             // 
             this.ckbLookPass.AutoSize = true;
+            this.ckbLookPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ckbLookPass.Location = new System.Drawing.Point(350, 243);
             this.ckbLookPass.Name = "ckbLookPass";
             this.ckbLookPass.Size = new System.Drawing.Size(162, 21);
@@ -201,6 +206,7 @@ namespace DesktopApp
             // txtError
             // 
             this.txtError.AutoSize = true;
+            this.txtError.ForeColor = System.Drawing.Color.Red;
             this.txtError.Location = new System.Drawing.Point(392, 285);
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(223, 17);
