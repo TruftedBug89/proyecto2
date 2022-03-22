@@ -95,10 +95,11 @@ namespace DesktopApp
         {
             if (dgvListSkills.SelectedRows.Count == 1)
             {
-                _llistaSkill = CogerListaSkillSeleccionada();                
+                _llistaSkill = CogerListaSkillSeleccionada();               
                 lblDates.Text = "Grupos de:";
                 lblDataSelect.Text = _llistaSkill.nom;
                 cargarGruposDeLista(_llistaSkill.id);
+
 
             }
 
@@ -244,16 +245,21 @@ namespace DesktopApp
 
         private void cargarListasDeGrupo(int id) 
         {
-            bindingSourceGrupsHasSkills.DataSource = null;
-            lbGroupsHasSkills.DataSource = null;
-            lbGroupsHasSkills.Items.Clear();
-            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
+            if (_llistaSkill != null)
+            {
+                bindingSourceGrupsHasSkills.DataSource = null;
+                lbGroupsHasSkills.DataSource = null;
+                lbGroupsHasSkills.Items.Clear();
+                List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
 
-            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
-            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
-            lbGroupsHasSkills.DisplayMember = "llistes_skills_id";
-            lbGroupsHasSkills.ValueMember = "grups_id";
+                bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
+                lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
+                lbGroupsHasSkills.DisplayMember = "llistes_skills_id";
+                lbGroupsHasSkills.ValueMember = "grups_id";
+            }
 
+         
+            
             //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
             //{
             //    llistes_skills _llistes = Llistes_SkillsOrm.SelectListaSkill(item.llistes_skills_id);
@@ -272,16 +278,28 @@ namespace DesktopApp
 
         private void cargarGruposDeLista(int id) 
         {
-            bindingSourceGrupsHasSkills.DataSource = null;
-            lbGroupsHasSkills.DataSource = null;
-            lbGroupsHasSkills.Items.Clear();
-            List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
+            if (_llistaSkill != null) 
+            {
+                
+                List<grups> grupsSkills = new List<grups>();
 
+                bindingSourceLlistesGrups.DataSource = null;
+                lbGroupsHasSkills.DataSource = null;
+                lbGroupsHasSkills.Items.Clear();
+                //List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
+                List<grups_has_llistes_skills> _GrupsLlistesSKills = _llistaSkill.grups_has_llistes_skills.ToList();
 
-            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
-            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
-            lbGroupsHasSkills.DisplayMember = "grups_id";
-            lbGroupsHasSkills.ValueMember = "grups_id";
+                foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+                {                    
+                    grupsSkills.Add(item.grups);
+                }
+
+                bindingSourceLlistesGrups.DataSource = grupsSkills;
+                lbGroupsHasSkills.DataSource = bindingSourceLlistesGrups;
+                lbGroupsHasSkills.DisplayMember = "nom";
+                lbGroupsHasSkills.ValueMember = "id";
+            }
+           
 
 
             //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
@@ -395,33 +413,25 @@ namespace DesktopApp
                                 Select_grupsLListes.grups_id = _grup.id;
                                 Select_grupsLListes.llistes_skills_id = llista.id;
                                 Select_grupsLListes.curs_id = cogerIdCursoDataGridViewCombo(rowLListes, 1);
+                                Select_grupsLListes.grups = _grup;
 
-                                //Finalmente añadir el objeto a una lista de grups_has_llistes_skills
-                                Lista_grups_LListes.Add(Select_grupsLListes);
-                                
+                                //Finalmente añadir el objeto a una lista de grups_has_llistes_skills                               
+                                llista.grups_has_llistes_skills.Add(Select_grupsLListes);
+
+                                missatge = GrupsHasLlistesSkillsOrm.Insert(Select_grupsLListes);
+
+                                if (missatge != "")
+                                {
+                                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
 
                             }
                         }
                     }
 
-                    //Si la lista tiene al menos un elemento añadir a la base de datos
-                    if (Lista_grups_LListes.Count >= 1)
-                    {
-                        //Una vez guardados los datos seleccionados añadirlos a la tabla de Grups_has_llistes_skillls
-                        foreach (grups_has_llistes_skills gLlistes in Lista_grups_LListes)
-                        {
-                            missatge = GrupsHasLlistesSkillsOrm.Insert(gLlistes);
-
-                            if (missatge != "")
-                            {
-                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            }
-                        }
-
-                        MessageBox.Show("Listas añadidas al grupo");
-                    }
-                                        
+                    
+                                                            
 
 
 
@@ -636,9 +646,11 @@ namespace DesktopApp
 
         private void lbGroupsHasSkills_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-             _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
-            
+
+            // _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
+          
+
+
 
         }
 
@@ -779,6 +791,6 @@ namespace DesktopApp
             }
         }
 
-
+ 
     }
 }
