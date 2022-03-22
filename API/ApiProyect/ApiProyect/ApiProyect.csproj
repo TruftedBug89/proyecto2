@@ -169,7 +169,9 @@
     <Compile Include="Controllers\grups_has_llistes_skillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llistes_skillsController.cs" />
+    <Compile Include="Controllers\rolsController.cs" />
     <Compile Include="Controllers\skillsController.cs" />
+    <Compile Include="Controllers\usuarisController.cs" />
     <Compile Include="Controllers\valoracionsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
