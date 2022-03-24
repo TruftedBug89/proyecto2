@@ -67,21 +67,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="rols">
-      <EntityTypeMapping TypeName="frase_aluModel.rols">
-        <MappingFragment StoreEntitySet="rols">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nom" ColumnName="nom" />
-          <ScalarProperty Name="actiu" ColumnName="actiu" />
-          <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
-          <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
-          <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
-          <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
-          <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
-          <ScalarProperty Name="GestionarGrupos" ColumnName="GestionarGrupos" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="skills">
       <EntityTypeMapping TypeName="frase_aluModel.skills">
         <MappingFragment StoreEntitySet="skills">
@@ -109,14 +94,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="rols">
+      <EntityTypeMapping TypeName="frase_aluModel.rols">
+        <MappingFragment StoreEntitySet="rols">
+          <ScalarProperty Name="gestionarRelacionesGrupos" ColumnName="gestionarRelacionesGrupos" />
+          <ScalarProperty Name="gestionarCursos" ColumnName="gestionarCursos" />
+          <ScalarProperty Name="gestionarGrupos" ColumnName="gestionarGrupos" />
+          <ScalarProperty Name="gestionarPerfiles" ColumnName="gestionarPerfiles" />
+          <ScalarProperty Name="gestionarUsuarios" ColumnName="gestionarUsuarios" />
+          <ScalarProperty Name="gestionarSkills" ColumnName="gestionarSkills" />
+          <ScalarProperty Name="gestionarListaSkills" ColumnName="gestionarListaSkills" />
+          <ScalarProperty Name="gestionarKPIs" ColumnName="gestionarKPIs" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="valoracions">
       <EntityTypeMapping TypeName="frase_aluModel.valoracions">
         <MappingFragment StoreEntitySet="valoracions">
-          <ScalarProperty Name="kpis_id" ColumnName="kpis_id" />
-          <ScalarProperty Name="usuari_valorat_id" ColumnName="usuari_valorat_id" />
-          <ScalarProperty Name="usuari_pp_id" ColumnName="usuari_pp_id" />
-          <ScalarProperty Name="data" ColumnName="data" />
           <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="usuari_pp_id" ColumnName="usuari_pp_id" />
+          <ScalarProperty Name="usuari_valorat_id" ColumnName="usuari_valorat_id" />
+          <ScalarProperty Name="kpis_id" ColumnName="kpis_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
