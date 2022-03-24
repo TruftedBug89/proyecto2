@@ -72,12 +72,14 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
-    <Property Name="GestionarKPIs" Type="bit" Nullable="false" />
-    <Property Name="GestionarListaSkills" Type="bit" Nullable="false" />
-    <Property Name="GestionarSkills" Type="bit" Nullable="false" />
-    <Property Name="GestionarUsuarios" Type="bit" Nullable="false" />
-    <Property Name="GestionarPerfiles" Type="bit" Nullable="false" />
-    <Property Name="GestionarGrupos" Type="bit" Nullable="false" />
+    <Property Name="gestionarKPIs" Type="bit" Nullable="false" />
+    <Property Name="gestionarListaSkills" Type="bit" Nullable="false" />
+    <Property Name="gestionarSkills" Type="bit" Nullable="false" />
+    <Property Name="gestionarUsuarios" Type="bit" Nullable="false" />
+    <Property Name="gestionarPerfiles" Type="bit" Nullable="false" />
+    <Property Name="gestionarGrupos" Type="bit" Nullable="false" />
+    <Property Name="gestionarCursos" Type="bit" Nullable="false" />
+    <Property Name="gestionarRelacionesGrupos" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="skills">
     <Key>

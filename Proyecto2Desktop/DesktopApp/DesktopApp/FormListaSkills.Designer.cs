@@ -225,7 +225,7 @@
             this.btnManagmentGroups.Name = "btnManagmentGroups";
             this.btnManagmentGroups.Size = new System.Drawing.Size(182, 42);
             this.btnManagmentGroups.TabIndex = 18;
-            this.btnManagmentGroups.Text = "Gestionar Grupos";
+            this.btnManagmentGroups.Text = "Relaciones Grupos";
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
             this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
             // 

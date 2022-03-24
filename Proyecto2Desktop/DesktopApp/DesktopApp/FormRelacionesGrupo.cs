@@ -49,6 +49,19 @@ namespace DesktopApp
            
         }
 
+        private void ControlPermisosUsuario() 
+        {
+            if (UsuarioLogin.UsuariLogin.rols.gestionarGrupos == false)
+            {
+                this.Controls.Remove(btnManagmentGroups);
+            }
+            if (UsuarioLogin.UsuariLogin.rols.gestionarCursos == false)
+            {
+                this.Controls.Remove(btnManagmentCourses);
+            }
+        }
+
+
         private void lbgroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbgroups.SelectedItem != null)
@@ -126,7 +139,7 @@ namespace DesktopApp
 
         private void FormRelacionesGrupo_Load(object sender, EventArgs e)
         {
-                        
+            ControlPermisosUsuario();
             cargarGrupos();
             cargarCursos();
 

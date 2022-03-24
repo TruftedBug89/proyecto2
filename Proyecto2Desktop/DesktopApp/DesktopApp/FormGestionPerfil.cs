@@ -49,6 +49,8 @@ namespace DesktopApp
             ckbUsersGestion.Checked = true;
             ckbPerfilGestion.Checked = true;
             ckbGroupGestion.Checked = true;
+            ckbManagmentCourses.Checked = true;
+            cxbRelationsGroups.Checked = true;
         }
 
         private void ckbEmptyPermision_CheckedChanged(object sender, EventArgs e)
@@ -60,6 +62,8 @@ namespace DesktopApp
             ckbUsersGestion.Checked = false;
             ckbPerfilGestion.Checked = false;
             ckbGroupGestion.Checked = false;
+            ckbManagmentCourses.Checked = false;
+            cxbRelationsGroups.Checked = false;
 
         }
 
@@ -84,12 +88,14 @@ namespace DesktopApp
 
                 _rol.nom = tbPerfilName.Text;
                 _rol.actiu = ckbActiu.Checked;
-                _rol.GestionarGrupos = ckbGroupGestion.Checked;
-                _rol.GestionarKPIs = ckbKPIGestion.Checked;
-                _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
-                _rol.GestionarSkills = ckbSkillsGestion.Checked;
-                _rol.GestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.gestionarGrupos = ckbGroupGestion.Checked;
+                _rol.gestionarKPIs = ckbKPIGestion.Checked;
+                _rol.gestionarListaSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarPerfiles = ckbPerfilGestion.Checked;
+                _rol.gestionarSkills = ckbSkillsGestion.Checked;
+                _rol.gestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.gestionarCursos = ckbManagmentCourses.Checked;
+                _rol.gestionarRelacionesGrupos = cxbRelationsGroups.Checked;
                 _rol.actiu = ckbActiu.Checked;
                 RolsOrm.Update(_rol);
                 tbPerfilName.Text = "";
@@ -100,6 +106,8 @@ namespace DesktopApp
                 ckbPerfilGestion.Checked = false;
                 ckbSkillsGestion.Checked = false;
                 ckbUsersGestion.Checked = false;
+                ckbManagmentCourses.Checked = false;
+                cxbRelationsGroups.Checked = false;
                 ckbActiu.Checked = false;
                 FormGestionPerfil_Load(_rol, e);
             }
@@ -107,12 +115,14 @@ namespace DesktopApp
             {
                 _rol = new rols();
                 _rol.nom = tbPerfilName.Text;
-                _rol.GestionarKPIs = ckbKPIGestion.Checked;
-                _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarUsuarios = ckbUsersGestion.Checked;
-                _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
-                _rol.GestionarGrupos = ckbGroupGestion.Checked;
+                _rol.gestionarKPIs = ckbKPIGestion.Checked;
+                _rol.gestionarListaSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.gestionarPerfiles = ckbPerfilGestion.Checked;
+                _rol.gestionarGrupos = ckbGroupGestion.Checked;
+                _rol.gestionarCursos = ckbManagmentCourses.Checked;
+                _rol.gestionarRelacionesGrupos = cxbRelationsGroups.Checked;
                 _rol.actiu = true;
                 RolsOrm.Insert(_rol);
                 tbPerfilName.Text = "";
@@ -123,6 +133,8 @@ namespace DesktopApp
                 ckbPerfilGestion.Checked = false;
                 ckbSkillsGestion.Checked = false;
                 ckbUsersGestion.Checked = false;
+                ckbManagmentCourses.Checked = false;
+                cxbRelationsGroups.Checked = false;
                 ckbActiu.Checked = false;
                 FormGestionPerfil_Load(_rol, e);
             }
@@ -137,12 +149,14 @@ namespace DesktopApp
                 _rol = (rols)dataGridView1.SelectedRows[0].DataBoundItem;
                 tbPerfilName.Text = _rol.nom;
                 ckbActiu.Checked = _rol.actiu;
-                ckbGroupGestion.Checked = _rol.GestionarGrupos;
-                ckbKPIGestion.Checked = _rol.GestionarKPIs;
-                ckbListSkilsGestion.Checked = _rol.GestionarListaSkills;
-                ckbPerfilGestion.Checked = _rol.GestionarPerfiles;
-                ckbSkillsGestion.Checked = _rol.GestionarSkills;
-                ckbUsersGestion.Checked = _rol.GestionarUsuarios;
+                ckbGroupGestion.Checked = _rol.gestionarGrupos;
+                ckbKPIGestion.Checked = _rol.gestionarKPIs;
+                ckbListSkilsGestion.Checked = _rol.gestionarListaSkills;
+                ckbPerfilGestion.Checked = _rol.gestionarPerfiles;
+                ckbSkillsGestion.Checked = _rol.gestionarSkills;
+                ckbUsersGestion.Checked = _rol.gestionarUsuarios;
+                ckbManagmentCourses.Checked = _rol.gestionarCursos;
+                cxbRelationsGroups.Checked = _rol.gestionarRelacionesGrupos;
                 ckbActiu.Checked = _rol.actiu;
             }
         }
@@ -157,6 +171,8 @@ namespace DesktopApp
             ckbPerfilGestion.Checked = false;
             ckbSkillsGestion.Checked = false;
             ckbUsersGestion.Checked = false;
+            ckbManagmentCourses.Checked = false;
+            cxbRelationsGroups.Checked = false;
             ckbActiu.Checked = false;
             checkModificar = false;
         }

@@ -169,12 +169,12 @@ namespace DesktopApp
         private void ControlPermisosUsuario()
         {
            
-            if (UsuarioLogin.UsuariLogin.rols.GestionarPerfiles == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarPerfiles == false)
             {
                 
                 this.Controls.Remove(btnRoles);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarGrupos == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarRelacionesGrupos == false)
             {
                 this.Controls.Remove(btnGroups);
             }

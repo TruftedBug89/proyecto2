@@ -246,7 +246,6 @@
       <End Role="llistes_skills" EntitySet="llistes_skills" />
       <End Role="skills" EntitySet="skills" />
     </AssociationSet>
-    <EntitySet Name="rols" EntityType="frase_aluModel.rols" />
     <EntitySet Name="usuaris" EntityType="frase_aluModel.usuaris" />
     <AssociationSet Name="FK_grups_has_alumnes_usuaris" Association="frase_aluModel.FK_grups_has_alumnes_usuaris">
       <End Role="usuaris" EntitySet="usuaris" />
@@ -256,10 +255,6 @@
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="grups_has_docents" EntitySet="grups_has_docents" />
     </AssociationSet>
-    <AssociationSet Name="FK_usuaris_rols" Association="frase_aluModel.FK_usuaris_rols">
-      <End Role="rols" EntitySet="rols" />
-      <End Role="usuaris" EntitySet="usuaris" />
-    </AssociationSet>
     <AssociationSet Name="FK_valoracions_usuaris" Association="frase_aluModel.FK_valoracions_usuaris">
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="valoracions" EntitySet="valoracions" />
@@ -267,6 +262,11 @@
     <AssociationSet Name="FK_valoracions_usuaris1" Association="frase_aluModel.FK_valoracions_usuaris1">
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="valoracions" EntitySet="valoracions" />
+    </AssociationSet>
+    <EntitySet Name="rols" EntityType="frase_aluModel.rols" />
+    <AssociationSet Name="FK_usuaris_rols" Association="frase_aluModel.FK_usuaris_rols">
+      <End Role="rols" EntitySet="rols" />
+      <End Role="usuaris" EntitySet="usuaris" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="skills">
@@ -306,21 +306,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="rols">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="actiu" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarKPIs" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarListaSkills" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarSkills" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarUsuarios" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarPerfiles" Type="Boolean" Nullable="false" />
-    <Property Name="GestionarGrupos" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
-  </EntityType>
   <EntityType Name="usuaris">
     <Key>
       <PropertyRef Name="id" />
@@ -333,12 +318,12 @@
     <Property Name="contrasenya" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="grups_has_alumnes" Relationship="frase_aluModel.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="frase_aluModel.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
-    <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
     <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
     <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
     <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_usuaris">
     <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
@@ -364,18 +349,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_usuaris_rols">
-    <End Type="frase_aluModel.rols" Role="rols" Multiplicity="1" />
-    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="rols">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="usuaris">
-        <PropertyRef Name="rols_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_valoracions_usuaris">
     <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
     <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
@@ -397,6 +370,35 @@
       </Principal>
       <Dependent Role="valoracions">
         <PropertyRef Name="usuari_pp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="rols">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="actiu" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarKPIs" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarListaSkills" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarSkills" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarUsuarios" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarPerfiles" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarGrupos" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarCursos" Type="Boolean" Nullable="false" />
+    <Property Name="gestionarRelacionesGrupos" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="rols" ToRole="usuaris" />
+  </EntityType>
+  <Association Name="FK_usuaris_rols">
+    <End Type="frase_aluModel.rols" Role="rols" Multiplicity="1" />
+    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rols">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuaris">
+        <PropertyRef Name="rols_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
