@@ -56,10 +56,10 @@ namespace DesktopApp
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(58, 98);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 96);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 198);
+            this.pictureBox1.Size = new System.Drawing.Size(220, 194);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -68,28 +68,28 @@ namespace DesktopApp
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(346, 107);
+            this.labelUsername.Location = new System.Drawing.Point(290, 96);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(86, 20);
+            this.labelUsername.Size = new System.Drawing.Size(67, 20);
             this.labelUsername.TabIndex = 1;
-            this.labelUsername.Text = "Username";
+            this.labelUsername.Text = "Usuario";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(346, 186);
+            this.labelPassword.Location = new System.Drawing.Point(290, 175);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(83, 20);
+            this.labelPassword.Size = new System.Drawing.Size(103, 20);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Password";
+            this.labelPassword.Text = "Contrasenya";
             // 
             // txtBoxUsername
             // 
             this.txtBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUsername.Location = new System.Drawing.Point(349, 131);
+            this.txtBoxUsername.Location = new System.Drawing.Point(293, 120);
             this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(276, 26);
@@ -98,7 +98,7 @@ namespace DesktopApp
             // txtBoxContrasenya
             // 
             this.txtBoxContrasenya.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxContrasenya.Location = new System.Drawing.Point(350, 210);
+            this.txtBoxContrasenya.Location = new System.Drawing.Point(294, 199);
             this.txtBoxContrasenya.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxContrasenya.Name = "txtBoxContrasenya";
             this.txtBoxContrasenya.Size = new System.Drawing.Size(276, 26);
@@ -109,7 +109,7 @@ namespace DesktopApp
             // 
             this.buttonIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.buttonIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonIniciarSesion.Location = new System.Drawing.Point(535, 355);
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(455, 329);
             this.buttonIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(115, 28);
@@ -122,7 +122,7 @@ namespace DesktopApp
             // 
             this.linkForgetPassword.AutoSize = true;
             this.linkForgetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkForgetPassword.Location = new System.Drawing.Point(347, 320);
+            this.linkForgetPassword.Location = new System.Drawing.Point(290, 291);
             this.linkForgetPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkForgetPassword.Name = "linkForgetPassword";
             this.linkForgetPassword.Size = new System.Drawing.Size(196, 17);
@@ -141,14 +141,14 @@ namespace DesktopApp
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
             this.pnBarra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(694, 37);
+            this.pnBarra.Size = new System.Drawing.Size(600, 40);
             this.pnBarra.TabIndex = 7;
             this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pcIcono
             // 
             this.pcIcono.Image = ((System.Drawing.Image)(resources.GetObject("pcIcono.Image")));
-            this.pcIcono.Location = new System.Drawing.Point(12, 10);
+            this.pcIcono.Location = new System.Drawing.Point(8, 8);
             this.pcIcono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcIcono.Name = "pcIcono";
             this.pcIcono.Size = new System.Drawing.Size(25, 25);
@@ -160,9 +160,10 @@ namespace DesktopApp
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(55, 10);
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbTitulo.Location = new System.Drawing.Point(39, 11);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(92, 17);
+            this.lbTitulo.Size = new System.Drawing.Size(110, 20);
             this.lbTitulo.TabIndex = 10;
             this.lbTitulo.Text = "Iniciar Sesion";
             this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
@@ -170,7 +171,7 @@ namespace DesktopApp
             // pb_minimize
             // 
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(625, 10);
+            this.pb_minimize.Location = new System.Drawing.Point(537, 8);
             this.pb_minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
@@ -182,7 +183,7 @@ namespace DesktopApp
             // pb_close
             // 
             this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(656, 10);
+            this.pb_close.Location = new System.Drawing.Point(568, 8);
             this.pb_close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_close.Name = "pb_close";
             this.pb_close.Size = new System.Drawing.Size(25, 25);
@@ -195,7 +196,7 @@ namespace DesktopApp
             // 
             this.ckbLookPass.AutoSize = true;
             this.ckbLookPass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckbLookPass.Location = new System.Drawing.Point(350, 243);
+            this.ckbLookPass.Location = new System.Drawing.Point(294, 232);
             this.ckbLookPass.Name = "ckbLookPass";
             this.ckbLookPass.Size = new System.Drawing.Size(162, 21);
             this.ckbLookPass.TabIndex = 8;
@@ -207,7 +208,7 @@ namespace DesktopApp
             // 
             this.txtError.AutoSize = true;
             this.txtError.ForeColor = System.Drawing.Color.Red;
-            this.txtError.Location = new System.Drawing.Point(392, 285);
+            this.txtError.Location = new System.Drawing.Point(327, 266);
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(223, 17);
             this.txtError.TabIndex = 9;
@@ -217,7 +218,7 @@ namespace DesktopApp
             // pbError
             // 
             this.pbError.Image = ((System.Drawing.Image)(resources.GetObject("pbError.Image")));
-            this.pbError.Location = new System.Drawing.Point(350, 278);
+            this.pbError.Location = new System.Drawing.Point(293, 259);
             this.pbError.Name = "pbError";
             this.pbError.Size = new System.Drawing.Size(31, 29);
             this.pbError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +231,7 @@ namespace DesktopApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(693, 406);
+            this.ClientSize = new System.Drawing.Size(600, 379);
             this.Controls.Add(this.pbError);
             this.Controls.Add(this.txtError);
             this.Controls.Add(this.ckbLookPass);

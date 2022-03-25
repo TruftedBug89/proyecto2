@@ -283,6 +283,7 @@
             this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_minimize.TabIndex = 9;
             this.pb_minimize.TabStop = false;
+            this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
             // 
             // pb_close
             // 
@@ -314,7 +315,7 @@
             // pcIcono
             // 
             this.pcIcono.Image = ((System.Drawing.Image)(resources.GetObject("pcIcono.Image")));
-            this.pcIcono.Location = new System.Drawing.Point(24, 10);
+            this.pcIcono.Location = new System.Drawing.Point(24, 11);
             this.pcIcono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcIcono.Name = "pcIcono";
             this.pcIcono.Size = new System.Drawing.Size(25, 25);

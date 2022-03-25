@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="frase_aluModel.grups_has_llistes_skills" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="frase_aluModel.kpis" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="frase_aluModel.llistes_skills" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="frase_aluModel.rols" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="frase_aluModel.valoracions" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
         <AssociationConnector Association="frase_aluModel.FK_grups_has_alumnes_cursos" ManuallyRouted="false" />
         <AssociationConnector Association="frase_aluModel.FK_grups_has_docents_cursos" ManuallyRouted="false" />
@@ -28,9 +27,10 @@
         <EntityTypeShape EntityType="frase_aluModel.usuaris" Width="1.5" PointX="3" PointY="4.375" />
         <AssociationConnector Association="frase_aluModel.FK_grups_has_alumnes_usuaris" />
         <AssociationConnector Association="frase_aluModel.FK_grups_has_docents_usuaris" />
-        <AssociationConnector Association="frase_aluModel.FK_usuaris_rols" />
         <AssociationConnector Association="frase_aluModel.FK_valoracions_usuaris" />
         <AssociationConnector Association="frase_aluModel.FK_valoracions_usuaris1" />
+        <EntityTypeShape EntityType="frase_aluModel.rols" Width="1.5" PointX="0.75" PointY="4.625" />
+        <AssociationConnector Association="frase_aluModel.FK_usuaris_rols" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

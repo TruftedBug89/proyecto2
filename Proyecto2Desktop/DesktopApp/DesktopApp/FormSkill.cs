@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopApp.Models;
+using System.Runtime.InteropServices;
 
 namespace DesktopApp
 {
@@ -31,7 +32,6 @@ namespace DesktopApp
             this._llistaS = _llistaS;
         }
 
-
         private void FormSkill_Load(object sender, EventArgs e)
         {
             lblNameListSkills.Text = _llistaS.nom;
@@ -41,7 +41,6 @@ namespace DesktopApp
             {
                 CrearBotonSkills(skill);
             }
-
         }
 
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
@@ -61,12 +60,7 @@ namespace DesktopApp
             {
                 vaciarCampos();
             }
-
-
-
         }
-
-
         private void CrearBotonSkills(skills _skill)
         {
             RadioButton btnSkill = new RadioButton();
@@ -86,7 +80,6 @@ namespace DesktopApp
                 btnSkill.ForeColor = Color.FromArgb(_skill.colorTexto);
                 btnSkill.FlatAppearance.CheckedBackColor = Color.FromArgb(100, Color.FromArgb(_skill.colorFondo));
             }
-
             String nombre = btnSkill.Text;
             btnSkill.FlatStyle = FlatStyle.Flat;
             btnSkill.FlatAppearance.BorderSize = 0;
@@ -95,10 +88,8 @@ namespace DesktopApp
             btnSkill.Size = new Size(85, 75);
             btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
-
             btnSkill.Click += (sender2, e2) => SeleccionarSkill_Click(sender2, e2, btnSkill, _skill);
         }
-
 
 
         private void btnBColor_Click(object sender, EventArgs e)
@@ -113,7 +104,6 @@ namespace DesktopApp
             cdTextColor.ShowDialog();
             Color color = cdTextColor.Color;
             txtTcolor.BackColor = color;
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -124,8 +114,6 @@ namespace DesktopApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             String missatge = "";
-
-
             if (!txtNameSkill.Text.Equals(""))
             {
                 String nombreSkill = "";
@@ -149,11 +137,6 @@ namespace DesktopApp
                         ActualizarPanelSkills();
                         ActualizarNombreListaSkills(missatge);
                     }
-
-
-
-
-
                 }
                 else
                 {
@@ -161,13 +144,11 @@ namespace DesktopApp
                     char[] letrasS = txtNameSkill.Text.ToCharArray();
                     var regex = new Regex(Regex.Escape(letrasS[0].ToString()));
                     nombreSkill = regex.Replace(txtNameSkill.Text, letrasS[0].ToString().ToUpper(), 1);
-
                     S.nom = nombreSkill;
                     S.llistes_skills_id = _llistaS.id;
                     S.actiu = cboActivate.Checked;
                     S.colorFondo = txtBcolor.BackColor.ToArgb();
                     S.colorTexto = txtTcolor.BackColor.ToArgb();
-
                     missatge = SkillsOrm.Insert(S);
 
                     if (missatge != "")
@@ -179,9 +160,7 @@ namespace DesktopApp
                         char[] letras = _llistaS.nom.ToCharArray();
                         char[] letraSnueva = S.nom.ToCharArray();
                         String nuevoNombre = _llistaS.nom.Insert(_llistaS.nom.Length, letraSnueva[0].ToString().ToUpper());
-
                         missatge = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombre.ToUpper());
-
                         if (missatge != "")
                         {
                             MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -191,26 +170,14 @@ namespace DesktopApp
                             MessageBox.Show("Skill añadida");
                             ActualizarPanelSkills();
                             ActualizarNombreListaSkills(missatge);
-
                         }
-
-
                     }
-
-
                 }
-
             }
             else
             {
                 MessageBox.Show("Introduce el nombre de la Skill");
             }
-
-                   
-            
-
-
-
         }
 
 
@@ -221,9 +188,7 @@ namespace DesktopApp
             {
                 flpSkills.Controls.RemoveAt(1);
             }
-
             List<skills> _Skills = SkillsOrm.SelectIdLlista(_llistaS.id);
-
             foreach (skills S in _Skills)
             {
                 CrearBotonSkills(S);
@@ -241,7 +206,6 @@ namespace DesktopApp
                 letras[i] = letra[0];
                 i++;
             }
-
             String nuevoNombreLista = new string(letras);
             lblNameListSkills.Text = nuevoNombreLista;
             msg = Llistes_SkillsOrm.UpdateName(_llistaS, nuevoNombreLista.ToUpper());
@@ -250,18 +214,12 @@ namespace DesktopApp
             {
                 MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
-
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             _skill = null;
-
             CrearBotonSkills(_skill);
             vaciarCampos();
-
         }
 
         private void vaciarCampos()
@@ -282,5 +240,36 @@ namespace DesktopApp
                 txtWordSkill.Text = letras[0].ToString().ToUpper();
             }
         }
+
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
+
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
     }
 }

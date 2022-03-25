@@ -141,7 +141,5 @@ namespace DesktopApp
             cboActivate.Checked = false;
 
         }
-
-
     }
 }

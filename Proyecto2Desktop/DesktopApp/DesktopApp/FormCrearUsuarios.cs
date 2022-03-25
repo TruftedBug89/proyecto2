@@ -58,7 +58,6 @@ namespace DesktopApp
             tbRepeatPassword.UseSystemPasswordChar = true;
             if(usuarioAEditar != null)
             {
-
                 tbName.Text = usuarioAEditar.nom;
                 tbLastName.Text = usuarioAEditar.cognoms;
                 tbEmail.Text = usuarioAEditar.correo;
@@ -66,7 +65,6 @@ namespace DesktopApp
                 cbActiu.Checked = usuarioAEditar.actiu;
                 cbxSelectionPerfil.SelectedItem = usuarioAEditar.rols;
                 MessageBox.Show("Dejar el campo de contraseña en blanco para seguir utilizando la contraseña antigua","Información",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-
             }
         }
 
@@ -101,21 +99,15 @@ namespace DesktopApp
                 checkPass = true;
             }
             if (check == false && checkPass == true && checkEmail == true) {
-
                 _usuaris.correo = tbEmail.Text;
-                
                 _usuaris.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text,hashType: BCrypt.Net.HashType.SHA512);
-               
                 _usuaris.rols= (rols)cbxSelectionPerfil.SelectedItem;
-               
                 _usuaris.nom = tbName.Text;
                 _usuaris.cognoms = tbLastName.Text;
                 _usuaris.nomUsuari = tbUser.Text;
                 _usuaris.actiu = cbActiu.Checked;
                 _usuaris.imagen = null;
-
                 String missatge = UsuarisOrm.Insert(_usuaris);
-
                 if (missatge != "")
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -161,6 +153,11 @@ namespace DesktopApp
         private void pb_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

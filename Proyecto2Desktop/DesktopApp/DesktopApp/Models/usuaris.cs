@@ -37,10 +37,10 @@ namespace DesktopApp.Models
         public virtual ICollection<grups_has_alumnes> grups_has_alumnes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_docents> grups_has_docents { get; set; }
-        public virtual rols rols { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<valoracions> valoracions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<valoracions> valoracions1 { get; set; }
+        public virtual rols rols { get; set; }
     }
 }

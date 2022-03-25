@@ -50,19 +50,14 @@ namespace DesktopApp
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
-
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
                 CrearBotonListaSkill(lSkills);
             }
-
-
-
         }
 
         private void btnManagmentListSkills_Click(object sender, EventArgs e)
         {
-
             FormListaSkills formListaSkills = new FormListaSkills();
             formListaSkills.ShowDialog();
             ActualizarPanelListasSkills();
@@ -70,29 +65,22 @@ namespace DesktopApp
             _llistesSkills = null;
             dgvSkill.Columns.Clear();
         }
-
-
         private void btnCloseSesion_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
             limpiarPanelSkills();
             dgvSkill.Columns.Clear();
             btnManagmentKPI.Visible = false;
             _llistesSkills = llistesS;
-
             _skills = SkillsOrm.SelectActivate(_llistesSkills.id);
-
             foreach (skills skill in _skills)
             {
                 CrearBotonSkills(skill);
             }
         }
-
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
         {
             _skill = S;
@@ -102,20 +90,14 @@ namespace DesktopApp
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             dgvSkill.Columns.Add(S.nom, S.nom);
             dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-
             _kpis = KpisOrm.Select(true, _skill.id);
-
             foreach (kpis kpi in _kpis)
             {
                 dgvSkill.Rows.Add(kpi.nom);
             }
-
         }
-
-
         private void CrearBotonListaSkill(llistes_skills ls)
         {
-
             RadioButton btnListSkill = new RadioButton();
             btnListSkill.Appearance = Appearance.Button;
             btnListSkill.Text = ls.nom;
@@ -129,12 +111,8 @@ namespace DesktopApp
             btnListSkill.FlatAppearance.CheckedBackColor = Color.Blue;
             btnListSkill.Margin = new Padding(24, 8, 4, 4);
             flpListSkills.Controls.Add(btnListSkill);
-
             btnListSkill.Click += (sender2, e2) => SeleccionarLista_Click(sender2, e2, btnListSkill, ls);
-
         }
-
-
         private void CrearBotonSkills(skills _skills)
         {
             RadioButton btnSkill = new RadioButton();
@@ -152,11 +130,8 @@ namespace DesktopApp
             btnSkill.FlatAppearance.CheckedBackColor = Color.FromArgb(100, Color.FromArgb(_skills.colorFondo));
             btnSkill.Margin = new Padding(120, 15, 4, 4);
             flpSkills.Controls.Add(btnSkill);
-
             btnSkill.Click += (sender2, e2) => SeleccionarSkill_Click(sender2, e2, btnSkill, _skills);
         }
-
-
         private void ActualizarDatos() 
         {
             ActualizarPanelListasSkills();
@@ -164,7 +139,6 @@ namespace DesktopApp
             _llistesSkills = null;
             dgvSkill.Columns.Clear();
         }
-
         private void ActualizarPanelListasSkills()
         {
            //Elimino todos los Controles menos el primero
@@ -172,16 +146,12 @@ namespace DesktopApp
             {
                 flpListSkills.Controls.RemoveAt(1);
             }
-
             List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
-
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
                 CrearBotonListaSkill(lSkills);
             }
         }
-
-
         private void limpiarPanelSkills()
         {
             //Elimino todos los Controles menos el primero
@@ -190,8 +160,6 @@ namespace DesktopApp
                 flpSkills.Controls.RemoveAt(1);
             }
         }
-
-
         private void btnManagmentSkills_Click(object sender, EventArgs e)
         {
             if (_llistesSkills != null)
@@ -199,13 +167,12 @@ namespace DesktopApp
                 FormSkill formSkill = new FormSkill(_llistesSkills);
                 formSkill.ShowDialog();
                 ActualizarDatos();
-
             }
             else
             {
                 MessageBox.Show("Selecciona una lista de Skills");
             }
-          }
+        }
 
         private void btnManagmentKPI_Click(object sender, EventArgs e)
         {
@@ -249,6 +216,11 @@ namespace DesktopApp
         private void pb_minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnManagmentListSkills_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

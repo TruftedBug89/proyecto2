@@ -31,7 +31,6 @@ namespace DesktopApp
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
-
         private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
         {
             ReleaseCapture();
@@ -51,18 +50,15 @@ namespace DesktopApp
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
             Boolean entrar;
-
-            String correu = txtBoxUsername.Text;
+            String user = txtBoxUsername.Text;
             String contrasenya = txtBoxContrasenya.Text;
-            //entrar = UsuarisOrm.SelectLogin(correu, contrasenya);
-            //if (entrar)
-            //{
-                
+            entrar = UsuarisOrm.SelectLogin(user, contrasenya);
+            if (entrar)
+            {
                 FormPrincipal formprincipal = new FormPrincipal();
                 this.Hide();
-                formprincipal.ShowDialog();
-                
-            /*}
+                formprincipal.ShowDialog();   
+            }
             else
             {
                 txtBoxUsername.Text = "";
@@ -70,11 +66,8 @@ namespace DesktopApp
                 pbError.Visible = true;
                 txtError.Visible = true;
                 linkForgetPassword.Visible = true;
-            }*/
+            }
         }
-
-       
-
         private void ckbLookPass_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbLookPass.Checked)

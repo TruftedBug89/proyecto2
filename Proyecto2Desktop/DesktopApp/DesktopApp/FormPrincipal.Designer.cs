@@ -70,7 +70,7 @@
             this.btnCloseSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCloseSesion.Location = new System.Drawing.Point(461, 44);
+            this.btnCloseSesion.Location = new System.Drawing.Point(952, 46);
             this.btnCloseSesion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCloseSesion.Name = "btnCloseSesion";
             this.btnCloseSesion.Size = new System.Drawing.Size(198, 34);
@@ -83,11 +83,12 @@
             // 
             this.btnManagmentKPI.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnManagmentKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagmentKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnManagmentKPI.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentKPI.Location = new System.Drawing.Point(1250, 443);
+            this.btnManagmentKPI.Location = new System.Drawing.Point(1049, 582);
             this.btnManagmentKPI.Margin = new System.Windows.Forms.Padding(4);
             this.btnManagmentKPI.Name = "btnManagmentKPI";
-            this.btnManagmentKPI.Size = new System.Drawing.Size(155, 59);
+            this.btnManagmentKPI.Size = new System.Drawing.Size(155, 49);
             this.btnManagmentKPI.TabIndex = 5;
             this.btnManagmentKPI.Text = "Gestión KPI";
             this.btnManagmentKPI.UseVisualStyleBackColor = false;
@@ -100,10 +101,10 @@
             this.btnManagmentGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentGroups.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentGroups.Location = new System.Drawing.Point(27, 503);
+            this.btnManagmentGroups.Location = new System.Drawing.Point(806, 582);
             this.btnManagmentGroups.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentGroups.Name = "btnManagmentGroups";
-            this.btnManagmentGroups.Size = new System.Drawing.Size(118, 65);
+            this.btnManagmentGroups.Size = new System.Drawing.Size(205, 49);
             this.btnManagmentGroups.TabIndex = 10;
             this.btnManagmentGroups.Text = "Gestion Grupos";
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
@@ -115,10 +116,10 @@
             this.btnManagmentCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentCourses.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentCourses.Location = new System.Drawing.Point(27, 397);
+            this.btnManagmentCourses.Location = new System.Drawing.Point(590, 582);
             this.btnManagmentCourses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentCourses.Name = "btnManagmentCourses";
-            this.btnManagmentCourses.Size = new System.Drawing.Size(118, 65);
+            this.btnManagmentCourses.Size = new System.Drawing.Size(181, 49);
             this.btnManagmentCourses.TabIndex = 9;
             this.btnManagmentCourses.Text = "Gestion Cursos";
             this.btnManagmentCourses.UseVisualStyleBackColor = false;
@@ -130,10 +131,10 @@
             this.btnManagmentRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentRoles.ForeColor = System.Drawing.Color.White;
-            this.btnManagmentRoles.Location = new System.Drawing.Point(27, 292);
+            this.btnManagmentRoles.Location = new System.Drawing.Point(348, 582);
             this.btnManagmentRoles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentRoles.Name = "btnManagmentRoles";
-            this.btnManagmentRoles.Size = new System.Drawing.Size(118, 65);
+            this.btnManagmentRoles.Size = new System.Drawing.Size(176, 49);
             this.btnManagmentRoles.TabIndex = 8;
             this.btnManagmentRoles.Text = "Gestion Roles";
             this.btnManagmentRoles.UseVisualStyleBackColor = false;
@@ -145,10 +146,10 @@
             this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(27, 180);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(101, 583);
             this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(118, 78);
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(196, 49);
             this.btnGestionUsuarios.TabIndex = 7;
             this.btnGestionUsuarios.Text = "Gestión Usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = false;
@@ -160,10 +161,10 @@
             this.flpSkills.BackColor = System.Drawing.Color.White;
             this.flpSkills.Controls.Add(this.btnManagmentSkills);
             this.flpSkills.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpSkills.Location = new System.Drawing.Point(0, 637);
+            this.flpSkills.Location = new System.Drawing.Point(0, 660);
             this.flpSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpSkills.Name = "flpSkills";
-            this.flpSkills.Size = new System.Drawing.Size(1405, 99);
+            this.flpSkills.Size = new System.Drawing.Size(1403, 120);
             this.flpSkills.TabIndex = 24;
             this.flpSkills.WrapContents = false;
             // 
@@ -186,12 +187,12 @@
             this.dgvSkill.AllowUserToAddRows = false;
             this.dgvSkill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkill.Location = new System.Drawing.Point(174, 189);
+            this.dgvSkill.Location = new System.Drawing.Point(28, 194);
             this.dgvSkill.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;
-            this.dgvSkill.Size = new System.Drawing.Size(1078, 444);
+            this.dgvSkill.Size = new System.Drawing.Size(1340, 365);
             this.dgvSkill.TabIndex = 17;
             // 
             // pnBarra
@@ -210,7 +211,7 @@
             // pb_minimize
             // 
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(1305, 9);
+            this.pb_minimize.Location = new System.Drawing.Point(1335, 9);
             this.pb_minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
@@ -235,7 +236,7 @@
             // 
             this.pb_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(1336, 9);
+            this.pb_close.Location = new System.Drawing.Point(1366, 9);
             this.pb_close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_close.Name = "pb_close";
             this.pb_close.Size = new System.Drawing.Size(25, 25);
@@ -259,10 +260,10 @@
             this.flpListSkills.AutoScroll = true;
             this.flpListSkills.BackColor = System.Drawing.Color.White;
             this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
-            this.flpListSkills.Location = new System.Drawing.Point(0, 80);
+            this.flpListSkills.Location = new System.Drawing.Point(0, 92);
             this.flpListSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpListSkills.Name = "flpListSkills";
-            this.flpListSkills.Size = new System.Drawing.Size(1606, 95);
+            this.flpListSkills.Size = new System.Drawing.Size(1606, 98);
             this.flpListSkills.TabIndex = 26;
             this.flpListSkills.WrapContents = false;
             // 
@@ -279,6 +280,7 @@
             this.btnManagmentListSkills.TabIndex = 3;
             this.btnManagmentListSkills.Text = "Gestión Lista Skils";
             this.btnManagmentListSkills.UseVisualStyleBackColor = false;
+            this.btnManagmentListSkills.Click += new System.EventHandler(this.btnManagmentListSkills_Click_1);
             // 
             // msOpcions
             // 
@@ -353,7 +355,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1405, 736);
+            this.ClientSize = new System.Drawing.Size(1403, 780);
             this.Controls.Add(this.msOpcions);
             this.Controls.Add(this.btnManagmentKPI);
             this.Controls.Add(this.flpListSkills);

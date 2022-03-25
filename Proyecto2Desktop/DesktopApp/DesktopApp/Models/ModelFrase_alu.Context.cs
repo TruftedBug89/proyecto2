@@ -34,7 +34,7 @@ namespace DesktopApp.Models
         public virtual DbSet<llistes_skills> llistes_skills { get; set; }
         public virtual DbSet<valoracions> valoracions { get; set; }
         public virtual DbSet<skills> skills { get; set; }
-        public virtual DbSet<rols> rols { get; set; }
         public virtual DbSet<usuaris> usuaris { get; set; }
+        public virtual DbSet<rols> rols { get; set; }
     }
 }

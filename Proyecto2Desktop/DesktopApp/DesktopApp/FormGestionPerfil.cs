@@ -20,15 +20,6 @@ namespace DesktopApp
             InitializeComponent();
         }
 
-        private void pbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pbMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
         //Para mover la pestaña
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -84,12 +75,12 @@ namespace DesktopApp
 
                 _rol.nom = tbPerfilName.Text;
                 _rol.actiu = ckbActiu.Checked;
-                _rol.GestionarGrupos = ckbGroupGestion.Checked;
-                _rol.GestionarKPIs = ckbKPIGestion.Checked;
-                _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
-                _rol.GestionarSkills = ckbSkillsGestion.Checked;
-                _rol.GestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.gestionarGrupos = ckbGroupGestion.Checked;
+                _rol.gestionarKPIs = ckbKPIGestion.Checked;
+                _rol.gestionarListaSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarPerfiles = ckbPerfilGestion.Checked;
+                _rol.gestionarSkills = ckbSkillsGestion.Checked;
+                _rol.gestionarUsuarios = ckbUsersGestion.Checked;
                 _rol.actiu = ckbActiu.Checked;
                 RolsOrm.Update(_rol);
                 tbPerfilName.Text = "";
@@ -107,12 +98,12 @@ namespace DesktopApp
             {
                 _rol = new rols();
                 _rol.nom = tbPerfilName.Text;
-                _rol.GestionarKPIs = ckbKPIGestion.Checked;
-                _rol.GestionarListaSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarSkills = ckbListSkilsGestion.Checked;
-                _rol.GestionarUsuarios = ckbUsersGestion.Checked;
-                _rol.GestionarPerfiles = ckbPerfilGestion.Checked;
-                _rol.GestionarGrupos = ckbGroupGestion.Checked;
+                _rol.gestionarKPIs = ckbKPIGestion.Checked;
+                _rol.gestionarListaSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarSkills = ckbListSkilsGestion.Checked;
+                _rol.gestionarUsuarios = ckbUsersGestion.Checked;
+                _rol.gestionarPerfiles = ckbPerfilGestion.Checked;
+                _rol.gestionarGrupos = ckbGroupGestion.Checked;
                 _rol.actiu = true;
                 RolsOrm.Insert(_rol);
                 tbPerfilName.Text = "";
@@ -137,12 +128,12 @@ namespace DesktopApp
                 _rol = (rols)dataGridView1.SelectedRows[0].DataBoundItem;
                 tbPerfilName.Text = _rol.nom;
                 ckbActiu.Checked = _rol.actiu;
-                ckbGroupGestion.Checked = _rol.GestionarGrupos;
-                ckbKPIGestion.Checked = _rol.GestionarKPIs;
-                ckbListSkilsGestion.Checked = _rol.GestionarListaSkills;
-                ckbPerfilGestion.Checked = _rol.GestionarPerfiles;
-                ckbSkillsGestion.Checked = _rol.GestionarSkills;
-                ckbUsersGestion.Checked = _rol.GestionarUsuarios;
+                ckbGroupGestion.Checked = _rol.gestionarGrupos;
+                ckbKPIGestion.Checked = _rol.gestionarKPIs;
+                ckbListSkilsGestion.Checked = _rol.gestionarListaSkills;
+                ckbPerfilGestion.Checked = _rol.gestionarPerfiles;
+                ckbSkillsGestion.Checked = _rol.gestionarSkills;
+                ckbUsersGestion.Checked = _rol.gestionarUsuarios;
                 ckbActiu.Checked = _rol.actiu;
             }
         }
@@ -159,6 +150,16 @@ namespace DesktopApp
             ckbUsersGestion.Checked = false;
             ckbActiu.Checked = false;
             checkModificar = false;
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -555,7 +555,6 @@ namespace DesktopApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
             FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("");
             formRelacionesGrupo.ShowDialog();
         }
