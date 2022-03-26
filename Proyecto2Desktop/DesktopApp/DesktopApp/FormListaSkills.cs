@@ -138,7 +138,7 @@ namespace DesktopApp
         private void ControlPermisosUsuario()
         {
           
-            if (UsuarioLogin.UsuariLogin.rols.GestionarSkills == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarSkills == false)
             {                
                 this.Controls.Remove(dgvListaSkills);
                 this.Controls.Remove(dgvListaNewSkills);
@@ -146,7 +146,7 @@ namespace DesktopApp
                 this.Controls.Remove(lblPlus2);
 
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarGrupos == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarRelacionesGrupos == false)
             {
                 this.Controls.Remove(gbGroupsSkill);
             }

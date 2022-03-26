@@ -8,6 +8,9 @@ namespace DesktopApp.Models
 {
     public static class GrupsHasLlistesSkillsOrm
     {
+
+
+
         public static List<grups_has_llistes_skills> Select(int id) 
         {
             List<grups_has_llistes_skills> _grupsLlistes = Orm.bd.grups_has_llistes_skills
@@ -22,6 +25,17 @@ namespace DesktopApp.Models
                                             .Where(c => c.llistes_skills_id == id)
                                             .ToList();
             return _grupsLlistes;
+        }
+
+
+        public static grups_has_llistes_skills SelectOne(int idGrup, int idLlista) 
+        {
+            grups_has_llistes_skills _grupLlista = Orm.bd.grups_has_llistes_skills
+                                        .Where(c => c.grups_id == idGrup)
+                                        .Where(d => d.llistes_skills_id == idLlista)
+                                        .FirstOrDefault();
+            return _grupLlista;
+                                        
         }
 
 

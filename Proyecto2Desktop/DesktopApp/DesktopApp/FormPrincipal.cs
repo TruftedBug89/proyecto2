@@ -63,30 +63,35 @@ namespace DesktopApp
 
         private void ControlPermisosUsuario() 
         {
-            if (UsuarioLogin.UsuariLogin.rols.GestionarKPIs == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarKPIs == false)
             {
                 pnlButtonKPI.Controls.Remove(btnManagmentKPI);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarListaSkills == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarListaSkills == false)
             {
                 flpListSkills.Controls.Remove(btnManagmentListSkills);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarSkills == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarSkills == false)
             {
                 flpSkills.Controls.Remove(btnManagmentSkills);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarUsuarios == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarUsuarios == false)
             {
                 pnlManagmentOptions.Controls.Remove(btnGestionUsuarios);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarPerfiles == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarPerfiles == false)
             {
                 pnlManagmentOptions.Controls.Remove(btnManagmentRoles);
             }
-            if (UsuarioLogin.UsuariLogin.rols.GestionarGrupos == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarGrupos == false)
             {
                 pnlManagmentOptions.Controls.Remove(btnManagmentGroups);  
             }
+            if (UsuarioLogin.UsuariLogin.rols.gestionarCursos == false)
+            {
+                pnlManagmentOptions.Controls.Remove(btnManagmentCourses);
+            }
+
 
 
         }
@@ -181,7 +186,7 @@ namespace DesktopApp
 
         private void ActualizarPanelListasSkills()
         {
-            if (UsuarioLogin.UsuariLogin.rols.GestionarListaSkills == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarListaSkills == false)
             {
                 flpListSkills.Controls.Clear();
             }
@@ -207,7 +212,7 @@ namespace DesktopApp
 
         private void limpiarPanelSkills()
         {
-            if (UsuarioLogin.UsuariLogin.rols.GestionarSkills == false)
+            if (UsuarioLogin.UsuariLogin.rols.gestionarSkills == false)
             {
                 flpSkills.Controls.Clear();
             }

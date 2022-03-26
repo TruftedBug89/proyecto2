@@ -90,21 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="rols">
-      <EntityTypeMapping TypeName="frase_aluModel.rols">
-        <MappingFragment StoreEntitySet="rols">
-          <ScalarProperty Name="GestionarGrupos" ColumnName="GestionarGrupos" />
-          <ScalarProperty Name="GestionarPerfiles" ColumnName="GestionarPerfiles" />
-          <ScalarProperty Name="GestionarUsuarios" ColumnName="GestionarUsuarios" />
-          <ScalarProperty Name="GestionarSkills" ColumnName="GestionarSkills" />
-          <ScalarProperty Name="GestionarListaSkills" ColumnName="GestionarListaSkills" />
-          <ScalarProperty Name="GestionarKPIs" ColumnName="GestionarKPIs" />
-          <ScalarProperty Name="actiu" ColumnName="actiu" />
-          <ScalarProperty Name="nom" ColumnName="nom" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="usuaris">
       <EntityTypeMapping TypeName="frase_aluModel.usuaris">
         <MappingFragment StoreEntitySet="usuaris">
@@ -115,6 +100,23 @@
           <ScalarProperty Name="correo" ColumnName="correo" />
           <ScalarProperty Name="actiu" ColumnName="actiu" />
           <ScalarProperty Name="rols_id" ColumnName="rols_id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rols">
+      <EntityTypeMapping TypeName="frase_aluModel.rols">
+        <MappingFragment StoreEntitySet="rols">
+          <ScalarProperty Name="gestionarRelacionesGrupos" ColumnName="gestionarRelacionesGrupos" />
+          <ScalarProperty Name="gestionarCursos" ColumnName="gestionarCursos" />
+          <ScalarProperty Name="gestionarGrupos" ColumnName="gestionarGrupos" />
+          <ScalarProperty Name="gestionarPerfiles" ColumnName="gestionarPerfiles" />
+          <ScalarProperty Name="gestionarUsuarios" ColumnName="gestionarUsuarios" />
+          <ScalarProperty Name="gestionarSkills" ColumnName="gestionarSkills" />
+          <ScalarProperty Name="gestionarListaSkills" ColumnName="gestionarListaSkills" />
+          <ScalarProperty Name="gestionarKPIs" ColumnName="gestionarKPIs" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
