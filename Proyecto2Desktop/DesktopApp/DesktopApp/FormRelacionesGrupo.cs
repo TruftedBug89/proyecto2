@@ -257,15 +257,29 @@ namespace DesktopApp
 
         private void cargarListasDeGrupo(int id) 
         {
-            bindingSourceGrupsHasSkills.DataSource = null;
+            bindingSourceListasDeGrupo.DataSource = null;
+            bindingSourceGruposDeLista.DataSource = null;
             lbGroupsHasSkills.DataSource = null;
             lbGroupsHasSkills.Items.Clear();
             List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.Select(id);
+            List<llistes_skills> listasDeGrupo = new List<llistes_skills>();
 
-            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
-            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
-            lbGroupsHasSkills.DisplayMember = "llistes_skills_id";
-            lbGroupsHasSkills.ValueMember = "grups_id";
+            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            {
+                llistes_skills _llistes = Llistes_SkillsOrm.SelectListaSkill(item.llistes_skills_id);
+                //lbGroupsHasSkills.Items.Add(_llistes.nom);
+                listasDeGrupo.Add(_llistes);
+            }
+
+            bindingSourceListasDeGrupo.DataSource = listasDeGrupo;
+            lbGroupsHasSkills.DataSource = bindingSourceListasDeGrupo;
+            lbGroupsHasSkills.DisplayMember = "nom";
+            lbGroupsHasSkills.ValueMember = "id";
+
+            //bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
+            //lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
+            //lbGroupsHasSkills.DisplayMember = "llistes_skills_id";
+            //lbGroupsHasSkills.ValueMember = "grups_id";
 
             //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
             //{
@@ -285,16 +299,34 @@ namespace DesktopApp
 
         private void cargarGruposDeLista(int id) 
         {
-            bindingSourceGrupsHasSkills.DataSource = null;
+            
+            bindingSourceGruposDeLista.DataSource = null;
+            bindingSourceListasDeGrupo.DataSource = null;
             lbGroupsHasSkills.DataSource = null;
             lbGroupsHasSkills.Items.Clear();
             List<grups_has_llistes_skills> _GrupsLlistesSKills = GrupsHasLlistesSkillsOrm.SelectGrupsOfLists(id);
+            List<grups> gruposDeLista = new List<grups>();
 
 
-            bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
-            lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
-            lbGroupsHasSkills.DisplayMember = "grups_id";
-            lbGroupsHasSkills.ValueMember = "grups_id";
+            foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
+            {
+                
+                grups _grup = GrupsOrm.SelectGrup(item.grups_id);
+                //lbGroupsHasSkills.Items.Add(_llistes.nom);
+                gruposDeLista.Add(_grup);
+            }
+
+
+            bindingSourceGruposDeLista.DataSource = gruposDeLista;
+            lbGroupsHasSkills.DataSource = bindingSourceGruposDeLista;
+            lbGroupsHasSkills.DisplayMember = "nom";
+            lbGroupsHasSkills.ValueMember = "id";
+
+
+            //bindingSourceGrupsHasSkills.DataSource = _GrupsLlistesSKills;
+            //lbGroupsHasSkills.DataSource = bindingSourceGrupsHasSkills;
+            //lbGroupsHasSkills.DisplayMember = "grups_id";
+            //lbGroupsHasSkills.ValueMember = "grups_id";
 
 
             //foreach (grups_has_llistes_skills item in _GrupsLlistesSKills)
@@ -649,9 +681,27 @@ namespace DesktopApp
 
         private void lbGroupsHasSkills_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            ////_grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
+            //if (lblDates.Text.Equals("Grupos de:"))
+            //{
+            //    _grup = (grups)lbGroupsHasSkills.SelectedItem;
+            //    MessageBox.Show(_grup.nom);
+
+            //}
+
             
-             _grupsLListes = (grups_has_llistes_skills)lbGroupsHasSkills.SelectedItem;
-            
+            //if(lblDates.Text.Equals("Skills de:"))
+            //{
+            //    _llistaSkill = (llistes_skills)lbGroupsHasSkills.SelectedItem;
+            //    MessageBox.Show(_llistaSkill.nom);
+            //}
+            ////else
+            ////{
+            ////    _llistaSkill = (llistes_skills)lbGroupsHasSkills.SelectedItem;
+            ////}
+
+
 
         }
 
@@ -665,31 +715,56 @@ namespace DesktopApp
         {
             String missatge = "";
 
-            if (_grupsLListes != null)
+            if (lbGroupsHasSkills.SelectedItems != null)
             {
-                missatge = GrupsHasLlistesSkillsOrm.Delete(_grupsLListes);
-
-                if (missatge != "")
+                if (lblDates.Text.Equals("Grupos de:"))
                 {
-                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _grup = (grups)lbGroupsHasSkills.SelectedItem;
+                    //MessageBox.Show(_llistaSkill.nom + " te " + _grup.nom);
+
                 }
                 else
                 {
-                    MessageBox.Show("Relacion Eliminada");
-                    _grupsLListes = null;
+                    _llistaSkill = (llistes_skills)lbGroupsHasSkills.SelectedItem;
+                    //MessageBox.Show(_grup.nom + " te " + _llistaSkill.nom);
 
+                }
+                                
+              
 
-                    if (lblDates.Text.Equals("Grupos de:"))
+                _grupsLListes = GrupsHasLlistesSkillsOrm.SelectOne(_grup.id,_llistaSkill.id);
+
+                if (_grupsLListes != null)
+                {
+                    //MessageBox.Show("Gid: " + _grupsLListes.grups_id + " Lid: " + _grupsLListes.llistes_skills_id + "CursId: " + _grupsLListes.curs_id);
+
+                    missatge = GrupsHasLlistesSkillsOrm.Delete(_grupsLListes);
+
+                    if (missatge != "")
                     {
-                        cargarGruposDeLista(_llistaSkill.id);
+                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        cargarListasDeGrupo(_grup.id);
+                        MessageBox.Show("Relacion Eliminada");
+                        _grupsLListes = null;
+
+
+                        if (lblDates.Text.Equals("Grupos de:"))
+                        {
+                            cargarGruposDeLista(_llistaSkill.id);
+                        }
+                        else
+                        {
+                            cargarListasDeGrupo(_grup.id);
+                        }
+
+
                     }
 
 
                 }
+                
 
 
             }

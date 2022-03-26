@@ -69,6 +69,8 @@
             this.lbgroups = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnManagmentGroups = new System.Windows.Forms.Button();
+            this.bindingSourceListasDeGrupo = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceGruposDeLista = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -82,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroupsHasTeachers)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceListasDeGrupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeLista)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSourceGroups
@@ -345,7 +349,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.label5);
             this.pnlGrupsStudTeach.Controls.Add(this.lbTeachers);
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
-            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1099, 113);
+            this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1108, 131);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
             this.pnlGrupsStudTeach.Size = new System.Drawing.Size(270, 594);
             this.pnlGrupsStudTeach.TabIndex = 44;
@@ -504,6 +508,14 @@
             this.btnManagmentGroups.UseVisualStyleBackColor = false;
             this.btnManagmentGroups.Click += new System.EventHandler(this.btnManagmentGroups_Click);
             // 
+            // bindingSourceListasDeGrupo
+            // 
+            this.bindingSourceListasDeGrupo.DataSource = typeof(DesktopApp.Models.llistes_skills);
+            // 
+            // bindingSourceGruposDeLista
+            // 
+            this.bindingSourceGruposDeLista.DataSource = typeof(DesktopApp.Models.grups);
+            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -511,9 +523,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1457, 719);
             this.Controls.Add(this.btnManagmentGroups);
+            this.Controls.Add(this.pnlGrupsStudTeach);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbgroups);
-            this.Controls.Add(this.pnlGrupsStudTeach);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlGroupsHasSkills);
             this.Controls.Add(this.dgvListSkills);
@@ -541,6 +553,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrupsHasStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroupsHasTeachers)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceListasDeGrupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -586,5 +600,7 @@
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Button btnDropStudentsRelation;
         private System.Windows.Forms.Button btnDropTeachersRelation;
+        private System.Windows.Forms.BindingSource bindingSourceListasDeGrupo;
+        private System.Windows.Forms.BindingSource bindingSourceGruposDeLista;
     }
 }
