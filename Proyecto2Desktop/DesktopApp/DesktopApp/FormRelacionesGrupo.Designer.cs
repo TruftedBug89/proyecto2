@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
-            this.pnlSearchUsers = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -76,7 +73,6 @@
             this.bindingSourceGruposDeDocentes = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceGruposDeAlumno = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
-            this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCoursesListSkillsUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
@@ -99,34 +95,6 @@
             // bindingSourceGroups
             // 
             this.bindingSourceGroups.DataSource = typeof(DesktopApp.Models.grups);
-            // 
-            // pnlSearchUsers
-            // 
-            this.pnlSearchUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSearchUsers.Controls.Add(this.textBox1);
-            this.pnlSearchUsers.Controls.Add(this.label1);
-            this.pnlSearchUsers.Location = new System.Drawing.Point(420, 48);
-            this.pnlSearchUsers.Name = "pnlSearchUsers";
-            this.pnlSearchUsers.Size = new System.Drawing.Size(316, 80);
-            this.pnlSearchUsers.TabIndex = 34;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(119, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 28);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 24);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Usuarios:";
             // 
             // dgvUsers
             // 
@@ -264,8 +232,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -557,13 +525,10 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvUsers);
-            this.Controls.Add(this.pnlSearchUsers);
             this.Name = "FormRelacionesGrupo";
             this.Text = "FormRelacionesGrupo";
             this.Load += new System.EventHandler(this.FormRelacionesGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).EndInit();
-            this.pnlSearchUsers.ResumeLayout(false);
-            this.pnlSearchUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCoursesListSkillsUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
@@ -589,9 +554,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlSearchUsers;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;

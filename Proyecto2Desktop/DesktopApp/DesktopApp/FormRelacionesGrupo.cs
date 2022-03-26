@@ -151,7 +151,6 @@ namespace DesktopApp
                 
                
                 dgvListSkills.Visible = true;
-                pnlSearchUsers.Visible = false;
                 dgvUsers.Visible = false;
                 pnlGroupsHasSkills.Visible = true;
                 pnlGrupsStudTeach.Visible = false;
@@ -160,7 +159,6 @@ namespace DesktopApp
             {
                 cargarUsuarios();
                 dgvListSkills.Visible = false;
-                pnlSearchUsers.Visible = true;
                 dgvUsers.Visible = true;
                 pnlGroupsHasSkills.Visible = false;
                 pnlGrupsStudTeach.Visible = true;
