@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -71,6 +71,10 @@
             this.btnManagmentGroups = new System.Windows.Forms.Button();
             this.bindingSourceListasDeGrupo = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceGruposDeLista = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceAlumnosDeGrupo = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceDocentesDeGrupo = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceGruposDeDocentes = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceGruposDeAlumno = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.pnlSearchUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -86,6 +90,10 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceListasDeGrupo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeLista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAlumnosDeGrupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocentesDeGrupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeDocentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeAlumno)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSourceGroups
@@ -256,8 +264,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "Listas Skills";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -351,7 +359,7 @@
             this.pnlGrupsStudTeach.Controls.Add(this.label6);
             this.pnlGrupsStudTeach.Location = new System.Drawing.Point(1108, 131);
             this.pnlGrupsStudTeach.Name = "pnlGrupsStudTeach";
-            this.pnlGrupsStudTeach.Size = new System.Drawing.Size(270, 594);
+            this.pnlGrupsStudTeach.Size = new System.Drawing.Size(296, 594);
             this.pnlGrupsStudTeach.TabIndex = 44;
             // 
             // btnDropStudentsRelation
@@ -388,7 +396,7 @@
             // 
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(183, 14);
+            this.lblData.Location = new System.Drawing.Point(174, 14);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(52, 24);
             this.lblData.TabIndex = 48;
@@ -398,7 +406,7 @@
             // 
             this.lblRelationType.AutoSize = true;
             this.lblRelationType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRelationType.Location = new System.Drawing.Point(32, 14);
+            this.lblRelationType.Location = new System.Drawing.Point(23, 14);
             this.lblRelationType.Name = "lblRelationType";
             this.lblRelationType.Size = new System.Drawing.Size(115, 24);
             this.lblRelationType.TabIndex = 47;
@@ -516,6 +524,22 @@
             // 
             this.bindingSourceGruposDeLista.DataSource = typeof(DesktopApp.Models.grups);
             // 
+            // bindingSourceAlumnosDeGrupo
+            // 
+            this.bindingSourceAlumnosDeGrupo.DataSource = typeof(DesktopApp.Models.usuaris);
+            // 
+            // bindingSourceDocentesDeGrupo
+            // 
+            this.bindingSourceDocentesDeGrupo.DataSource = typeof(DesktopApp.Models.usuaris);
+            // 
+            // bindingSourceGruposDeDocentes
+            // 
+            this.bindingSourceGruposDeDocentes.DataSource = typeof(DesktopApp.Models.grups);
+            // 
+            // bindingSourceGruposDeAlumno
+            // 
+            this.bindingSourceGruposDeAlumno.DataSource = typeof(DesktopApp.Models.grups);
+            // 
             // FormRelacionesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -555,6 +579,10 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceListasDeGrupo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeLista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAlumnosDeGrupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocentesDeGrupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeDocentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGruposDeAlumno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,5 +630,9 @@
         private System.Windows.Forms.Button btnDropTeachersRelation;
         private System.Windows.Forms.BindingSource bindingSourceListasDeGrupo;
         private System.Windows.Forms.BindingSource bindingSourceGruposDeLista;
+        private System.Windows.Forms.BindingSource bindingSourceAlumnosDeGrupo;
+        private System.Windows.Forms.BindingSource bindingSourceDocentesDeGrupo;
+        private System.Windows.Forms.BindingSource bindingSourceGruposDeDocentes;
+        private System.Windows.Forms.BindingSource bindingSourceGruposDeAlumno;
     }
 }

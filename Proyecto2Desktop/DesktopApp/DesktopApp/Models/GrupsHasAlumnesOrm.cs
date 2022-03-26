@@ -25,6 +25,18 @@ namespace DesktopApp.Models
         }
 
 
+        public static grups_has_alumnes SelectOne(int idGrup, int idUsuari)
+        {
+            grups_has_alumnes _grupAlumne = Orm.bd.grups_has_alumnes
+                                        .Where(c => c.grups_id == idGrup)
+                                        .Where(d => d.usuaris_id == idUsuari)
+                                        .FirstOrDefault();
+            return _grupAlumne;
+
+        }
+
+
+
 
         public static String Insert(grups_has_alumnes _grups_alumnes)
         {
