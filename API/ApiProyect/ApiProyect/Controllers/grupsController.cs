@@ -21,33 +21,59 @@ namespace ApiProyect.Controllers
         public List<grups> GetGrups()
         {
             db.Configuration.LazyLoadingEnabled = false;
+            
             return db.grups
                 .Where(c => c.actiu == true)
                 .ToList();
+                
         }
 
         // GET: api/grups/5
+
+
         [ResponseType(typeof(grups))]
         public async Task<IHttpActionResult> Getgrups(int id)
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
 
-            grups grups = await db.grups
+            //grups _grups = await db.grups.FindAsync(id);
+
+            grups _grups = await db.grups
                             .Where(c => c.id == id)
                             .FirstOrDefaultAsync();
 
-            if (grups == null)
+            if (_grups == null)
             {
                 result = NotFound();
             }
             else
             {
-                result = Ok(grups);
+                result = Ok(_grups);
             }
 
             return result;
         }
+
+
+
+
+        [HttpGet]
+        [Route("api/grups/nom/{nom}")]
+        public async Task<IHttpActionResult> findnomGrup(String nom)
+        {
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            List<grups> _grups = db.grups
+                                    .Where(c => c.nom.Contains(nom))
+                                    .ToList();
+
+            return Ok(_grups);
+
+        }
+
+
 
 
 

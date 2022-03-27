@@ -31,11 +31,13 @@ namespace ApiProyect.Controllers
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
-            //usuaris usuaris = await db.usuaris.FindAsync(id);
+            //usuaris _usuari = await db.usuaris.FindAsync(id);
+
             usuaris _usuari = await db.usuaris
-                                .Include("rols")
+                                //.Include("rols")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
+
             if (_usuari == null)
             {
                 result = NotFound();
@@ -44,13 +46,14 @@ namespace ApiProyect.Controllers
             {
                 result = Ok(_usuari);
             }
+
             return result;
 
         }
 
         [HttpGet]
         [Route("api/usuaris/nom/{nom}")]
-        public async Task<IHttpActionResult> findnom(String nom)
+        public async Task<IHttpActionResult> findBynom(String nom)
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
