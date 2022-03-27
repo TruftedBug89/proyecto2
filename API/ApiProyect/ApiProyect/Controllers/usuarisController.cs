@@ -33,7 +33,7 @@ namespace ApiProyect.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             //usuaris usuaris = await db.usuaris.FindAsync(id);
             usuaris _usuari = await db.usuaris
-                                .Include("nom")
+                                .Include("rols")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
             if (_usuari == null)

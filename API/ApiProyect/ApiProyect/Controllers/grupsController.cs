@@ -30,14 +30,28 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(grups))]
         public async Task<IHttpActionResult> Getgrups(int id)
         {
-            grups grups = await db.grups.FindAsync(id);
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            grups grups = await db.grups
+                            .Where(c => c.id == id)
+                            .FirstOrDefaultAsync();
+
             if (grups == null)
             {
-                return NotFound();
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(grups);
             }
 
-            return Ok(grups);
+            return result;
         }
+
+
+
+
 
         // PUT: api/grups/5
         [ResponseType(typeof(void))]
