@@ -106,6 +106,7 @@ namespace ApiProyect.Controllers
 
         }
 
+        //Filtrar Usuario Por Nombre de Usuario
         [HttpGet]
         [Route("api/usuaris/nom/{nom}")]
         public async Task<IHttpActionResult> findBynom(String nom)
@@ -113,11 +114,25 @@ namespace ApiProyect.Controllers
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
 
-            List<usuaris> _usuaris = db.usuaris
-                                        .Where(c => c.nom.Contains(nom))
-                                        .ToList();
+            usuaris _usuari = await db.usuaris
+                                .Include("rols")
+                                .Include("grups_has_alumnes.grups")
+                                .Include("grups_has_docents.grups")
+                                //.Where(c => c.nom.Equals(nom))
+                                .Where(c => c.nomUsuari.Equals(nom))
+                                .FirstOrDefaultAsync();
 
-            return Ok(_usuaris);
+
+            if (_usuari == null)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(_usuari);
+            }
+
+            return result;
 
 
         }

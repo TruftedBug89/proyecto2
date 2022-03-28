@@ -32,7 +32,7 @@ namespace ApiProyect.Controllers
 
 
         [ResponseType(typeof(grups))]
-        public async Task<IHttpActionResult> Getgrups(int id)
+        public async Task<IHttpActionResult> GetgrupsById(int id)
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;

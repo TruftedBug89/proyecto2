@@ -31,7 +31,9 @@ namespace ApiProyect.Controllers
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
-            skills skills = db.skills.Where(c => c.id == id).FirstOrDefault();
+            skills skills = db.skills
+                            .Include("Kpis")
+                            .Where(c => c.id == id).FirstOrDefault();
             //skills skills = await db.skills.FindAsync(id);
             if (skills == null)
             {
