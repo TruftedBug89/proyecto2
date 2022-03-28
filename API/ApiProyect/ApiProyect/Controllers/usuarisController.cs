@@ -23,7 +23,48 @@ namespace ApiProyect.Controllers
         {
             db.Configuration.LazyLoadingEnabled = false;
             return db.usuaris;
+            
+
         }
+
+        [HttpGet]
+        [Route("api/usuaris/id/{id}")]
+        public async Task<IHttpActionResult> findByIdGroup(int id)
+        {
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            List<grups_has_alumnes> Alumnes = db.grups_has_alumnes
+                                    .Where(c => c.grups_id == id)
+                                    .ToList();
+
+            List<usuaris> _usuaris = db.usuaris.ToList();
+            List<usuaris> _usersFiltrados = new List<usuaris>();
+
+            foreach (grups_has_alumnes gH in Alumnes)
+            {
+                foreach (usuaris usuaris in _usuaris)
+                {
+                    if (gH.usuaris_id == usuaris.id)
+                    {
+                        _usersFiltrados.Add(usuaris);
+                    }
+                }
+            }
+
+
+
+
+            //List<usuaris> _usuaris = db.usuaris
+            //                            .Where(c => c.nom.Contains(nom))
+            //                            .ToList();
+
+            return Ok(_usersFiltrados);
+
+
+        }
+
+
 
         // GET: api/usuaris/5
         [ResponseType(typeof(usuaris))]

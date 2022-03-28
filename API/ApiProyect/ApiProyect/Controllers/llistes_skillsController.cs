@@ -33,7 +33,7 @@ namespace ApiProyect.Controllers
 
 
             llistes_skills llistes_skills = await db.llistes_skills
-                                    .Include("skills")
+                                    //.Include("skills")
                                     .Where(c => c.id == id)
                                     .FirstOrDefaultAsync();
 
