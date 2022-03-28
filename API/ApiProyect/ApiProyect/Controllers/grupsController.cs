@@ -39,7 +39,7 @@ namespace ApiProyect.Controllers
 
             //grups _grups = await db.grups.FindAsync(id);
 
-            grups _grups = await db.grups
+            grups _grups = await db.grups.Include("grups_has_docents.usuaris").Include("grups_has_alumnes.usuaris")
                             .Where(c => c.id == id)
                             .FirstOrDefaultAsync();
 
