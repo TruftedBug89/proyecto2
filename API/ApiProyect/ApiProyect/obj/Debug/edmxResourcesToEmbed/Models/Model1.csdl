@@ -365,6 +365,8 @@
     <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_valoracions_kpis" FromRole="valoracions" ToRole="kpis" />
     <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="valoracions" ToRole="usuaris" />
     <NavigationProperty Name="usuaris1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="valoracions" ToRole="usuaris" />
+    <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
+    <Property Name="skills_id" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_valoracions_kpis">
     <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="1" />

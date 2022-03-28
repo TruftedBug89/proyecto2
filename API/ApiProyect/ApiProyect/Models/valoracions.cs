@@ -19,6 +19,8 @@ namespace ApiProyect.Models
         public int usuari_pp_id { get; set; }
         public System.DateTime data { get; set; }
         public int nota { get; set; }
+        public int llistes_skills_id { get; set; }
+        public int skills_id { get; set; }
     
         public virtual kpis kpis { get; set; }
         public virtual usuaris usuaris { get; set; }

@@ -87,7 +87,9 @@ namespace ApiProyect.Controllers
             //usuaris _usuari = await db.usuaris.FindAsync(id);
 
             usuaris _usuari = await db.usuaris
-                                //.Include("rols")
+                                .Include("rols")
+                                .Include("grups_has_alumnes.grups")
+                                .Include("grups_has_docents.grups")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
 
