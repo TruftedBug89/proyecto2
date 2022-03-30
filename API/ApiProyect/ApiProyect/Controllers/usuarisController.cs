@@ -34,23 +34,35 @@ namespace ApiProyect.Controllers
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
 
-            List<grups_has_alumnes> Alumnes = db.grups_has_alumnes
-                                    .Where(c => c.grups_id == id)
-                                    .ToList();
 
-            List<usuaris> _usuaris = db.usuaris.ToList();
-            List<usuaris> _usersFiltrados = new List<usuaris>();
+            //List<grups_has_alumnes> Alumnes = db.grups_has_alumnes
+            //                        .Where(c => c.grups_id == id)
+            //                        .Join(db.grups_has_alumnes,
+            //                        db.usuaris => db.usuaris.id)
+            //                        .ToList();
 
-            foreach (grups_has_alumnes gH in Alumnes)
-            {
-                foreach (usuaris usuaris in _usuaris)
-                {
-                    if (gH.usuaris_id == usuaris.id)
-                    {
-                        _usersFiltrados.Add(usuaris);
-                    }
-                }
-            }
+
+            List<usuaris> person = (from usuaris in db.usuaris
+                          join e in db.grups_has_alumnes
+                          on usuaris.id equals e.usuaris_id
+                          where e.grups_id == id
+                          select usuaris).ToList();
+
+
+
+            //List<usuaris> _usuaris = db.usuaris.ToList();
+            //List<usuaris> _usersFiltrados = new List<usuaris>();
+
+            //foreach (grups_has_alumnes gH in Alumnes)
+            //{
+            //    foreach (usuaris usuaris in _usuaris)
+            //    {
+            //        if (gH.usuaris_id == usuaris.id)
+            //        {
+            //            _usersFiltrados.Add(usuaris);
+            //        }
+            //    }
+            //}
 
 
 
@@ -59,7 +71,7 @@ namespace ApiProyect.Controllers
             //                            .Where(c => c.nom.Contains(nom))
             //                            .ToList();
 
-            return Ok(_usersFiltrados);
+            return Ok(person);
 
 
         }
@@ -75,7 +87,9 @@ namespace ApiProyect.Controllers
             //usuaris _usuari = await db.usuaris.FindAsync(id);
 
             usuaris _usuari = await db.usuaris
-                                //.Include("rols")
+                                .Include("rols")
+                                .Include("grups_has_alumnes.grups")
+                                .Include("grups_has_docents.grups")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
 
@@ -92,6 +106,7 @@ namespace ApiProyect.Controllers
 
         }
 
+        //Filtrar Usuario Por Nombre de Usuario
         [HttpGet]
         [Route("api/usuaris/nom/{nom}")]
         public async Task<IHttpActionResult> findBynom(String nom)
@@ -99,11 +114,25 @@ namespace ApiProyect.Controllers
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
 
-            List<usuaris> _usuaris = db.usuaris
-                                        .Where(c => c.nom.Contains(nom))
-                                        .ToList();
+            usuaris _usuari = await db.usuaris
+                                .Include("rols")
+                                .Include("grups_has_alumnes.grups")
+                                .Include("grups_has_docents.grups")
+                                //.Where(c => c.nom.Equals(nom))
+                                .Where(c => c.nomUsuari.Equals(nom))
+                                .FirstOrDefaultAsync();
 
-            return Ok(_usuaris);
+
+            if (_usuari == null)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(_usuari);
+            }
+
+            return result;
 
 
         }

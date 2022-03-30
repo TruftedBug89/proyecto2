@@ -113,6 +113,8 @@
       <PropertyRef Name="usuari_pp_id" />
       <PropertyRef Name="data" />
     </Key>
+    <Property Name="llistes_skills_id" Type="int" Nullable="false" />
+    <Property Name="skills_id" Type="int" Nullable="false" />
     <Property Name="kpis_id" Type="int" Nullable="false" />
     <Property Name="usuari_valorat_id" Type="int" Nullable="false" />
     <Property Name="usuari_pp_id" Type="int" Nullable="false" />

@@ -32,7 +32,7 @@ namespace ApiProyect.Controllers
 
 
         [ResponseType(typeof(grups))]
-        public async Task<IHttpActionResult> Getgrups(int id)
+        public async Task<IHttpActionResult> GetgrupsById(int id)
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
@@ -40,6 +40,9 @@ namespace ApiProyect.Controllers
             //grups _grups = await db.grups.FindAsync(id);
 
             grups _grups = await db.grups
+                            .Include("grups_has_docents.usuaris")
+                            .Include("grups_has_alumnes.usuaris")
+                            .Include("grups_has_llistes_skills.llistes_skills.skills")
                             .Where(c => c.id == id)
                             .FirstOrDefaultAsync();
 
