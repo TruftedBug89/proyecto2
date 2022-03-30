@@ -18,23 +18,68 @@ namespace ApiProyect.Controllers
         private frase_aluEntities db = new frase_aluEntities();
 
         // GET: api/kpis
-        public IQueryable<kpis> Getkpis()
+        public List<kpis> Getkpis()
         {
-            return db.kpis;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            return db.kpis
+                .Where(c => c.actiu == true)
+                .ToList();
+
         }
 
         // GET: api/kpis/5
+
+
         [ResponseType(typeof(kpis))]
-        public async Task<IHttpActionResult> Getkpis(int id)
+        public async Task<IHttpActionResult> GetkpisById(int id)
         {
-            kpis kpis = await db.kpis.FindAsync(id);
-            if (kpis == null)
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            //kpis _kpis = await db.kpis.FindAsync(id);
+
+            kpis _kpis = await db.kpis
+                            //.Include("skills")
+                            //.Include("valoracions")
+                            .Where(c => c.id == id)
+                            .FirstOrDefaultAsync();
+
+            if (_kpis == null)
             {
-                return NotFound();
+                result = NotFound();
+            }
+            else
+            {
+                result = Ok(_kpis);
             }
 
-            return Ok(kpis);
+            return result;
         }
+
+
+
+
+        [HttpGet]
+        [Route("api/kpis/nom/{nom}")]
+        public async Task<IHttpActionResult> findnomKpi(String nom)
+        {
+            IHttpActionResult result;
+            db.Configuration.LazyLoadingEnabled = false;
+
+            List<kpis> _kpis = db.kpis
+                                    .Where(c => c.nom.Contains(nom))
+                                    .ToList();
+
+            return Ok(_kpis);
+
+        }
+
+
+
+
+
+
 
         // PUT: api/kpis/5
         [ResponseType(typeof(void))]
