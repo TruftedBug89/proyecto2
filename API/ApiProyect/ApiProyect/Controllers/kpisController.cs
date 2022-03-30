@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,7 +20,6 @@ namespace ApiProyect.Controllers
         // GET: api/kpis
         public IQueryable<kpis> Getkpis()
         {
-            db.Configuration.LazyLoadingEnabled = false;
             return db.kpis;
         }
 
@@ -29,123 +27,79 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(kpis))]
         public async Task<IHttpActionResult> Getkpis(int id)
         {
-            IHttpActionResult result;
-            db.Configuration.LazyLoadingEnabled = false;
-            kpis kpis = db.kpis.Where(c => c.id == id).FirstOrDefault();
-            //kpis kpis = await db.kpis.FindAsync(id);
+            kpis kpis = await db.kpis.FindAsync(id);
             if (kpis == null)
             {
-                result = NotFound();
-            }
-            else {  
-                result= Ok(kpis);
+                return NotFound();
             }
 
-            return result;
+            return Ok(kpis);
         }
 
         // PUT: api/kpis/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putkpis(int id, kpis kpis)
         {
-            IHttpActionResult result;
-            String missatge = "";
             if (!ModelState.IsValid)
             {
-                result = BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
-            else
+
+            if (id != kpis.id)
             {
-                if (id != kpis.id)
+                return BadRequest();
+            }
+
+            db.Entry(kpis).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!kpisExists(id))
                 {
-                    result = BadRequest();
+                    return NotFound();
                 }
                 else
                 {
-                    db.Entry(kpis).State = EntityState.Modified;
-
-                    try
-                    {
-                        await db.SaveChangesAsync();
-                        result = StatusCode(HttpStatusCode.NoContent);
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!kpisExists(id))
-                        {
-                            result = NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    catch (DbUpdateException ex)
-                    {
-                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
-                        missatge = Clases.Error.MissatgeError(sqlException);
-                        result = BadRequest(missatge);
-                    }
+                    throw;
                 }
             }
-            return result;
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/kpis
         [ResponseType(typeof(kpis))]
         public async Task<IHttpActionResult> Postkpis(kpis kpis)
         {
-            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                result = BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
-            else
-            {
-                db.kpis.Add(kpis);
-                String missatge = "";
-                try
-                {
-                    await db.SaveChangesAsync();
-                    result = CreatedAtRoute("DefaultApi", new { id = kpis.id }, kpis);
-                }
-                catch (DbUpdateException ex)
-                {
-                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
-                    missatge = Clases.Error.MissatgeError(sqlException);
-                    result = BadRequest(missatge);
-                }
-            }
-            return result;
+
+            db.kpis.Add(kpis);
+            await db.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = kpis.id }, kpis);
         }
 
         // DELETE: api/kpis/5
         [ResponseType(typeof(kpis))]
         public async Task<IHttpActionResult> Deletekpis(int id)
         {
-            IHttpActionResult result;
             kpis kpis = await db.kpis.FindAsync(id);
             if (kpis == null)
             {
-                result = NotFound();
+                return NotFound();
             }
-            else
-            {
-                String missatge = "";
-                try
-                {
-                    db.kpis.Remove(kpis);
-                    await db.SaveChangesAsync();
-                    result = Ok(kpis);
-                }
-                catch (DbUpdateException ex)
-                {
-                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
-                    missatge = Clases.Error.MissatgeError(sqlException);
-                    result = BadRequest(missatge);
-                }
-            }
-            return result;
+
+            db.kpis.Remove(kpis);
+            await db.SaveChangesAsync();
+
+            return Ok(kpis);
         }
 
         protected override void Dispose(bool disposing)
