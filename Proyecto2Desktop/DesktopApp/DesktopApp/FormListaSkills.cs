@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -20,7 +21,27 @@ namespace DesktopApp
         {
             InitializeComponent();
         }
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
 
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,9 +84,9 @@ namespace DesktopApp
                 txtAddNewSkills.Visible = true;
                 lblPlus2.Visible = true;
                 dgvListaNewSkills.Visible = true;
-                
 
-               
+
+
 
                 if (_llistesSkills.skills.Count() != 0 || _llistesSkills.skills != null)
                 {
@@ -75,7 +96,7 @@ namespace DesktopApp
                     foreach (skills skill in _llistesSkills.skills)
                     {
                         char[] letras = skill.nom.ToCharArray();
-                                               
+
                         dgvListaSkills.Rows.Add(letras[0], skill.nom);
 
                         dgvListaSkills.Rows[i].Cells[0].Style.BackColor = Color.FromArgb(skill.colorFondo);
@@ -90,7 +111,7 @@ namespace DesktopApp
                         dgvListaSkills.Rows[i].Cells[3].Style.BackColor = Color.FromArgb(skill.colorTexto);
 
                         dgvListaSkills.Rows[i].Cells[4].Value = skill.actiu;
-                        
+
 
                         i++;
                     }
@@ -137,9 +158,9 @@ namespace DesktopApp
 
         private void ControlPermisosUsuario()
         {
-          
+
             if (UsuarioLogin.UsuariLogin.rols.gestionarSkills == false)
-            {                
+            {
                 this.Controls.Remove(dgvListaSkills);
                 this.Controls.Remove(dgvListaNewSkills);
                 this.Controls.Remove(btnBuildTable);
@@ -430,7 +451,7 @@ namespace DesktopApp
                     MessageBox.Show("Listas vacias");
                 }
 
-            
+
             }
 
             ActualizarPanelListaSkills();
@@ -448,7 +469,7 @@ namespace DesktopApp
         }
 
 
-        private String ActualizarNombreSkillActivadas(int idLista) 
+        private String ActualizarNombreSkillActivadas(int idLista)
         {
 
             //Una vez añadidas las skills mirar las que esten activadas y actualizar el nombre de la lista de skills
@@ -523,7 +544,7 @@ namespace DesktopApp
 
         }
 
-        private void CargarGruposRelacionados() 
+        private void CargarGruposRelacionados()
         {
             cbxGroups.Items.Clear();
 
@@ -538,27 +559,26 @@ namespace DesktopApp
                 }
 
             }
-        
+
         }
 
 
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
-           
+
             FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("GuposListasSkills");
             formRelacionesGrupo.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
             FormRelacionesGrupo formRelacionesGrupo = new FormRelacionesGrupo("");
             formRelacionesGrupo.ShowDialog();
         }
 
         private void btnBuildTable_Click(object sender, EventArgs e)
         {
-           
+
 
             if (_llistesSkills != null)
             {
@@ -571,13 +591,13 @@ namespace DesktopApp
 
             }
 
-            
+
         }
 
 
-        public void ConstruirTabla(DataGridView dataGridView, String Text) 
+        public void ConstruirTabla(DataGridView dataGridView, String Text)
         {
-            //limpiar rows si hay alguna fila            
+            //limpiar rows si hay alguna fila
             if (dataGridView.Rows.Count >= 1)
             {
                 dataGridView.Rows.Clear();
@@ -609,7 +629,7 @@ namespace DesktopApp
 
         private void dgvListaSkills_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                       
+
             if (e.RowIndex != -1)
             {
                 if (e.ColumnIndex == 2)
@@ -630,7 +650,7 @@ namespace DesktopApp
 
 
         private void cambiarColorBotonCelda(int indexRow, int celda)
-        {           
+        {
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 Color color = colorDialog.Color;
@@ -642,7 +662,7 @@ namespace DesktopApp
             }
 
             dgvListaSkills.ClearSelection();
-           
+
 
         }
 
@@ -683,7 +703,7 @@ namespace DesktopApp
 
         private void dgvListaSkills_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 if (!dgvListaSkills.Rows[e.RowIndex].Cells[1].Value.Equals(""))
                 {
@@ -692,15 +712,20 @@ namespace DesktopApp
 
                     dgvListaSkills.Rows[e.RowIndex].Cells[0].Value = letraMayuscula;
                 }
-                
+
 
             }
         }
 
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
 
-        
-
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }
-

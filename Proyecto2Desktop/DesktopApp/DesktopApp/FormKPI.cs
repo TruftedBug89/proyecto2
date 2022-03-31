@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,27 @@ namespace DesktopApp
             setActiveCheck();
         }
 
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
+
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
         private void btnAddKpi_Click(object sender, EventArgs e)
         {
 
@@ -61,15 +83,11 @@ namespace DesktopApp
                 return;
             }
             String missatge = "";
-
-
-
             List<int> old_ids = new List<int>();
             foreach (kpis kpi in this.skill.kpis)
             {
                 old_ids.Add(kpi.id);
             }
-
             foreach (kpis newkpi in this.updatedItems)
             {
                 if (old_ids.Contains(newkpi.id))
@@ -80,13 +98,8 @@ namespace DesktopApp
                 {
                     //MessageBox.Show(newkpi.ToString());
                     missatge = KpisOrm.Insert(newkpi);
-
-
                 }
-
-
             }
-
             if (missatge != "")
             {
                 MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,7 +109,6 @@ namespace DesktopApp
                 MessageBox.Show(this.updatedItems.Count+" KPI's actualizados");
                 this.updatedItems.Clear();
             }
-
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -111,7 +123,6 @@ namespace DesktopApp
             }
             else this.Close();
         }
-
         private void dataGridView1_UserDeletingRow_1(object sender, DataGridViewRowCancelEventArgs e)
         {
             kpis deletedKpi = (kpis)e.Row.DataBoundItem;
@@ -119,7 +130,6 @@ namespace DesktopApp
 
             this.updatedItems.Add(deletedKpi);
         }
-
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             kpis editedKpi = (kpis)dataGridView1.Rows[e.RowIndex].DataBoundItem;
@@ -134,6 +144,13 @@ namespace DesktopApp
                 Models.kpis uae = (Models.kpis)row.DataBoundItem;
                 row.Cells[6].Value = uae.actiu;
             }
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

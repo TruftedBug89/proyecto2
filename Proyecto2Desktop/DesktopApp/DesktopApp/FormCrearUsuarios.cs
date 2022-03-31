@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,12 +28,27 @@ namespace DesktopApp
             this.usuarioAEditar = usuarioAEditar;
             InitializeComponent();
         }
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
 
-        private void label1_Click(object sender, EventArgs e)
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
         {
-
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
         private void FormCrearUsuarios_Load(object sender, EventArgs e)
         {
             bsRols.DataSource = RolsOrm.Select();
@@ -42,7 +58,6 @@ namespace DesktopApp
             tbRepeatPassword.UseSystemPasswordChar = true;
             if(usuarioAEditar != null)
             {
-
                 tbName.Text = usuarioAEditar.nom;
                 tbLastName.Text = usuarioAEditar.cognoms;
                 tbEmail.Text = usuarioAEditar.correo;
@@ -50,7 +65,6 @@ namespace DesktopApp
                 cbActiu.Checked = usuarioAEditar.actiu;
                 cbxSelectionPerfil.SelectedItem = usuarioAEditar.rols;
                 MessageBox.Show("Dejar el campo de contraseña en blanco para seguir utilizando la contraseña antigua","Información",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-
             }
         }
 
@@ -61,12 +75,12 @@ namespace DesktopApp
             bool campoVacio = false;
             bool contrasIguales = false;
             bool emailValido = false;
-            
+
             if (String.IsNullOrWhiteSpace(tbEmail.Text)) {
                 campoVacio = true;
             }
             emailValido = ValidarEmail(tbEmail.Text);
-            
+
             if (String.IsNullOrWhiteSpace(tbUser.Text)) {
                 campoVacio = true;
             }
@@ -109,31 +123,27 @@ namespace DesktopApp
                 Models.UsuarisOrm.Update(usuarioAEditar);
                 MessageBox.Show("Usuari "+ usuarioAEditar.nom +" actualizado correctamente");
                 this.Close();
-                        
+
 
                 return;
             }
-            
+
             if (campoVacio == false && contrasIguales == true && emailValido == true) {
 
                 _usuaris.correo = tbEmail.Text;
-                
                 _usuaris.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(tbPassword.Text,hashType: BCrypt.Net.HashType.SHA512);
-               
-                //esto si 
+
+                //esto si
                 rols rolselect = (rols)cbxSelectionPerfil.SelectedItem;
                 _usuaris.rols_id = rolselect.id;
-               
+
                 //_usuaris.rols = (rols)cbxSelectionPerfil.SelectedItem;
                 _usuaris.nom = tbName.Text;
                 _usuaris.cognoms = tbLastName.Text;
                 _usuaris.nomUsuari = tbUser.Text;
                 _usuaris.actiu = cbActiu.Checked;
                 _usuaris.imagen = null;
-                
-
                 String missatge = UsuarisOrm.Insert(_usuaris);
-
                 if (missatge != "")
                 {
                     MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -177,11 +187,21 @@ namespace DesktopApp
                 tbRepeatPassword.UseSystemPasswordChar = true;
             }
         }
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         private void btnGroupManagment_Click(object sender, EventArgs e)
         {
             FormGestionGrupo fgg = new FormGestionGrupo("");
             fgg.ShowDialog();
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
         }
     }
 }

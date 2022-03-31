@@ -20,15 +20,6 @@ namespace DesktopApp
             InitializeComponent();
         }
 
-        private void pbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pbMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
         //Para mover la pestaña
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -175,6 +166,16 @@ namespace DesktopApp
             cxbRelationsGroups.Checked = false;
             ckbActiu.Checked = false;
             checkModificar = false;
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
