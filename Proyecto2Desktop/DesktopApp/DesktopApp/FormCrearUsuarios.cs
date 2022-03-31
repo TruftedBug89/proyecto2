@@ -197,11 +197,11 @@ namespace DesktopApp
         {
             FormGestionGrupo fgg = new FormGestionGrupo("");
             fgg.ShowDialog();
+        }
 
-        private void pb_minimize_Click(object sender, EventArgs e)
+        private void pb_minimize_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-
         }
     }
 }

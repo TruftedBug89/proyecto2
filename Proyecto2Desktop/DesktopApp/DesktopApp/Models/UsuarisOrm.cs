@@ -57,14 +57,14 @@ namespace DesktopApp.Models
             List<usuaris> _usuaris = Orm.bd.usuaris
                             .Where(c => c.nom.Contains(text))
                             .ToList();
-
+            return _usuaris;
+        }
 
         internal static string Update(usuaris usuarioAEditar)
         {
 
                 return Orm.MySaveChanges();
 
-            return _usuaris;
         }
         internal static String InsertValues(string nom, string rol, string correo, string contra)
         {
