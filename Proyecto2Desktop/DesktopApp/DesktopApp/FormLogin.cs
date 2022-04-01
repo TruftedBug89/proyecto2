@@ -49,16 +49,15 @@ namespace DesktopApp
 
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
             Boolean entrar;
             String user = txtBoxUsername.Text;
             String contrasenya = txtBoxContrasenya.Text;
             entrar = UsuarisOrm.SelectLogin(user, contrasenya);
             if (entrar)
             {
-                FormPrincipal formprincipal = new FormPrincipal();
+                FormPrincipal formPrincipal = new FormPrincipal();
                 this.Hide();
-                formprincipal.ShowDialog();   
+                formPrincipal.ShowDialog();   
             }
             else
             {
@@ -68,28 +67,6 @@ namespace DesktopApp
                 txtError.Visible = true;
                 linkForgetPassword.Visible = true;
             }
-=======
-           /* Boolean entrar;
-
-            String correu = textBoxUsername.Text;
-            String contrasenya = textBoxContrasenya.Text;
-            entrar = UsuarisOrm.SelectLogin(correu, contrasenya);
-            if (entrar)
-            {*/
-                
-                FormPrincipal formprincipal = new FormPrincipal();
-                this.Hide();
-                formprincipal.ShowDialog();
-                
-            /*}
-            else
-            {
-                MessageBox.Show("Vuelve a introducir los credenciales");
-            }*/
-           
-           
-
->>>>>>> Stashed changes
         }
         private void ckbLookPass_CheckedChanged(object sender, EventArgs e)
         {

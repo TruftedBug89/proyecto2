@@ -19,7 +19,7 @@ namespace DesktopApp
         private llistes_skills _llistesSkills;
         private skills _skill;
         private List<kpis> _kpis;
-
+        private Boolean checkGestionKPI = true;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace DesktopApp
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
-
         private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
         {
             ReleaseCapture();
@@ -46,49 +45,25 @@ namespace DesktopApp
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }//
-
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
-
             _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
                 CrearBotonListaSkill(lSkills);
             }
-
-
             ControlPermisosUsuario();
-
-
         }
-
-        private void btnManagmentListSkills_Click(object sender, EventArgs e)
-        {
-            FormListaSkills formListaSkills = new FormListaSkills();
-            formListaSkills.ShowDialog();
-            ActualizarPanelListasSkills();
-            limpiarPanelSkills();
-            _llistesSkills = null;
-            dgvSkill.Columns.Clear();
-        }
-        private void btnCloseSesion_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-        }
-
-
         private void ControlPermisosUsuario()
         {
             if (UsuarioLogin.UsuariLogin.rols.gestionarKPIs == false)
             {
-                pnlButtonKPI.Controls.Remove(btnManagmentKPI);
+                btnManagmentKPI.Visible = false;
+                checkGestionKPI = false;
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarListaSkills == false)
             {
-                flpListSkills.Controls.Remove(btnManagmentListSkills);
+                btnManagmentListSkills.Visible = false;
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarSkills == false)
             {
@@ -96,23 +71,20 @@ namespace DesktopApp
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarUsuarios == false)
             {
-                pnlManagmentOptions.Controls.Remove(btnGestionUsuarios);
+                btnGestionUsuarios.Visible = false;
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarPerfiles == false)
             {
-                pnlManagmentOptions.Controls.Remove(btnManagmentRoles);
+                btnManagmentRoles.Visible = false;
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarGrupos == false)
             {
-                pnlManagmentOptions.Controls.Remove(btnManagmentGroups);
+                btnManagmentGroups.Visible = false;
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarCursos == false)
             {
-                pnlManagmentOptions.Controls.Remove(btnManagmentCourses);
+                btnManagmentCourses.Visible = false;
             }
-
-
-
         }
         private void SeleccionarLista_Click(object sender, EventArgs e, RadioButton btnListSkill, llistes_skills llistesS)
         {
@@ -129,7 +101,9 @@ namespace DesktopApp
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
         {
             _skill = S;
-            btnManagmentKPI.Visible = true;
+            if (checkGestionKPI == true) {
+                btnManagmentKPI.Visible = true;
+            }
             dgvSkill.Columns.Clear();
             dgvSkill.DataSource = null;
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
@@ -198,9 +172,6 @@ namespace DesktopApp
                     flpListSkills.Controls.RemoveAt(1);
                 }
             }
-
-
-
             List<llistes_skills> _llistes_Skills = Llistes_SkillsOrm.SelectActivate();
             foreach (llistes_skills lSkills in _llistes_Skills)
             {
@@ -221,9 +192,6 @@ namespace DesktopApp
                     flpSkills.Controls.RemoveAt(1);
                 }
             }
-
-
-
         }
         private void btnManagmentSkills_Click(object sender, EventArgs e)
         {
@@ -238,54 +206,57 @@ namespace DesktopApp
                 MessageBox.Show("Selecciona una lista de Skills");
             }
         }
-
         private void btnManagmentKPI_Click(object sender, EventArgs e)
         {
             FormKPI FormKPI = new FormKPI(_skill);
             FormKPI.ShowDialog();
             ActualizarDatos();
         }
-
         private void btnManagmentRoles_Click(object sender, EventArgs e)
         {
             FormGestionPerfil formGestionPerfil = new FormGestionPerfil();
             formGestionPerfil.ShowDialog();
             ActualizarDatos();
         }
-
         private void btnManagmentCourses_Click(object sender, EventArgs e)
         {
             FormCursos formCursos = new FormCursos("");
             formCursos.ShowDialog();
             ActualizarDatos();
         }
-
         private void btnManagmentGroups_Click(object sender, EventArgs e)
         {
             FormGestionGrupo formGestionGrupo = new FormGestionGrupo("");
             formGestionGrupo.ShowDialog();
             ActualizarDatos();
         }
-
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
             FormGestionUsuarios fgu = new FormGestionUsuarios();
             fgu.ShowDialog();
         }
-
         private void pb_close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void pb_minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void btnManagmentListSkills_Click_1(object sender, EventArgs e)
         {
-
+            FormListaSkills formListaSkills = new FormListaSkills();
+            formListaSkills.ShowDialog();
+            ActualizarPanelListasSkills();
+            limpiarPanelSkills();
+            _llistesSkills = null;
+            dgvSkill.Columns.Clear();
+        }
+        private void msCloseSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
         }
     }
 }

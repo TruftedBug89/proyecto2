@@ -44,8 +44,8 @@
             this.pnBarra = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcIcono = new System.Windows.Forms.PictureBox();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
@@ -61,7 +61,7 @@
             // 
             this.lblCourses.AutoSize = true;
             this.lblCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourses.Location = new System.Drawing.Point(278, 70);
+            this.lblCourses.Location = new System.Drawing.Point(245, 60);
             this.lblCourses.Name = "lblCourses";
             this.lblCourses.Size = new System.Drawing.Size(75, 24);
             this.lblCourses.TabIndex = 4;
@@ -76,7 +76,7 @@
             this.lbCourses.ItemHeight = 22;
             this.lbCourses.Location = new System.Drawing.Point(12, 156);
             this.lbCourses.Name = "lbCourses";
-            this.lbCourses.Size = new System.Drawing.Size(159, 224);
+            this.lbCourses.Size = new System.Drawing.Size(159, 246);
             this.lbCourses.TabIndex = 6;
             this.lbCourses.ValueMember = "id";
             this.lbCourses.SelectedIndexChanged += new System.EventHandler(this.lbCourses_SelectedIndexChanged);
@@ -192,21 +192,20 @@
             this.pnBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.pnBarra.Controls.Add(this.pictureBox1);
             this.pnBarra.Controls.Add(this.pcIcono);
-            this.pnBarra.Controls.Add(this.lbTitulo);
             this.pnBarra.Controls.Add(this.pictureBox2);
             this.pnBarra.Controls.Add(this.pb_minimize);
             this.pnBarra.Controls.Add(this.pb_close);
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
             this.pnBarra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(580, 37);
+            this.pnBarra.Size = new System.Drawing.Size(580, 40);
             this.pnBarra.TabIndex = 34;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(521, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(521, 9);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
@@ -217,7 +216,7 @@
             // pcIcono
             // 
             this.pcIcono.Image = ((System.Drawing.Image)(resources.GetObject("pcIcono.Image")));
-            this.pcIcono.Location = new System.Drawing.Point(24, 10);
+            this.pcIcono.Location = new System.Drawing.Point(10, 9);
             this.pcIcono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcIcono.Name = "pcIcono";
             this.pcIcono.Size = new System.Drawing.Size(25, 25);
@@ -225,26 +224,27 @@
             this.pcIcono.TabIndex = 11;
             this.pcIcono.TabStop = false;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(55, 10);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(96, 17);
-            this.lbTitulo.TabIndex = 10;
-            this.lbTitulo.Text = "Crear Usuario";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(552, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(552, 9);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 25);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.lbTitulo.Location = new System.Drawing.Point(41, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(52, 17);
+            this.lbTitulo.TabIndex = 10;
+            this.lbTitulo.Text = "Cursos";
             // 
             // label1
             // 
@@ -268,9 +268,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(580, 460);
             this.Controls.Add(this.txtFinishCourse);
             this.Controls.Add(this.cbxYears);
+            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnBarra);
@@ -282,13 +284,12 @@
             this.Controls.Add(this.lblCourses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCursos";
-            this.Text = "FormCursos";
+            this.Text = "pl";
             this.Load += new System.EventHandler(this.FormCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
             this.pnBarra.ResumeLayout(false);
-            this.pnBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -19,7 +19,6 @@ namespace DesktopApp
         public FormGestionPerfil(){
             InitializeComponent();
         }
-
         //Para mover la pestaña
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -30,7 +29,6 @@ namespace DesktopApp
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void ckbAllPermision_CheckedChanged(object sender, EventArgs e)
         {
             ckbEmptyPermision.Checked = false;
@@ -43,7 +41,6 @@ namespace DesktopApp
             ckbManagmentCourses.Checked = true;
             cxbRelationsGroups.Checked = true;
         }
-
         private void ckbEmptyPermision_CheckedChanged(object sender, EventArgs e)
         {
             ckbAllPermision.Checked = false;
@@ -55,14 +52,11 @@ namespace DesktopApp
             ckbGroupGestion.Checked = false;
             ckbManagmentCourses.Checked = false;
             cxbRelationsGroups.Checked = false;
-
         }
-
         private void FormGestionPerfil_Load(object sender, EventArgs e)
         {
             bsRols.DataSource = RolsOrm.Select();
         }
-
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
             bool check = false;
@@ -70,13 +64,11 @@ namespace DesktopApp
             {
                 check = true;
             }
-
             if (check == true)
             {
                 MessageBox.Show("El nombre del perfil esta vacio");
             }
             else if (checkModificar == true) {
-
                 _rol.nom = tbPerfilName.Text;
                 _rol.actiu = ckbActiu.Checked;
                 _rol.gestionarGrupos = ckbGroupGestion.Checked;
@@ -151,7 +143,6 @@ namespace DesktopApp
                 ckbActiu.Checked = _rol.actiu;
             }
         }
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             tbPerfilName.Text = "";
@@ -167,12 +158,10 @@ namespace DesktopApp
             ckbActiu.Checked = false;
             checkModificar = false;
         }
-
         private void pb_minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void pb_close_Click(object sender, EventArgs e)
         {
             this.Close();

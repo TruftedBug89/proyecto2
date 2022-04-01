@@ -67,9 +67,6 @@ namespace DesktopApp
                 MessageBox.Show("Dejar el campo de contraseña en blanco para seguir utilizando la contraseña antigua","Información",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool campoVacio = false;
@@ -96,7 +93,6 @@ namespace DesktopApp
             if (String.IsNullOrWhiteSpace(tbName.Text)) {
                 campoVacio = true;
             }
-
             if (cbxSelectionPerfil.SelectedIndex == -1) {
                 campoVacio = true;
             }
@@ -123,11 +119,8 @@ namespace DesktopApp
                 Models.UsuarisOrm.Update(usuarioAEditar);
                 MessageBox.Show("Usuari "+ usuarioAEditar.nom +" actualizado correctamente");
                 this.Close();
-
-
                 return;
             }
-
             if (campoVacio == false && contrasIguales == true && emailValido == true) {
 
                 _usuaris.correo = tbEmail.Text;
@@ -164,7 +157,6 @@ namespace DesktopApp
                 return false;
             }
         }
-
         private void cbLookPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (cbLookPassword.Checked)
@@ -175,7 +167,6 @@ namespace DesktopApp
                 tbPassword.UseSystemPasswordChar = true;
             }
         }
-
         private void cbRepeatPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (cbRepeatPassword.Checked)
@@ -192,13 +183,11 @@ namespace DesktopApp
             this.Close();
         }
 
-
         private void btnGroupManagment_Click(object sender, EventArgs e)
         {
             FormGestionGrupo fgg = new FormGestionGrupo("");
             fgg.ShowDialog();
         }
-
         private void pb_minimize_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;

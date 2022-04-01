@@ -82,9 +82,9 @@ namespace DesktopApp
             this.labelPassword.Location = new System.Drawing.Point(290, 175);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(103, 20);
+            this.labelPassword.Size = new System.Drawing.Size(95, 20);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Contrasenya";
+            this.labelPassword.Text = "Contraseña";
             // 
             // txtBoxUsername
             // 
@@ -114,7 +114,7 @@ namespace DesktopApp
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(115, 28);
             this.buttonIniciarSesion.TabIndex = 5;
-            this.buttonIniciarSesion.Text = "Iniciar Sesion";
+            this.buttonIniciarSesion.Text = "Iniciar Sesión";
             this.buttonIniciarSesion.UseVisualStyleBackColor = false;
             this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonIniciarSesion_Click);
             // 
@@ -165,7 +165,7 @@ namespace DesktopApp
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(110, 20);
             this.lbTitulo.TabIndex = 10;
-            this.lbTitulo.Text = "Iniciar Sesion";
+            this.lbTitulo.Text = "Iniciar Sesión";
             this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
             // 
             // pb_minimize
@@ -210,9 +210,9 @@ namespace DesktopApp
             this.txtError.ForeColor = System.Drawing.Color.Red;
             this.txtError.Location = new System.Drawing.Point(327, 266);
             this.txtError.Name = "txtError";
-            this.txtError.Size = new System.Drawing.Size(223, 17);
+            this.txtError.Size = new System.Drawing.Size(216, 17);
             this.txtError.TabIndex = 9;
-            this.txtError.Text = "Usuario y/o contrasenya erroneas";
+            this.txtError.Text = "Usuario y/o contraseña erroneas";
             this.txtError.Visible = false;
             // 
             // pbError

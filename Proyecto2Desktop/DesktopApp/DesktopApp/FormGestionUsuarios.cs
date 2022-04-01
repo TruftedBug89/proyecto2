@@ -18,9 +18,7 @@ namespace DesktopApp
         {
             InitializeComponent();
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
-
         }
-
         private void btnGroups_Click(object sender, EventArgs e)
         {
             FormRelacionesGrupo gr = new FormRelacionesGrupo("");
@@ -28,7 +26,6 @@ namespace DesktopApp
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
             dataGridView1.DataSource = bindingSource1;
         }
-
         private void btnRoles_Click(object sender, EventArgs e)
         {
             FormGestionPerfil gr = new FormGestionPerfil();
@@ -36,7 +33,6 @@ namespace DesktopApp
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
             dataGridView1.DataSource = bindingSource1;
         }
-
         private void btnAddUsers_Click(object sender, EventArgs e)
         {
             FormCrearUsuarios fcu = new FormCrearUsuarios();
@@ -44,7 +40,6 @@ namespace DesktopApp
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
             dataGridView1.DataSource = bindingSource1;
         }
-
         private void btnDownload_Click(object sender, EventArgs e)
         {
             List<Models.usuaris> usersToDownload = Models.UsuarisOrm.Select();
@@ -54,24 +49,16 @@ namespace DesktopApp
                 {
                     sb.AppendLine(data.id + "," + data.nom + "," + data.rols_id + "," + data.correo + "," + data.contrasenya + "," + data.actiu);
                 }
-
-
             SaveFileDialog fileDialog = new SaveFileDialog();
             string filter = "CSV file (*.csv)|*.csv";
             fileDialog.Filter = filter;
             fileDialog.ShowDialog();
             File.WriteAllText(fileDialog.FileName, sb.ToString());
-
-
-
-
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnPick_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -104,49 +91,28 @@ namespace DesktopApp
                     {
                         MessageBox.Show("No se puede procesar el archivo selecionado","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         return;
-                    }
-                    
+                    }   
                 }
-
-
             }
             MessageBox.Show(!failedAdd ? "Añadidos "+addedUsers+ " usuarios" : "Añadidos " + addedUsers + " usuarios, error al añadir usuarios con correos ya existentes");
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
-
         }
-
-        private void pbSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void pb_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = Models.UsuarisOrm.SelectByName(textBox1.Text);
-
         }
-
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if(e.ColumnIndex == 8)
             {
                 Models.usuaris u = (Models.usuaris)dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 e.Value = u.rols.nom;
-
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -155,36 +121,23 @@ namespace DesktopApp
             Models.usuaris usuarioAEditar = r.DataBoundItem as Models.usuaris;
             FormCrearUsuarios fenc = new FormCrearUsuarios(usuarioAEditar);
             fenc.ShowDialog();
-
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
             dataGridView1.DataSource = bindingSource1;
         }
-
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             ControlPermisosUsuario();
         }
-
-
         private void ControlPermisosUsuario()
         {
-           
             if (UsuarioLogin.UsuariLogin.rols.gestionarPerfiles == false)
             {
-                
                 this.Controls.Remove(btnRoles);
             }
             if (UsuarioLogin.UsuariLogin.rols.gestionarRelacionesGrupos == false)
             {
                 this.Controls.Remove(btnGroups);
             }
-
-
         }
-
-
-
-
-
     }
 }

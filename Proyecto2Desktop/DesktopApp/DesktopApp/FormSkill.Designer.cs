@@ -45,9 +45,9 @@
             this.lblNameListSkills = new System.Windows.Forms.Label();
             this.pnBarra = new System.Windows.Forms.Panel();
             this.pcIcono = new System.Windows.Forms.PictureBox();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.cdBackgroundColor = new System.Windows.Forms.ColorDialog();
             this.cdTextColor = new System.Windows.Forms.ColorDialog();
             this.flpSkills.SuspendLayout();
@@ -60,10 +60,10 @@
             // lblNombreSkill
             // 
             this.lblNombreSkill.AutoSize = true;
-            this.lblNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold);
+            this.lblNombreSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.lblNombreSkill.Location = new System.Drawing.Point(66, 146);
             this.lblNombreSkill.Name = "lblNombreSkill";
-            this.lblNombreSkill.Size = new System.Drawing.Size(111, 30);
+            this.lblNombreSkill.Size = new System.Drawing.Size(105, 30);
             this.lblNombreSkill.TabIndex = 2;
             this.lblNombreSkill.Text = "Nombre";
             // 
@@ -80,10 +80,10 @@
             // lblLetraSkill
             // 
             this.lblLetraSkill.AutoSize = true;
-            this.lblLetraSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.lblLetraSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lblLetraSkill.Location = new System.Drawing.Point(66, 272);
             this.lblLetraSkill.Name = "lblLetraSkill";
-            this.lblLetraSkill.Size = new System.Drawing.Size(144, 29);
+            this.lblLetraSkill.Size = new System.Drawing.Size(132, 29);
             this.lblLetraSkill.TabIndex = 5;
             this.lblLetraSkill.Text = "Letra Skill:";
             // 
@@ -178,13 +178,13 @@
             // 
             this.btnBColor.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnBColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBColor.ForeColor = System.Drawing.Color.White;
             this.btnBColor.Location = new System.Drawing.Point(461, 227);
             this.btnBColor.Name = "btnBColor";
             this.btnBColor.Size = new System.Drawing.Size(214, 42);
             this.btnBColor.TabIndex = 26;
-            this.btnBColor.Text = "Background Color";
+            this.btnBColor.Text = "Color del fondo";
             this.btnBColor.UseVisualStyleBackColor = false;
             this.btnBColor.Click += new System.EventHandler(this.btnBColor_Click);
             // 
@@ -202,7 +202,7 @@
             // 
             this.btnTColor.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnTColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTColor.ForeColor = System.Drawing.Color.White;
             this.btnTColor.Location = new System.Drawing.Point(461, 305);
             this.btnTColor.Name = "btnTColor";
@@ -225,32 +225,31 @@
             // lblNameListSkills
             // 
             this.lblNameListSkills.AutoSize = true;
-            this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameListSkills.Location = new System.Drawing.Point(327, 67);
+            this.lblNameListSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameListSkills.Location = new System.Drawing.Point(292, 71);
             this.lblNameListSkills.Name = "lblNameListSkills";
-            this.lblNameListSkills.Size = new System.Drawing.Size(273, 36);
+            this.lblNameListSkills.Size = new System.Drawing.Size(23, 36);
             this.lblNameListSkills.TabIndex = 31;
-            this.lblNameListSkills.Text = "Nombre Lista Skill";
+            this.lblNameListSkills.Text = " ";
             this.lblNameListSkills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnBarra
             // 
             this.pnBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.pnBarra.Controls.Add(this.pcIcono);
-            this.pnBarra.Controls.Add(this.lbTitulo);
             this.pnBarra.Controls.Add(this.pb_minimize);
             this.pnBarra.Controls.Add(this.pb_close);
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
             this.pnBarra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(858, 37);
+            this.pnBarra.Size = new System.Drawing.Size(858, 40);
             this.pnBarra.TabIndex = 32;
             this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pcIcono
             // 
             this.pcIcono.Image = ((System.Drawing.Image)(resources.GetObject("pcIcono.Image")));
-            this.pcIcono.Location = new System.Drawing.Point(12, 10);
+            this.pcIcono.Location = new System.Drawing.Point(10, 9);
             this.pcIcono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcIcono.Name = "pcIcono";
             this.pcIcono.Size = new System.Drawing.Size(25, 25);
@@ -259,20 +258,10 @@
             this.pcIcono.TabStop = false;
             this.pcIcono.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcIcono_MouseDown);
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(55, 10);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(92, 17);
-            this.lbTitulo.TabIndex = 10;
-            this.lbTitulo.Text = "Iniciar Sesion";
-            this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
-            // 
             // pb_minimize
             // 
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(789, 10);
+            this.pb_minimize.Location = new System.Drawing.Point(789, 9);
             this.pb_minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
@@ -284,7 +273,7 @@
             // pb_close
             // 
             this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(820, 10);
+            this.pb_close.Location = new System.Drawing.Point(820, 9);
             this.pb_close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_close.Name = "pb_close";
             this.pb_close.Size = new System.Drawing.Size(25, 25);
@@ -293,6 +282,18 @@
             this.pb_close.TabStop = false;
             this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbTitulo.Location = new System.Drawing.Point(41, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(40, 20);
+            this.lbTitulo.TabIndex = 10;
+            this.lbTitulo.Text = "Skill";
+            this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
+            // 
             // FormSkill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,6 +301,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(857, 651);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pnBarra);
             this.Controls.Add(this.cboActivate);
@@ -319,7 +321,6 @@
             this.Load += new System.EventHandler(this.FormSkill_Load);
             this.flpSkills.ResumeLayout(false);
             this.pnBarra.ResumeLayout(false);
-            this.pnBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();

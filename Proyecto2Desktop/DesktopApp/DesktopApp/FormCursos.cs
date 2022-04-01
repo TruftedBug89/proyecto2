@@ -14,30 +14,25 @@ namespace DesktopApp
     public partial class FormCursos : Form
     {
         private cursos _curs;
-        private List<cursos> _cursos;
+        //private List<cursos> _cursos;
         public String gruposStatus;
         public FormCursos(String status)
         {
             InitializeComponent();
             this.gruposStatus = status;
         }
-
         private void FormCursos_Load(object sender, EventArgs e)
         {
             cargarCursos();
             cargarAños();
-
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             String missatge = "";
-
             if (_curs != null)
             {
                 String nom = cbxYears.SelectedItem.ToString() + " - " + txtFinishCourse.Text;
-                missatge = CursosOrm.Update(_curs, Convert.ToInt32(cbxYears.SelectedItem),Convert.ToInt32(txtFinishCourse.Text),cboActivate.Checked,nom);
+                missatge = CursosOrm.Update(_curs, Convert.ToInt32(cbxYears.SelectedItem), Convert.ToInt32(txtFinishCourse.Text), cboActivate.Checked, nom);
 
                 if (missatge != "")
                 {
@@ -51,7 +46,6 @@ namespace DesktopApp
             }
             else
             {
-
                 if (cbxYears.SelectedIndex == -1)
                 {
                     MessageBox.Show("Selecciona un año");
@@ -76,28 +70,18 @@ namespace DesktopApp
                         cargarCursos();
                     }
                 }
-
-
-
             }
-
-
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void cargarCursos() 
         {
             bindingSourceCourses.DataSource = null;
             bindingSourceCourses.DataSource = CursosOrm.Select();
         }
-
-       
-
         private void cargarAños() 
         {
             string currentYear = DateTime.Now.Year.ToString();
@@ -108,13 +92,11 @@ namespace DesktopApp
                 cbxYears.Items.Add(i);
             }
         }
-
         private void cbxYears_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int CursFi = Convert.ToInt32(cbxYears.SelectedItem) + 1;
             txtFinishCourse.Text = CursFi.ToString();
         }
-
         private void lbCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             _curs = (cursos)lbCourses.SelectedItem;
@@ -127,19 +109,16 @@ namespace DesktopApp
             }
 
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             VaciarCampos();
         }
-
         private void VaciarCampos()
         {
             _curs = null;
             cbxYears.SelectedItem = null;
             txtFinishCourse.Text = "";
             cboActivate.Checked = false;
-
         }
     }
 }

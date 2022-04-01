@@ -24,20 +24,17 @@ namespace DesktopApp
             this.skill = skill;
             InitializeComponent();
         }
-
         private void FormKPI_Load(object sender, EventArgs e)
         {
             bindingSourceKPI.DataSource = Models.KpisOrm.Select(false, this.skillId);
             lblKPIName.Text = this.skill.nom;
             setActiveCheck();
         }
-
         //Mover la ventana
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
-
         private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
         {
             ReleaseCapture();
@@ -55,7 +52,6 @@ namespace DesktopApp
         }//
         private void btnAddKpi_Click(object sender, EventArgs e)
         {
-
             if (String.IsNullOrWhiteSpace(txtNewKPI.Text))
             {
                 MessageBox.Show("Introduce una descripción para el nuevo SubSkill", "Error", MessageBoxButtons.OK);
@@ -71,10 +67,7 @@ namespace DesktopApp
                 txtNewKPI.Text = "";
             }
             setActiveCheck();
-
-
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (this.updatedItems.Count == 0)
@@ -92,11 +85,10 @@ namespace DesktopApp
             {
                 if (old_ids.Contains(newkpi.id))
                 {
-                    KpisOrm.Update(KpisOrm.SelectSingleId(newkpi.id),newkpi.nom,newkpi.skills_id,newkpi.actiu);// update
+                    KpisOrm.Update(KpisOrm.SelectSingleId(newkpi.id), newkpi.nom, newkpi.skills_id, newkpi.actiu);// update
                 }
                 else
                 {
-                    //MessageBox.Show(newkpi.ToString());
                     missatge = KpisOrm.Insert(newkpi);
                 }
             }
@@ -106,13 +98,13 @@ namespace DesktopApp
             }
             else
             {
-                MessageBox.Show(this.updatedItems.Count+" KPI's actualizados");
+                MessageBox.Show(this.updatedItems.Count + " KPI's actualizados");
                 this.updatedItems.Clear();
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("updateditems count"+this.updatedItems.Count);
+            Console.WriteLine("updateditems count" + this.updatedItems.Count);
             if (this.updatedItems.Count != 0)
             {
                 DialogResult dr = MessageBox.Show("Tienes elementos por guardar, estas segur@ que quieres cancelar", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -127,7 +119,6 @@ namespace DesktopApp
         {
             kpis deletedKpi = (kpis)e.Row.DataBoundItem;
             deletedKpi.actiu = false;
-
             this.updatedItems.Add(deletedKpi);
         }
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -139,11 +130,12 @@ namespace DesktopApp
         }
         private void setActiveCheck()
         {
-            foreach(DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 Models.kpis uae = (Models.kpis)row.DataBoundItem;
                 row.Cells[6].Value = uae.actiu;
             }
+        }
         private void pb_close_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -153,4 +145,4 @@ namespace DesktopApp
             WindowState = FormWindowState.Minimized;
         }
     }
-}
+} 

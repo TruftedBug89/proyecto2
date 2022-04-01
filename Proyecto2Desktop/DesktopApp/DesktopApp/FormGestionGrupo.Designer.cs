@@ -160,14 +160,14 @@ namespace DesktopApp
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
             this.pnBarra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(655, 37);
+            this.pnBarra.Size = new System.Drawing.Size(655, 40);
             this.pnBarra.TabIndex = 33;
             this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pcIcono
             // 
             this.pcIcono.Image = ((System.Drawing.Image)(resources.GetObject("pcIcono.Image")));
-            this.pcIcono.Location = new System.Drawing.Point(12, 10);
+            this.pcIcono.Location = new System.Drawing.Point(10, 9);
             this.pcIcono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcIcono.Name = "pcIcono";
             this.pcIcono.Size = new System.Drawing.Size(25, 25);
@@ -179,9 +179,10 @@ namespace DesktopApp
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(55, 10);
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbTitulo.Location = new System.Drawing.Point(41, 12);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(125, 17);
+            this.lbTitulo.Size = new System.Drawing.Size(146, 20);
             this.lbTitulo.TabIndex = 10;
             this.lbTitulo.Text = "Gestion de grupos";
             this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
@@ -189,7 +190,7 @@ namespace DesktopApp
             // pb_minimize
             // 
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(588, 10);
+            this.pb_minimize.Location = new System.Drawing.Point(588, 9);
             this.pb_minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
