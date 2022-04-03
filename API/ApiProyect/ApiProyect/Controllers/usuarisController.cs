@@ -35,34 +35,12 @@ namespace ApiProyect.Controllers
             db.Configuration.LazyLoadingEnabled = false;
 
 
-            //List<grups_has_alumnes> Alumnes = db.grups_has_alumnes
-            //                        .Where(c => c.grups_id == id)
-            //                        .Join(db.grups_has_alumnes,
-            //                        db.usuaris => db.usuaris.id)
-            //                        .ToList();
-
-
+      
             List<usuaris> person = (from usuaris in db.usuaris
                           join e in db.grups_has_alumnes
                           on usuaris.id equals e.usuaris_id
                           where e.grups_id == id
                           select usuaris).ToList();
-
-
-
-            //List<usuaris> _usuaris = db.usuaris.ToList();
-            //List<usuaris> _usersFiltrados = new List<usuaris>();
-
-            //foreach (grups_has_alumnes gH in Alumnes)
-            //{
-            //    foreach (usuaris usuaris in _usuaris)
-            //    {
-            //        if (gH.usuaris_id == usuaris.id)
-            //        {
-            //            _usersFiltrados.Add(usuaris);
-            //        }
-            //    }
-            //}
 
 
 
@@ -88,8 +66,11 @@ namespace ApiProyect.Controllers
 
             usuaris _usuari = await db.usuaris
                                 .Include("rols")
-                                .Include("grups_has_alumnes.grups")
-                                .Include("grups_has_docents.grups")
+                                .Include("grups_has_alumnes.grups.grups_has_alumnes")
+                                .Include("grups_has_docents.grups.grups_has_docents") 
+                                .Include("grups_has_alumnes.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
+                                .Include("grups_has_docents.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
+                                .Include("valoracions")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
 
