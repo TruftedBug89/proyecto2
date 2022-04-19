@@ -22,8 +22,11 @@ namespace ApiProyect.Controllers
         public IQueryable<usuaris> Getusuaris()
         {
             db.Configuration.LazyLoadingEnabled = false;
-            return db.usuaris;
-            
+
+            return db.usuaris
+                 .Include("grups_has_alumnes.grups")
+                 .Include("grups_has_docents.grups");
+
 
         }
 
