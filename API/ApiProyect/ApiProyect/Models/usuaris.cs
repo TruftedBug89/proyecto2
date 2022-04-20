@@ -19,6 +19,7 @@ namespace ApiProyect.Models
         {
             this.grups_has_alumnes = new HashSet<grups_has_alumnes>();
             this.grups_has_docents = new HashSet<grups_has_docents>();
+            this.notificacions = new HashSet<notificacions>();
             this.valoracions = new HashSet<valoracions>();
             this.valoracions1 = new HashSet<valoracions>();
         }
@@ -38,6 +39,8 @@ namespace ApiProyect.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grups_has_docents> grups_has_docents { get; set; }
         public virtual rols rols { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<notificacions> notificacions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<valoracions> valoracions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

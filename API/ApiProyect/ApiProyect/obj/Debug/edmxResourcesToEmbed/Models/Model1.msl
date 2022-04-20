@@ -111,9 +111,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="notificacions">
+      <EntityTypeMapping TypeName="frase_aluModel.notificacions">
+        <MappingFragment StoreEntitySet="notificacions">
+          <ScalarProperty Name="missatge" ColumnName="missatge" />
+          <ScalarProperty Name="usuaris_id" ColumnName="usuaris_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="valoracions">
       <EntityTypeMapping TypeName="frase_aluModel.valoracions">
         <MappingFragment StoreEntitySet="valoracions">
+          <ScalarProperty Name="observacions" ColumnName="observacions" />
           <ScalarProperty Name="skills_id" ColumnName="skills_id" />
           <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
           <ScalarProperty Name="nota" ColumnName="nota" />

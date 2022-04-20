@@ -12,19 +12,12 @@ namespace ApiProyect.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class valoracions
+    public partial class notificacions
     {
-        public int kpis_id { get; set; }
-        public int usuari_valorat_id { get; set; }
-        public int usuari_pp_id { get; set; }
-        public string data { get; set; }
-        public int nota { get; set; }
-        public int llistes_skills_id { get; set; }
-        public int skills_id { get; set; }
-        public string observacions { get; set; }
+        public int id { get; set; }
+        public int usuaris_id { get; set; }
+        public string missatge { get; set; }
     
-        public virtual kpis kpis { get; set; }
         public virtual usuaris usuaris { get; set; }
-        public virtual usuaris usuaris1 { get; set; }
     }
 }

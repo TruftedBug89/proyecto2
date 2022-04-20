@@ -113,6 +113,7 @@
     <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
     <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
+    <NavigationProperty Name="notificacions" Relationship="frase_aluModel.FK_notificacions_usuaris" FromRole="usuaris" ToRole="notificacions" />
     <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
     <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
   </EntityType>
@@ -307,10 +308,15 @@
       <End Role="rols" EntitySet="rols" />
       <End Role="usuaris" EntitySet="usuaris" />
     </AssociationSet>
+    <EntitySet Name="notificacions" EntityType="frase_aluModel.notificacions" />
     <EntitySet Name="valoracions" EntityType="frase_aluModel.valoracions" />
     <AssociationSet Name="FK_valoracions_kpis" Association="frase_aluModel.FK_valoracions_kpis">
       <End Role="kpis" EntitySet="kpis" />
       <End Role="valoracions" EntitySet="valoracions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notificacions_usuaris" Association="frase_aluModel.FK_notificacions_usuaris">
+      <End Role="usuaris" EntitySet="usuaris" />
+      <End Role="notificacions" EntitySet="notificacions" />
     </AssociationSet>
     <AssociationSet Name="FK_valoracions_usuaris" Association="frase_aluModel.FK_valoracions_usuaris">
       <End Role="usuaris" EntitySet="usuaris" />
@@ -350,6 +356,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="notificacions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuaris_id" Type="Int32" Nullable="false" />
+    <Property Name="missatge" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_notificacions_usuaris" FromRole="notificacions" ToRole="usuaris" />
+  </EntityType>
   <EntityType Name="valoracions">
     <Key>
       <PropertyRef Name="kpis_id" />
@@ -360,13 +375,14 @@
     <Property Name="kpis_id" Type="Int32" Nullable="false" />
     <Property Name="usuari_valorat_id" Type="Int32" Nullable="false" />
     <Property Name="usuari_pp_id" Type="Int32" Nullable="false" />
-    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="data" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="nota" Type="Int32" Nullable="false" />
+    <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
+    <Property Name="skills_id" Type="Int32" Nullable="false" />
+    <Property Name="observacions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_valoracions_kpis" FromRole="valoracions" ToRole="kpis" />
     <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="valoracions" ToRole="usuaris" />
     <NavigationProperty Name="usuaris1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="valoracions" ToRole="usuaris" />
-    <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
-    <Property Name="skills_id" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_valoracions_kpis">
     <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="1" />
@@ -377,6 +393,18 @@
       </Principal>
       <Dependent Role="valoracions">
         <PropertyRef Name="kpis_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notificacions_usuaris">
+    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
+    <End Type="frase_aluModel.notificacions" Role="notificacions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuaris">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notificacions">
+        <PropertyRef Name="usuaris_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -65,6 +65,14 @@
     <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="notificacions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuaris_id" Type="int" Nullable="false" />
+    <Property Name="missatge" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="rols">
     <Key>
       <PropertyRef Name="id" />
@@ -113,13 +121,14 @@
       <PropertyRef Name="usuari_pp_id" />
       <PropertyRef Name="data" />
     </Key>
-    <Property Name="llistes_skills_id" Type="int" Nullable="false" />
-    <Property Name="skills_id" Type="int" Nullable="false" />
     <Property Name="kpis_id" Type="int" Nullable="false" />
     <Property Name="usuari_valorat_id" Type="int" Nullable="false" />
     <Property Name="usuari_pp_id" Type="int" Nullable="false" />
-    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="data" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="nota" Type="int" Nullable="false" />
+    <Property Name="llistes_skills_id" Type="int" Nullable="false" />
+    <Property Name="skills_id" Type="int" Nullable="false" />
+    <Property Name="observacions" Type="varchar" MaxLength="100" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_cursos">
     <End Role="cursos" Type="Self.cursos" Multiplicity="1" />
@@ -241,6 +250,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_notificacions_usuaris">
+    <End Role="usuaris" Type="Self.usuaris" Multiplicity="1" />
+    <End Role="notificacions" Type="Self.notificacions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuaris">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notificacions">
+        <PropertyRef Name="usuaris_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_skills_llistes_skills">
     <End Role="llistes_skills" Type="Self.llistes_skills" Multiplicity="1" />
     <End Role="skills" Type="Self.skills" Multiplicity="*" />
@@ -309,6 +330,7 @@
     <EntitySet Name="grups_has_llistes_skills" EntityType="Self.grups_has_llistes_skills" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="kpis" EntityType="Self.kpis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="llistes_skills" EntityType="Self.llistes_skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notificacions" EntityType="Self.notificacions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rols" EntityType="Self.rols" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="skills" EntityType="Self.skills" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuaris" EntityType="Self.usuaris" Schema="dbo" store:Type="Tables" />
@@ -352,6 +374,10 @@
     <AssociationSet Name="FK_kpis_skills" Association="Self.FK_kpis_skills">
       <End Role="skills" EntitySet="skills" />
       <End Role="kpis" EntitySet="kpis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notificacions_usuaris" Association="Self.FK_notificacions_usuaris">
+      <End Role="usuaris" EntitySet="usuaris" />
+      <End Role="notificacions" EntitySet="notificacions" />
     </AssociationSet>
     <AssociationSet Name="FK_skills_llistes_skills" Association="Self.FK_skills_llistes_skills">
       <End Role="llistes_skills" EntitySet="llistes_skills" />

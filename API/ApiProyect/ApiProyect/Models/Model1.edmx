@@ -70,6 +70,14 @@
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="actiu" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="notificacions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuaris_id" Type="int" Nullable="false" />
+          <Property Name="missatge" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="rols">
           <Key>
             <PropertyRef Name="id" />
@@ -118,13 +126,14 @@
             <PropertyRef Name="usuari_pp_id" />
             <PropertyRef Name="data" />
           </Key>
-          <Property Name="llistes_skills_id" Type="int" Nullable="false" />
-          <Property Name="skills_id" Type="int" Nullable="false" />
           <Property Name="kpis_id" Type="int" Nullable="false" />
           <Property Name="usuari_valorat_id" Type="int" Nullable="false" />
           <Property Name="usuari_pp_id" Type="int" Nullable="false" />
-          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="data" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nota" Type="int" Nullable="false" />
+          <Property Name="llistes_skills_id" Type="int" Nullable="false" />
+          <Property Name="skills_id" Type="int" Nullable="false" />
+          <Property Name="observacions" Type="varchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_grups_has_alumnes_cursos">
           <End Role="cursos" Type="Self.cursos" Multiplicity="1" />
@@ -246,6 +255,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_notificacions_usuaris">
+          <End Role="usuaris" Type="Self.usuaris" Multiplicity="1" />
+          <End Role="notificacions" Type="Self.notificacions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuaris">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notificacions">
+              <PropertyRef Name="usuaris_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_skills_llistes_skills">
           <End Role="llistes_skills" Type="Self.llistes_skills" Multiplicity="1" />
           <End Role="skills" Type="Self.skills" Multiplicity="*" />
@@ -314,6 +335,7 @@
           <EntitySet Name="grups_has_llistes_skills" EntityType="Self.grups_has_llistes_skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="kpis" EntityType="Self.kpis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="llistes_skills" EntityType="Self.llistes_skills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notificacions" EntityType="Self.notificacions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rols" EntityType="Self.rols" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="skills" EntityType="Self.skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuaris" EntityType="Self.usuaris" Schema="dbo" store:Type="Tables" />
@@ -357,6 +379,10 @@
           <AssociationSet Name="FK_kpis_skills" Association="Self.FK_kpis_skills">
             <End Role="skills" EntitySet="skills" />
             <End Role="kpis" EntitySet="kpis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notificacions_usuaris" Association="Self.FK_notificacions_usuaris">
+            <End Role="usuaris" EntitySet="usuaris" />
+            <End Role="notificacions" EntitySet="notificacions" />
           </AssociationSet>
           <AssociationSet Name="FK_skills_llistes_skills" Association="Self.FK_skills_llistes_skills">
             <End Role="llistes_skills" EntitySet="llistes_skills" />
@@ -496,9 +522,10 @@
           <NavigationProperty Name="grups_has_alumnes" Relationship="Self.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
           <NavigationProperty Name="grups_has_docents" Relationship="Self.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
           <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
+          <NavigationProperty Name="notificacions" Relationship="frase_aluModel.FK_notificacions_usuaris" FromRole="usuaris" ToRole="notificacions" />
           <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
           <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
-        </EntityType>
+          </EntityType>
         <Association Name="FK_grups_has_alumnes_cursos">
           <End Role="cursos" Type="Self.cursos" Multiplicity="1" />
           <End Role="grups_has_alumnes" Type="Self.grups_has_alumnes" Multiplicity="*" />
@@ -690,10 +717,15 @@
             <End Role="rols" EntitySet="rols" />
             <End Role="usuaris" EntitySet="usuaris" />
           </AssociationSet>
+          <EntitySet Name="notificacions" EntityType="frase_aluModel.notificacions" />
           <EntitySet Name="valoracions" EntityType="frase_aluModel.valoracions" />
           <AssociationSet Name="FK_valoracions_kpis" Association="frase_aluModel.FK_valoracions_kpis">
             <End Role="kpis" EntitySet="kpis" />
             <End Role="valoracions" EntitySet="valoracions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notificacions_usuaris" Association="frase_aluModel.FK_notificacions_usuaris">
+            <End Role="usuaris" EntitySet="usuaris" />
+            <End Role="notificacions" EntitySet="notificacions" />
           </AssociationSet>
           <AssociationSet Name="FK_valoracions_usuaris" Association="frase_aluModel.FK_valoracions_usuaris">
             <End Role="usuaris" EntitySet="usuaris" />
@@ -703,7 +735,7 @@
             <End Role="usuaris" EntitySet="usuaris" />
             <End Role="valoracions" EntitySet="valoracions" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="rols">
           <Key>
             <PropertyRef Name="id" />
@@ -733,6 +765,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="notificacions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuaris_id" Type="Int32" Nullable="false" />
+          <Property Name="missatge" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_notificacions_usuaris" FromRole="notificacions" ToRole="usuaris" />
+        </EntityType>
         <EntityType Name="valoracions">
           <Key>
             <PropertyRef Name="kpis_id" />
@@ -743,13 +784,14 @@
           <Property Name="kpis_id" Type="Int32" Nullable="false" />
           <Property Name="usuari_valorat_id" Type="Int32" Nullable="false" />
           <Property Name="usuari_pp_id" Type="Int32" Nullable="false" />
-          <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nota" Type="Int32" Nullable="false" />
+          <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
+          <Property Name="skills_id" Type="Int32" Nullable="false" />
+          <Property Name="observacions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_valoracions_kpis" FromRole="valoracions" ToRole="kpis" />
           <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="valoracions" ToRole="usuaris" />
           <NavigationProperty Name="usuaris1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="valoracions" ToRole="usuaris" />
-          <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
-          <Property Name="skills_id" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_valoracions_kpis">
           <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="1" />
@@ -760,6 +802,18 @@
             </Principal>
             <Dependent Role="valoracions">
               <PropertyRef Name="kpis_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notificacions_usuaris">
+          <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
+          <End Type="frase_aluModel.notificacions" Role="notificacions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuaris">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="notificacions">
+              <PropertyRef Name="usuaris_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -787,7 +841,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -903,9 +957,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="notificacions">
+            <EntityTypeMapping TypeName="frase_aluModel.notificacions">
+              <MappingFragment StoreEntitySet="notificacions">
+                <ScalarProperty Name="missatge" ColumnName="missatge" />
+                <ScalarProperty Name="usuaris_id" ColumnName="usuaris_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="valoracions">
             <EntityTypeMapping TypeName="frase_aluModel.valoracions">
               <MappingFragment StoreEntitySet="valoracions">
+                <ScalarProperty Name="observacions" ColumnName="observacions" />
                 <ScalarProperty Name="skills_id" ColumnName="skills_id" />
                 <ScalarProperty Name="llistes_skills_id" ColumnName="llistes_skills_id" />
                 <ScalarProperty Name="nota" ColumnName="nota" />
