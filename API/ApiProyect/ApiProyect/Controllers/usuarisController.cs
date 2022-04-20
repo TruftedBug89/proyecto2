@@ -19,13 +19,14 @@ namespace ApiProyect.Controllers
         private frase_aluEntities db = new frase_aluEntities();
 
         // GET: api/usuaris
-        public IQueryable<usuaris> Getusuaris()
+        public List<usuaris> Getusuaris()
         {
             db.Configuration.LazyLoadingEnabled = false;
 
-            return db.usuaris
-                 .Include("grups_has_alumnes.grups")
-                 .Include("grups_has_docents.grups");
+            List<usuaris> _usuaris = db.usuaris.ToList();
+           
+
+            return _usuaris;
 
 
         }
@@ -68,12 +69,13 @@ namespace ApiProyect.Controllers
             //usuaris _usuari = await db.usuaris.FindAsync(id);
 
             usuaris _usuari = await db.usuaris
-                                .Include("rols")
-                                .Include("grups_has_alumnes.grups.grups_has_alumnes")
-                                .Include("grups_has_docents.grups.grups_has_docents") 
-                                .Include("grups_has_alumnes.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
-                                .Include("grups_has_docents.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
+                                //.Include("rols")
+                                .Include("grups_has_alumnes.grups")
+                                .Include("grups_has_docents.grups")
+                                //.Include("grups_has_alumnes.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
+                                //.Include("grups_has_docents.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
                                 .Include("valoracions")
+                                .Include("valoracions1")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
 
