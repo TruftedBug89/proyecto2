@@ -31,8 +31,9 @@ namespace ApiProyect.Controllers
         {
             IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
-            valoracions valoracions = db.valoracions.Include("kpis").Where(c => c.kpis_id == id).FirstOrDefault();
-            //valoracions valoracions = await db.valoracions.FindAsync(id);
+            valoracions valoracions = db.valoracions
+                .Where(c => c.usuari_valorat_id == id).FirstOrDefault();
+
             if (valoracions == null)
             {
                 result = NotFound();
