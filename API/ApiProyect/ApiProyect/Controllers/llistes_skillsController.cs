@@ -21,7 +21,8 @@ namespace ApiProyect.Controllers
         public IQueryable<llistes_skills> Getllistes_skills()
         {
             db.Configuration.LazyLoadingEnabled = false;
-            return db.llistes_skills;
+            return db.llistes_skills
+                .Include("skills.kpis");
         }
 
         // GET: api/llistes_skills/5
