@@ -21,7 +21,8 @@ namespace ApiProyect.Controllers
         public IQueryable<grups_has_docents> Getgrups_has_docents()
         {
             db.Configuration.LazyLoadingEnabled = false;
-            return db.grups_has_docents;
+            return db.grups_has_docents
+                    .Include("usuaris");
         }
 
         // GET: api/grups_has_docents/5
