@@ -20,6 +20,8 @@ namespace ApiProyect.Controllers
         // GET: api/notificacions
         public IQueryable<notificacions> Getnotificacions()
         {
+            db.Configuration.LazyLoadingEnabled = false;
+
             return db.notificacions
                 .Include("usuaris");
         }
@@ -28,6 +30,7 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(notificacions))]
         public async Task<IHttpActionResult> Getnotificacions(int id)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             notificacions notificacions = await db.notificacions.FindAsync(id);
             if (notificacions == null)
             {
