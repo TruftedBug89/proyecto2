@@ -171,6 +171,7 @@
     <Compile Include="Controllers\grups_has_llistes_skillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llistes_skillsController.cs" />
+    <Compile Include="Controllers\notificacionsController.cs" />
     <Compile Include="Controllers\rolsController.cs" />
     <Compile Include="Controllers\kpisController.cs" />
     <Compile Include="Controllers\skillsController.cs" />
