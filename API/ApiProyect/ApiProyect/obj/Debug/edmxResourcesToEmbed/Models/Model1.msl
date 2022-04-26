@@ -111,15 +111,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="notificacions">
-      <EntityTypeMapping TypeName="frase_aluModel.notificacions">
-        <MappingFragment StoreEntitySet="notificacions">
-          <ScalarProperty Name="missatge" ColumnName="missatge" />
-          <ScalarProperty Name="usuaris_id" ColumnName="usuaris_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="valoracions">
       <EntityTypeMapping TypeName="frase_aluModel.valoracions">
         <MappingFragment StoreEntitySet="valoracions">
@@ -131,6 +122,16 @@
           <ScalarProperty Name="usuari_pp_id" ColumnName="usuari_pp_id" />
           <ScalarProperty Name="usuari_valorat_id" ColumnName="usuari_valorat_id" />
           <ScalarProperty Name="kpis_id" ColumnName="kpis_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificacions">
+      <EntityTypeMapping TypeName="frase_aluModel.notificacions">
+        <MappingFragment StoreEntitySet="notificacions">
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="missatge" ColumnName="missatge" />
+          <ScalarProperty Name="usuaris_id" ColumnName="usuaris_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

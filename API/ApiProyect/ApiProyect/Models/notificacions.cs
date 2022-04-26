@@ -17,6 +17,7 @@ namespace ApiProyect.Models
         public int id { get; set; }
         public int usuaris_id { get; set; }
         public string missatge { get; set; }
+        public string data { get; set; }
     
         public virtual usuaris usuaris { get; set; }
     }

@@ -35,7 +35,7 @@ namespace ApiProyect.Models
         public virtual DbSet<skills> skills { get; set; }
         public virtual DbSet<usuaris> usuaris { get; set; }
         public virtual DbSet<rols> rols { get; set; }
-        public virtual DbSet<notificacions> notificacions { get; set; }
         public virtual DbSet<valoracions> valoracions { get; set; }
+        public virtual DbSet<notificacions> notificacions { get; set; }
     }
 }

@@ -72,6 +72,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="usuaris_id" Type="int" Nullable="false" />
     <Property Name="missatge" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="data" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="rols">
     <Key>
