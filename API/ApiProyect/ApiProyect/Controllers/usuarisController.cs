@@ -76,6 +76,7 @@ namespace ApiProyect.Controllers
                                 //.Include("grups_has_docents.grups.grups_has_llistes_skills.llistes_skills.skills.kpis")
                                 .Include("valoracions")
                                 .Include("valoracions1")
+                                .Include("notificacions")
                                 .Where(c => c.id == id)
                                 .FirstOrDefaultAsync();
 
