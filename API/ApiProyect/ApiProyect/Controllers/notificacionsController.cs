@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -94,16 +95,52 @@ namespace ApiProyect.Controllers
         [ResponseType(typeof(notificacions))]
         public async Task<IHttpActionResult> Deletenotificacions(int id)
         {
-            notificacions notificacions = await db.notificacions.FindAsync(id);
-            if (notificacions == null)
+            //notificacions notificacions = await db.notificacions.FindAsync(id);
+            //if (notificacions == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //db.notificacions.Remove(notificacions);
+            //await db.SaveChangesAsync();
+
+            //return Ok(notificacions);
+
+            IHttpActionResult result;
+
+            notificacions _notificacio = await db.notificacions.FindAsync(id);
+
+            if (_notificacio == null)
             {
-                return NotFound();
+                result = NotFound();
+            }
+            else
+            {
+                String missatge = "";
+                try
+                {
+                    db.notificacions.Remove(_notificacio);
+                    await db.SaveChangesAsync();
+                    result = Ok(_notificacio);
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = Clases.Error.MissatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
+
+
+
             }
 
-            db.notificacions.Remove(notificacions);
-            await db.SaveChangesAsync();
 
-            return Ok(notificacions);
+
+            return result;
+
+
+
+
         }
 
         protected override void Dispose(bool disposing)
