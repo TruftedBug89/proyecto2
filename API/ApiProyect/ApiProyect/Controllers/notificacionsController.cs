@@ -78,17 +78,43 @@ namespace ApiProyect.Controllers
 
         // POST: api/notificacions
         [ResponseType(typeof(notificacions))]
-        public async Task<IHttpActionResult> Postnotificacions(notificacions notificacions)
+        public async Task<IHttpActionResult> Postnotificacions(notificacions _notificacions)
         {
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            //db.notificacions.Add(notificacions);
+            //await db.SaveChangesAsync();
+
+            //return CreatedAtRoute("DefaultApi", new { id = notificacions.id }, notificacions);
+
+
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
+            else
+            {
+                db.notificacions.Add(_notificacions);
+                String missatge = "";
+                try
+                {
+                    await db.SaveChangesAsync();
+                    result = CreatedAtRoute("DefaultApi", new { id = _notificacions.id }, _notificacions);
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = Clases.Error.MissatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
+            }
+            return result;
 
-            db.notificacions.Add(notificacions);
-            await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = notificacions.id }, notificacions);
         }
 
         // DELETE: api/notificacions/5
