@@ -73,10 +73,14 @@ namespace DesktopApp
             bool contrasIguales = false;
             bool emailValido = false;
 
-            if (String.IsNullOrWhiteSpace(tbEmail.Text)) {
+            if (String.IsNullOrWhiteSpace(tbEmail.Text))
+            {
                 campoVacio = true;
             }
-            emailValido = ValidarEmail(tbEmail.Text);
+            else {
+                emailValido = ValidarEmail(tbEmail.Text);   
+            }
+            
 
             if (String.IsNullOrWhiteSpace(tbUser.Text)) {
                 campoVacio = true;

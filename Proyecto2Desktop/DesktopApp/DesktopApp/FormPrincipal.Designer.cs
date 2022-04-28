@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.btnManagmentKPI = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.flpListSkills = new System.Windows.Forms.FlowLayoutPanel();
             this.btnManagmentListSkills = new System.Windows.Forms.Button();
             this.flpSkills = new System.Windows.Forms.FlowLayoutPanel();
@@ -45,14 +44,7 @@
             this.pb_minimize = new System.Windows.Forms.PictureBox();
             this.pcIcono = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
-            this.msOpcions = new System.Windows.Forms.MenuStrip();
-            this.msSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.msFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.msRecord = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.msCloseSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.flpListSkills.SuspendLayout();
             this.flpSkills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkill)).BeginInit();
@@ -60,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
-            this.msOpcions.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnManagmentKPI
@@ -79,22 +70,13 @@
             this.btnManagmentKPI.Visible = false;
             this.btnManagmentKPI.Click += new System.EventHandler(this.btnManagmentKPI_Click);
             // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1469, 107);
-            this.panel4.TabIndex = 7;
-            // 
             // flpListSkills
             // 
             this.flpListSkills.AutoScroll = true;
             this.flpListSkills.BackColor = System.Drawing.Color.White;
             this.flpListSkills.Controls.Add(this.btnManagmentListSkills);
             this.flpListSkills.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpListSkills.Location = new System.Drawing.Point(0, 107);
+            this.flpListSkills.Location = new System.Drawing.Point(0, 62);
             this.flpListSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpListSkills.Name = "flpListSkills";
             this.flpListSkills.Size = new System.Drawing.Size(1469, 115);
@@ -208,12 +190,12 @@
             this.dgvSkill.AllowUserToAddRows = false;
             this.dgvSkill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkill.Location = new System.Drawing.Point(14, 226);
+            this.dgvSkill.Location = new System.Drawing.Point(14, 197);
             this.dgvSkill.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;
-            this.dgvSkill.Size = new System.Drawing.Size(1442, 390);
+            this.dgvSkill.Size = new System.Drawing.Size(1442, 419);
             this.dgvSkill.TabIndex = 17;
             // 
             // pnBarra
@@ -277,83 +259,14 @@
             this.pb_close.TabStop = false;
             this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
             // 
-            // msOpcions
+            // panel4
             // 
-            this.msOpcions.BackColor = System.Drawing.Color.Transparent;
-            this.msOpcions.Dock = System.Windows.Forms.DockStyle.None;
-            this.msOpcions.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.msOpcions.ImageScalingSize = new System.Drawing.Size(50, 20);
-            this.msOpcions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msSettings,
-            this.msFile,
-            this.msRecord,
-            this.toolStripMenuItem1,
-            this.msCloseSesion});
-            this.msOpcions.Location = new System.Drawing.Point(0, 40);
-            this.msOpcions.Name = "msOpcions";
-            this.msOpcions.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.msOpcions.Size = new System.Drawing.Size(546, 38);
-            this.msOpcions.TabIndex = 28;
-            this.msOpcions.Text = "menuStrip1";
-            // 
-            // msSettings
-            // 
-            this.msSettings.BackColor = System.Drawing.Color.DimGray;
-            this.msSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.msSettings.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.msSettings.Name = "msSettings";
-            this.msSettings.Size = new System.Drawing.Size(104, 34);
-            this.msSettings.Text = "Settings";
-            // 
-            // msFile
-            // 
-            this.msFile.BackColor = System.Drawing.Color.DimGray;
-            this.msFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveDataToolStripMenuItem,
-            this.reloadDataToolStripMenuItem});
-            this.msFile.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.msFile.Name = "msFile";
-            this.msFile.Size = new System.Drawing.Size(60, 34);
-            this.msFile.Text = "File";
-            // 
-            // saveDataToolStripMenuItem
-            // 
-            this.saveDataToolStripMenuItem.Name = "saveDataToolStripMenuItem";
-            this.saveDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.saveDataToolStripMenuItem.Size = new System.Drawing.Size(283, 34);
-            this.saveDataToolStripMenuItem.Text = "Save Data";
-            // 
-            // reloadDataToolStripMenuItem
-            // 
-            this.reloadDataToolStripMenuItem.Name = "reloadDataToolStripMenuItem";
-            this.reloadDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
-            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(283, 34);
-            this.reloadDataToolStripMenuItem.Text = "Reload Data";
-            // 
-            // msRecord
-            // 
-            this.msRecord.BackColor = System.Drawing.Color.DimGray;
-            this.msRecord.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.msRecord.Name = "msRecord";
-            this.msRecord.Size = new System.Drawing.Size(95, 34);
-            this.msRecord.Text = "Record";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 34);
-            this.toolStripMenuItem1.Text = "Help";
-            // 
-            // msCloseSesion
-            // 
-            this.msCloseSesion.BackColor = System.Drawing.Color.Tomato;
-            this.msCloseSesion.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.msCloseSesion.Name = "msCloseSesion";
-            this.msCloseSesion.Size = new System.Drawing.Size(157, 34);
-            this.msCloseSesion.Text = "Cerrar Sesión";
-            this.msCloseSesion.Click += new System.EventHandler(this.msCloseSesion_Click);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1469, 62);
+            this.panel4.TabIndex = 7;
             // 
             // FormPrincipal
             // 
@@ -361,7 +274,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1469, 846);
-            this.Controls.Add(this.msOpcions);
             this.Controls.Add(this.btnManagmentKPI);
             this.Controls.Add(this.flpListSkills);
             this.Controls.Add(this.pnBarra);
@@ -385,16 +297,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
-            this.msOpcions.ResumeLayout(false);
-            this.msOpcions.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnManagmentKPI;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnGestionUsuarios;
         private System.Windows.Forms.DataGridView dgvSkill;
         private System.Windows.Forms.FlowLayoutPanel flpListSkills;
@@ -411,13 +319,6 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.PictureBox pb_minimize;
         private System.Windows.Forms.PictureBox pb_close;
-        private System.Windows.Forms.MenuStrip msOpcions;
-        private System.Windows.Forms.ToolStripMenuItem msSettings;
-        private System.Windows.Forms.ToolStripMenuItem msFile;
-        private System.Windows.Forms.ToolStripMenuItem saveDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reloadDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem msRecord;
-        private System.Windows.Forms.ToolStripMenuItem msCloseSesion;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Panel panel4;
     }
 }
