@@ -95,7 +95,10 @@ namespace DesktopApp
             _skills = SkillsOrm.SelectActivate(_llistesSkills.id);
             foreach (skills skill in _skills)
             {
+                flpSkills.Visible = true;
+                btnManagmentSkills.Visible = true;
                 CrearBotonSkills(skill);
+
             }
         }
         private void SeleccionarSkill_Click(object sender, EventArgs e, RadioButton btnSkill, skills S)
@@ -157,6 +160,8 @@ namespace DesktopApp
             limpiarPanelSkills();
             _llistesSkills = null;
             dgvSkill.Columns.Clear();
+            flpSkills.Visible = false;
+            btnManagmentSkills.Visible = false;
         }
         private void ActualizarPanelListasSkills()
         {

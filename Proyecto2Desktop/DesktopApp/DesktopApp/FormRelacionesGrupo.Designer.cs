@@ -78,7 +78,6 @@
             this.pcIcono = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCoursesListSkillsUsers)).BeginInit();
@@ -192,11 +191,11 @@
             this.cbxCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxCourses.DataSource = this.bindingSourceCoursesListSkillsUsers;
             this.cbxCourses.DisplayMember = "nom";
-            this.cbxCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.cbxCourses.FormattingEnabled = true;
-            this.cbxCourses.Location = new System.Drawing.Point(565, 116);
+            this.cbxCourses.Location = new System.Drawing.Point(550, 99);
             this.cbxCourses.Name = "cbxCourses";
-            this.cbxCourses.Size = new System.Drawing.Size(231, 30);
+            this.cbxCourses.Size = new System.Drawing.Size(522, 37);
             this.cbxCourses.TabIndex = 41;
             this.cbxCourses.ValueMember = "id";
             this.cbxCourses.SelectedIndexChanged += new System.EventHandler(this.cbxCourses_SelectedIndexChanged);
@@ -208,7 +207,7 @@
             this.btnManagmentCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManagmentCourses.ForeColor = System.Drawing.Color.Black;
-            this.btnManagmentCourses.Location = new System.Drawing.Point(1127, 81);
+            this.btnManagmentCourses.Location = new System.Drawing.Point(1127, 102);
             this.btnManagmentCourses.Name = "btnManagmentCourses";
             this.btnManagmentCourses.Size = new System.Drawing.Size(184, 45);
             this.btnManagmentCourses.TabIndex = 40;
@@ -462,10 +461,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 175);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label2.Location = new System.Drawing.Point(117, 172);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 24);
+            this.label2.Size = new System.Drawing.Size(95, 29);
             this.label2.TabIndex = 48;
             this.label2.Text = "Grupos";
             // 
@@ -572,22 +571,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(368, 106);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.Location = new System.Drawing.Point(53, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.Size = new System.Drawing.Size(482, 29);
             this.label1.TabIndex = 51;
-            this.label1.Text = "Asignar Cursos";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(339, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 20);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "a las listas seleccionadas";
+            this.label1.Text = "Asignar Cursos a las listas seleccionadas";
             // 
             // FormRelacionesGrupo
             // 
@@ -595,7 +584,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1457, 789);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxCourses);
             this.Controls.Add(this.pnBarra);
@@ -690,6 +678,5 @@
         private System.Windows.Forms.PictureBox pcIcono;
         private System.Windows.Forms.PictureBox pb_close;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
     }
 }

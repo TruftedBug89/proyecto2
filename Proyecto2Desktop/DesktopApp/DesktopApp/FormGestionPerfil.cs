@@ -16,6 +16,7 @@ namespace DesktopApp
     {
         rols _rol;
         bool checkModificar = false;
+        bool check = true;
         public FormGestionPerfil(){
             InitializeComponent();
         }
@@ -29,29 +30,71 @@ namespace DesktopApp
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
         private void ckbAllPermision_CheckedChanged(object sender, EventArgs e)
         {
-            ckbEmptyPermision.Checked = false;
-            ckbKPIGestion.Checked = true;
-            ckbListSkilsGestion.Checked = true;
-            ckbSkillsGestion.Checked = true;
-            ckbUsersGestion.Checked = true;
-            ckbPerfilGestion.Checked = true;
-            ckbGroupGestion.Checked = true;
-            ckbManagmentCourses.Checked = true;
-            cxbRelationsGroups.Checked = true;
+            if (check == true)
+            {
+                ckbEmptyPermision.Checked =false;
+                ckbKPIGestion.Checked = true;
+                ckbListSkilsGestion.Checked = true;
+                ckbSkillsGestion.Checked = true;
+                ckbUsersGestion.Checked = true;
+                ckbPerfilGestion.Checked = true;
+                ckbGroupGestion.Checked = true;
+                ckbManagmentCourses.Checked = true;
+                cxbRelationsGroups.Checked = true;
+                check = false;
+            }
+            else {
+                ckbEmptyPermision.Checked = false;
+                ckbKPIGestion.Checked = false;
+                ckbListSkilsGestion.Checked = false;
+                ckbSkillsGestion.Checked = false;
+                ckbUsersGestion.Checked = false;
+                ckbPerfilGestion.Checked = false;
+                ckbGroupGestion.Checked = false;
+                ckbManagmentCourses.Checked = false;
+                cxbRelationsGroups.Checked = false;
+                check = true;
+            }
         }
         private void ckbEmptyPermision_CheckedChanged(object sender, EventArgs e)
         {
-            ckbAllPermision.Checked = false;
-            ckbKPIGestion.Checked = false;
-            ckbListSkilsGestion.Checked = false;
-            ckbSkillsGestion.Checked = false;
-            ckbUsersGestion.Checked = false;
-            ckbPerfilGestion.Checked = false;
-            ckbGroupGestion.Checked = false;
-            ckbManagmentCourses.Checked = false;
-            cxbRelationsGroups.Checked = false;
+            if (check == false)
+            {
+                ckbAllPermision.Checked = false;
+                ckbKPIGestion.Checked = false;
+                ckbListSkilsGestion.Checked = false;
+                ckbSkillsGestion.Checked = false;
+                ckbUsersGestion.Checked = false;
+                ckbPerfilGestion.Checked = false;
+                ckbGroupGestion.Checked = false;
+                ckbManagmentCourses.Checked = false;
+                cxbRelationsGroups.Checked = false;
+                check = true;
+            }/*
+            else {
+                ckbAllPermision.Checked = false;
+                ckbKPIGestion.Checked = false;
+                ckbListSkilsGestion.Checked = false;
+                ckbSkillsGestion.Checked = false;
+                ckbUsersGestion.Checked = false;
+                ckbPerfilGestion.Checked = false;
+                ckbGroupGestion.Checked = false;
+                ckbManagmentCourses.Checked = false;
+                cxbRelationsGroups.Checked = false;
+                check = true;
+            }*/
         }
         private void FormGestionPerfil_Load(object sender, EventArgs e)
         {

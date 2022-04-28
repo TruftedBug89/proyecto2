@@ -87,6 +87,7 @@
             // 
             // cbxYears
             // 
+            this.cbxYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxYears.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxYears.FormattingEnabled = true;
             this.cbxYears.Location = new System.Drawing.Point(201, 156);
@@ -200,6 +201,7 @@
             this.pnBarra.Name = "pnBarra";
             this.pnBarra.Size = new System.Drawing.Size(580, 40);
             this.pnBarra.TabIndex = 34;
+            this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pictureBox1
             // 
@@ -212,6 +214,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pcIcono
             // 
@@ -223,6 +226,7 @@
             this.pcIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcIcono.TabIndex = 11;
             this.pcIcono.TabStop = false;
+            this.pcIcono.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcIcono_MouseDown);
             // 
             // pictureBox2
             // 
@@ -235,6 +239,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lbTitulo
             // 
@@ -245,6 +250,7 @@
             this.lbTitulo.Size = new System.Drawing.Size(52, 17);
             this.lbTitulo.TabIndex = 10;
             this.lbTitulo.Text = "Cursos";
+            this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
             // 
             // label1
             // 

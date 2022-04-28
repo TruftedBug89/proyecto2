@@ -134,10 +134,10 @@ namespace DesktopApp
             // 
             this.btnGroupManagment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnGroupManagment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGroupManagment.Location = new System.Drawing.Point(480, 486);
+            this.btnGroupManagment.Location = new System.Drawing.Point(469, 491);
             this.btnGroupManagment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGroupManagment.Name = "btnGroupManagment";
-            this.btnGroupManagment.Size = new System.Drawing.Size(180, 36);
+            this.btnGroupManagment.Size = new System.Drawing.Size(207, 39);
             this.btnGroupManagment.TabIndex = 7;
             this.btnGroupManagment.Text = "Gestión de Grupos";
             this.btnGroupManagment.UseVisualStyleBackColor = false;

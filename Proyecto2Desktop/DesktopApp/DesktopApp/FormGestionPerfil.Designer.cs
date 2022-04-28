@@ -49,11 +49,6 @@ namespace DesktopApp
             this.ckbListSkilsGestion = new System.Windows.Forms.CheckBox();
             this.ckbKPIGestion = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actiuDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usuarisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsRols = new System.Windows.Forms.BindingSource(this.components);
             this.buttonIniciarSesion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ckbActiu = new System.Windows.Forms.CheckBox();
@@ -63,13 +58,18 @@ namespace DesktopApp
             this.lbTitulo = new System.Windows.Forms.Label();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
+            this.bsRols = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actiuDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.usuarisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxPermisos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRols)).BeginInit();
             this.pnBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRols)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombrePerfil
@@ -289,48 +289,6 @@ namespace DesktopApp
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nomDataGridViewTextBoxColumn
-            // 
-            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nomDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // actiuDataGridViewCheckBoxColumn
-            // 
-            this.actiuDataGridViewCheckBoxColumn.DataPropertyName = "actiu";
-            this.actiuDataGridViewCheckBoxColumn.HeaderText = "Actiu";
-            this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
-            this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.actiuDataGridViewCheckBoxColumn.Width = 70;
-            // 
-            // usuarisDataGridViewTextBoxColumn
-            // 
-            this.usuarisDataGridViewTextBoxColumn.DataPropertyName = "usuaris";
-            this.usuarisDataGridViewTextBoxColumn.HeaderText = "usuaris";
-            this.usuarisDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.usuarisDataGridViewTextBoxColumn.Name = "usuarisDataGridViewTextBoxColumn";
-            this.usuarisDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usuarisDataGridViewTextBoxColumn.Visible = false;
-            this.usuarisDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // bsRols
-            // 
-            this.bsRols.DataSource = typeof(DesktopApp.Models.rols);
-            // 
             // buttonIniciarSesion
             // 
             this.buttonIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
@@ -393,6 +351,7 @@ namespace DesktopApp
             this.pnBarra.Name = "pnBarra";
             this.pnBarra.Size = new System.Drawing.Size(1067, 40);
             this.pnBarra.TabIndex = 28;
+            this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pcIcono
             // 
@@ -404,6 +363,7 @@ namespace DesktopApp
             this.pcIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcIcono.TabIndex = 11;
             this.pcIcono.TabStop = false;
+            this.pcIcono.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcIcono_MouseDown);
             // 
             // lbTitulo
             // 
@@ -414,6 +374,7 @@ namespace DesktopApp
             this.lbTitulo.Size = new System.Drawing.Size(109, 20);
             this.lbTitulo.TabIndex = 10;
             this.lbTitulo.Text = "Gestion perfil";
+            this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
             // 
             // pb_minimize
             // 
@@ -441,6 +402,48 @@ namespace DesktopApp
             this.pb_close.TabStop = false;
             this.pb_close.Click += new System.EventHandler(this.pb_close_Click);
             // 
+            // bsRols
+            // 
+            this.bsRols.DataSource = typeof(DesktopApp.Models.rols);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nomDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDataGridViewTextBoxColumn.Width = 117;
+            // 
+            // actiuDataGridViewCheckBoxColumn
+            // 
+            this.actiuDataGridViewCheckBoxColumn.DataPropertyName = "actiu";
+            this.actiuDataGridViewCheckBoxColumn.HeaderText = "Actiu";
+            this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
+            this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.actiuDataGridViewCheckBoxColumn.Width = 60;
+            // 
+            // usuarisDataGridViewTextBoxColumn
+            // 
+            this.usuarisDataGridViewTextBoxColumn.DataPropertyName = "usuaris";
+            this.usuarisDataGridViewTextBoxColumn.HeaderText = "usuaris";
+            this.usuarisDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usuarisDataGridViewTextBoxColumn.Name = "usuarisDataGridViewTextBoxColumn";
+            this.usuarisDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usuarisDataGridViewTextBoxColumn.Visible = false;
+            this.usuarisDataGridViewTextBoxColumn.Width = 125;
+            // 
             // FormGestionPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,12 +469,12 @@ namespace DesktopApp
             this.groupBoxPermisos.ResumeLayout(false);
             this.groupBoxPermisos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRols)).EndInit();
             this.pnBarra.ResumeLayout(false);
             this.pnBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRols)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,16 +499,12 @@ namespace DesktopApp
         private System.Windows.Forms.BindingSource bsRols;
         private System.Windows.Forms.CheckBox ckbActiu;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarKPIsDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarListaSkillsDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarSkillsDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarUsuariosDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarPerfilesDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gestionarGruposDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarisDataGridViewTextBoxColumn;
 
         private System.Windows.Forms.CheckBox cxbRelationsGroups;
         private System.Windows.Forms.CheckBox ckbManagmentCourses;
@@ -514,5 +513,9 @@ namespace DesktopApp
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.PictureBox pb_minimize;
         private System.Windows.Forms.PictureBox pb_close;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarisDataGridViewTextBoxColumn;
     }
 }

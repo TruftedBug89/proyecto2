@@ -42,6 +42,11 @@ namespace DesktopApp
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAddUsers = new System.Windows.Forms.Button();
+            this.btnRoles = new System.Windows.Forms.Button();
+            this.btnGroups = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +59,6 @@ namespace DesktopApp
             this.valoracionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valoracions1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAddUsers = new System.Windows.Forms.Button();
-            this.btnRoles = new System.Windows.Forms.Button();
-            this.btnGroups = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
@@ -78,6 +78,7 @@ namespace DesktopApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(981, 40);
             this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
             // pcIcono
             // 
@@ -89,6 +90,7 @@ namespace DesktopApp
             this.pcIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcIcono.TabIndex = 13;
             this.pcIcono.TabStop = false;
+            this.pcIcono.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcIcono_MouseDown);
             // 
             // lbTitulo
             // 
@@ -99,6 +101,7 @@ namespace DesktopApp
             this.lbTitulo.Size = new System.Drawing.Size(159, 20);
             this.lbTitulo.TabIndex = 12;
             this.lbTitulo.Text = "Gestión de usuarios";
+            this.lbTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbTitulo_MouseDown);
             // 
             // pb_minimize
             // 
@@ -109,6 +112,7 @@ namespace DesktopApp
             this.pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_minimize.TabIndex = 1;
             this.pb_minimize.TabStop = false;
+            this.pb_minimize.Click += new System.EventHandler(this.pb_minimize_Click);
             // 
             // pb_close
             // 
@@ -166,7 +170,7 @@ namespace DesktopApp
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(220, 122);
+            this.textBox1.Location = new System.Drawing.Point(228, 119);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(389, 30);
             this.textBox1.TabIndex = 7;
@@ -201,6 +205,66 @@ namespace DesktopApp
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // btnAddUsers
+            // 
+            this.btnAddUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.btnAddUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAddUsers.Location = new System.Drawing.Point(45, 388);
+            this.btnAddUsers.Name = "btnAddUsers";
+            this.btnAddUsers.Size = new System.Drawing.Size(155, 42);
+            this.btnAddUsers.TabIndex = 10;
+            this.btnAddUsers.Text = "Añadir Usuario";
+            this.btnAddUsers.UseVisualStyleBackColor = false;
+            this.btnAddUsers.Click += new System.EventHandler(this.btnAddUsers_Click);
+            // 
+            // btnRoles
+            // 
+            this.btnRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnRoles.Location = new System.Drawing.Point(206, 388);
+            this.btnRoles.Name = "btnRoles";
+            this.btnRoles.Size = new System.Drawing.Size(187, 42);
+            this.btnRoles.TabIndex = 11;
+            this.btnRoles.Text = "Gestionar Perfiles";
+            this.btnRoles.UseVisualStyleBackColor = false;
+            this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
+            // 
+            // btnGroups
+            // 
+            this.btnGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnGroups.Location = new System.Drawing.Point(399, 388);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Size = new System.Drawing.Size(182, 43);
+            this.btnGroups.TabIndex = 12;
+            this.btnGroups.Text = "Gestionar Grupos";
+            this.btnGroups.UseVisualStyleBackColor = false;
+            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.btnDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDownload.Location = new System.Drawing.Point(831, 389);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(106, 42);
+            this.btnDownload.TabIndex = 13;
+            this.btnDownload.Text = "Descargar";
+            this.btnDownload.UseVisualStyleBackColor = false;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExit.Location = new System.Drawing.Point(841, 472);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(96, 40);
+            this.btnExit.TabIndex = 14;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -301,66 +365,6 @@ namespace DesktopApp
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(DesktopApp.Models.usuaris);
-            // 
-            // btnAddUsers
-            // 
-            this.btnAddUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnAddUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAddUsers.Location = new System.Drawing.Point(45, 388);
-            this.btnAddUsers.Name = "btnAddUsers";
-            this.btnAddUsers.Size = new System.Drawing.Size(155, 42);
-            this.btnAddUsers.TabIndex = 10;
-            this.btnAddUsers.Text = "Añadir Usuario";
-            this.btnAddUsers.UseVisualStyleBackColor = false;
-            this.btnAddUsers.Click += new System.EventHandler(this.btnAddUsers_Click);
-            // 
-            // btnRoles
-            // 
-            this.btnRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnRoles.Location = new System.Drawing.Point(206, 388);
-            this.btnRoles.Name = "btnRoles";
-            this.btnRoles.Size = new System.Drawing.Size(187, 42);
-            this.btnRoles.TabIndex = 11;
-            this.btnRoles.Text = "Gestionar Perfiles";
-            this.btnRoles.UseVisualStyleBackColor = false;
-            this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
-            // 
-            // btnGroups
-            // 
-            this.btnGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnGroups.Location = new System.Drawing.Point(399, 388);
-            this.btnGroups.Name = "btnGroups";
-            this.btnGroups.Size = new System.Drawing.Size(182, 43);
-            this.btnGroups.TabIndex = 12;
-            this.btnGroups.Text = "Gestionar Grupos";
-            this.btnGroups.UseVisualStyleBackColor = false;
-            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDownload.Location = new System.Drawing.Point(831, 389);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(106, 42);
-            this.btnDownload.TabIndex = 13;
-            this.btnDownload.Text = "Descargar";
-            this.btnDownload.UseVisualStyleBackColor = false;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnExit.Location = new System.Drawing.Point(841, 472);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(96, 40);
-            this.btnExit.TabIndex = 14;
-            this.btnExit.Text = "Salir";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // FormGestionUsuarios
             // 

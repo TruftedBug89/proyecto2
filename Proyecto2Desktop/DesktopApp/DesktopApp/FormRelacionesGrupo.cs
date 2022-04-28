@@ -76,18 +76,6 @@ namespace DesktopApp
             }
         }
 
-        private void dgvGroups_SelectionChanged(object sender, EventArgs e)
-        {
-            //Si hay una sola row seleccionada  mostrar en la listbox las Listas del grupo seleccionado
-
-            //if (dgvGroups.SelectedRows.Count == 1)
-            //{
-            //    _grup = CogerGrupoSeleccionado();                
-            //    lblDates.Text = "Skills de:";
-            //    lblDataSelect.Text = _grup.nom;
-            //    cargarListasDeGrupo(_grup.id);
-            //}
-        }
         private void dgvListSkills_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvListSkills.SelectedRows.Count == 1)
@@ -160,10 +148,6 @@ namespace DesktopApp
         private void cargarGrupos()
         {   
             _grups = GrupsOrm.SelectActivos();
-            //foreach (grups grup in _grups)
-            //{
-            //    dgvGroups.Rows.Add(grup.nom);
-            //}
             bindingSourceGroups.DataSource = null;
             bindingSourceGroups.DataSource = _grups;
             lbgroups.ClearSelected();

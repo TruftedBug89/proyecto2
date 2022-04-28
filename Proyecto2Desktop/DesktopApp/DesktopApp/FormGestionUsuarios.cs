@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace DesktopApp
 {
@@ -19,6 +20,26 @@ namespace DesktopApp
             InitializeComponent();
             bindingSource1.DataSource = Models.UsuarisOrm.Select();
         }
+        //Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
+        private void pnBarra_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void lbTitulo_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void pcIcono_MouseDown(object sender, MouseEventArgs e)//Para poder mover la ventana des de la TitleBar
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }//
         private void btnGroups_Click(object sender, EventArgs e)
         {
             FormRelacionesGrupo gr = new FormRelacionesGrupo("");
@@ -138,6 +159,11 @@ namespace DesktopApp
             {
                 this.Controls.Remove(btnGroups);
             }
+        }
+
+        private void pb_minimize_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

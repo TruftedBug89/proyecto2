@@ -119,6 +119,7 @@ namespace DesktopApp
                 }
             }
             ControlPermisosUsuario();
+            bdCurs.DataSource = GrupsOrm.Select();
         }
         private void ControlPermisosUsuario()
         {
@@ -507,6 +508,11 @@ namespace DesktopApp
         private void pb_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

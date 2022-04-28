@@ -79,5 +79,19 @@ namespace DesktopApp
                 txtBoxContrasenya.UseSystemPasswordChar = true;
             }
         }
+        private void txtBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                buttonIniciarSesion_Click(sender, e);
+            }
+        }
+        private void txtBoxContrasenya_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                buttonIniciarSesion_Click(sender, e);
+            }
+        }
     }
 }

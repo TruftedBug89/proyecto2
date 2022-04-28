@@ -94,6 +94,7 @@ namespace DesktopApp
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(276, 26);
             this.txtBoxUsername.TabIndex = 3;
+            this.txtBoxUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxUsername_KeyPress);
             // 
             // txtBoxContrasenya
             // 
@@ -104,6 +105,7 @@ namespace DesktopApp
             this.txtBoxContrasenya.Size = new System.Drawing.Size(276, 26);
             this.txtBoxContrasenya.TabIndex = 4;
             this.txtBoxContrasenya.UseSystemPasswordChar = true;
+            this.txtBoxContrasenya.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxContrasenya_KeyPress);
             // 
             // buttonIniciarSesion
             // 

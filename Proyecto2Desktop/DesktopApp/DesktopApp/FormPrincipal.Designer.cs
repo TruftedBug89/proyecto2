@@ -123,6 +123,7 @@
             this.btnManagmentSkills.TabIndex = 5;
             this.btnManagmentSkills.Text = "Gestion Skills";
             this.btnManagmentSkills.UseVisualStyleBackColor = false;
+            this.btnManagmentSkills.Visible = false;
             this.btnManagmentSkills.Click += new System.EventHandler(this.btnManagmentSkills_Click);
             // 
             // btnManagmentGroups
