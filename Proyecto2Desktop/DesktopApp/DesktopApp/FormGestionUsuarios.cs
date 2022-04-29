@@ -83,40 +83,44 @@ namespace DesktopApp
         private void btnPick_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            MessageBox.Show("Recuerda de introducir un archivo compatible con la formatación correcta","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Recuerda de introducir un archivo compatible con la formatación correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ofd.Filter = "CSV file (*.csv)|*.csv";
-            ofd.ShowDialog();
-            int addedUsers = 0;
-            bool failedAdd = false;
-            foreach (string line in System.IO.File.ReadLines(ofd.FileName))
+            
+            if (ofd.ShowDialog() == DialogResult.OK) 
             {
-                String[] lines = line.Split(',');
-                Console.WriteLine(lines[0]);
-                List<Models.usuaris> _usuaris = Models.Orm.bd.usuaris.ToList();
-                foreach (Models.usuaris u in _usuaris)
+                int addedUsers = 0;
+                bool failedAdd = false;
+                foreach (string line in System.IO.File.ReadLines(ofd.FileName))
                 {
-                    if (u.correo == lines[3])
+                    String[] lines = line.Split(',');
+                    Console.WriteLine(lines[0]);
+                    List<Models.usuaris> _usuaris = Models.Orm.bd.usuaris.ToList();
+                    foreach (Models.usuaris u in _usuaris)
                     {
-                        failedAdd = true;
-                        break;
+                        if (u.correo == lines[3])
+                        {
+                            failedAdd = true;
+                            break;
+                        }
+                    }
+                    if (!failedAdd)
+                    {
+                        try
+                        {
+                            Models.UsuarisOrm.InsertValues(lines[1], lines[2], lines[3], lines[4]);
+                            addedUsers++;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se puede procesar el archivo selecionado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                 }
-                if (!failedAdd)
-                {
-                    try
-                    {
-                        Models.UsuarisOrm.InsertValues(lines[1], lines[2], lines[3], lines[4]);
-                        addedUsers++;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se puede procesar el archivo selecionado","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                        return;
-                    }   
-                }
+                MessageBox.Show(!failedAdd ? "Añadidos " + addedUsers + " usuarios" : "Añadidos " + addedUsers + " usuarios, error al añadir usuarios con correos ya existentes");
+                bindingSource1.DataSource = Models.UsuarisOrm.Select();
             }
-            MessageBox.Show(!failedAdd ? "Añadidos "+addedUsers+ " usuarios" : "Añadidos " + addedUsers + " usuarios, error al añadir usuarios con correos ya existentes");
-            bindingSource1.DataSource = Models.UsuarisOrm.Select();
+            
         }
         private void pb_close_Click(object sender, EventArgs e)
         {

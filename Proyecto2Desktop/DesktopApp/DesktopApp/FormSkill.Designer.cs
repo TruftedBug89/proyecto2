@@ -137,7 +137,7 @@
             this.txtNameSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.txtNameSkill.Location = new System.Drawing.Point(193, 146);
             this.txtNameSkill.Name = "txtNameSkill";
-            this.txtNameSkill.Size = new System.Drawing.Size(600, 36);
+            this.txtNameSkill.Size = new System.Drawing.Size(740, 36);
             this.txtNameSkill.TabIndex = 3;
             this.txtNameSkill.TextChanged += new System.EventHandler(this.txtNameSkill_TextChanged);
             // 
@@ -154,7 +154,7 @@
             this.cboActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboActivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivate.ForeColor = System.Drawing.Color.White;
-            this.cboActivate.Location = new System.Drawing.Point(681, 377);
+            this.cboActivate.Location = new System.Drawing.Point(821, 377);
             this.cboActivate.Name = "cboActivate";
             this.cboActivate.Size = new System.Drawing.Size(112, 35);
             this.cboActivate.TabIndex = 21;
@@ -168,9 +168,9 @@
             this.flpSkills.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flpSkills.Controls.Add(this.btnAdd);
             this.flpSkills.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flpSkills.Location = new System.Drawing.Point(0, 433);
+            this.flpSkills.Location = new System.Drawing.Point(0, 425);
             this.flpSkills.Name = "flpSkills";
-            this.flpSkills.Size = new System.Drawing.Size(985, 130);
+            this.flpSkills.Size = new System.Drawing.Size(985, 143);
             this.flpSkills.TabIndex = 24;
             this.flpSkills.WrapContents = false;
             // 
@@ -180,7 +180,7 @@
             this.btnBColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBColor.ForeColor = System.Drawing.Color.White;
-            this.btnBColor.Location = new System.Drawing.Point(461, 227);
+            this.btnBColor.Location = new System.Drawing.Point(600, 227);
             this.btnBColor.Name = "btnBColor";
             this.btnBColor.Size = new System.Drawing.Size(214, 42);
             this.btnBColor.TabIndex = 26;
@@ -191,7 +191,7 @@
             // txtBcolor
             // 
             this.txtBcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBcolor.Location = new System.Drawing.Point(702, 227);
+            this.txtBcolor.Location = new System.Drawing.Point(842, 227);
             this.txtBcolor.Name = "txtBcolor";
             this.txtBcolor.ReadOnly = true;
             this.txtBcolor.Size = new System.Drawing.Size(91, 41);
@@ -204,7 +204,7 @@
             this.btnTColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTColor.ForeColor = System.Drawing.Color.White;
-            this.btnTColor.Location = new System.Drawing.Point(461, 305);
+            this.btnTColor.Location = new System.Drawing.Point(600, 308);
             this.btnTColor.Name = "btnTColor";
             this.btnTColor.Size = new System.Drawing.Size(214, 42);
             this.btnTColor.TabIndex = 28;
@@ -215,7 +215,7 @@
             // txtTcolor
             // 
             this.txtTcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTcolor.Location = new System.Drawing.Point(702, 305);
+            this.txtTcolor.Location = new System.Drawing.Point(842, 309);
             this.txtTcolor.Name = "txtTcolor";
             this.txtTcolor.ReadOnly = true;
             this.txtTcolor.Size = new System.Drawing.Size(91, 41);
@@ -242,7 +242,7 @@
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
             this.pnBarra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(858, 40);
+            this.pnBarra.Size = new System.Drawing.Size(998, 40);
             this.pnBarra.TabIndex = 32;
             this.pnBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnBarra_MouseDown);
             // 
@@ -299,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(857, 651);
+            this.ClientSize = new System.Drawing.Size(997, 651);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnSave);

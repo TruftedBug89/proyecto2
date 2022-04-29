@@ -60,7 +60,7 @@
             this.btnManagmentKPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentKPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnManagmentKPI.ForeColor = System.Drawing.Color.Black;
-            this.btnManagmentKPI.Location = new System.Drawing.Point(1065, 654);
+            this.btnManagmentKPI.Location = new System.Drawing.Point(1065, 648);
             this.btnManagmentKPI.Margin = new System.Windows.Forms.Padding(4);
             this.btnManagmentKPI.Name = "btnManagmentKPI";
             this.btnManagmentKPI.Size = new System.Drawing.Size(155, 49);
@@ -103,10 +103,10 @@
             this.flpSkills.AutoScroll = true;
             this.flpSkills.BackColor = System.Drawing.Color.White;
             this.flpSkills.Controls.Add(this.btnManagmentSkills);
-            this.flpSkills.Location = new System.Drawing.Point(0, 721);
+            this.flpSkills.Location = new System.Drawing.Point(0, 708);
             this.flpSkills.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpSkills.Name = "flpSkills";
-            this.flpSkills.Size = new System.Drawing.Size(1469, 126);
+            this.flpSkills.Size = new System.Drawing.Size(1469, 133);
             this.flpSkills.TabIndex = 24;
             this.flpSkills.WrapContents = false;
             // 
@@ -132,7 +132,7 @@
             this.btnManagmentGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnManagmentGroups.ForeColor = System.Drawing.Color.Black;
-            this.btnManagmentGroups.Location = new System.Drawing.Point(829, 654);
+            this.btnManagmentGroups.Location = new System.Drawing.Point(829, 646);
             this.btnManagmentGroups.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentGroups.Name = "btnManagmentGroups";
             this.btnManagmentGroups.Size = new System.Drawing.Size(205, 49);
@@ -147,7 +147,7 @@
             this.btnManagmentCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnManagmentCourses.ForeColor = System.Drawing.Color.Black;
-            this.btnManagmentCourses.Location = new System.Drawing.Point(615, 654);
+            this.btnManagmentCourses.Location = new System.Drawing.Point(615, 644);
             this.btnManagmentCourses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentCourses.Name = "btnManagmentCourses";
             this.btnManagmentCourses.Size = new System.Drawing.Size(181, 49);
@@ -162,7 +162,7 @@
             this.btnManagmentRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagmentRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnManagmentRoles.ForeColor = System.Drawing.Color.Black;
-            this.btnManagmentRoles.Location = new System.Drawing.Point(397, 653);
+            this.btnManagmentRoles.Location = new System.Drawing.Point(397, 644);
             this.btnManagmentRoles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnManagmentRoles.Name = "btnManagmentRoles";
             this.btnManagmentRoles.Size = new System.Drawing.Size(176, 49);
@@ -177,7 +177,7 @@
             this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnGestionUsuarios.ForeColor = System.Drawing.Color.Black;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(162, 653);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(162, 644);
             this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(196, 49);
