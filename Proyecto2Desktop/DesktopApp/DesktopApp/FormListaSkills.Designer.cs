@@ -219,8 +219,6 @@
             // 
             // cbxGroups
             // 
-            this.cbxGroups.DataSource = this.bdCurs;
-            this.cbxGroups.DisplayMember = "nom";
             this.cbxGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGroups.FormattingEnabled = true;
@@ -228,7 +226,6 @@
             this.cbxGroups.Name = "cbxGroups";
             this.cbxGroups.Size = new System.Drawing.Size(133, 30);
             this.cbxGroups.TabIndex = 17;
-            this.cbxGroups.ValueMember = "id";
             this.cbxGroups.SelectedIndexChanged += new System.EventHandler(this.cbxGroups_SelectedIndexChanged);
             // 
             // bdCurs
