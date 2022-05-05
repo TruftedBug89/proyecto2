@@ -261,7 +261,7 @@
             // pb_minimize
             // 
             this.pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("pb_minimize.Image")));
-            this.pb_minimize.Location = new System.Drawing.Point(789, 9);
+            this.pb_minimize.Location = new System.Drawing.Point(929, 7);
             this.pb_minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_minimize.Name = "pb_minimize";
             this.pb_minimize.Size = new System.Drawing.Size(25, 25);
@@ -273,7 +273,7 @@
             // pb_close
             // 
             this.pb_close.Image = ((System.Drawing.Image)(resources.GetObject("pb_close.Image")));
-            this.pb_close.Location = new System.Drawing.Point(820, 9);
+            this.pb_close.Location = new System.Drawing.Point(960, 7);
             this.pb_close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_close.Name = "pb_close";
             this.pb_close.Size = new System.Drawing.Size(25, 25);
@@ -298,7 +298,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(997, 651);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbTitulo);
@@ -315,6 +315,7 @@
             this.Controls.Add(this.txtWordSkill);
             this.Controls.Add(this.txtNameSkill);
             this.Controls.Add(this.lblNombreSkill);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSkill";
             this.Text = "FormSkill";

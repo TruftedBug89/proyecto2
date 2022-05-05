@@ -72,35 +72,42 @@ namespace DesktopApp
         {
             if (this.updatedItems.Count == 0)
             {
-                MessageBox.Show("No se ha hecho ningun cambio");
-                return;
+                MessageBox.Show("No se ha hecho ningun cambio");                
             }
-            String missatge = "";
-            List<int> old_ids = new List<int>();
-            foreach (kpis kpi in this.skill.kpis)
+            else 
             {
-                old_ids.Add(kpi.id);
-            }
-            foreach (kpis newkpi in this.updatedItems)
-            {
-                if (old_ids.Contains(newkpi.id))
+
+                String missatge = "";
+                List<int> old_ids = new List<int>();
+                foreach (kpis kpi in this.skill.kpis)
                 {
-                    KpisOrm.Update(KpisOrm.SelectSingleId(newkpi.id), newkpi.nom, newkpi.skills_id, newkpi.actiu);// update
+                    old_ids.Add(kpi.id);
+                }
+                foreach (kpis newkpi in this.updatedItems)
+                {
+                    if (old_ids.Contains(newkpi.id))
+                    {
+                        KpisOrm.Update(KpisOrm.SelectSingleId(newkpi.id), newkpi.nom, newkpi.skills_id, newkpi.actiu);// update
+                    }
+                    else
+                    {
+                        missatge = KpisOrm.Insert(newkpi);
+                    }
+                }
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    missatge = KpisOrm.Insert(newkpi);
+                    MessageBox.Show(this.updatedItems.Count + " KPI's actualizados");
+                    this.updatedItems.Clear();
                 }
             }
-            if (missatge != "")
-            {
-                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show(this.updatedItems.Count + " KPI's actualizados");
-                this.updatedItems.Clear();
-            }
+
+
+
+            
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -124,8 +131,10 @@ namespace DesktopApp
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             kpis editedKpi = (kpis)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+            
             editedKpi.actiu = (bool)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-            Console.WriteLine(editedKpi.nom);
+            Console.WriteLine(editedKpi.nom,editedKpi.id,editedKpi.skills_id,editedKpi.actiu);
             this.updatedItems.Add(editedKpi);
         }
         private void setActiveCheck()

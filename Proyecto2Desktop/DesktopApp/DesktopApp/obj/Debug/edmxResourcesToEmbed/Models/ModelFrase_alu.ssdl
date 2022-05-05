@@ -53,7 +53,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nom" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="skills_id" Type="int" Nullable="false" />
     <Property Name="actiu" Type="bit" Nullable="false" />
   </EntityType>
@@ -116,8 +116,11 @@
     <Property Name="kpis_id" Type="int" Nullable="false" />
     <Property Name="usuari_valorat_id" Type="int" Nullable="false" />
     <Property Name="usuari_pp_id" Type="int" Nullable="false" />
-    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="data" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="nota" Type="int" Nullable="false" />
+    <Property Name="llistes_skills_id" Type="int" Nullable="false" />
+    <Property Name="skills_id" Type="int" Nullable="false" />
+    <Property Name="observacions" Type="varchar" MaxLength="100" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_cursos">
     <End Role="cursos" Type="Self.cursos" Multiplicity="1" />

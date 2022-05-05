@@ -196,6 +196,7 @@
             this.dgvSkill.Name = "dgvSkill";
             this.dgvSkill.ReadOnly = true;
             this.dgvSkill.RowHeadersWidth = 51;
+            this.dgvSkill.RowTemplate.Height = 40;
             this.dgvSkill.Size = new System.Drawing.Size(1442, 419);
             this.dgvSkill.TabIndex = 17;
             // 

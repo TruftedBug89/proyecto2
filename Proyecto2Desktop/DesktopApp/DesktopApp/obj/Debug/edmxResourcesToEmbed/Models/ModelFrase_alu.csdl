@@ -63,17 +63,6 @@
     <NavigationProperty Name="grups" Relationship="Self.FK_grups_has_llistes_skills_grups" FromRole="grups_has_llistes_skills" ToRole="grups" />
     <NavigationProperty Name="llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_llistes_skills" FromRole="grups_has_llistes_skills" ToRole="llistes_skills" />
   </EntityType>
-  <EntityType Name="kpis">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="skills_id" Type="Int32" Nullable="false" />
-    <Property Name="actiu" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="valoracions" Relationship="Self.FK_valoracions_kpis" FromRole="kpis" ToRole="valoracions" />
-    <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_kpis_skills" FromRole="kpis" ToRole="skills" />
-  </EntityType>
   <EntityType Name="llistes_skills">
     <Key>
       <PropertyRef Name="id" />
@@ -83,22 +72,6 @@
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="grups_has_llistes_skills" Relationship="Self.FK_grups_has_llistes_skills_llistes_skills" FromRole="llistes_skills" ToRole="grups_has_llistes_skills" />
     <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_skills_llistes_skills" FromRole="llistes_skills" ToRole="skills" />
-  </EntityType>
-  <EntityType Name="valoracions">
-    <Key>
-      <PropertyRef Name="kpis_id" />
-      <PropertyRef Name="usuari_valorat_id" />
-      <PropertyRef Name="usuari_pp_id" />
-      <PropertyRef Name="data" />
-    </Key>
-    <Property Name="kpis_id" Type="Int32" Nullable="false" />
-    <Property Name="usuari_valorat_id" Type="Int32" Nullable="false" />
-    <Property Name="usuari_pp_id" Type="Int32" Nullable="false" />
-    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="nota" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="kpis" Relationship="Self.FK_valoracions_kpis" FromRole="valoracions" ToRole="kpis" />
-    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="valoracions" ToRole="usuaris" />
-    <NavigationProperty Name="usuaris1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="valoracions" ToRole="usuaris" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_cursos">
     <End Role="cursos" Type="Self.cursos" Multiplicity="1" />
@@ -184,27 +157,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_valoracions_kpis">
-    <End Role="kpis" Type="Self.kpis" Multiplicity="1" />
-    <End Role="valoracions" Type="Self.valoracions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="kpis">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="valoracions">
-        <PropertyRef Name="kpis_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="frase_aluEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="cursos" EntityType="Self.cursos" />
     <EntitySet Name="grups" EntityType="Self.grups" />
     <EntitySet Name="grups_has_alumnes" EntityType="Self.grups_has_alumnes" />
     <EntitySet Name="grups_has_docents" EntityType="Self.grups_has_docents" />
     <EntitySet Name="grups_has_llistes_skills" EntityType="Self.grups_has_llistes_skills" />
-    <EntitySet Name="kpis" EntityType="Self.kpis" />
     <EntitySet Name="llistes_skills" EntityType="Self.llistes_skills" />
-    <EntitySet Name="valoracions" EntityType="Self.valoracions" />
     <AssociationSet Name="FK_grups_has_alumnes_cursos" Association="Self.FK_grups_has_alumnes_cursos">
       <End Role="cursos" EntitySet="cursos" />
       <End Role="grups_has_alumnes" EntitySet="grups_has_alumnes" />
@@ -233,15 +192,7 @@
       <End Role="llistes_skills" EntitySet="llistes_skills" />
       <End Role="grups_has_llistes_skills" EntitySet="grups_has_llistes_skills" />
     </AssociationSet>
-    <AssociationSet Name="FK_valoracions_kpis" Association="Self.FK_valoracions_kpis">
-      <End Role="kpis" EntitySet="kpis" />
-      <End Role="valoracions" EntitySet="valoracions" />
-    </AssociationSet>
     <EntitySet Name="skills" EntityType="frase_aluModel.skills" />
-    <AssociationSet Name="FK_kpis_skills" Association="frase_aluModel.FK_kpis_skills">
-      <End Role="skills" EntitySet="skills" />
-      <End Role="kpis" EntitySet="kpis" />
-    </AssociationSet>
     <AssociationSet Name="FK_skills_llistes_skills" Association="frase_aluModel.FK_skills_llistes_skills">
       <End Role="llistes_skills" EntitySet="llistes_skills" />
       <End Role="skills" EntitySet="skills" />
@@ -255,6 +206,21 @@
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="grups_has_docents" EntitySet="grups_has_docents" />
     </AssociationSet>
+    <EntitySet Name="rols" EntityType="frase_aluModel.rols" />
+    <AssociationSet Name="FK_usuaris_rols" Association="frase_aluModel.FK_usuaris_rols">
+      <End Role="rols" EntitySet="rols" />
+      <End Role="usuaris" EntitySet="usuaris" />
+    </AssociationSet>
+    <EntitySet Name="kpis" EntityType="frase_aluModel.kpis" />
+    <AssociationSet Name="FK_kpis_skills" Association="frase_aluModel.FK_kpis_skills">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="kpis" EntitySet="kpis" />
+    </AssociationSet>
+    <EntitySet Name="valoracions" EntityType="frase_aluModel.valoracions" />
+    <AssociationSet Name="FK_valoracions_kpis" Association="frase_aluModel.FK_valoracions_kpis">
+      <End Role="kpis" EntitySet="kpis" />
+      <End Role="valoracions" EntitySet="valoracions" />
+    </AssociationSet>
     <AssociationSet Name="FK_valoracions_usuaris" Association="frase_aluModel.FK_valoracions_usuaris">
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="valoracions" EntitySet="valoracions" />
@@ -262,11 +228,6 @@
     <AssociationSet Name="FK_valoracions_usuaris1" Association="frase_aluModel.FK_valoracions_usuaris1">
       <End Role="usuaris" EntitySet="usuaris" />
       <End Role="valoracions" EntitySet="valoracions" />
-    </AssociationSet>
-    <EntitySet Name="rols" EntityType="frase_aluModel.rols" />
-    <AssociationSet Name="FK_usuaris_rols" Association="frase_aluModel.FK_usuaris_rols">
-      <End Role="rols" EntitySet="rols" />
-      <End Role="usuaris" EntitySet="usuaris" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="skills">
@@ -279,21 +240,9 @@
     <Property Name="actiu" Type="Boolean" Nullable="false" />
     <Property Name="colorFondo" Type="Int32" Nullable="false" />
     <Property Name="colorTexto" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
     <NavigationProperty Name="llistes_skills" Relationship="frase_aluModel.FK_skills_llistes_skills" FromRole="skills" ToRole="llistes_skills" />
+    <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_kpis_skills" FromRole="skills" ToRole="kpis" />
   </EntityType>
-  <Association Name="FK_kpis_skills">
-    <End Type="frase_aluModel.skills" Role="skills" Multiplicity="1" />
-    <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="skills">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="kpis">
-        <PropertyRef Name="skills_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_skills_llistes_skills">
     <End Type="frase_aluModel.llistes_skills" Role="llistes_skills" Multiplicity="1" />
     <End Type="frase_aluModel.skills" Role="skills" Multiplicity="*" />
@@ -318,12 +267,12 @@
     <Property Name="contrasenya" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="grups_has_alumnes" Relationship="frase_aluModel.FK_grups_has_alumnes_usuaris" FromRole="usuaris" ToRole="grups_has_alumnes" />
     <NavigationProperty Name="grups_has_docents" Relationship="frase_aluModel.FK_grups_has_docents_usuaris" FromRole="usuaris" ToRole="grups_has_docents" />
-    <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
-    <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
     <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="nomUsuari" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="rols" Relationship="frase_aluModel.FK_usuaris_rols" FromRole="usuaris" ToRole="rols" />
+    <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="usuaris" ToRole="valoracions" />
+    <NavigationProperty Name="valoracions1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="usuaris" ToRole="valoracions" />
   </EntityType>
   <Association Name="FK_grups_has_alumnes_usuaris">
     <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
@@ -346,30 +295,6 @@
       </Principal>
       <Dependent Role="grups_has_docents">
         <PropertyRef Name="usuaris_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_valoracions_usuaris">
-    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
-    <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuaris">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="valoracions">
-        <PropertyRef Name="usuari_valorat_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_valoracions_usuaris1">
-    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
-    <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuaris">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="valoracions">
-        <PropertyRef Name="usuari_pp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -399,6 +324,84 @@
       </Principal>
       <Dependent Role="usuaris">
         <PropertyRef Name="rols_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="kpis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="skills_id" Type="Int32" Nullable="false" />
+    <Property Name="actiu" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="skills" Relationship="frase_aluModel.FK_kpis_skills" FromRole="kpis" ToRole="skills" />
+    <NavigationProperty Name="valoracions" Relationship="frase_aluModel.FK_valoracions_kpis" FromRole="kpis" ToRole="valoracions" />
+  </EntityType>
+  <Association Name="FK_kpis_skills">
+    <End Type="frase_aluModel.skills" Role="skills" Multiplicity="1" />
+    <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="kpis">
+        <PropertyRef Name="skills_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="valoracions">
+    <Key>
+      <PropertyRef Name="kpis_id" />
+      <PropertyRef Name="usuari_valorat_id" />
+      <PropertyRef Name="usuari_pp_id" />
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="kpis_id" Type="Int32" Nullable="false" />
+    <Property Name="usuari_valorat_id" Type="Int32" Nullable="false" />
+    <Property Name="usuari_pp_id" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nota" Type="Int32" Nullable="false" />
+    <Property Name="llistes_skills_id" Type="Int32" Nullable="false" />
+    <Property Name="skills_id" Type="Int32" Nullable="false" />
+    <Property Name="observacions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="kpis" Relationship="frase_aluModel.FK_valoracions_kpis" FromRole="valoracions" ToRole="kpis" />
+    <NavigationProperty Name="usuaris" Relationship="frase_aluModel.FK_valoracions_usuaris" FromRole="valoracions" ToRole="usuaris" />
+    <NavigationProperty Name="usuaris1" Relationship="frase_aluModel.FK_valoracions_usuaris1" FromRole="valoracions" ToRole="usuaris" />
+  </EntityType>
+  <Association Name="FK_valoracions_kpis">
+    <End Type="frase_aluModel.kpis" Role="kpis" Multiplicity="1" />
+    <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kpis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="valoracions">
+        <PropertyRef Name="kpis_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_valoracions_usuaris">
+    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
+    <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuaris">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="valoracions">
+        <PropertyRef Name="usuari_valorat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_valoracions_usuaris1">
+    <End Type="frase_aluModel.usuaris" Role="usuaris" Multiplicity="1" />
+    <End Type="frase_aluModel.valoracions" Role="valoracions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuaris">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="valoracions">
+        <PropertyRef Name="usuari_pp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

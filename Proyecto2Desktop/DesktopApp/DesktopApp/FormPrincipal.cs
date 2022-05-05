@@ -109,13 +109,16 @@ namespace DesktopApp
             }
             dgvSkill.Columns.Clear();
             dgvSkill.DataSource = null;
-            dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+            dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
             dgvSkill.Columns.Add(S.nom, S.nom);
             dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+            
             _kpis = KpisOrm.Select(true, _skill.id);
             foreach (kpis kpi in _kpis)
             {
                 dgvSkill.Rows.Add(kpi.nom);
+                
+                
             }
         }
         private void CrearBotonListaSkill(llistes_skills ls)

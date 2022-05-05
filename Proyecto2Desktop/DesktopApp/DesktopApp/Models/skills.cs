@@ -27,8 +27,8 @@ namespace DesktopApp.Models
         public int colorFondo { get; set; }
         public int colorTexto { get; set; }
     
+        public virtual llistes_skills llistes_skills { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<kpis> kpis { get; set; }
-        public virtual llistes_skills llistes_skills { get; set; }
     }
 }

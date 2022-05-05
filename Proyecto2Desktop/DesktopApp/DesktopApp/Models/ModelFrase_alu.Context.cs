@@ -30,11 +30,11 @@ namespace DesktopApp.Models
         public virtual DbSet<grups_has_alumnes> grups_has_alumnes { get; set; }
         public virtual DbSet<grups_has_docents> grups_has_docents { get; set; }
         public virtual DbSet<grups_has_llistes_skills> grups_has_llistes_skills { get; set; }
-        public virtual DbSet<kpis> kpis { get; set; }
         public virtual DbSet<llistes_skills> llistes_skills { get; set; }
-        public virtual DbSet<valoracions> valoracions { get; set; }
         public virtual DbSet<skills> skills { get; set; }
         public virtual DbSet<usuaris> usuaris { get; set; }
         public virtual DbSet<rols> rols { get; set; }
+        public virtual DbSet<kpis> kpis { get; set; }
+        public virtual DbSet<valoracions> valoracions { get; set; }
     }
 }

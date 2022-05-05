@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKPI));
             this.lblNewKPI = new System.Windows.Forms.Label();
             this.txtNewKPI = new System.Windows.Forms.TextBox();
@@ -37,26 +40,26 @@
             this.btnAddKpi = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skillsidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actiuDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.valoracionsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skillsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             this.pnBarra = new System.Windows.Forms.Panel();
             this.pcIcono = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.pb_minimize = new System.Windows.Forms.PictureBox();
             this.pb_close = new System.Windows.Forms.PictureBox();
             this.lblKPIName = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skillsidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actiuDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.valoracionsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skillsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceKPI = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
             this.pnBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNewKPI
@@ -120,6 +123,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
@@ -130,62 +141,31 @@
             this.skillsDataGridViewTextBoxColumn1,
             this.activo});
             this.dataGridView1.DataSource = this.bindingSourceKPI;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(12, 172);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.RowTemplate.Height = 40;
             this.dataGridView1.Size = new System.Drawing.Size(1311, 249);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow_1);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // nomDataGridViewTextBoxColumn1
-            // 
-            this.nomDataGridViewTextBoxColumn1.DataPropertyName = "nom";
-            this.nomDataGridViewTextBoxColumn1.HeaderText = "Descripcion del KPI";
-            this.nomDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.nomDataGridViewTextBoxColumn1.Name = "nomDataGridViewTextBoxColumn1";
-            // 
-            // skillsidDataGridViewTextBoxColumn1
-            // 
-            this.skillsidDataGridViewTextBoxColumn1.DataPropertyName = "skills_id";
-            this.skillsidDataGridViewTextBoxColumn1.HeaderText = "skills_id";
-            this.skillsidDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.skillsidDataGridViewTextBoxColumn1.Name = "skillsidDataGridViewTextBoxColumn1";
-            this.skillsidDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // actiuDataGridViewCheckBoxColumn1
-            // 
-            this.actiuDataGridViewCheckBoxColumn1.DataPropertyName = "actiu";
-            this.actiuDataGridViewCheckBoxColumn1.HeaderText = "actiu";
-            this.actiuDataGridViewCheckBoxColumn1.MinimumWidth = 8;
-            this.actiuDataGridViewCheckBoxColumn1.Name = "actiuDataGridViewCheckBoxColumn1";
-            this.actiuDataGridViewCheckBoxColumn1.Visible = false;
-            // 
-            // valoracionsDataGridViewTextBoxColumn1
-            // 
-            this.valoracionsDataGridViewTextBoxColumn1.DataPropertyName = "valoracions";
-            this.valoracionsDataGridViewTextBoxColumn1.HeaderText = "valoracions";
-            this.valoracionsDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.valoracionsDataGridViewTextBoxColumn1.Name = "valoracionsDataGridViewTextBoxColumn1";
-            this.valoracionsDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // skillsDataGridViewTextBoxColumn1
-            // 
-            this.skillsDataGridViewTextBoxColumn1.DataPropertyName = "skills";
-            this.skillsDataGridViewTextBoxColumn1.HeaderText = "skills";
-            this.skillsDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.skillsDataGridViewTextBoxColumn1.Name = "skillsDataGridViewTextBoxColumn1";
-            this.skillsDataGridViewTextBoxColumn1.Visible = false;
             // 
             // activo
             // 
@@ -193,10 +173,6 @@
             this.activo.HeaderText = "Activo";
             this.activo.MinimumWidth = 8;
             this.activo.Name = "activo";
-            // 
-            // bindingSourceKPI
-            // 
-            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
             // 
             // pnBarra
             // 
@@ -271,11 +247,62 @@
             this.lblKPIName.TabIndex = 6;
             this.lblKPIName.Text = "Nombre Skill";
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // nomDataGridViewTextBoxColumn1
+            // 
+            this.nomDataGridViewTextBoxColumn1.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn1.HeaderText = "Descripcion del KPI";
+            this.nomDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.nomDataGridViewTextBoxColumn1.Name = "nomDataGridViewTextBoxColumn1";
+            // 
+            // skillsidDataGridViewTextBoxColumn1
+            // 
+            this.skillsidDataGridViewTextBoxColumn1.DataPropertyName = "skills_id";
+            this.skillsidDataGridViewTextBoxColumn1.HeaderText = "skills_id";
+            this.skillsidDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.skillsidDataGridViewTextBoxColumn1.Name = "skillsidDataGridViewTextBoxColumn1";
+            this.skillsidDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // actiuDataGridViewCheckBoxColumn1
+            // 
+            this.actiuDataGridViewCheckBoxColumn1.DataPropertyName = "actiu";
+            this.actiuDataGridViewCheckBoxColumn1.HeaderText = "actiu";
+            this.actiuDataGridViewCheckBoxColumn1.MinimumWidth = 8;
+            this.actiuDataGridViewCheckBoxColumn1.Name = "actiuDataGridViewCheckBoxColumn1";
+            this.actiuDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // valoracionsDataGridViewTextBoxColumn1
+            // 
+            this.valoracionsDataGridViewTextBoxColumn1.DataPropertyName = "valoracions";
+            this.valoracionsDataGridViewTextBoxColumn1.HeaderText = "valoracions";
+            this.valoracionsDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.valoracionsDataGridViewTextBoxColumn1.Name = "valoracionsDataGridViewTextBoxColumn1";
+            this.valoracionsDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // skillsDataGridViewTextBoxColumn1
+            // 
+            this.skillsDataGridViewTextBoxColumn1.DataPropertyName = "skills";
+            this.skillsDataGridViewTextBoxColumn1.HeaderText = "skills";
+            this.skillsDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.skillsDataGridViewTextBoxColumn1.Name = "skillsDataGridViewTextBoxColumn1";
+            this.skillsDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // bindingSourceKPI
+            // 
+            this.bindingSourceKPI.DataSource = typeof(DesktopApp.Models.kpis);
+            // 
             // FormKPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1340, 585);
             this.Controls.Add(this.pnBarra);
             this.Controls.Add(this.dataGridView1);
@@ -291,12 +318,12 @@
             this.Text = "Skills";
             this.Load += new System.EventHandler(this.FormKPI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).EndInit();
             this.pnBarra.ResumeLayout(false);
             this.pnBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceKPI)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
