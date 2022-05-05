@@ -133,7 +133,9 @@ namespace DesktopApp
                     }
                     else
                     {
+                        MessageBox.Show("Skill Actualizada");
                         ActualizarNombreListaSkills("Skill Actualizada");
+                        
                     }
                 }
                 else
@@ -167,7 +169,7 @@ namespace DesktopApp
                         {
                             MessageBox.Show("Skill añadida");
                             ActualizarPanelSkills();
-                            ActualizarNombreListaSkills(missatge);
+                            ActualizarNombreListaSkills("Skill añadida");
                         }
                     }
                 }
@@ -219,7 +221,7 @@ namespace DesktopApp
             }
             else
             {
-                MessageBox.Show(Accion);
+                //MessageBox.Show(Accion);
                 ActualizarPanelSkills();
             }
         }

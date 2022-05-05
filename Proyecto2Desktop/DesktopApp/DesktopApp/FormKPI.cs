@@ -137,7 +137,7 @@ namespace DesktopApp
             Console.WriteLine(editedKpi.nom,editedKpi.id,editedKpi.skills_id,editedKpi.actiu);
             this.updatedItems.Add(editedKpi);
         }
-        private void setActiveCheck()
+        private void setActiveCheck() 
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {

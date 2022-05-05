@@ -112,7 +112,14 @@ namespace DesktopApp
             dgvSkill.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
             dgvSkill.Columns.Add(S.nom, S.nom);
             dgvSkill.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-            
+
+
+            dgvSkill.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(S.colorFondo);
+            dgvSkill.EnableHeadersVisualStyles = false;
+
+            dgvSkill.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(S.colorTexto);
+            dgvSkill.EnableHeadersVisualStyles = false;
+
             _kpis = KpisOrm.Select(true, _skill.id);
             foreach (kpis kpi in _kpis)
             {
@@ -120,6 +127,7 @@ namespace DesktopApp
                 
                 
             }
+            dgvSkill.ClearSelection();
         }
         private void CrearBotonListaSkill(llistes_skills ls)
         {
